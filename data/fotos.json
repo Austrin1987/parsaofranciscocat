@@ -1,0 +1,156 @@
+{
+  "titulo": "Galeria de Fotos",
+  "secoes": {
+    "eventos": {
+      "nome": "Eventos",
+      "descricao": "Registros dos principais eventos e celebrações da paróquia",
+      "thumbnail": "images/galeria/eventos_thumb.jpg",
+      "pasta": "images/eventos/",
+      "total_fotos": 45,
+      "subgalerias": [
+        {
+          "nome": "Festa do Padroeiro",
+          "fotos": ["padroeiro1.jpg", "padroeiro2.jpg", "padroeiro3.jpg", "padroeiro4.jpg"]
+        },
+        {
+          "nome": "Natal",
+          "fotos": ["natal1.jpg", "natal2.jpg", "natal3.jpg"]
+        },
+        {
+          "nome": "Páscoa",
+          "fotos": ["pascoa1.jpg", "pascoa2.jpg", "pascoa3.jpg", "pascoa4.jpg", "pascoa5.jpg"]
+        },
+        {
+          "nome": "Festa Junina",
+          "fotos": ["junina1.jpg", "junina2.jpg", "junina3.jpg", "junina4.jpg"]
+        }
+      ]
+    },
+    "estrutura": {
+      "nome": "Nossa Estrutura",
+      "descricao": "Fotos da igreja, salões e espaços da paróquia",
+      "thumbnail": "images/galeria/estrutura_thumb.jpg",
+      "pasta": "images/galeria/estrutura/",
+      "total_fotos": 12,
+      "subgalerias": [
+        {
+          "nome": "Igreja Principal",
+          "fotos": ["igreja_externa.jpg", "igreja_interna.jpg", "altar.jpg", "vitrais.jpg"]
+        },
+        {
+          "nome": "Salão Paroquial",
+          "fotos": ["salao1.jpg", "salao2.jpg", "cozinha.jpg"]
+        },
+        {
+          "nome": "Áreas Externas",
+          "fotos": ["jardim.jpg", "quadra.jpg", "estacionamento.jpg", "entrada.jpg"]
+        }
+      ]
+    },
+    "comunidade": {
+      "nome": "Nossa Comunidade",
+      "descricao": "Fotos dos grupos pastorais e atividades comunitárias",
+      "thumbnail": "images/galeria/comunidade_thumb.jpg",
+      "pasta": "images/galeria/comunidade/",
+      "total_fotos": 78,
+      "subgalerias": [
+        {
+          "nome": "Pastoral da Juventude",
+          "fotos": ["pj1.jpg", "pj2.jpg", "pj3.jpg", "pj4.jpg", "pj5.jpg"]
+        },
+        {
+          "nome": "Pastoral Familiar",
+          "fotos": ["pf1.jpg", "pf2.jpg", "pf3.jpg", "pf4.jpg"]
+        },
+        {
+          "nome": "Coral Paroquial",
+          "fotos": ["coral1.jpg", "coral2.jpg", "coral3.jpg"]
+        },
+        {
+          "nome": "Pastoral da Criança",
+          "fotos": ["pc1.jpg", "pc2.jpg", "pc3.jpg", "pc4.jpg", "pc5.jpg", "pc6.jpg"]
+        },
+        {
+          "nome": "Grupo de Oração",
+          "fotos": ["go1.jpg", "go2.jpg", "go3.jpg"]
+        }
+      ]
+    },
+    "historia": {
+      "nome": "Nossa História",
+      "descricao": "Fotos históricas da paróquia ao longo dos anos",
+      "thumbnail": "images/galeria/historia_thumb.jpg",
+      "pasta": "images/historia/",
+      "total_fotos": 23,
+      "subgalerias": [
+        {
+          "nome": "Fundação (1950-1960)",
+          "fotos": ["fundacao1.jpg", "fundacao2.jpg", "primeira_capela.jpg"]
+        },
+        {
+          "nome": "Construção (1960-1970)",
+          "fotos": ["construcao1.jpg", "construcao2.jpg", "construcao3.jpg", "inauguracao.jpg"]
+        },
+        {
+          "nome": "Crescimento (1970-1990)",
+          "fotos": ["crescimento1.jpg", "crescimento2.jpg", "primeiros_grupos.jpg"]
+        },
+        {
+          "nome": "Modernização (1990-2024)",
+          "fotos": ["reforma1.jpg", "reforma2.jpg", "tecnologia.jpg", "presente.jpg"]
+        }
+      ]
+    },
+    "celebracoes": {
+      "nome": "Celebrações",
+      "descricao": "Registros de missas, batizados, casamentos e outras celebrações",
+      "thumbnail": "images/galeria/celebracoes_thumb.jpg",
+      "pasta": "images/galeria/celebracoes/",
+      "total_fotos": 67,
+      "subgalerias": [
+        {
+          "nome": "Batizados",
+          "fotos": ["batizado1.jpg", "batizado2.jpg", "batizado3.jpg", "batizado4.jpg"]
+        },
+        {
+          "nome": "Casamentos",
+          "fotos": ["casamento1.jpg", "casamento2.jpg", "casamento3.jpg"]
+        },
+        {
+          "nome": "Primeira Comunhão",
+          "fotos": ["comunhao1.jpg", "comunhao2.jpg", "comunhao3.jpg", "comunhao4.jpg"]
+        },
+        {
+          "nome": "Crisma",
+          "fotos": ["crisma1.jpg", "crisma2.jpg", "crisma3.jpg"]
+        },
+        {
+          "nome": "Missas Especiais",
+          "fotos": ["missa_especial1.jpg", "missa_especial2.jpg", "missa_especial3.jpg"]
+        }
+      ]
+    },
+    "outros": {
+      "nome": "Outros",
+      "descricao": "Diversas fotos da vida paroquial",
+      "thumbnail": "images/galeria/outros_thumb.jpg",
+      "pasta": "images/galeria/outros/",
+      "total_fotos": 34,
+      "subgalerias": [
+        {
+          "nome": "Ações Sociais",
+          "fotos": ["social1.jpg", "social2.jpg", "social3.jpg", "social4.jpg"]
+        },
+        {
+          "nome": "Visitas Pastorais",
+          "fotos": ["visita1.jpg", "visita2.jpg", "visita3.jpg"]
+        },
+        {
+          "nome": "Formação",
+          "fotos": ["formacao1.jpg", "formacao2.jpg", "formacao3.jpg", "formacao4.jpg"]
+        }
+      ]
+    }
+  }
+}
+
