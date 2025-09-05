@@ -1,0 +1,77 @@
+{
+  "titulo": "Horários de Missas",
+  "horarios_regulares": {
+    "domingo": {
+      "horarios": ["07:00", "09:00", "19:00"],
+      "destaque": true,
+      "observacao": "Missas dominicais com maior participação da comunidade"
+    },
+    "segunda": {
+      "horarios": ["19:00"],
+      "destaque": false,
+      "observacao": ""
+    },
+    "terca": {
+      "horarios": ["19:00"],
+      "destaque": false,
+      "observacao": ""
+    },
+    "quarta": {
+      "horarios": ["19:00"],
+      "destaque": false,
+      "observacao": "Missa seguida de adoração ao Santíssimo"
+    },
+    "quinta": {
+      "horarios": ["19:00"],
+      "destaque": false,
+      "observacao": ""
+    },
+    "sexta": {
+      "horarios": ["19:00"],
+      "destaque": false,
+      "observacao": "Primeira sexta-feira: Sagrado Coração de Jesus"
+    },
+    "sabado": {
+      "horarios": ["19:00"],
+      "destaque": false,
+      "observacao": "Missa de sábado antecipa o domingo"
+    }
+  },
+  "eventos_especiais": [
+    {
+      "nome": "Missa do Galo - Natal",
+      "data": "2024-12-25",
+      "horario": "00:00",
+      "descricao": "Celebração especial do nascimento de Jesus Cristo",
+      "imagem": "images/eventos/natal.jpg"
+    },
+    {
+      "nome": "Vigília Pascal",
+      "data": "2024-03-30",
+      "horario": "20:00",
+      "descricao": "Celebração da Ressurreição de Cristo",
+      "imagem": "images/eventos/pascoa.jpg"
+    },
+    {
+      "nome": "Festa do Padroeiro",
+      "data": "2024-08-15",
+      "horario": "10:00",
+      "descricao": "Missa solene em honra ao padroeiro da paróquia",
+      "imagem": "images/eventos/padroeiro.jpg"
+    },
+    {
+      "nome": "Missa de Finados",
+      "data": "2024-11-02",
+      "horario": "09:00",
+      "descricao": "Celebração em memória dos fiéis defuntos",
+      "imagem": "images/eventos/finados.jpg"
+    }
+  ],
+  "informacoes_gerais": {
+    "confissoes": "Sábados das 18:00 às 18:45 ou mediante agendamento",
+    "batizados": "Primeiro domingo do mês às 16:00 (curso preparatório obrigatório)",
+    "casamentos": "Agendamento com 6 meses de antecedência",
+    "contato": "(11) 1234-5678"
+  }
+}
+
