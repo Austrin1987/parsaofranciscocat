@@ -1,0 +1,49 @@
+{
+  "titulo": "Nossa História",
+  "introducao": "A Paróquia tem uma rica história de fé e serviço à comunidade, marcada por momentos importantes que moldaram nossa identidade.",
+  "timeline": [
+    {
+      "ano": 1950,
+      "titulo": "Fundação da Paróquia",
+      "descricao": "A paróquia foi fundada pelo Padre João Silva, com a primeira missa celebrada em uma pequena capela de madeira. A comunidade era formada por apenas 50 famílias.",
+      "imagem": "images/historia/fundacao.jpg",
+      "destaque": true
+    },
+    {
+      "ano": 1965,
+      "titulo": "Construção da Igreja Principal",
+      "descricao": "Após 15 anos de crescimento, a comunidade construiu a igreja principal em estilo neogótico, com capacidade para 300 fiéis.",
+      "imagem": "images/historia/construcao.jpg",
+      "destaque": false
+    },
+    {
+      "ano": 1980,
+      "titulo": "Criação dos Grupos Pastorais",
+      "descricao": "Foram criados diversos grupos pastorais: Pastoral da Juventude, Pastoral Familiar, Coral Paroquial e Grupo de Oração.",
+      "imagem": "images/historia/pastorais.jpg",
+      "destaque": false
+    },
+    {
+      "ano": 1995,
+      "titulo": "Reforma e Ampliação",
+      "descricao": "Grande reforma que ampliou a capacidade para 500 pessoas, incluindo nova sacristia, salão paroquial e área de convivência.",
+      "imagem": "images/historia/reforma.jpg",
+      "destaque": true
+    },
+    {
+      "ano": 2010,
+      "titulo": "Modernização Tecnológica",
+      "descricao": "Instalação de sistema de som moderno, iluminação LED e transmissão online das missas, aproximando ainda mais a comunidade.",
+      "imagem": "images/historia/tecnologia.jpg",
+      "destaque": false
+    },
+    {
+      "ano": 2024,
+      "titulo": "Presente - Comunidade Ativa",
+      "descricao": "Hoje somos uma comunidade de mais de 1.200 famílias, com diversos ministérios ativos e projetos sociais que beneficiam toda a região.",
+      "imagem": "images/historia/presente.jpg",
+      "destaque": true
+    }
+  ]
+}
+
