@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paróquia São José - Site Oficial</title>
+    <meta name="description" content="Site oficial da Paróquia São José. Conheça nossa história, horários de missas, eventos e galeria de fotos.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/icons/favicon.ico">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;600&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <div class="logo">
+                    <h1>Paróquia São José</h1>
+                    <span class="tagline">Comunidade de Fé e Amor</span>
+                </div>
+                
+                <!-- Navigation -->
+                <nav class="nav" id="nav">
+                    <ul class="nav-list">
+                        <li><a href="#home" class="nav-link active">Início</a></li>
+                        <li><a href="#historia" class="nav-link">História</a></li>
+                        <li><a href="#missas" class="nav-link">Horários de Missas</a></li>
+                        <li><a href="#eventos" class="nav-link">Eventos</a></li>
+                        <li><a href="#fotos" class="nav-link">Fotos</a></li>
+                        <li><a href="#contato" class="nav-link">Contato</a></li>
+                    </ul>
+                </nav>
+                
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Home Section -->
+        <section id="home" class="section hero-section">
+            <div class="hero-background">
+                <div class="hero-overlay"></div>
+                <div class="container">
+                    <div class="hero-content">
+                        <h2 class="hero-title">Bem-vindos à Nossa Paróquia</h2>
+                        <p class="hero-subtitle">Uma comunidade unida pela fé, esperança e amor fraterno</p>
+                        <div class="hero-buttons">
+                            <a href="#missas" class="btn btn-primary">Horários de Missas</a>
+                            <a href="#historia" class="btn btn-secondary">Nossa História</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Highlights Section -->
+        <section class="section highlights-section">
+            <div class="container">
+                <div class="highlights-grid">
+                    <div class="highlight-card">
+                        <div class="card-icon">⛪</div>
+                        <h3>Próxima Missa</h3>
+                        <p class="highlight-time">Domingo, 09:00h</p>
+                        <p>Missa Dominical com participação do Coral Paroquial</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="card-icon">📅</div>
+                        <h3>Próximo Evento</h3>
+                        <p class="highlight-time">Festa do Padroeiro</p>
+                        <p>Celebração especial em honra a São José</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="card-icon">📖</div>
+                        <h3>Nossa História</h3>
+                        <p class="highlight-time">Desde 1950</p>
+                        <p>Mais de 70 anos servindo à comunidade com fé e dedicação</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- História Section -->
+        <section id="historia" class="section historia-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Nossa História</h2>
+                    <p class="section-subtitle">Uma jornada de fé que começou em 1950</p>
+                </div>
+                
+                <div class="timeline-container">
+                    <div class="timeline" id="timeline">
+                        <!-- Timeline será preenchida via JavaScript -->
+                    </div>
+                    
+                    <div class="timeline-details" id="timeline-details">
+                        <div class="timeline-detail-card">
+                            <h3>Selecione um marco na linha do tempo</h3>
+                            <p>Clique em qualquer ponto da linha do tempo para conhecer mais sobre nossa história.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Missas Section -->
+        <section id="missas" class="section missas-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Horários de Missas</h2>
+                    <p class="section-subtitle">Venha participar de nossas celebrações</p>
+                </div>
+                
+                <div class="missas-content">
+                    <div class="horarios-regulares">
+                        <h3>Horários Regulares</h3>
+                        <div class="horarios-grid" id="horarios-grid">
+                            <!-- Horários serão preenchidos via JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <div class="eventos-especiais">
+                        <h3>Eventos Especiais</h3>
+                        <div class="eventos-grid" id="eventos-especiais-grid">
+                            <!-- Eventos especiais serão preenchidos via JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Eventos Section -->
+        <section id="eventos" class="section eventos-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Eventos</h2>
+                    <p class="section-subtitle">Acompanhe os eventos da nossa comunidade</p>
+                </div>
+                
+                <div class="eventos-container">
+                    <div class="eventos-list" id="eventos-list">
+                        <!-- Lista de eventos será preenchida via JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fotos Section -->
+        <section id="fotos" class="section fotos-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Galeria de Fotos</h2>
+                    <p class="section-subtitle">Momentos especiais da nossa comunidade</p>
+                </div>
+                
+                <div class="galeria-grid" id="galeria-grid">
+                    <!-- Galeria será preenchida via JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contato Section -->
+        <section id="contato" class="section contato-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Contato</h2>
+                    <p class="section-subtitle">Entre em contato conosco</p>
+                </div>
+                
+                <div class="contato-content">
+                    <div class="contato-info">
+                        <div class="info-item">
+                            <h4>Endereço</h4>
+                            <p>Rua das Flores, 123<br>Centro - São Paulo/SP<br>CEP: 01234-567</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>Telefone</h4>
+                            <p>(11) 1234-5678</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>Email</h4>
+                            <p>contato@paroquiasaojose.org.br</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>Redes Sociais</h4>
+                            <div class="social-links">
+                                <a href="#" class="social-link">Facebook</a>
+                                <a href="#" class="social-link">Instagram</a>
+                                <a href="#" class="social-link">YouTube</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Paróquia São José</h3>
+                    <p>Uma comunidade de fé, esperança e amor</p>
+                </div>
+                <div class="footer-links">
+                    <p>&copy; 2024 Paróquia São José. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal para detalhes de eventos -->
+    <div id="evento-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div id="evento-modal-content">
+                <!-- Conteúdo do evento será inserido aqui -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para galeria de fotos -->
+    <div id="foto-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div id="foto-modal-content">
+                <!-- Conteúdo da galeria será inserido aqui -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/timeline.js"></script>
+    <script src="js/events.js"></script>
+    <script src="js/gallery.js"></script>
+</body>
+</html>
+
