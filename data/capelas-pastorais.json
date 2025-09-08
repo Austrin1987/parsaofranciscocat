@@ -8,7 +8,7 @@
         { "ano": 2005, "titulo": "Reforma", "descricao": "Passou por uma grande reforma para ampliar o espaço." }
       ],
       "horarios": [
-        { "titulo": "Missa Semanal", "dia": "Sábado", "hora": "18:00" },
+        { "titulo": "Missa Semanal", "dia": "Sábado", "hora": "17:00" },
         { "titulo": "Terço dos Homens", "dia": "Quarta-feira", "hora": "19:30" }
       ],
       "coordenadores": [
