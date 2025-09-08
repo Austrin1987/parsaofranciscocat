@@ -481,6 +481,10 @@
     .hero-section {
         padding:0px; /* Use um padding para garantir um bom espaçamento */
     }
+
+    .header-content {
+        padding: 0.1rem 0;
+    }
     
     .hero-title {
         margin-top: 0; /* Remova a margem extra no modo paisagem */
