@@ -5,6 +5,27 @@
     .container {
         padding: 0 15px;
     }
+
+    .nav {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        /* ... resto do CSS para o menu móvel ... */
+    }
+    
+    .nav.active {
+        left: 0;
+    }
+    
+    .nav-list {
+        flex-direction: column;
+        /* ... */
+    }
+    
+    .mobile-menu-btn {
+        display: flex; /* Mostra o botão hambúrguer mais cedo */
+    }
     
     .hero-title {
         margin-top: 50px;
