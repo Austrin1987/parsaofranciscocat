@@ -2,34 +2,34 @@
   "titulo": "Horários de Missas",
   "horarios_regulares": {
     "domingo": {
-      "horarios": ["07:00", "09:00", "19:00"],
+      "horarios": ["08:30", "19:00"],
       "destaque": true,
       "observacao": "Missas dominicais com maior participação da comunidade"
     },
     "segunda": {
-      "horarios": ["19:00"],
+      "horarios": ["07:00"],
       "destaque": false,
       "observacao": ""
     },
     "terca": {
-      "horarios": ["19:00"],
+      "horarios": ["19:30"],
       "destaque": false,
       "observacao": ""
     },
     "quarta": {
-      "horarios": ["19:00"],
+      "horarios": ["19:30"],
       "destaque": false,
-      "observacao": "Missa seguida de adoração ao Santíssimo"
+      "observacao": ""
     },
     "quinta": {
-      "horarios": ["19:00"],
+      "horarios": ["07:00"],
       "destaque": false,
       "observacao": ""
     },
     "sexta": {
-      "horarios": ["19:00"],
+      "horarios": ["19:30"],
       "destaque": false,
-      "observacao": "Primeira sexta-feira: Sagrado Coração de Jesus"
+      "observacao": ""
     },
     "sabado": {
       "horarios": ["19:00"],
