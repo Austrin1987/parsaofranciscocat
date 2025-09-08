@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capelas e Pastorais - Paróquia São Francisco de Assis</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;600&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Reutilize o mesmo Header do index.html -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <div class="logo">
+                    <h1>Paróquia São Francisco de Assis</h1>
+                    <span class="tagline">Comunidade de Fé e Amor</span>
+                </div>
+                
+                <!-- Navigation -->
+                <nav class="nav" id="nav">
+                    <ul class="nav-list">
+                        <li><a href="#home" class="nav-link active">Início</a></li>
+                        <li><a href="/pages/capelas-pastorais.html" class="nav-link">Capelas e Pastorais</a></li>
+                        <li><a href="/pages/jornal.html" class="nav-link">Jornal</a></li>
+                        <li><a href="#historia" class="nav-link">História</a></li>
+                        <li><a href="#missas" class="nav-link">Horários de Missas</a></li>
+                        <li><a href="#eventos" class="nav-link">Eventos</a></li>
+                        <li><a href="#fotos" class="nav-link">Fotos</a></li>
+                        <li><a href="#contato" class="nav-link">Contato</a></li>
+                    </ul>
+                </nav>
+                
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section id="capelas-pastorais" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Capelas e Pastorais</h2>
+                    <p class="section-subtitle">Conheça as comunidades e os grupos de serviço da nossa paróquia.</p>
+                </div>
+
+                <!-- Filtros -->
+                <div class="filters-container">
+                    <select id="filtro-principal" class="filter-select">
+                        <option value="">Selecione uma opção...</option>
+                        <option value="paroquia">Paróquia (Ver Pastorais)</option>
+                        <!-- Opções de capelas serão carregadas via JS -->
+                    </select>
+                    <select id="filtro-pastorais" class="filter-select" style="display: none;">
+                        <option value="">Selecione uma pastoral...</option>
+                        <!-- Opções de pastorais serão carregadas via JS -->
+                    </select>
+                </div>
+
+                <!-- Conteúdo Carregado Dinamicamente -->
+                <div id="conteudo-dinamico" class="content-area">
+                    <!-- O conteúdo da capela ou pastoral será inserido aqui -->
+                    <div class="placeholder-content">
+                        <h3>Bem-vindo!</h3>
+                        <p>Selecione uma capela ou pastoral nos filtros acima para ver os detalhes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Reutilize o mesmo Footer do index.html -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Paróquia São José</h3>
+                    <p>Uma comunidade de fé, esperança e amor</p>
+                </div>
+                <div class="footer-links">
+                    <p>&copy; 2024 Paróquia São José. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/capelas-pastorais.js"></script>
+</body>
+</html>
