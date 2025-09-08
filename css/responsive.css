@@ -263,7 +263,10 @@
     }
     
     .logo h1 {
-        font-size: 1.5rem;
+        white-space: normal; /* A correção principal! */
+        font-size: 1.3rem;   /* Ajuste fino no tamanho da fonte */
+        line-height: 1.2;    /* Melhora o espaçamento se o texto quebrar */
+        margin-right: 10px; 
     }
     
     .logo .tagline {
