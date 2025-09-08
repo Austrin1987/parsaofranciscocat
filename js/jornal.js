@@ -95,4 +95,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     carregarNoticias();
+    initMobileMenu()
 });
