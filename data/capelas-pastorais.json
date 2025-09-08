@@ -1,0 +1,49 @@
+{
+  "capelas": [
+    {
+      "id": "capela-santo-antonio",
+      "nome": "Capela Santo Antônio",
+      "historia": [
+        { "ano": 1980, "titulo": "Fundação", "descricao": "A capela foi fundada pela comunidade local." },
+        { "ano": 2005, "titulo": "Reforma", "descricao": "Passou por uma grande reforma para ampliar o espaço." }
+      ],
+      "horarios": [
+        { "titulo": "Missa Semanal", "dia": "Sábado", "hora": "18:00" },
+        { "titulo": "Terço dos Homens", "dia": "Quarta-feira", "hora": "19:30" }
+      ],
+      "coordenadores": [
+        { "nome": "João da Silva", "funcao": "Coordenador Geral", "foto": "images/membros/joao_silva.jpg" },
+        { "nome": "Maria Oliveira", "funcao": "Vice-coordenadora", "foto": "images/membros/maria_oliveira.jpg" }
+      ]
+    }
+  ],
+  "pastorais": [
+    {
+      "id": "pastoral-familiar",
+      "nome": "Pastoral Familiar",
+      "historia": [
+        { "ano": 1990, "titulo": "Início das Atividades", "descricao": "Grupo inicial se reúne para apoiar as famílias." }
+      ],
+      "horarios": [
+        { "titulo": "Encontro Mensal", "dia": "Toda 3ª sexta-feira do mês", "hora": "20:00" }
+      ],
+      "membros": [
+        { "nome": "Carlos e Ana", "funcao": "Casal Coordenador", "foto": "images/membros/carlos_ana.jpg" }
+      ]
+    },
+    {
+      "id": "pastoral-juventude",
+      "nome": "Pastoral da Juventude",
+      "historia": [
+        { "ano": 1995, "titulo": "Criação do Grupo", "descricao": "Jovens se unem para criar um espaço de fé e amizade." }
+      ],
+      "horarios": [
+        { "titulo": "Encontro Semanal", "dia": "Sábado", "hora": "17:00" }
+      ],
+      "membros": [
+        { "nome": "Lucas Pereira", "funcao": "Coordenador", "foto": "images/membros/lucas_pereira.jpg" },
+        { "nome": "Juliana Costa", "funcao": "Vice-coordenadora", "foto": "images/membros/juliana_costa.jpg"}
+      ]
+    }
+  ]
+}
