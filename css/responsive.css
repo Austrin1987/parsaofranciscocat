@@ -479,8 +479,7 @@
 /* Landscape Orientation */
 @media (max-height: 500px) and (orientation: landscape) {
     .hero-section {
-        /* min-height: 100vh; */ /* Comente ou remova esta linha */
-        padding: 5rem 0; /* Use um padding para garantir um bom espaçamento */
+        padding:0px; /* Use um padding para garantir um bom espaçamento */
     }
     
     .hero-title {
