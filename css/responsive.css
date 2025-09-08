@@ -449,19 +449,17 @@
 /* Landscape Orientation */
 @media (max-height: 500px) and (orientation: landscape) {
     .hero-section {
-        min-height: 100vh;
+        /* min-height: 100vh; */ /* Comente ou remova esta linha */
+        padding: 5rem 0; /* Use um padding para garantir um bom espaçamento */
     }
     
-    .nav {
-        height: calc(100vh - 60px);
+    .hero-title {
+        margin-top: 0; /* Remova a margem extra no modo paisagem */
     }
-    
-    .header-content {
-        padding: 0.5rem 0;
-    }
-    
+
     .main {
-        margin-top: 60px;
+        /* O margin-top aqui pode ser desnecessário se o header for menor */
+        margin-top: 60px; 
     }
 }
 
