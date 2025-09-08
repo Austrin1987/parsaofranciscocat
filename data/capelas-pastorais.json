@@ -1,8 +1,8 @@
 {
   "capelas": [
     {
-      "id": "capela-santo-antonio",
-      "nome": "Capela Santo Antônio",
+      "id": "capela-santa-rosa",
+      "nome": "Capela Santa Rosa",
       "historia": [
         { "ano": 1980, "titulo": "Fundação", "descricao": "A capela foi fundada pela comunidade local." },
         { "ano": 2005, "titulo": "Reforma", "descricao": "Passou por uma grande reforma para ampliar o espaço." }
