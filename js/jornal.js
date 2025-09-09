@@ -1,6 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     const destaqueContainer = document.getElementById('noticias-destaque');
     const recentesContainer = document.getElementById('noticias-recentes');
+    const modal = document.getElementById('modal-noticia');
+    const modalBody = document.getElementById('modal-body');
+    const closeModalBtn = document.getElementById('modal-close-btn');
+
+    let todasAsNoticias = [];
 
     function initMobileMenu() {
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -43,6 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const response = await fetch('../data/jornal.json');
             const dados = await response.json();
 
+            todasAsNoticias = dados.noticias;
+
             // Ordena as notícias da mais recente para a mais antiga
             const noticiasOrdenadas = dados.noticias.sort((a, b) => new Date(b.data) - new Date(a.data));
 
@@ -71,28 +78,75 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h3 class="card-title">${noticia.titulo}</h3>
                     <p class="card-subtitle">${noticia.subtitulo}</p>
                     <p>${noticia.conteudo.substring(0, 100)}...</p>
-                    <a href="#" class="btn btn-primary">Leia Mais</a>
+                    <a href="#" class="btn btn-primary leia-mais-btn" data-id="${noticia.id}">Leia Mais</a>
                 </div>
             </div>
         `).join('');
+
+        document.querySelectorAll('.leia-mais-btn').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault(); // Impede que o link '#' recarregue a página
+                const noticiaId = e.target.getAttribute('data-id');
+                abrirModalComNoticia(noticiaId);
+            });
+        });
     }
 
     function exibirRecentes(noticias) {
         recentesContainer.innerHTML = noticias.map(noticia => `
             <div class="card card-noticia">
                 <div class="noticia-imagem">
-                    <img src="${noticia.foto_principal}" alt="${noticia.titulo}">
+                    <img src="${noticia.foto_principal}" alt="${noticia.titulo}" class="card-img-list">
                 </div>
                 <div class="noticia-conteudo">
                     <span class="noticia-data">${new Date(noticia.data).toLocaleDateString('pt-BR')}</span>
                     <h4 class="noticia-titulo">${noticia.titulo}</h4>
                     <p class="noticia-subtitulo">${noticia.subtitulo}</p>
                     <p>${noticia.conteudo}</p>
-                    ${noticia.foto_secundaria ? `<img src="${noticia.foto_secundaria}" class="foto-secundaria">` : ''}
                 </div>
             </div>
         `).join('');
     }
+
+    function abrirModalComNoticia(id) {
+        const noticia = todasAsNoticias.find(n => n.id === id);
+        if (!noticia) return;
+
+        modalBody.innerHTML = `
+            <h2 class="section-title text-left mb-2">${noticia.titulo}</h2>
+            <p class="section-subtitle text-left mb-3">${noticia.subtitulo}</p>
+            <p class="mb-3"><em>Publicado em: ${new Date(noticia.data).toLocaleDateString('pt-BR')}</em></p>
+            <img src="${noticia.foto_secundaria}" alt="${noticia.titulo}" style="width:100%; border-radius: 8px; margin-bottom: 1rem;">
+            <div class="card-body">
+                <p>${noticia.conteudo.replace(/\n/g, '')}</p>
+                ${noticia.conteudo_adicional ? `
+                    <div class="conteudo-adicional mt-4">
+                        ${noticia.conteudo_adicional}
+                    </div>
+                ` : ''}
+            </div>
+        `;
+        modal.classList.add('active');
+    }
+
+    function fecharModal() {
+        modal.classList.remove('active');
+        modalBody.innerHTML = ''; // Limpa o conteúdo ao fechar
+    }
+
+    closeModalBtn.addEventListener('click', fecharModal);
+    modal.addEventListener('click', (e) => {
+        // Fecha o modal se o clique for no fundo escuro (no próprio elemento .modal)
+        if (e.target === modal) {
+            fecharModal();
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            fecharModal();
+        }
+    });
 
     carregarNoticias();
     initMobileMenu();
