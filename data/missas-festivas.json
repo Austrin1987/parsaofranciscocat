@@ -1,0 +1,25 @@
+{
+  "missas_festivas": [
+    {
+      "id": "corpus-christi-2025",
+      "titulo": "Solenidade de Corpus Christi",
+      "data": "2025-06-19",
+      "horario": "09:00",
+      "descricao": "Missa solene seguida de procissão com o Santíssimo Sacramento."
+    },
+    {
+      "id": "sao-francisco-2025",
+      "titulo": "Missa do Padroeiro",
+      "data": "2025-10-04",
+      "horario": "19:00",
+      "descricao": "Celebração especial em honra a São Francisco de Assis."
+    },
+    {
+      "id": "natal-2025",
+      "titulo": "Missa de Natal",
+      "data": "2025-12-24",
+      "horario": "20:00",
+      "descricao": "Missa da Vigília do Natal do Senhor."
+    }
+  ]
+}
