@@ -533,3 +533,23 @@
     color: var(--primary-color);
 }
 
+.conteudo-adicional {
+    background-color: #f9f9f9; /* Um fundo levemente diferente */
+    border-left: 4px solid var(--primary-color); /* Uma borda de destaque */
+    padding: 1rem 1.5rem;
+    margin-top: 1.5rem; /* Já adicionado com a classe mt-4, mas bom ter aqui */
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+/* Estilos para os elementos dentro do conteúdo adicional, se necessário */
+.conteudo-adicional h3 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+}
+
+.conteudo-adicional ul {
+    list-style-position: inside;
+    padding-left: 0.5rem;
+}
+
