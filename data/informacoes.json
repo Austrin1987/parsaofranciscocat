@@ -1,0 +1,24 @@
+{
+  "informacoes": [
+    {
+      "titulo": "Nossa História",
+      "subtitulo": "Desde 1950",
+      "texto": "Mais de 70 anos servindo à comunidade com fé e dedicação."
+    },
+    {
+      "titulo": "Você Sabia?",
+      "subtitulo": "Padroeiro dos Animais",
+      "texto": "São Francisco de Assis é conhecido como o santo padroeiro dos animais e da natureza."
+    },
+    {
+      "titulo": "Versículo do Dia",
+      "subtitulo": "Filipenses 4:13",
+      "texto": "'Tudo posso naquele que me fortalece.' Uma mensagem de fé e perseverança."
+    },
+    {
+        "titulo": "Nossas Pastorais",
+        "subtitulo": "Trabalho Comunitário",
+        "texto": "Temos mais de 10 pastorais ativas. Participe e ajude a comunidade!"
+    }
+  ]
+}
