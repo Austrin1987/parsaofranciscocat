@@ -293,6 +293,28 @@ body {
     margin-bottom: 1rem;
 }
 
+.card-destaque {
+    display: flex;
+}
+
+.card-noticia {
+    display: flex;
+}
+
+.card-img-top {
+    width: 180px;
+    height: 180px;
+    padding-right: 10px;
+    border-radius: 10px;
+}
+
+.card-img-list {
+    width: 120px;
+    height: 120px;
+    padding-right: 10px;
+    border-radius: 10px;
+}
+
 .highlight-card h3 {
     font-family: var(--font-alt);
     font-size: 1.5rem;
