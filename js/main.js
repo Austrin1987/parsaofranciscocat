@@ -6,7 +6,106 @@ document.addEventListener('DOMContentLoaded', function() {
     initSmoothScroll();
     initModals();
     loadContent();
+    carregarProximaMissaFestiva();
+    carregarProximoEvento();
+    carregarInfoAleatoria();
 });
+
+async function carregarInfoAleatoria() {
+    try {
+        const response = await fetch('data/informacoes.json');
+        const data = await response.json();
+        const informacoes = data.informacoes;
+
+        // Escolhe um índice aleatório da lista de informações
+        const indiceAleatorio = Math.floor(Math.random() * informacoes.length);
+        const info = informacoes[indiceAleatorio];
+
+        const card = document.getElementById('card-info-aleatoria');
+        if (card && info) {
+            card.querySelector('h3').textContent = info.titulo;
+            card.querySelector('.highlight-time').textContent = info.subtitulo;
+            card.querySelector('p:last-of-type').textContent = info.texto;
+        }
+    } catch (error) {
+        console.error('Erro ao carregar informação aleatória:', error);
+    }
+}
+
+async function carregarProximoEvento() {
+    try {
+        const response = await fetch('data/eventos.json');
+        const data = await response.json();
+        
+        const todosEventos = [];
+        // Coleta todos os eventos de todos os anos e meses em uma única lista
+        for (const ano in data.anos) {
+            for (const mes in data.anos[ano]) {
+                data.anos[ano][mes].forEach(evento => {
+                    todosEventos.push(evento);
+                });
+            }
+        }
+
+        // Ordena os eventos por data
+        todosEventos.sort((a, b) => new Date(a.data) - new Date(b.data));
+
+        const hoje = new Date();
+        hoje.setHours(0, 0, 0, 0);
+
+        // Encontra o primeiro evento futuro
+        const proximoEvento = todosEventos.find(evento => {
+            // Adiciona 'T00:00:00' para garantir que a data seja interpretada no fuso local
+            const dataEvento = new Date(evento.data + "T00:00:00");
+            return dataEvento >= hoje;
+        });
+
+        const card = document.getElementById('card-proximo-evento');
+        if (card && proximoEvento) {
+            const dataEventoCorreta = new Date(proximoEvento.data + "T00:00:00");
+            const dataFormatada = dataEventoCorreta.toLocaleDateString('pt-BR', { day: 'numeric', month: 'long' });
+
+            card.querySelector('h3').textContent = proximoEvento.titulo;
+            card.querySelector('.highlight-time').textContent = `${dataFormatada}, ${proximoEvento.horario}`;
+            // Usamos uma versão curta da descrição para o card
+            card.querySelector('p:last-of-type').textContent = proximoEvento.descricao.substring(0, 50) + '...';
+        } else if (card) {
+            card.querySelector('.highlight-time').textContent = "Nenhum evento agendado.";
+            card.querySelector('p:last-of-type').textContent = "Fique atento para futuras atualizações.";
+        }
+    } catch (error) {
+        console.error('Erro ao carregar próximo evento:', error);
+    }
+}
+
+async function carregarProximaMissaFestiva() {
+    try {
+        const response = await fetch('data/missas-festivas.json');
+        const data = await response.json();
+        const missas = data.missas_festivas;
+
+        const hoje = new Date();
+        hoje.setHours(0, 0, 0, 0); // Zera o horário para comparar apenas a data
+
+        // Encontra a primeira missa cuja data é hoje ou no futuro
+        const proximaMissa = missas.find(missa => new Date(missa.data + "T00:00:00") >= hoje);
+
+        const card = document.getElementById('card-missa-festiva');
+        if (card && proximaMissa) {
+            const dataFormatada = new Date(proximaMissa.data + "T00:00:00").toLocaleDateString('pt-BR', { day: '2-digit', month: 'long' });
+            
+            card.querySelector('h3').textContent = proximaMissa.titulo;
+            card.querySelector('.highlight-time').textContent = `${dataFormatada}, ${proximaMissa.horario}`;
+            card.querySelector('p:last-of-type').textContent = proximaMissa.descricao;
+        } else if (card) {
+            // Mensagem caso não haja mais missas futuras no JSON
+            card.querySelector('.highlight-time').textContent = "Nenhuma missa festiva agendada.";
+            card.querySelector('p:last-of-type').textContent = "Consulte a secretaria para mais informações.";
+        }
+    } catch (error) {
+        console.error('Erro ao carregar missas festivas:', error);
+    }
+}
 
 // Navigation functionality
 function initNavigation() {
