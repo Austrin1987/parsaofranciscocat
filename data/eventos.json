@@ -1,6 +1,21 @@
 {
   "titulo": "Eventos da Paróquia",
   "anos": {
+    "2025": {
+      "outubro": [
+        {
+          "id": "festa-padroeiro-2025",
+          "titulo": "Festa de São Francisco",
+          "data": "2025-10-03",
+          "horario": "19:00",
+          "local": "Praça em Frente a Igreja",
+          "descricao": "Festa do Nosso Padroerio São Francisco de Assis",
+          "fotos": ["imagens/galeria/placeholder.jpg", "imagens/galeria/placeholder.jpg", "imagens/galeria/placeholder.jpg"],
+          "videos": ["quadrilha_2022.mp4"],
+          "organizador": "Pastoral Familiar"
+        }
+      ]
+    },
     "2024": {
       "janeiro": [
         {
