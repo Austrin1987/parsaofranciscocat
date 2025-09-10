@@ -102,10 +102,35 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span class="noticia-data">${new Date(noticia.data).toLocaleDateString('pt-BR')}</span>
                     <h4 class="noticia-titulo">${noticia.titulo}</h4>
                     <p class="noticia-subtitulo">${noticia.subtitulo}</p>
-                    <p>${noticia.conteudo}</p>
+                    
+                    <!-- Conteúdo que será expansível -->
+                    <div class="noticia-conteudo-expansivel">
+                        <p>${noticia.conteudo}</p>
+                    </div>
+                    
+                    <!-- Botão para expandir/recolher -->
+                    <button class="btn-expandir" data-id="${noticia.id}">Leia Mais +</button>
                 </div>
             </div>
         `).join('');
+
+        document.querySelectorAll('.btn-expandir').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const btn = e.target;
+                // Encontra o container do conteúdo expansível mais próximo
+                const conteudoDiv = btn.previousElementSibling;
+
+                if (conteudoDiv.classList.contains('expandido')) {
+                    // Se já estiver expandido, recolhe
+                    conteudoDiv.classList.remove('expandido');
+                    btn.textContent = 'Leia Mais +';
+                } else {
+                    // Se estiver recolhido, expande
+                    conteudoDiv.classList.add('expandido');
+                    btn.textContent = 'Mostrar Menos -';
+                }
+            });
+        });
     }
 
     function abrirModalComNoticia(id) {
