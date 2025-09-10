@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span class="badge badge-primary">Destaque</span>
                     <h3 class="card-title">${noticia.titulo}</h3>
                     <p class="card-subtitle">${noticia.subtitulo}</p>
-                    <p>${noticia.conteudo.substring(0, 100)}...</p>
+                    <p class="card-conteudo">${noticia.conteudo.substring(0, 100)}...</p>
                     <a href="#" class="btn btn-primary leia-mais-btn" data-id="${noticia.id}">Leia Mais</a>
                 </div>
             </div>
