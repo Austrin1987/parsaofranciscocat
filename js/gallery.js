@@ -427,29 +427,6 @@ class GalleryManager {
 
 // Create gallery filters
 function createGalleryFilters() {
-    const filtersHTML = `
-        <div class="gallery-filters">
-            <div class="filter-row">
-                <div class="view-options">
-                    <button class="btn btn-secondary active" onclick="setGalleryView('grid')" id="grid-view">
-                        ⊞ Grade
-                    </button>
-                    <button class="btn btn-secondary" onclick="setGalleryView('list')" id="list-view">
-                        ☰ Lista
-                    </button>
-                </div>
-                
-                <div class="sort-options">
-                    <select id="gallery-sort" onchange="sortGallery(this.value)">
-                        <option value="name">Ordenar por Nome</option>
-                        <option value="photos">Ordenar por Quantidade</option>
-                        <option value="recent">Mais Recentes</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-    `;
-    
     const fotosSection = document.getElementById('fotos');
     if (fotosSection) {
         const sectionHeader = fotosSection.querySelector('.section-header');
