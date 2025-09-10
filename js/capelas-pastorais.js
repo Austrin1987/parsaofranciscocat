@@ -1,7 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const filtroPrincipal = document.getElementById('filtro-principal');
-    const filtroPastorais = document.getElementById('filtro-pastorais');
+    const capelasContainer = document.getElementById('capelas-container');
+    const pastoraisContainer = document.getElementById('pastorais-container');
+    const cardsView = document.getElementById('cards-view');
     const conteudoDinamico = document.getElementById('conteudo-dinamico');
+    const backButtonContainer = document.getElementById('back-button-container');
+    const backButton = document.getElementById('back-button');
     let dados = {};
 
     function initMobileMenu() {
@@ -45,69 +48,64 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const response = await fetch('../data/capelas-pastorais.json');
             dados = await response.json();
-            popularFiltroPrincipal();
+            renderizarCards();
         } catch (error) {
             console.error('Erro ao carregar dados:', error);
             conteudoDinamico.innerHTML = '<p class="alert alert-error">Não foi possível carregar as informações. Tente novamente mais tarde.</p>';
         }
     }
 
-    // Popula o primeiro filtro com as capelas
-    function popularFiltroPrincipal() {
-        dados.capelas.forEach(capela => {
-            const option = document.createElement('option');
-            option.value = capela.id;
-            option.textContent = capela.nome;
-            filtroPrincipal.appendChild(option);
+    // Renderiza os cards de capelas e pastorais
+    function renderizarCards() {
+        // Limpa os contêineres
+        capelasContainer.innerHTML = '';
+        pastoraisContainer.innerHTML = '';
+        
+        // Esconde a visão de detalhes e mostra a visão de cards
+        conteudoDinamico.style.display = 'none';
+        backButtonContainer.style.display = 'none';
+        cardsView.style.display = 'block';
+
+        // Adiciona cards de Capelas no contêiner de capelas
+        dados.capelas.forEach(item => {
+            const card = criarCard(item, 'capela');
+            capelasContainer.appendChild(card);
+        });
+
+        // Adiciona cards de Pastorais no contêiner de pastorais
+        dados.pastorais.forEach(item => {
+            const card = criarCard(item, 'pastoral');
+            pastoraisContainer.appendChild(card);
         });
     }
 
-    // Lógica de seleção do filtro principal
-    filtroPrincipal.addEventListener('change', () => {
-        const selecao = filtroPrincipal.value;
-        filtroPastorais.style.display = 'none';
-        filtroPastorais.value = '';
 
-        if (selecao === 'paroquia') {
-            filtroPastorais.style.display = 'block';
-            popularFiltroPastorais();
-            limparConteudo();
-        } else if (selecao) {
-            const capela = dados.capelas.find(c => c.id === selecao);
-            if (capela) exibirConteudo(capela, 'capela');
-        } else {
-            limparConteudo();
-        }
-    });
+    // Cria um card individual
+    function criarCard(item, tipo) {
+        const cardDiv = document.createElement('div');
+        cardDiv.classList.add('card-item');
+        cardDiv.dataset.id = item.id;
+        cardDiv.dataset.tipo = tipo;
 
-    // Popula o filtro de pastorais
-    function popularFiltroPastorais() {
-        filtroPastorais.innerHTML = '<option value="">Selecione uma pastoral...</option>';
-        dados.pastorais.forEach(pastoral => {
-            const option = document.createElement('option');
-            option.value = pastoral.id;
-            option.textContent = pastoral.nome;
-            filtroPastorais.appendChild(option);
-        });
+        const iconeHTML = `<i class="card-item-icon ${item.icone || 'fas fa-question-circle'}"></i>`;
+        const descricao = item.descricao_curta || 'Clique para saber mais.';
+        cardDiv.innerHTML = `
+            ${iconeHTML}
+            <h3 class="card-item-title">${item.nome}</h3>
+            <p class="card-item-description">${descricao}</p>
+        `;
+
+        cardDiv.addEventListener('click', () => exibirConteudo(item, tipo));
+        return cardDiv;
     }
-
-    // Lógica de seleção do filtro de pastorais
-    filtroPastorais.addEventListener('change', () => {
-        const selecao = filtroPastorais.value;
-        if (selecao) {
-            const pastoral = dados.pastorais.find(p => p.id === selecao);
-            if (pastoral) exibirConteudo(pastoral, 'pastoral');
-        } else {
-            limparConteudo();
-        }
-    });
 
     // Exibe o conteúdo da capela ou pastoral
     function exibirConteudo(item, tipo) {
-        let membrosHTML = '';
+        cardsView.style.display = 'none';
+        conteudoDinamico.style.display = 'block';
+        backButtonContainer.style.display = 'block';
 
-        const listaDePessoas = tipo === 'capela' ? item.coordenadores : item.membros;
-        const tituloSecao = tipo === 'capela' ? 'Coordenação' : 'Membros';
+        let membrosHTML = '';
 
         if (tipo === 'capela' && item.coordenadores) {
             membrosHTML = `
@@ -179,13 +177,10 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
     }
     
-    function limparConteudo() {
-        conteudoDinamico.innerHTML = `
-            <div class="placeholder-content">
-                <h3>Bem-vindo!</h3>
-                <p>Selecione uma capela ou pastoral nos filtros acima para ver os detalhes.</p>
-            </div>`;
-    }
+    backButton.addEventListener('click', () => {
+        renderizarCards();
+        conteudoDinamico.innerHTML = ''; // Limpa o conteúdo detalhado
+    });
 
     carregarDados();
     initMobileMenu();
