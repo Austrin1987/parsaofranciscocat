@@ -3,6 +3,8 @@
     {
       "id": "capela-santa-rosa",
       "nome": "Capela Santa Rosa",
+      "descricao_curta": "Nossa principal capela, um lugar de fé e encontro comunitário desde 1980.",
+      "icone": "fas fa-church",
       "historia": [
         { "ano": 1980, "titulo": "Fundação", "descricao": "A capela foi fundada pela comunidade local." },
         { "ano": 2005, "titulo": "Reforma", "descricao": "Passou por uma grande reforma para ampliar o espaço." }
@@ -21,6 +23,8 @@
     {
       "id": "pastoral-familiar",
       "nome": "Pastoral Familiar",
+      "descricao_curta": "Apoio e formação para as famílias da nossa comunidade, fortalecendo laços de amor.",
+      "icone": "fas fa-heart",
       "historia": [
         { "ano": 1990, "titulo": "Início das Atividades", "descricao": "Grupo inicial se reúne para apoiar as famílias." }
       ],
@@ -34,6 +38,8 @@
     {
       "id": "pastoral-juventude",
       "nome": "Pastoral da Juventude",
+      "descricao_curta": "Um espaço de fé, amizade e protagonismo para os jovens da paróquia.",
+      "icone": "fas fa-users",
       "historia": [
         { "ano": 1995, "titulo": "Criação do Grupo", "descricao": "Jovens se unem para criar um espaço de fé e amizade." }
       ],
