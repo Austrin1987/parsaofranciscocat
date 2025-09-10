@@ -575,7 +575,7 @@
 }
 
 /* Dark Mode Support */
-@media (prefers-color-scheme: dark) {
+/*@media (prefers-color-scheme: dark) {
     :root {
         --background-color: #1a1a1a;
         --card-background: #2d2d2d;
@@ -595,5 +595,5 @@
     .modal {
         background-color: rgba(0, 0, 0, 0.9);
     }
-}
+}*/
 
