@@ -553,3 +553,46 @@
     padding-left: 0.5rem;
 }
 
+.noticia-conteudo-expansivel {
+    max-height: 40px; /* Altura inicial, mostrando apenas um trecho */
+    overflow: hidden; /* Esconde o resto do conteúdo */
+    position: relative; /* Necessário para o efeito de degradê */
+    transition: max-height 0.5s ease-in-out; /* Animação suave */
+}
+
+/* Efeito de degradê no final do texto para indicar que há mais conteúdo */
+.noticia-conteudo-expansivel::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background: linear-gradient(to top, var(--card-background), transparent);
+}
+
+/* Classe para quando o conteúdo estiver expandido */
+.noticia-conteudo-expansivel.expandido {
+    max-height: 1000px; /* Uma altura grande o suficiente para caber qualquer conteúdo */
+}
+
+/* Remove o degradê quando expandido */
+.noticia-conteudo-expansivel.expandido::after {
+    display: none;
+}
+
+/* Estilo para o botão "Leia Mais" */
+.btn-expandir {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    margin-top: 0.5rem;
+    text-align: left;
+}
+
+.btn-expandir:hover {
+    text-decoration: underline;
+}
