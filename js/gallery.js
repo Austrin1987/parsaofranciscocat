@@ -147,6 +147,11 @@ class GalleryManager {
     openLightbox(subgaleriaIndex, imageIndex) {
         const secao = this.data.secoes[this.currentSection];
         if (!secao || !secao.subgalerias[subgaleriaIndex]) return;
+
+        const fotoModal = document.getElementById('foto-modal');
+        if (fotoModal) {
+            closeModal(fotoModal); // Usa a função global de main.js
+        }
         
         const subgaleria = secao.subgalerias[subgaleriaIndex];
         this.currentImages = subgaleria.fotos.map(foto => ({
@@ -311,8 +316,7 @@ class GalleryManager {
         if (lightbox) {
             lightbox.classList.remove('active');
             document.body.style.overflow = '';
-            const event = new CustomEvent('lightboxClosed');
-            document.dispatchEvent(event);
+
             setTimeout(() => {
                 if (lightbox) {
                     lightbox.remove();
@@ -476,6 +480,16 @@ function createGalleryFilters() {
     if (fotosSection) {
         const sectionHeader = fotosSection.querySelector('.section-header');
         sectionHeader.insertAdjacentHTML('afterend', filtersHTML);
+    }
+}
+
+function closeModal(modal) {
+    if (modal) {
+        modal.classList.remove('active');
+        // Apenas restaura o overflow se nenhum outro modal estiver ativo
+        if (!document.querySelector('.modal.active')) {
+            document.body.style.overflow = '';
+        }
     }
 }
 
