@@ -150,7 +150,7 @@ class GalleryManager {
 
         const fotoModal = document.getElementById('foto-modal');
         if (fotoModal) {
-            closeModal(fotoModal); // Usa a função global de main.js
+            closeModal(fotoModal, false); // Usa a função global de main.js
         }
         
         const subgaleria = secao.subgalerias[subgaleriaIndex];
@@ -487,7 +487,7 @@ function closeModal(modal) {
     if (modal) {
         modal.classList.remove('active');
         // Apenas restaura o overflow se nenhum outro modal estiver ativo
-        if (!document.querySelector('.modal.active')) {
+        if (restoreOverflow && !document.querySelector('.modal.active')) {
             document.body.style.overflow = '';
         }
     }
