@@ -149,13 +149,13 @@ class GalleryManager {
         if (!secao || !secao.subgalerias[subgaleriaIndex]) return;
         
         const subgaleria = secao.subgalerias[subgaleriaIndex];
-        this.currentImages = subgaleria.fotos.map(foto => ({
-            src: secao.pasta + foto,
+        this.currentImages = [{
+            src: secao.pasta + subgaleria.fotos[imageIndex],
             alt: subgaleria.nome,
             caption: `${subgaleria.nome} - ${secao.nome}`
-        }));
+        }];
         
-        this.currentImageIndex = imageIndex;
+        this.currentImageIndex = 0;
         this.showLightbox();
     }
     
@@ -177,27 +177,16 @@ class GalleryManager {
             <div class="lightbox-content">
                 <div class="lightbox-header">
                     <div class="lightbox-info">
-                        <span class="image-counter">${this.currentImageIndex + 1} de ${this.currentImages.length}</span>
                         <span class="image-caption">${currentImage.caption}</span>
                     </div>
                     <button class="lightbox-close" onclick="galleryManager.closeLightbox()">×</button>
                 </div>
                 
                 <div class="lightbox-body">
-                    <button class="lightbox-nav lightbox-prev" onclick="galleryManager.previousImage()" 
-                            ${this.currentImageIndex === 0 ? 'disabled' : ''}>
-                        ‹
-                    </button>
-                    
                     <div class="lightbox-image-container">
                         <img src="${currentImage.src}" alt="${currentImage.alt}" class="lightbox-image">
                         <div class="lightbox-loading">Carregando...</div>
                     </div>
-                    
-                    <button class="lightbox-nav lightbox-next" onclick="galleryManager.nextImage()"
-                            ${this.currentImageIndex === this.currentImages.length - 1 ? 'disabled' : ''}>
-                        ›
-                    </button>
                 </div>
                 
                 <div class="lightbox-footer">
@@ -211,10 +200,6 @@ class GalleryManager {
                         <button class="btn btn-secondary" onclick="galleryManager.toggleFullscreen()">
                             ⛶ Tela Cheia
                         </button>
-                    </div>
-                    
-                    <div class="lightbox-thumbnails">
-                        ${this.generateThumbnails()}
                     </div>
                 </div>
             </div>
@@ -235,9 +220,6 @@ class GalleryManager {
         img.onerror = () => {
             loading.textContent = 'Erro ao carregar imagem';
         };
-        
-        // Touch/swipe support
-        this.initTouchEvents(lightbox);
     }
     
     generateThumbnails() {
