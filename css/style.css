@@ -289,21 +289,61 @@ body {
 }
 
 .lightbox {
-    display: none; /* Escondido por padrão */
-    position: fixed; /* Fica fixo na tela */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9); /* Fundo escuro */
-    z-index: 3000; /* Z-index MAIOR que o do modal principal */
-    animation: fadeIn 0.3s ease;
+    background: rgba(0,0,0,0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
 }
 
-.lightbox.active {
-    display: flex; /* Mostra quando ativo */
+.lightbox-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;   /* empilha: header → imagem → footer */
+    width: 90%;
+    height: 90%;
+    background: rgba(0,0,0,0.85);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.lightbox-header {
+    flex: 0 0 auto; /* tamanho fixo */
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
+    color: #fff;
+    background: rgba(0,0,0,0.6);
+}
+
+.lightbox-body {
+    flex: 1 1 auto; /* ocupa o espaço disponível */
+    display: flex;
     justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.lightbox-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;  /* mantém proporção e ajusta */
+}
+
+.lightbox-footer {
+    flex: 0 0 60px; /* reserva 60px fixos para os botões */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
 }
 
 .card-icon {
