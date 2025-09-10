@@ -311,9 +311,12 @@ class GalleryManager {
         if (lightbox) {
             lightbox.classList.remove('active');
             document.body.style.overflow = '';
-            closeModal(document.getElementById('foto-modal')); 
+            const event = new CustomEvent('lightboxClosed');
+            document.dispatchEvent(event);
             setTimeout(() => {
-                lightbox.remove();
+                if (lightbox) {
+                    lightbox.remove();
+                }
             }, 300);
         }
     }
