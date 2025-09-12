@@ -21,9 +21,39 @@
   ],
   "pastorais": [
     {
+      "id": "ministros-eucaristia",
+      "nome": "Ministros da Eucaristia - M.E.C.E.",
+      "descricao_curta": "A pastoral dos Ministros Extraordinários da Sagrada Comunhão é chamada a servir o Pão da Vida à comunidade, levando Cristo Eucaristico aos fiéis nas celebrações e aos doentes e idosos em suas casas. É ministério do amor, humildade e serviço, lembrando que cada gesto de entrega é prolongamento da mesa do Senhor, onde todos se alimentam da mesma fé.",
+      "icone": "fas fa-cross",
+      "historia": [
+        { "ano": 1990, "titulo": "Início das Atividades", "descricao": "Grupo inicial se reúne para apoiar as famílias." }
+      ],
+      "horarios": [
+        { "titulo": "Encontro Mensal", "dia": "Toda 3ª sexta-feira do mês", "hora": "20:00" }
+      ],
+      "membros": [
+        { "nome": "Carlos e Ana", "funcao": "Casal Coordenador", "foto": "images/membros/carlos_ana.jpg" }
+      ]
+    },
+    {
+      "id": "pastoral-catequese",
+      "nome": "Catequese",
+      "descricao_curta": "A Catequese é o coração pulsante da evangelização, formando discipulos de Cristo desde a infância até a vida adulta. É caminho de iniciação cristã que transmite a fé, educa para os sacramentos e desperta no coração dos catequizandos o desejo de viver o Evangelho. Sua missão é conduzir a um encontro pessoal e transformador com Jesus.",
+      "icone": "fas fa-book-bible",
+      "historia": [
+        { "ano": 1990, "titulo": "Início das Atividades", "descricao": "Grupo inicial se reúne para apoiar as famílias." }
+      ],
+      "horarios": [
+        { "titulo": "Encontro Mensal", "dia": "Toda 3ª sexta-feira do mês", "hora": "20:00" }
+      ],
+      "membros": [
+        { "nome": "Carlos e Ana", "funcao": "Casal Coordenador", "foto": "images/membros/carlos_ana.jpg" }
+      ]
+    },
+    {
       "id": "pastoral-familiar",
       "nome": "Pastoral Familiar",
-      "descricao_curta": "Apoio e formação para as famílias da nossa comunidade, fortalecendo laços de amor.",
+      "descricao_curta": "A Pastoral Familiar é expressão do cuidado da Igraja pelas famílias, lugar sagrado onde nasce e cresce a vidae a fé. Seu serviço é acompanhar, iluminar e sustentar os casais, pais, filhos e avós, fortalecendo-os para que sejam Igrejas domésticas, sinal do amor de Cristo Esposo pela Igraja Esposa.",
       "icone": "fas fa-heart",
       "historia": [
         { "ano": 1990, "titulo": "Início das Atividades", "descricao": "Grupo inicial se reúne para apoiar as famílias." }
@@ -36,10 +66,41 @@
       ]
     },
     {
-      "id": "pastoral-juventude",
-      "nome": "Pastoral da Juventude",
-      "descricao_curta": "Um espaço de fé, amizade e protagonismo para os jovens da paróquia.",
+      "id": "comunidade-imaculada",
+      "nome": "Comunidade Casa da Imaculada",
+      "descricao_curta": "A Comunidade Casa da Imaculada é espaço de oração, acolhida, missão e devoção Mariana. Inspirada pela Virgem Maria, que acolhe todos os filhos e filhas gerando vida nova. Os menbros da Comunidade vicem a espiritualidade da consagração a Nossa Senhora, confiando-se à sua intercessão materna para chegar mais rápido ao coração de Jesus.",
+      "icone": "fas fa-praying-hands",
+      "historia": [
+        { "ano": 1990, "titulo": "Início das Atividades", "descricao": "Grupo inicial se reúne para apoiar as famílias." }
+      ],
+      "horarios": [
+        { "titulo": "Encontro Mensal", "dia": "Toda 3ª sexta-feira do mês", "hora": "20:00" }
+      ],
+      "membros": [
+        { "nome": "Carlos e Ana", "funcao": "Casal Coordenador", "foto": "images/membros/carlos_ana.jpg" }
+      ]
+    },
+    {
+      "id": "grupo-jovens",
+      "nome": "Grupo de Jovens",
+      "descricao_curta": "O Grupo de Jovens é chamado a ser fogo ardente no coração da Igreja. É espaço de acolhida, amizade e encontro com Cristo vivo, onde a juventude descobre seu lugar na missão da Igreja, aprendendo a viver a fé com alegria, esperança e coragem. É escola de discipulado, que forma missionários apaixonados por Jesus.",
       "icone": "fas fa-users",
+      "historia": [
+        { "ano": 1995, "titulo": "Criação do Grupo", "descricao": "Jovens se unem para criar um espaço de fé e amizade." }
+      ],
+      "horarios": [
+        { "titulo": "Encontro Semanal", "dia": "Sábado", "hora": "17:00" }
+      ],
+      "membros": [
+        { "nome": "Lucas Pereira", "funcao": "Coordenador", "foto": "images/membros/lucas_pereira.jpg" },
+        { "nome": "Juliana Costa", "funcao": "Vice-coordenadora", "foto": "images/membros/juliana_costa.jpg"}
+      ]
+    },
+    {
+      "id": "apostolado-oracao",
+      "nome": "Apostolado da Oração",
+      "descricao_curta": "O apostolado da Oração é um exército espiritual que sustenta a Igreja pela intercessão. Unidos ao Coração de Jesus, seus membros oferecem sacrifícios, oraçãoes e a própria vida como reparação e entrega pelo mundo. Sua missão é despertar no povo de Deus um coração orante, humilde e confiante na misericórdia divina.",
+      "icone": "fas fa-dove",
       "historia": [
         { "ano": 1995, "titulo": "Criação do Grupo", "descricao": "Jovens se unem para criar um espaço de fé e amizade." }
       ],
