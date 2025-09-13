@@ -16,7 +16,27 @@
       "coordenadores": [
         { "nome": "João da Silva", "funcao": "Coordenador Geral", "foto": "images/membros/joao_silva.jpg" },
         { "nome": "Maria Oliveira", "funcao": "Vice-coordenadora", "foto": "images/membros/maria_oliveira.jpg" }
-      ]
+      ],
+      "eventos": [
+        {
+          "titulo": "Festa da Padroeira",
+          "data": "30 de Agosto",
+          "descricao": "Celebração especial em honra a Santa Rosa de Lima com missa festiva e quermesse."
+        },
+        {
+          "titulo": "Chá Beneficente",
+          "data": "15 de Setembro",
+          "descricao": "Evento para arrecadar fundos para a manutenção da capela."
+        }
+      ],
+      "galeria_fotos": {
+        "titulo": "Momentos da Comunidade",
+        "fotos": [
+          { "url": "../images/galeria/capela/evento1.jpg", "legenda": "Festa da Padroeira 2024" },
+          { "url": "../images/galeria/capela/reforma.jpg", "legenda": "Reforma da Capela" },
+          { "url": "../images/galeria/capela/comunidade.jpg", "legenda": "Encontro da comunidade" }
+        ]
+      }
     }
   ],
   "pastorais": [
@@ -91,6 +111,15 @@
       "horarios": [
         { "titulo": "Encontro Semanal", "dia": "Sábado", "hora": "17:00" }
       ],
+      "galeria_fotos": {
+        "titulo": "Famílias do Batismo",
+        "fotos": [
+          { "url": "../images/galeria/batismo/familia1.jpg", "legenda": "Família Silva" },
+          { "url": "../images/galeria/batismo/familia2.jpg", "legenda": "Família Santos" },
+          { "url": "../images/galeria/batismo/familia3.jpg", "legenda": "Família Pereira" },
+          { "url": "../images/galeria/batismo/familia4.jpg", "legenda": "Família Costa" }
+        ]
+      },
       "membros": [
         { "nome": "Lucas Pereira", "funcao": "Coordenador", "foto": "images/membros/lucas_pereira.jpg" },
         { "nome": "Juliana Costa", "funcao": "Vice-coordenadora", "foto": "images/membros/juliana_costa.jpg"}
@@ -303,6 +332,17 @@
       "horarios": [
         { "titulo": "Encontro Semanal", "dia": "Sábado", "hora": "17:00" }
       ],
+      "lista_necessidades": {
+        "titulo": "Alimentos que Precisamos",
+        "itens": [
+          "Arroz (pacote 5kg)",
+          "Feijão",
+          "Óleo de Soja",
+          "Macarrão",
+          "Farinha de Trigo",
+          "Leite em pó"
+        ]
+      },
       "membros": [
         { "nome": "Lucas Pereira", "funcao": "Coordenador", "foto": "images/membros/lucas_pereira.jpg" },
         { "nome": "Juliana Costa", "funcao": "Vice-coordenadora", "foto": "images/membros/juliana_costa.jpg"}
