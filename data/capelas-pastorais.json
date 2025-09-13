@@ -2,8 +2,8 @@
   "capelas": [
     {
       "id": "capela-santa-rosa",
-      "nome": "Capela Santa Rosa",
-      "descricao_curta": "Nossa principal capela, um lugar de fé e encontro comunitário desde 1980.",
+      "nome": "Capela Santa Rosa de Lima",
+      "descricao_curta": "A Capela Santa Rosa de Lima é extensão da vida paroquial, lugar de oração, devoção e comunidade viva. Inspirada em sua padroeira, primeira santa da América Latina, é chamada a irradiar a santidade no cotidiano simples, transformando a fé em serviço e amor concreto aos irmãos.",
       "icone": "fas fa-church",
       "historia": [
         { "ano": 1980, "titulo": "Fundação", "descricao": "A capela foi fundada pela comunidade local." },
@@ -25,6 +25,21 @@
       "nome": "Ministros da Eucaristia - M.E.C.E.",
       "descricao_curta": "A pastoral dos Ministros Extraordinários da Sagrada Comunhão é chamada a servir o Pão da Vida à comunidade, levando Cristo Eucaristico aos fiéis nas celebrações e aos doentes e idosos em suas casas. É ministério do amor, humildade e serviço, lembrando que cada gesto de entrega é prolongamento da mesa do Senhor, onde todos se alimentam da mesma fé.",
       "icone": "fas fa-cross",
+      "historia": [
+        { "ano": 1990, "titulo": "Início das Atividades", "descricao": "Grupo inicial se reúne para apoiar as famílias." }
+      ],
+      "horarios": [
+        { "titulo": "Encontro Mensal", "dia": "Toda 3ª sexta-feira do mês", "hora": "20:00" }
+      ],
+      "membros": [
+        { "nome": "Carlos e Ana", "funcao": "Casal Coordenador", "foto": "images/membros/carlos_ana.jpg" }
+      ]
+    },
+    {
+      "id": "pastoral-saude",
+      "nome": "Pastoral da Saúde",
+      "descricao_curta": "A Pastoral da Saúde é presença misericordiosa de Cristo junto aos enfermos, sofredores e seus familiares. Ela leva conforto espiritual, oração e esperança, fazendo da visita e do cuidado uma expressão da caridade de Cristo Médico das almas e dos corpos.",
+      "icone": "fas fa-stethoscope",
       "historia": [
         { "ano": 1990, "titulo": "Início das Atividades", "descricao": "Grupo inicial se reúne para apoiar as famílias." }
       ],
@@ -66,6 +81,59 @@
       ]
     },
     {
+      "id": "pastoral-batismo",
+      "nome": "Pastoral do Batismo",
+      "descricao_curta": "A Pastoral do Batismo prepara famílias e padrinhos para a graça do primeiro sacramento da vida cristã. Sua missão é conduzir os pais à consciencia de que geram filhos para a fé e despertam neles a vida divina. É pastoral que acolhe, instiui e acompanha, para que o Batismo seja início de uma vida nova em Cristo.",
+      "icone": "fas fa-droplet",
+      "historia": [
+        { "ano": 1995, "titulo": "Criação do Grupo", "descricao": "Jovens se unem para criar um espaço de fé e amizade." }
+      ],
+      "horarios": [
+        { "titulo": "Encontro Semanal", "dia": "Sábado", "hora": "17:00" }
+      ],
+      "membros": [
+        { "nome": "Lucas Pereira", "funcao": "Coordenador", "foto": "images/membros/lucas_pereira.jpg" },
+        { "nome": "Juliana Costa", "funcao": "Vice-coordenadora", "foto": "images/membros/juliana_costa.jpg"}
+      ]
+    },
+    {
+      "id": "pastoral-vocacao",
+      "nome": "Pastoral da Vocação",
+      "descricao_curta": "A Pastoral da Vocação é guardiã do chamado de Deus. Ela desperta, acompanha e sustenta jovens e adultos no discernimento da vocação, seja à vida sacerdotal, consagrada, matrimonial ou leiga. Sua missão é fazer ecoar o 'Vem e segue-me' de Jesus, ajudando cada pessoa a descobrir seu lugar na Igreja",
+      "icone": "fas fa-road",
+      "historia": [
+        { "ano": 1995, "titulo": "Criação do Grupo", "descricao": "Jovens se unem para criar um espaço de fé e amizade." }
+      ],
+      "horarios": [
+        { "titulo": "Encontro Semanal", "dia": "Sábado", "hora": "17:00" }
+      ],
+      "membros": [
+        { "nome": "Lucas Pereira", "funcao": "Coordenador", "foto": "images/membros/lucas_pereira.jpg" },
+        { "nome": "Juliana Costa", "funcao": "Vice-coordenadora", "foto": "images/membros/juliana_costa.jpg"}
+      ]
+    },
+    {
+      "id": "pastoral-comunicacao",
+      "nome": "Pastoral da Comunicação - PASCOM",
+      "descricao_curta": "A Pastoral da Comunicação é o eco da Boa Nova no tempo presente. INspirada no mandato de Jesus: 'Ide e Anunciai', a PASCOM evangeliza através dos meios de comunicação, tornando o Evangelho acessível a todos. Seus serviço é dar voz, rosto e testemunho à vida da Igraja, transformando a comunicação em comunhão.",
+      "icone": "fas fa-camera",
+      "historia": [
+        { "ano": 2023, "titulo": "Início das Atividades", "descricao": "Juliana foi convidada para assumir a coordenação da PASCOM São Francisco." },
+        { "ano": 2025, "titulo": "Início das Primeiras Reuniões", "descricao": "O grupo inicia os encontros e a elaboração do planejamento das atividades." }
+      ],
+      "horarios": [
+        { "titulo": "Encontro Quizenal", "dia": "2ª e 4ª terça-feira do mês", "hora": "19:00" }
+      ],
+      "membros": [
+        { "nome": "Juliana", "funcao": "Coordenadora", "foto": "images/membros/juliana.jpg" },
+        { "nome": "Vitória", "funcao": "Mídias Sociais", "foto": "images/membros/vitoria.jpg" },
+        { "nome": "Júlia", "funcao": "Jornal", "foto": "images/membros/julia.jpg" },
+        { "nome": "Michel", "funcao": "Fotografia", "foto": "images/membros/michel.jpg" },
+        { "nome": "Prica", "funcao": "Relações Internas", "foto": "images/membros/prica.jpg" },
+        { "nome": "Rafael", "funcao": "T.I.", "foto": "images/membros/rafael.jpg" }
+      ]
+    },
+    {
       "id": "comunidade-imaculada",
       "nome": "Comunidade Casa da Imaculada",
       "descricao_curta": "A Comunidade Casa da Imaculada é espaço de oração, acolhida, missão e devoção Mariana. Inspirada pela Virgem Maria, que acolhe todos os filhos e filhas gerando vida nova. Os menbros da Comunidade vicem a espiritualidade da consagração a Nossa Senhora, confiando-se à sua intercessão materna para chegar mais rápido ao coração de Jesus.",
@@ -97,10 +165,170 @@
       ]
     },
     {
+      "id": "grupo-coroinha",
+      "nome": "Coroinhas",
+      "descricao_curta": "A Pastoral dos Coroinhas é formada por crianças, adolecentes e jovens que, com simplicidade e dedicação, servem no altar. São guardiões do sagrado, ajudando a comunidade a celebrar com mais reverência os ministérios da fé. Seu serviço é escola de santidade, que desperta vocações e conduz a uma amizade íntima com Jesus.",
+      "icone": "fas fa-child",
+      "historia": [
+        { "ano": 1995, "titulo": "Criação do Grupo", "descricao": "Jovens se unem para criar um espaço de fé e amizade." }
+      ],
+      "horarios": [
+        { "titulo": "Encontro Semanal", "dia": "Sábado", "hora": "17:00" }
+      ],
+      "membros": [
+        { "nome": "Lucas Pereira", "funcao": "Coordenador", "foto": "images/membros/lucas_pereira.jpg" },
+        { "nome": "Juliana Costa", "funcao": "Vice-coordenadora", "foto": "images/membros/juliana_costa.jpg"}
+      ]
+    },
+    {
       "id": "apostolado-oracao",
       "nome": "Apostolado da Oração",
       "descricao_curta": "O apostolado da Oração é um exército espiritual que sustenta a Igreja pela intercessão. Unidos ao Coração de Jesus, seus membros oferecem sacrifícios, oraçãoes e a própria vida como reparação e entrega pelo mundo. Sua missão é despertar no povo de Deus um coração orante, humilde e confiante na misericórdia divina.",
       "icone": "fas fa-dove",
+      "historia": [
+        { "ano": 1995, "titulo": "Criação do Grupo", "descricao": "Jovens se unem para criar um espaço de fé e amizade." }
+      ],
+      "horarios": [
+        { "titulo": "Encontro Semanal", "dia": "Sábado", "hora": "17:00" }
+      ],
+      "membros": [
+        { "nome": "Lucas Pereira", "funcao": "Coordenador", "foto": "images/membros/lucas_pereira.jpg" },
+        { "nome": "Juliana Costa", "funcao": "Vice-coordenadora", "foto": "images/membros/juliana_costa.jpg"}
+      ]
+    },
+    {
+      "id": "equipe-liturgia",
+      "nome": "Liturgia",
+      "descricao_curta": "A Pastoral da Liturgia é guardiã do ministério celebrado. Seu serviço é preparar, cuidar e animar as celebrações litúrgicas, para que a comunidade experimente a beleza da fé. Cada gesto, cada canto, cada símbolo nos conduz ao ministério pascal de Cristo. É serviço que, pela ordem e beleza, conduz à adoração e à comunhão.",
+      "icone": "fas fa-book-open",
+      "historia": [
+        { "ano": 1995, "titulo": "Criação do Grupo", "descricao": "Jovens se unem para criar um espaço de fé e amizade." }
+      ],
+      "horarios": [
+        { "titulo": "Encontro Semanal", "dia": "Sábado", "hora": "17:00" }
+      ],
+      "membros": [
+        { "nome": "Lucas Pereira", "funcao": "Coordenador", "foto": "images/membros/lucas_pereira.jpg" },
+        { "nome": "Juliana Costa", "funcao": "Vice-coordenadora", "foto": "images/membros/juliana_costa.jpg"}
+      ]
+    },
+    {
+      "id": "pastoral-musica",
+      "nome": "Pastoral da Música",
+      "descricao_curta": "A Música é oração cantada, capaz de elevar a alma a Deus. A Pastoral da Música tem como missão conduzir a assembleia à oração por meio do canto e da arte musica, ajudando a celebrar o ministério de Cristo com beleza e unção. É ministério que une técnica e espiritualidade para que a liturgia seja expressão viva da fé.",
+      "icone": "fas fa-music",
+      "historia": [
+        { "ano": 1995, "titulo": "Criação do Grupo", "descricao": "Jovens se unem para criar um espaço de fé e amizade." }
+      ],
+      "horarios": [
+        { "titulo": "Encontro Semanal", "dia": "Sábado", "hora": "17:00" }
+      ],
+      "membros": [
+        { "nome": "Lucas Pereira", "funcao": "Coordenador", "foto": "images/membros/lucas_pereira.jpg" },
+        { "nome": "Juliana Costa", "funcao": "Vice-coordenadora", "foto": "images/membros/juliana_costa.jpg"}
+      ]
+    },
+    {
+      "id": "pastoral-acolhida",
+      "nome": "Pastoral da Acolhida",
+      "descricao_curta": "A Pastoral da Acolhida é o abraço da Igreja. Com um sorriso, uma palavra amiga e um olhar cheio de amor, acolhe cada pessoa que chega ao templo, tornando visível o rosto misericordioso de Cristo. Sua missão é fazer a comunidade experimentar que a Igreja é casa aberta, família de Deus, onde ninguém é estranho.",
+      "icone": "fas fa-hands",
+      "historia": [
+        { "ano": 1995, "titulo": "Criação do Grupo", "descricao": "Jovens se unem para criar um espaço de fé e amizade." }
+      ],
+      "horarios": [
+        { "titulo": "Encontro Semanal", "dia": "Sábado", "hora": "17:00" }
+      ],
+      "membros": [
+        { "nome": "Lucas Pereira", "funcao": "Coordenador", "foto": "images/membros/lucas_pereira.jpg" },
+        { "nome": "Juliana Costa", "funcao": "Vice-coordenadora", "foto": "images/membros/juliana_costa.jpg"}
+      ]
+    },
+    {
+      "id": "caminhando-maria",
+      "nome": "Caminhando com Maria",
+      "descricao_curta": "Este Grupo é expressão da espiritualidade mariana que conduz a Jesus. Inspirado no caminhar da Mãe de Deus, ajuda a comunidade a trilhar o caminho da fé com confiança, oração e perseverança. Sua missão é formar corações dóceis, que aprendam de Maria a viver em intimidade com Cristo.",
+      "icone": "fas fa-crown",
+      "historia": [
+        { "ano": 1995, "titulo": "Criação do Grupo", "descricao": "Jovens se unem para criar um espaço de fé e amizade." }
+      ],
+      "horarios": [
+        { "titulo": "Encontro Semanal", "dia": "Sábado", "hora": "17:00" }
+      ],
+      "membros": [
+        { "nome": "Lucas Pereira", "funcao": "Coordenador", "foto": "images/membros/lucas_pereira.jpg" },
+        { "nome": "Juliana Costa", "funcao": "Vice-coordenadora", "foto": "images/membros/juliana_costa.jpg"}
+      ]
+    },
+    {
+      "id": "grupo-oracao",
+      "nome": "Grupo de Oração",
+      "descricao_curta": "O Grupo de Oração é espaço de experiência profunda do Espírito Santo. Nele, a comunidade se reúne para louvar, interceder e estudar a Palavra de Deus. É lugar de cura, libertação e avivamento, onde o Espírito renova a Igreja e envia missionários para o mundo.",
+      "icone": "fas fa-place-of-worship",
+      "historia": [
+        { "ano": 1995, "titulo": "Criação do Grupo", "descricao": "Jovens se unem para criar um espaço de fé e amizade." }
+      ],
+      "horarios": [
+        { "titulo": "Encontro Semanal", "dia": "Sábado", "hora": "17:00" }
+      ],
+      "membros": [
+        { "nome": "Lucas Pereira", "funcao": "Coordenador", "foto": "images/membros/lucas_pereira.jpg" },
+        { "nome": "Juliana Costa", "funcao": "Vice-coordenadora", "foto": "images/membros/juliana_costa.jpg"}
+      ]
+    },
+    {
+      "id": "pastoral-dizimo",
+      "nome": "Pastoral do Dízimo",
+      "descricao_curta": "A Pastoral do Dízimo é expressão de fé, gratidão e corresponsabilidade. Mais do que contribuição material, é entrega espiritual, reconhecimento de que tudo é dom de Deus. Essa pastoral ajuda os fiéis a compreender que o dízimo sustenta a missão evangelizadora e fortalece a comunhão fraterna na comunidade.",
+      "icone": "fas fa-coins",
+      "historia": [
+        { "ano": 1995, "titulo": "Criação do Grupo", "descricao": "Jovens se unem para criar um espaço de fé e amizade." }
+      ],
+      "horarios": [
+        { "titulo": "Encontro Semanal", "dia": "Sábado", "hora": "17:00" }
+      ],
+      "membros": [
+        { "nome": "Lucas Pereira", "funcao": "Coordenador", "foto": "images/membros/lucas_pereira.jpg" },
+        { "nome": "Juliana Costa", "funcao": "Vice-coordenadora", "foto": "images/membros/juliana_costa.jpg"}
+      ]
+    },
+    {
+      "id": "sociedade-vicentinos",
+      "nome": "Vicentinos",
+      "descricao_curta": "A Sociedade São Vicente de Paulo, conhecida como Vicentinos, é expressão da caridade concreta. Inspirados em São Vicente de Paulo, seus membros visitam famílias, levam alimento, apoio e sobretudo esperança. Seu serviço é enxergar em cada pobre o próprio Cristo, tornando viva a fé pela caridade.",
+      "icone": "fas fa-house-chimney",
+      "historia": [
+        { "ano": 1995, "titulo": "Criação do Grupo", "descricao": "Jovens se unem para criar um espaço de fé e amizade." }
+      ],
+      "horarios": [
+        { "titulo": "Encontro Semanal", "dia": "Sábado", "hora": "17:00" }
+      ],
+      "membros": [
+        { "nome": "Lucas Pereira", "funcao": "Coordenador", "foto": "images/membros/lucas_pereira.jpg" },
+        { "nome": "Juliana Costa", "funcao": "Vice-coordenadora", "foto": "images/membros/juliana_costa.jpg"}
+      ]
+    },
+    {
+      "id": "conselho-economico",
+      "nome": "Conselho para Assuntos Econômicos - CPA",
+      "descricao_curta": "A CPA auxilia na administração dos bens da paróquia, garantindo que os recursos sejam usados de modo transparente e a serviço da evangelização. É ministério de responsabilidade e zelo, que transforma os dons materiais em instrumentos de missão.",
+      "icone": "fas fa-briefcase",
+      "historia": [
+        { "ano": 1995, "titulo": "Criação do Grupo", "descricao": "Jovens se unem para criar um espaço de fé e amizade." }
+      ],
+      "horarios": [
+        { "titulo": "Encontro Semanal", "dia": "Sábado", "hora": "17:00" }
+      ],
+      "membros": [
+        { "nome": "Lucas Pereira", "funcao": "Coordenador", "foto": "images/membros/lucas_pereira.jpg" },
+        { "nome": "Juliana Costa", "funcao": "Vice-coordenadora", "foto": "images/membros/juliana_costa.jpg"}
+      ]
+    },
+    {
+      "id": "conselho-pastoral",
+      "nome": "Conselho Pastoral Paroquial - CPP",
+      "descricao_curta": "O CPP é o coração organizador da vida paroquial. Ele reúne representantes de todas as pastorais para discernir, planejar e decidir os rumos da missão da comunidade. Sua espiritualidade é a da sinodalidade: caminhar juntos, ouvir o Espírito Santo e buscar sempre o bem comum da Igreja.",
+      "icone": "fas fa-wand-sparkles",
       "historia": [
         { "ano": 1995, "titulo": "Criação do Grupo", "descricao": "Jovens se unem para criar um espaço de fé e amizade." }
       ],
