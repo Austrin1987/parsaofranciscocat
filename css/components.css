@@ -596,3 +596,73 @@
 .btn-expandir:hover {
     text-decoration: underline;
 }
+
+/* --- Estilos para a Seção de Membros --- */
+
+.membros-section {
+    margin-top: 2.5rem; /* Espaçamento acima da seção de membros */
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee; /* Linha sutil para separar do conteúdo anterior */
+}
+
+.membros-section h3 {
+    text-align: center;
+    font-family: var(--font-primary);
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+/* A grade que organiza os membros em colunas */
+.membros-grid {
+    display: grid;
+    /* Cria colunas flexíveis com no mínimo 200px e no máximo 1 fração do espaço.
+       Isso permite que 4 ou 5 cards se ajustem por linha em telas maiores. */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem; /* Espaçamento entre os cards */
+}
+
+/* Estilo para o card de cada membro */
+.membro-card {
+    background: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 1rem;
+    text-align: center;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 3px solid var(--secondary-color);
+}
+
+.membro-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.membro-foto {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* Deixa a foto redonda */
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+    margin-bottom: 1rem;
+    border: 3px solid var(--card-background);
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.membro-info {
+    font-size: 0.9rem;
+}
+
+.membro-info p {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.membro-info span {
+    color: var(--secondary-color);
+    font-style: italic;
+}
