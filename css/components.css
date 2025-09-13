@@ -666,3 +666,83 @@
     color: var(--secondary-color);
     font-style: italic;
 }
+
+.conteudo-adicional {
+    background-color:#FAFAFA; /* Um tom muito leve, derivado das suas cores */
+    border-left: 4px solid var(--secondary-color);
+    padding: 1.5rem;
+    margin-top: 2rem;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    box-shadow: var(--shadow);
+}
+
+.conteudo-adicional h3 {
+    font-family: var(--font-alt);
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+/* --- Estilos para a Lista de Necessidades (Vicentinos) --- */
+.conteudo-adicional ul {
+    list-style: none; /* Remove os marcadores padrão */
+    padding-left: 0;
+}
+
+.conteudo-adicional ul li {
+    background: var(--card-background);
+    padding: 0.8rem 1.2rem;
+    margin-bottom: 0.5rem;
+    border-radius: var(--border-radius);
+    border-left: 3px solid var(--primary-color);
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.conteudo-adicional ul li:hover {
+    transform: translateX(5px);
+    background-color: #fff;
+    box-shadow: var(--shadow-hover);
+}
+
+/* --- Estilos para a Galeria de Fotos --- */
+/* O componente .image-grid já está bem estilizado, vamos apenas garantir o espaçamento */
+.conteudo-adicional .image-grid {
+    margin-top: 0; /* Remove a margem padrão para se ajustar ao h3 */
+}
+
+/* --- Estilos para o Acordeão de Eventos (Capela) --- */
+/* Usando o componente de acordeão já existente e garantindo que ele se encaixe bem */
+.conteudo-adicional .accordion {
+    border: none; /* Remove a borda dupla, já que o container tem uma */
+    box-shadow: none;
+}
+
+.conteudo-adicional .accordion-item {
+    border-color: #e0e0e0;
+}
+
+.conteudo-adicional .accordion-header {
+    background: #f5f0e6; /* Um tom um pouco mais escuro que o fundo */
+    transition: var(--transition);
+}
+
+.conteudo-adicional .accordion-header:hover {
+    background: var(--accent-color);
+    color: var(--primary-color);
+}
+
+.conteudo-adicional .accordion-item.active .accordion-header {
+    background: var(--primary-color);
+}
+
+.conteudo-adicional .accordion-item.active .accordion-header .accordion-title {
+    color: white;
+}
+
+.conteudo-adicional .accordion-content {
+    background: #fff;
+    border-top: 1px solid #eee;
+}
