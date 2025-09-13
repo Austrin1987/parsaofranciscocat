@@ -95,6 +95,12 @@
         border-radius: 0;
     }
     
+    .membros-grid {
+        /* Em tablets, mostra 2 ou 3 colunas */
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 1rem;
+    }
+
     .mobile-menu-btn {
         display: flex;
     }
@@ -266,6 +272,16 @@
     /* Header */
     .header-content {
         padding: 0.8rem 0;
+    }
+
+    .membros-grid {
+        /* Em celulares, mostra 2 colunas */
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .membro-foto {
+        width: 80px;
+        height: 80px;
     }
     
     .logo h1 {
