@@ -140,7 +140,12 @@ class JanelaFormularioNoticia(ctk.CTkToplevel):
         # Copia o arquivo para a pasta de destino
         nome_arquivo = os.path.basename(caminho_imagem)
         caminho_destino = os.path.join(pasta_destino, nome_arquivo)
-        shutil.copy(caminho_imagem, caminho_destino)
+
+        origem_abs = os.path.abspath(caminho_imagem)
+        destino_abs = os.path.abspath(caminho_destino)
+
+        if origem_abs != destino_abs:
+            shutil.copy(origem_abs, destino_abs)
 
         # Atualiza o campo de texto com o caminho relativo
         # Usamos barras normais (/) para compatibilidade web
