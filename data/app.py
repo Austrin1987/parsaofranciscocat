@@ -310,7 +310,7 @@ class JanelaNoticias(ctk.CTkToplevel):
         self.dados['noticias'] = self.noticias
         
         try:
-            with open("noticias.json", "w", encoding="utf-8") as f:
+            with open("jornal.json", "w", encoding="utf-8") as f:
                 json.dump(self.dados, f, indent=2, ensure_ascii=False)
         except Exception as e:
             print(f"Erro ao salvar o arquivo: {e}")
