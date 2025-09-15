@@ -1,0 +1,46 @@
+{
+  "destaques": [
+    "noticia-002",
+    "noticia-01eff6eb"
+  ],
+  "noticias": [
+    {
+      "id": "noticia-01eff6eb",
+      "data": "2025-10-15",
+      "titulo": "Avisos Semanais",
+      "subtitulo": "Confira o que está acontecendo está semana.",
+      "foto_principal": "../images/noticias/placeholder.jpg",
+      "foto_secundaria": "../images/noticias/placeholder.jpg",
+      "conteudo": "Que o exemplo de Santa Teresa nos inspire a buscar uma vida de profunda amizade com Deus. Ela nos ensinou que a oração não é repetir palavras, mas “um trato de amizade, estando muitas vezes tratando a sós com Quem sabemos que nos ama”",
+      "conteudo_adicional": "<b><h3>Avisos</h3></b>\n<ul>\n  <li>Não teremos missa quarta feira</li>\n  <li>Domingo é dia de Crima</li>\n  <li>Reunião na quinta feira</li>\n</ul>"
+    },
+    {
+      "id": "noticia-001",
+      "data": "2025-09-01",
+      "titulo": "Festa do Padroeiro Foi um Sucesso",
+      "subtitulo": "Comunidade se reuniu para celebrar com fé e alegria.",
+      "foto_principal": "../images/noticias/placeholder.jpg",
+      "foto_secundaria": null,
+      "conteudo": "A festa do nosso padroeiro, São Francisco de Assis, foi um verdadeiro sucesso! Milhares de fiéis participaram da procissão e das missas durante todo o dia. Agradecemos a todos os voluntários e participantes."
+    },
+    {
+      "id": "noticia-002",
+      "data": "2025-09-05",
+      "titulo": "Inscrições Abertas para a Catequese 2026",
+      "subtitulo": "Garanta a vaga do seu filho para o próximo ano letivo.",
+      "foto_principal": "../images/noticias/placeholder.jpg",
+      "foto_secundaria": "../images/noticias/placeholder.jpg",
+      "conteudo": "As inscrições para a catequese de Primeira Eucaristia e Crisma para o ano de 2026 já estão abertas. Procure a secretaria paroquial para mais informações e para realizar a inscrição. As vagas são limitadas.",
+      "conteudo_adicional": "<h3>Documentos Necessários:</h3><ul><li>Certidão de Batismo da criança.</li><li>Comprovante de residência.</li><li>Documento de identidade dos pais ou responsáveis.</li></ul><br><p><em>As turmas serão aos sábados, pela manhã e à tarde.</em></p>"
+    },
+    {
+      "id": "noticia-003",
+      "data": "2025-08-20",
+      "titulo": "Campanha do Agasalho Arrecada Mais de Mil Peças",
+      "subtitulo": "Solidariedade da comunidade aquece o inverno de muitas famílias.",
+      "foto_principal": "../images/noticias/placeholder.jpg",
+      "foto_secundaria": null,
+      "conteudo": "A Campanha do Agasalho deste ano foi um grande exemplo de caridade e amor ao próximo. Foram arrecadadas mais de mil peças de roupa, que já foram distribuídas para famílias carentes da nossa região. Deus abençoe a todos que doaram!"
+    }
+  ]
+}
