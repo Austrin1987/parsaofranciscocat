@@ -106,7 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {
         backButtonContainer.style.display = 'block';
 
         let membrosHTML = '';
-
         if (tipo === 'capela' && item.coordenadores) {
             membrosHTML = `
                 <div class="membros-section">
@@ -141,40 +140,131 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>`;
         }
 
+        // --- NOVA SEÇÃO: GALERIA DE FOTOS ---
+        let galeriaHTML = '';
+        if (item.galeria_fotos && item.galeria_fotos.fotos.length > 0) {
+            galeriaHTML = `
+                <div class="conteudo-adicional mt-4">
+                    <h3>${item.galeria_fotos.titulo || 'Galeria de Fotos'}</h3>
+                    <div class="image-grid">
+                        ${item.galeria_fotos.fotos.map(foto => `
+                            <div class="image-item">
+                                <img 
+                                    src="${foto.url}" 
+                                    alt="${foto.legenda}" 
+                                    onerror="this.onerror=null; this.src='../images/galeria/placeholder.jpg';"
+                                >
+                                <div class="image-overlay">
+                                    <p>${foto.legenda}</p>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>`;
+        }
+
+        // --- NOVA SEÇÃO: LISTA DE NECESSIDADES (Vicentinos) ---
+        let listaNecessidadesHTML = '';
+        if (item.lista_necessidades && item.lista_necessidades.itens.length > 0) {
+            listaNecessidadesHTML = `
+                <div class="conteudo-adicional mt-4">
+                    <h3>${item.lista_necessidades.titulo || 'Lista de Necessidades'}</h3>
+                    <ul>
+                        ${item.lista_necessidades.itens.map(necessidade => `<li>${necessidade}</li>`).join('')}
+                    </ul>
+                </div>`;
+        }
+
+        // --- NOVA SEÇÃO: EVENTOS (Capela) ---
+        let eventosHTML = '';
+        if (item.eventos && item.eventos.length > 0) {
+            eventosHTML = `
+                <div class="conteudo-adicional mt-4">
+                    <h3>Próximos Eventos</h3>
+                    <div class="accordion">
+                        ${item.eventos.map((evento, index) => `
+                            <div class="accordion-item">
+                                <div class="accordion-header">
+                                    <span class="accordion-title">${evento.titulo} - ${evento.data}</span>
+                                    <i class="fas fa-chevron-down accordion-icon"></i>
+                                </div>
+                                <div class="accordion-content">
+                                    <p>${evento.descricao}</p>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>`;
+        }
+
+        // --- MONTAGEM FINAL DO CONTEÚDO ---
         conteudoDinamico.innerHTML = `
             <div class="card">
-                <h2>${item.nome}</h2>
+                <div class="card-header">
+                    <h2 class="card-title">${item.nome}</h2>
+                    <p class="card-subtitle">${item.descricao_curta}</p>
+                </div>
+                <div class="card-body">
+                    <!-- Seções padrão (História, Horários, Membros) -->
+                    <div class="mt-4">
+                        <h3>Nossa História</h3>
+                        <div class="timeline">
+                            ${item.historia.map(h => `
+                                <div class="timeline-item">
+                                    <div class="timeline-point"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-year">${h.ano}</div>
+                                        <p>${h.descricao}</p>
+                                    </div>
+                                </div>`).join('')}
+                        </div>
+                    </div>
+
+                    <!-- Seções de conteúdo adicional -->
+                    ${galeriaHTML}
+                    ${listaNecessidadesHTML}
+                    ${eventosHTML}
+
+                    <div class="mt-4">
+                        <h3>Encontros e Reuniões</h3>
+                        <div class="horarios-grid">
+                            ${item.horarios.map(h => `
+                                <div class="horario-card">
+                                    <div class="horario-dia">${h.titulo}</div>
+                                    <ul class="horario-lista">
+                                        <li>${h.dia} - ${h.hora}</li>
+                                    </ul>
+                                </div>`).join('')}
+                        </div>
+                    </div>
+                </div>
                 
-                <div class="historia-section">
-                    <h3>Nossa História</h3>
-                    <div class="timeline">
-                        ${item.historia.map(h => `
-                            <div class="timeline-item">
-                                <div class="timeline-point"></div>
-                                <div class="timeline-content">
-                                    <div class="timeline-year">${h.ano}</div>
-                                    <p>${h.descricao}</p>
-                                </div>
-                            </div>`).join('')}
-                    </div>
-                </div>
-
-                <div class="horarios-section">
-                    <h3>Horários</h3>
-                    <div class="horarios-grid">
-                        ${item.horarios.map(h => `
-                            <div class="horario-card">
-                                <div class="horario-dia">${h.titulo}</div>
-                                <ul class="horario-lista">
-                                    <li>${h.dia} - ${h.hora}</li>
-                                </ul>
-                            </div>`).join('')}
-                    </div>
-                </div>
-
                 ${membrosHTML}
             </div>
         `;
+
+        // Adiciona a funcionalidade para o novo acordeão de eventos
+        const accordionItems = conteudoDinamico.querySelectorAll('.accordion-item');
+        accordionItems.forEach(accItem => {
+            const header = accItem.querySelector('.accordion-header');
+            const content = accItem.querySelector('.accordion-content');
+            header.addEventListener('click', () => {
+                // Fecha outros itens abertos
+                accordionItems.forEach(otherItem => {
+                    if (otherItem !== accItem) {
+                        otherItem.classList.remove('active');
+                        otherItem.querySelector('.accordion-content').style.display = 'none';
+                    }
+                });
+                // Alterna o item clicado
+                accItem.classList.toggle('active');
+                if (accItem.classList.contains('active')) {
+                    content.style.display = 'block';
+                } else {
+                    content.style.display = 'none';
+                }
+            });
+        });
     }
     
     backButton.addEventListener('click', () => {
