@@ -1,6 +1,19 @@
 {
-  "destaques": [ "noticia-002" ],
+  "destaques": [
+    "noticia-002",
+    "noticia-b4c1d146"
+  ],
   "noticias": [
+    {
+      "id": "noticia-b4c1d146",
+      "data": "2025-10-15",
+      "titulo": "Avisos Semanais",
+      "subtitulo": "Confira o que está acontecendo está semana.",
+      "foto_principal": "../images/noticias/placeholder.jpg",
+      "foto_secundaria": "../images/noticias/placeholder.jpg",
+      "conteudo": "Que o exemplo de Santa Teresa nos inspire a buscar uma vida de profunda amizade com Deus. Ela nos ensinou que a oração não é repetir palavras, mas “um trato de amizade, estando muitas vezes tratando a sós com Quem sabemos que nos ama”.",
+      "conteudo_adicional": "<b><h3>Avisos</h3></b>\n<ul>\n  <li>Não teremos missa quarta feira</li>\n  <li>Domingo é dia de Crima</li>\n  <li>Reunião na quinta feira</li>\n</ul>"
+    },
     {
       "id": "noticia-001",
       "data": "2025-09-01",
