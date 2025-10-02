@@ -197,6 +197,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>`;
         }
 
+        // --- NOVA SEÇÃO: REDES SOCIAIS (Grupo de Jovens) ---
+        let redesSociaisHTML = '';
+        if (item.redes_sociais && item.redes_sociais.links.length > 0) {
+            redesSociaisHTML = `
+                <div class="conteudo-adicional mt-4">
+                    <h3>${item.redes_sociais.titulo || 'Nossas Redes'}</h3>
+                    <div class="social-links-container">
+                        ${item.redes_sociais.links.map(rede => `
+                            <a href="${rede.url}" target="_blank" class="social-link-item">
+                                <i class="${rede.icone}"></i>
+                                <span>${rede.nome}</span>
+                            </a>
+                        `).join('')}
+                    </div>
+                </div>`;
+        }
+
         // --- MONTAGEM FINAL DO CONTEÚDO ---
         conteudoDinamico.innerHTML = `
             <div class="card">
@@ -237,6 +254,8 @@ document.addEventListener('DOMContentLoaded', () => {
                                 </div>`).join('')}
                         </div>
                     </div>
+
+                    ${redesSociaisHTML} 
                 </div>
                 
                 ${membrosHTML}
