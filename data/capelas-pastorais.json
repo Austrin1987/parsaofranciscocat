@@ -183,14 +183,20 @@
       "descricao_curta": "O Grupo de Jovens é chamado a ser fogo ardente no coração da Igreja. É espaço de acolhida, amizade e encontro com Cristo vivo, onde a juventude descobre seu lugar na missão da Igreja, aprendendo a viver a fé com alegria, esperança e coragem. É escola de discipulado, que forma missionários apaixonados por Jesus.",
       "icone": "fas fa-users",
       "historia": [
-        { "ano": 1995, "titulo": "Criação do Grupo", "descricao": "Jovens se unem para criar um espaço de fé e amizade." }
+        { "ano": 2021, "titulo": "Criação do Grupo", "descricao": "Em 03/10/2021, o grupo de jovens se reuniu pela primeira vez, marcando o início de uma nova caminhada." }
       ],
       "horarios": [
-        { "titulo": "Encontro Semanal", "dia": "Sábado", "hora": "17:00" }
+        { "titulo": "Encontro Semanal no Salão da Paróquia São Francisco", "dia": "Domingo", "hora": "10:00" }
       ],
+      "redes_sociais": {
+        "titulo": "Siga-nos nas Redes Sociais",
+        "links": [
+          { "nome": "Instagram", "url": "https://www.instagram.com/grupoescadaparaoceu/", "icone": "fab fa-instagram" }
+        ]
+      },
       "membros": [
-        { "nome": "Lucas Pereira", "funcao": "Coordenador", "foto": "images/membros/lucas_pereira.jpg" },
-        { "nome": "Juliana Costa", "funcao": "Vice-coordenadora", "foto": "images/membros/juliana_costa.jpg"}
+        { "nome": "Tales Teixeira", "funcao": "Coordenador", "foto": "images/membros/lucas_pereira.jpg" },
+        { "nome": "Moniele Barbosa", "funcao": "Coordenadora", "foto": "images/membros/juliana_costa.jpg"}
       ]
     },
     {
