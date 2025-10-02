@@ -746,3 +746,35 @@
     background: #fff;
     border-top: 1px solid #eee;
 }
+
+/* --- Estilos para a Seção de Redes Sociais --- */
+.social-links-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha em telas pequenas */
+    gap: 1rem; /* Espaçamento entre os links */
+    margin-top: 1rem;
+}
+
+.social-link-item {
+    display: inline-flex; /* Alinha ícone e texto */
+    align-items: center;
+    gap: 0.5rem; /* Espaço entre o ícone e o texto */
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.social-link-item:hover {
+    background-color: #7A3A0F; /* Um tom mais escuro do primário para o hover */
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.social-link-item i {
+    font-size: 1.2rem; /* Tamanho do ícone */
+}
+
