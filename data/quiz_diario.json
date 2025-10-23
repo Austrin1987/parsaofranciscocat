@@ -1,0 +1,23 @@
+{
+  "titulo": "Quiz do Diário",
+  "perguntas": [
+    {
+      "pergunta": "Quantos livros compõem o Novo Testamento na Bíblia Católica?",
+      "opcoes": ["27", "39", "66", "73"],
+      "respostaCorreta": "27",
+      "curiosidade": "O Novo Testamento inclui os Evangelhos, os Atos dos Apóstolos, as Epístolas (cartas) e o Apocalipse."
+    },
+    {
+      "pergunta": "Qual é a cor litúrgica usada no tempo do Advento e da Quaresma?",
+      "opcoes": ["Branco", "Vermelho", "Verde", "Roxo"],
+      "respostaCorreta": "Roxo",
+      "curiosidade": "O roxo simboliza a penitência, a preparação e a conversão, convidando os fiéis à reflexão."
+    },
+    {
+      "pergunta": "O que significa a palavra 'Evangelho'?",
+      "opcoes": ["Boa Nova", "Lei de Deus", "Palavra Antiga", "Profecia"],
+      "respostaCorreta": "Boa Nova",
+      "curiosidade": "O Evangelho é a 'Boa Nova' da salvação trazida por Jesus Cristo, narrada por Mateus, Marcos, Lucas e João."
+    }
+  ]
+}
