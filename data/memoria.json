@@ -21,9 +21,9 @@
     }
   ],
   "cartas": [
-    { "id": "sao-francisco", "imagem": "../../images/jogos/memoria/sao-francisco.png", "nome": "São Francisco" },
-    { "id": "santa-clara", "imagem": "../../images/jogos/memoria/santa-clara.png", "nome": "Santa Clara" },
-    { "id": "biblia", "imagem": "../../images/jogos/memoria/biblia.png", "nome": "Bíblia" },
+    { "id": "sao-francisco", "imagem": "https://res.cloudinary.com/dexnu74dn/image/upload/v1761231128/sao_francisco_hjhudj.jpg", "nome": "São Francisco" },
+    { "id": "santa-clara", "imagem": "https://res.cloudinary.com/dexnu74dn/image/upload/v1761231275/santa_clara_glcnr0.jpg", "nome": "Santa Clara" },
+    { "id": "biblia", "imagem": "https://res.cloudinary.com/dexnu74dn/image/upload/v1761231346/biblia_fsullh.jpg", "nome": "Bíblia" },
     { "id": "calice", "imagem": "../../images/jogos/memoria/calice.png", "nome": "Cálice" },
     { "id": "igreja-matriz", "imagem": "../../images/jogos/memoria/igreja-matriz.png", "nome": "Igreja Matriz" },
     { "id": "vela", "imagem": "../../images/jogos/memoria/vela.png", "nome": "Vela" },
