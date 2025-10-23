@@ -18,6 +18,18 @@
       "opcoes": ["O Franciscano", "Voz da Comunidade", "O Assis", "Folha Paroquial"],
       "respostaCorreta": "O Franciscano",
       "curiosidade": "O jornal é produzido por voluntários e distribuído para manter todos informados sobre os eventos e a vida da paróquia."
+    },
+    {
+      "pergunta": "Qual pastoral é responsável por auxiliar nas celebrações litúrgicas, como leitores e ministros?",
+      "opcoes": ["Pastoral da Criança", "Pastoral do Dízimo", "Pastoral da Liturgia", "Vicentinos"],
+      "respostaCorreta": "Pastoral da Liturgia",
+      "curiosidade": "Esta pastoral trabalha para garantir que as missas e celebrações sejam bem preparadas, solenes e participativas."
+    },
+    {
+      "pergunta": "A festa do padroeiro, São Francisco de Assis, acontece em qual mês?",
+      "opcoes": ["Junho", "Agosto", "Outubro", "Dezembro"],
+      "respostaCorreta": "Outubro",
+      "curiosidade": "O dia de São Francisco é 4 de outubro, e a paróquia geralmente celebra com uma novena e uma grande festa comunitária."
     }
   ]
 }
