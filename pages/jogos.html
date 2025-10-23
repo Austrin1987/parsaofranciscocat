@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogos e Quizzes - Paróquia São Francisco de Assis</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;600&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        /* Estilos específicos para a página de jogos */
+        .jogos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr ));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .jogo-card {
+            background: var(--card-background);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .jogo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        .jogo-card-icon {
+            font-size: 4rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        .jogo-card h3 {
+            font-family: var(--font-primary);
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        .jogo-card p {
+            font-size: 1rem;
+            color: var(--text-color);
+            opacity: 0.8;
+            flex-grow: 1;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header reutilizado -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo"><h1>Paróquia São Francisco de Assis</h1><span class="tagline">Comunidade de Fé e Amor</span></div>
+                <nav class="nav" id="nav">
+                    <ul class="nav-list">
+                        <li><a href="../index.html" class="nav-link">Início</a></li>
+                        <li><a href="capelas-pastorais.html" class="nav-link">Capelas e Pastorais</a></li>
+                        <li><a href="jornal.html" class="nav-link">Jornal</a></li>
+                    </ul>
+                </nav>
+                <button class="mobile-menu-btn" id="mobile-menu-btn"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section id="selecao-jogos" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Jogos e Quizzes</h2>
+                    <p class="section-subtitle">Escolha um jogo abaixo para começar a diversão!</p>
+                </div>
+
+                <div class="jogos-grid">
+                    <!-- Card do Quiz -->
+                    <div class="jogo-card">
+                        <div>
+                            <i class="fas fa-question-circle jogo-card-icon"></i>
+                            <h3>Quiz Paroquial</h3>
+                            <p>Teste seus conhecimentos sobre a paróquia, a vida dos santos e curiosidades da nossa fé. A cada rodada, um novo desafio!</p>
+                        </div>
+                        <a href="jogos/quiz.html" class="btn btn-primary">Jogar Quiz</a>
+                    </div>
+
+                    <!-- Card do Jogo da Memória -->
+                    <div class="jogo-card">
+                        <div>
+                            <i class="fas fa-clone jogo-card-icon"></i>
+                            <h3>Jogo da Memória</h3>
+                            <p>Encontre os pares de santos, símbolos e momentos da nossa comunidade. Desafie o tempo e compartilhe sua pontuação!</p>
+                        </div>
+                        <a href="jogos/memoria.html" class="btn btn-primary">Jogar Memória</a>
+                    </div>
+
+                    <!-- Card do "Quem Disse Isso?" -->
+                    <div class="jogo-card">
+                        <div>
+                            <i class="fas fa-comment-dots jogo-card-icon"></i>
+                            <h3>Quem Disse Isso?</h3>
+                            <p>Você consegue adivinhar quem é o autor desta frase? Uma citação inspiradora a cada vez que você joga.</p>
+                        </div>
+                        <a href="jogos/citacoes.html" class="btn btn-primary">Jogar Citações</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer reutilizado -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Paróquia São Francisco. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="#"></script> <!-- Para o menu mobile funcionar -->
+</body>
+</html>
