@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     carregarProximaMissaFestiva();
     carregarProximoEvento();
     carregarInfoAleatoria();
+    initJogosToast();
 });
 
 async function carregarInfoAleatoria() {
@@ -574,6 +575,33 @@ function initScrollAnimations() {
     document.querySelectorAll('.card, .timeline-item, .highlight-card').forEach(el => {
         observer.observe(el);
     });
+}
+
+// Função para controlar o balão flutuante de convite para os jogos
+function initJogosToast() {
+    const jogosToast = document.getElementById('jogos-toast');
+    const closeBtn = document.getElementById('jogos-toast-close');
+
+    if (!jogosToast || !closeBtn) return;
+
+    // Função para fechar o toast
+    const closeToast = () => {
+        jogosToast.classList.remove('show');
+    };
+
+    // Verifica se o usuário já viu o toast nesta sessão
+    if (sessionStorage.getItem('jogosToastVisto')) {
+        return;
+    }
+
+    // Abre o toast após 5 segundos
+    setTimeout(() => {
+        jogosToast.classList.add('show');
+        sessionStorage.setItem('jogosToastVisto', 'true'); // Marca como visto
+    }, 5000);
+
+    // Fecha ao clicar no 'X'
+    closeBtn.addEventListener('click', closeToast);
 }
 
 // Initialize scroll animations after content is loaded
