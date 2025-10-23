@@ -2,25 +2,112 @@
   "titulo": "Quiz dos Santos",
   "santos": [
     {
-      "data": "10-04",
-      "pergunta": "No dia 4 de Outubro, celebramos São Francisco de Assis. Ele é o padroeiro de quê?",
-      "opcoes": ["Dos Músicos", "Dos Animais e da Ecologia", "Dos Pescadores", "Dos Médicos"],
-      "respostaCorreta": "Dos Animais e da Ecologia",
-      "curiosidade": "São Francisco via a natureza como um reflexo da beleza de Deus, chamando os animais e os elementos de 'irmãos' e 'irmãs'."
+      "nome": "São Francisco de Assis",
+      "id": "sao-francisco",
+      "perguntas": [
+        {
+          "pergunta": "Qual o nome de batismo de São Francisco de Assis?",
+          "opcoes": ["Giovanni di Pietro di Bernardone", "Francesco di Assisi", "Marco Polo", "Leonardo da Vinci"],
+          "respostaCorreta": "Giovanni di Pietro di Bernardone",
+          "curiosidade": "Seu pai o apelidou de 'Francesco' (o francês) por causa de sua paixão pela cultura francesa e por sua mãe ser daquela região."
+        },
+        {
+          "pergunta": "São Francisco é famoso por ter criado o primeiro...",
+          "opcoes": ["Mosteiro", "Hospital", "Presépio", "Orfanato"],
+          "respostaCorreta": "Presépio",
+          "curiosidade": "Em 1223, na cidade de Greccio, ele montou um presépio vivo para explicar o nascimento de Jesus de uma forma que todos pudessem entender."
+        },
+        {
+          "pergunta": "Qual ordem religiosa São Francisco fundou?",
+          "opcoes": ["Beneditinos", "Jesuítas", "Dominicanos", "Ordem dos Frades Menores (Franciscanos)"],
+          "respostaCorreta": "Ordem dos Frades Menores (Franciscanos)",
+          "curiosidade": "A ordem cresceu rapidamente, baseada nos princípios de pobreza, humildade e serviço aos pobres."
+        },
+        {
+          "pergunta": "O 'Cântico das Criaturas' foi um famoso poema escrito por São Francisco. O que ele louvava nesse cântico?",
+          "opcoes": ["Apenas a Deus", "O Papa e a Igreja", "O Sol, a Lua, as estrelas e toda a criação", "As grandes catedrais da Europa"],
+          "respostaCorreta": "O Sol, a Lua, as estrelas e toda a criação",
+          "curiosidade": "Neste cântico, ele se refere aos elementos da natureza como 'Irmão Sol' e 'Irmã Lua', mostrando sua profunda conexão com a criação."
+        },
+        {
+          "pergunta": "Qual fenômeno místico São Francisco recebeu em seu corpo, tornando-se o primeiro santo a registrá-lo?",
+          "opcoes": ["Bilocação (estar em dois lugares ao mesmo tempo)", "Os estigmas (as chagas de Cristo)", "Levitação", "O dom das línguas"],
+          "respostaCorreta": "Os estigmas (as chagas de Cristo)",
+          "curiosidade": "Ele recebeu os estigmas no Monte Alverne, em 1224, dois anos antes de sua morte, como um sinal de sua união com o sofrimento de Cristo."
+        }
+      ]
     },
     {
-      "data": "06-13",
-      "pergunta": "Celebrado em 13 de Junho, Santo Antônio é popularmente conhecido por ajudar a encontrar:",
-      "opcoes": ["Empregos", "A paz interior", "Objetos perdidos e bons casamentos", "A cura para doenças"],
-      "respostaCorreta": "Objetos perdidos e bons casamentos",
-      "curiosidade": "Santo Antônio era um grande pregador e teólogo, mas sua fama de 'santo casamenteiro' se espalhou pelo mundo."
+      "nome": "Santa Clara de Assis",
+      "id": "santa-clara",
+      "perguntas": [
+        {
+          "pergunta": "Santa Clara foi a fundadora de qual ramo feminino da ordem franciscana?",
+          "opcoes": ["Carmelitas Descalças", "Irmãs Missionárias da Caridade", "Ordem de Santa Clara (Clarissas)", "Ursulinas"],
+          "respostaCorreta": "Ordem de Santa Clara (Clarissas)",
+          "curiosidade": "Inspirada por São Francisco, ela abandonou sua vida nobre para viver em pobreza e oração, fundando a ordem que hoje é conhecida como 'Clarissas'."
+        },
+        {
+          "pergunta": "Por um milagre, Santa Clara teria afastado invasores de seu convento usando o quê?",
+          "opcoes": ["Uma relíquia da Santa Cruz", "O Santíssimo Sacramento (a Hóstia consagrada)", "Um ramo de oliveira", "Apenas com suas orações em voz alta"],
+          "respostaCorreta": "O Santíssimo Sacramento (a Hóstia consagrada)",
+          "curiosidade": "Doente, ela pediu que levassem o ostensório com a Hóstia até a porta do convento, e os soldados sarracenos teriam recuado com medo."
+        },
+        {
+          "pergunta": "Santa Clara é considerada a padroeira de qual meio de comunicação?",
+          "opcoes": ["Do rádio", "Da internet", "Da televisão", "Do telefone"],
+          "respostaCorreta": "Da televisão",
+          "curiosidade": "A tradição conta que, por estar muito doente para ir à Missa de Natal, ela teve uma visão da celebração projetada na parede de seu quarto."
+        },
+        {
+          "pergunta": "Qual era a relação de Santa Clara com São Francisco de Assis?",
+          "opcoes": ["Eram irmãos de sangue", "Ela era sua discípula e grande amiga espiritual", "Eles nunca se conheceram pessoalmente", "Ela era sua prima"],
+          "respostaCorreta": "Ela era sua discípula e grande amiga espiritual",
+          "curiosidade": "A amizade e a comunhão de ideais entre Francisco e Clara foram fundamentais para o nascimento e a expansão do movimento franciscano."
+        },
+        {
+          "pergunta": "A 'Regra de Vida' escrita por Santa Clara para sua ordem foi a primeira a ser escrita por uma mulher para mulheres. Qual era seu princípio fundamental?",
+          "opcoes": ["O trabalho missionário em terras distantes", "O ensino em escolas e universidades", "O 'Privilégio da Pobreza', viver sem posses", "A clausura silenciosa e perpétua"],
+          "respostaCorreta": "O 'Privilégio da Pobreza', viver sem posses",
+          "curiosidade": "Ela lutou por toda a vida para que o Papa aprovasse sua Regra, que garantia que as irmãs pudessem viver radicalmente a pobreza, dependendo apenas da providência divina."
+        }
+      ]
     },
     {
-        "data": "12-25",
-        "pergunta": "No dia 25 de Dezembro, celebramos o nascimento de Jesus. Qual cidade é conhecida como o local de seu nascimento?",
-        "opcoes": ["Nazaré", "Jerusalém", "Belém", "Cafarnaum"],
-        "respostaCorreta": "Belém",
-        "curiosidade": "A palavra Belém, em hebraico, significa 'Casa do Pão', uma bela simbologia para o local onde nasceu Aquele que se tornaria o 'Pão da Vida'."
+      "nome": "Santo Antônio",
+      "id": "santo-antonio",
+      "perguntas": [
+        {
+          "pergunta": "Apesar de ser conhecido como Santo Antônio 'de Pádua', em qual cidade ele nasceu?",
+          "opcoes": ["Pádua, Itália", "Roma, Itália", "Fátima, Portugal", "Lisboa, Portugal"],
+          "respostaCorreta": "Lisboa, Portugal",
+          "curiosidade": "Seu nome de batismo era Fernando de Bulhões. Ele adotou o nome Antônio ao entrar para a ordem franciscana."
+        },
+        {
+          "pergunta": "Qual título a Igreja concedeu a Santo Antônio por sua incrível sabedoria e habilidade de pregação?",
+          "opcoes": ["Doutor da Igreja", "Apóstolo dos Gentios", "Patriarca de Veneza", "Defensor da Fé"],
+          "respostaCorreta": "Doutor da Igreja",
+          "curiosidade": "Ele era tão eloquente e profundo em suas pregações que foi chamado de 'Arca do Testamento' pelo Papa Gregório IX."
+        },
+        {
+          "pergunta": "Uma famosa história conta que, quando os hereges não quiseram ouvi-lo, Santo Antônio pregou para...",
+          "opcoes": ["As aves", "Os peixes", "As árvores", "As crianças"],
+          "respostaCorreta": "Os peixes",
+          "curiosidade": "Segundo a tradição, os peixes teriam colocado a cabeça para fora da água para escutar sua pregação na cidade de Rimini."
+        },
+        {
+          "pergunta": "Qual objeto litúrgico Santo Antônio costuma ser representado segurando em suas imagens?",
+          "opcoes": ["Um cajado de pastor", "Uma cruz", "O Menino Jesus em seus braços", "Uma harpa"],
+          "respostaCorreta": "O Menino Jesus em seus braços",
+          "curiosidade": "Isso se refere a uma visão que ele teria tido do Menino Jesus, simbolizando sua intimidade com Deus e seu amor pela humanidade de Cristo."
+        },
+        {
+          "pergunta": "Santo Antônio juntou-se aos franciscanos inspirado pelo testemunho de cinco frades que foram martirizados em qual país?",
+          "opcoes": ["Egito", "Turquia", "Terra Santa", "Marrocos"],
+          "respostaCorreta": "Marrocos",
+          "curiosidade": "Ao ver os corpos dos primeiros mártires franciscanos, ele sentiu um forte desejo de também dar a vida por Cristo e decidiu mudar de ordem religiosa."
+        }
+      ]
     }
   ]
 }
