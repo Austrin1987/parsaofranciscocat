@@ -1,0 +1,26 @@
+{
+  "titulo": "Quiz dos Santos",
+  "santos": [
+    {
+      "data": "10-04",
+      "pergunta": "No dia 4 de Outubro, celebramos São Francisco de Assis. Ele é o padroeiro de quê?",
+      "opcoes": ["Dos Músicos", "Dos Animais e da Ecologia", "Dos Pescadores", "Dos Médicos"],
+      "respostaCorreta": "Dos Animais e da Ecologia",
+      "curiosidade": "São Francisco via a natureza como um reflexo da beleza de Deus, chamando os animais e os elementos de 'irmãos' e 'irmãs'."
+    },
+    {
+      "data": "06-13",
+      "pergunta": "Celebrado em 13 de Junho, Santo Antônio é popularmente conhecido por ajudar a encontrar:",
+      "opcoes": ["Empregos", "A paz interior", "Objetos perdidos e bons casamentos", "A cura para doenças"],
+      "respostaCorreta": "Objetos perdidos e bons casamentos",
+      "curiosidade": "Santo Antônio era um grande pregador e teólogo, mas sua fama de 'santo casamenteiro' se espalhou pelo mundo."
+    },
+    {
+        "data": "12-25",
+        "pergunta": "No dia 25 de Dezembro, celebramos o nascimento de Jesus. Qual cidade é conhecida como o local de seu nascimento?",
+        "opcoes": ["Nazaré", "Jerusalém", "Belém", "Cafarnaum"],
+        "respostaCorreta": "Belém",
+        "curiosidade": "A palavra Belém, em hebraico, significa 'Casa do Pão', uma bela simbologia para o local onde nasceu Aquele que se tornaria o 'Pão da Vida'."
+    }
+  ]
+}
