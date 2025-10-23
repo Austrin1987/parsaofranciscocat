@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quem Disse Isso? - Paróquia São Francisco de Assis</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;600&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        .main{
+            margin-top: 120px;
+        }
+        .game-container { max-width: 800px; margin: 0 auto; padding: 1rem; }
+        .quote-card { background: var(--card-background ); padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow); text-align: center; }
+        #quote-text { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-style: italic; line-height: 1.4; color: #333; margin-bottom: 2.5rem; border-left: 4px solid var(--primary-color); padding-left: 1.5rem; text-align: left; }
+        .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .option-btn { background: transparent; border: 2px solid var(--secondary-color); color: var(--text-color); padding: 1rem; font-size: 1rem; border-radius: var(--border-radius); cursor: pointer; transition: var(--transition); }
+        .option-btn:hover:not(:disabled) { background: var(--accent-color); border-color: var(--primary-color); }
+        .option-btn.correct { background-color: #4CAF50; color: white; border-color: #4CAF50; }
+        .option-btn.wrong { background-color: #F44336; color: white; border-color: #F44336; }
+        .option-btn:disabled { cursor: default; }
+        #feedback-container { margin-top: 1.5rem; padding: 1rem; border-radius: var(--border-radius); display: none; }
+        #context-text { margin-top: 0.5rem; font-style: italic; }
+        .action-buttons { margin-top: 2rem; display: flex; justify-content: center; gap: 1rem; }
+        @media (max-width: 600px) { .options-grid { grid-template-columns: 1fr; } #quote-text { font-size: 1.5rem; } }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <!-- Header reutilizado com caminhos corrigidos -->
+        <div class="container"><div class="header-content">
+            <div class="logo"><h1>Paróquia São Francisco de Assis</h1><span class="tagline">Comunidade de Fé e Amor</span></div>
+            <nav class="nav" id="nav"><ul class="nav-list">
+                <li><a href="../../index.html" class="nav-link">Início</a></li>
+                <li><a href="../capelas-pastorais.html" class="nav-link">Capelas e Pastorais</a></li>
+                <li><a href="../jornal.html" class="nav-link">Jornal</a></li>
+                <li><a href="../jogos.html" class="nav-link">Voltar</a></li>
+            </ul></nav>
+            <button class="mobile-menu-btn" id="mobile-menu-btn"><span></span><span></span><span></span></button>
+        </div></div>
+    </header>
+
+    <main class="main">
+        <div class="game-container">
+            <div class="quote-card">
+                <div id="loading-state">
+                    <h2 class="section-title">Carregando Citação...</h2>
+                </div>
+
+                <div id="game-state" style="display: none;">
+                    <p id="quote-text"></p>
+                    <div id="options-container" class="options-grid"></div>
+                    
+                    <div id="feedback-container">
+                        <p id="context-text"></p>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button onclick="window.location.reload()" class="btn btn-primary">Nova Citação</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Paróquia São Francisco. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    <script src="../../js/citacoes.js"></script>
+</body>
+</html>
