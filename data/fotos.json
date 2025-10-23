@@ -35,7 +35,12 @@
       "subgalerias": [
         {
           "nome": "Igreja Principal",
-          "fotos": ["https://res.cloudinary.com/dexnu74dn/image/upload/v1761225700/igreja_externa_i5k1nw.jpg", "igreja_interna.jpg", "altar.jpg", "vitrais.jpg"]
+          "fotos": [
+            "https://res.cloudinary.com/dexnu74dn/image/upload/v1761225700/igreja_externa_i5k1nw.jpg", 
+            "igreja_interna.jpg", 
+            "altar.jpg", 
+            "vitrais.jpg"
+          ]
         },
         {
           "nome": "Salão Paroquial",
