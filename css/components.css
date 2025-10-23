@@ -778,3 +778,81 @@
     font-size: 1.2rem; /* Tamanho do ícone */
 }
 
+/* --- Componente Toast / Balão Flutuante --- */
+.jogos-toast {
+    position: fixed; /* Fica fixo na tela durante o scroll */
+    bottom: 20px;    /* 20px de distância do fundo */
+    right: 20px;     /* 20px de distância da direita */
+    width: 320px;
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-top: 4px solid var(--primary-color);
+    z-index: 2000; /* Garante que fique acima de outros conteúdos */
+    
+    /* Animação de entrada e saída */
+    transform: translateX(120%); /* Começa fora da tela */
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, visibility 0.5s;
+}
+
+.jogos-toast.show {
+    transform: translateX(0); /* Move para a posição final */
+    opacity: 1;
+    visibility: visible;
+}
+
+.toast-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.toast-header strong {
+    color: var(--primary-color);
+    font-family: var(--font-alt);
+}
+
+.toast-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: #aaa;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.toast-close:hover {
+    color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+.toast-body {
+    padding: 1rem;
+    text-align: center;
+}
+
+.toast-body p {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+/* Estilo para um botão menor */
+.btn-sm {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+}
+
+/* Ajuste para telas pequenas */
+@media (max-width: 480px) {
+    .jogos-toast {
+        width: auto; /* Ocupa a largura disponível com margens */
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+    }
+}
