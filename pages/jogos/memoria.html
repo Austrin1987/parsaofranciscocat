@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Memória - Paróquia São Francisco de Assis</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;600&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        .main{
+            margin-top: 120px;
+        }
+        .memory-container { max-width: 900px; margin: 0 auto; padding: 1rem; }
+        .game-header { text-align: center; margin-bottom: 1rem; }
+        .game-stats { display: flex; justify-content: space-around; font-size: 1.2rem; font-weight: 600; background: var(--accent-color ); padding: 0.8rem; border-radius: var(--border-radius); color: var(--primary-color); }
+        .memory-grid { display: grid; gap: 1rem; margin-top: 1.5rem; perspective: 1000px; }
+        .card-memoria { width: 100%; height: 140px; position: relative; transform-style: preserve-3d; transition: transform 0.6s; cursor: pointer; }
+        .card-memoria.flipped { transform: rotateY(180deg); }
+        .card-memoria.matched { transform: rotateY(180deg); opacity: 0.5; cursor: default; }
+        .card-face { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; display: flex; align-items: center; justify-content: center; border-radius: var(--border-radius); box-shadow: var(--shadow); }
+        .card-front { background: var(--secondary-color); background-image: url('../../images/icons/logo-icon.png'); background-size: 50%; background-repeat: no-repeat; background-position: center; }
+        .card-back { background: var(--card-background); transform: rotateY(180deg); }
+        .card-back img { max-width: 80%; max-height: 80%; object-fit: contain; }
+        #level-selection, #end-screen { text-align: center; padding: 2rem; }
+        .level-buttons { display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; }
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <!-- Header reutilizado com caminhos corrigidos -->
+        <div class="container"><div class="header-content">
+            <div class="logo"><h1>Paróquia São Francisco de Assis</h1><span class="tagline">Comunidade de Fé e Amor</span></div>
+            <nav class="nav" id="nav"><ul class="nav-list">
+                <li><a href="../../index.html" class="nav-link">Início</a></li>
+                <li><a href="../capelas-pastorais.html" class="nav-link">Capelas e Pastorais</a></li>
+                <li><a href="../jornal.html" class="nav-link">Jornal</a></li>
+                <li><a href="../jogos.html" class="nav-link">Voltar</a></li>
+            </ul></nav>
+            <button class="mobile-menu-btn" id="mobile-menu-btn"><span></span><span></span><span></span></button>
+        </div></div>
+    </header>
+
+    <main class="main">
+        <div class="memory-container">
+            <!-- Tela 1: Seleção de Nível -->
+            <div id="level-selection">
+                <h2 class="section-title">Jogo da Memória</h2>
+                <p class="section-subtitle">Escolha um nível de dificuldade para começar.</p>
+                <div id="level-buttons" class="level-buttons">
+                    <!-- Botões de nível serão inseridos pelo JS -->
+                </div>
+            </div>
+
+            <!-- Tela 2: Jogo -->
+            <div id="game-screen" style="display: none;">
+                <div class="game-header">
+                    <div class="game-stats">
+                        <div id="timer">Tempo: 00:00</div>
+                        <div id="moves">Movimentos: 0</div>
+                    </div>
+                </div>
+                <div id="memory-grid" class="memory-grid">
+                    <!-- Cartas serão inseridas pelo JS -->
+                </div>
+            </div>
+
+            <!-- Tela 3: Fim de Jogo -->
+            <div id="end-screen" style="display: none;">
+                <h2 class="section-title">Parabéns!</h2>
+                <p class="section-subtitle" id="final-stats"></p>
+                <div class="hero-buttons" style="margin-top: 2rem;">
+                    <button id="play-again-btn" class="btn btn-primary">Jogar Novamente</button>
+                    <button id="share-btn" class="btn btn-outline">Compartilhar Resultado</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Paróquia São Francisco. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="../../js/memoria.js"></script>
+</body>
+</html>
