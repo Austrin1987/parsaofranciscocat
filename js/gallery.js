@@ -90,9 +90,11 @@ class GalleryManager {
                 <div class="subgaleria" data-subgaleria="${subIndex}">
                     <h4>${sub.nome}</h4>
                     <div class="image-grid">
-                        ${sub.fotos.map((foto, fotoIndex) => `
+                        ${sub.fotos.map((foto, fotoIndex) => {
+                            const imgSrc = foto.startsWith('http' ) ? foto : secao.pasta + foto;
+                            return`
                             <div class="image-item" data-image-index="${fotoIndex}" data-subgaleria="${subIndex}">
-                                <img src="${secao.pasta}${foto}" alt="${sub.nome}" 
+                                <img src="${imgSrc}" alt="${sub.nome}" 
                                      onerror="this.src='images/galeria/placeholder.jpg'"
                                      loading="lazy">
                                 <div class="image-overlay">
@@ -102,7 +104,7 @@ class GalleryManager {
                                     </div>
                                 </div>
                             </div>
-                        `).join('')}
+                        `}).join('')}
                     </div>
                 </div>
             `).join('');
@@ -149,8 +151,12 @@ class GalleryManager {
         if (!secao || !secao.subgalerias[subgaleriaIndex]) return;
         
         const subgaleria = secao.subgalerias[subgaleriaIndex];
+        const fotoPath = subgaleria.fotos[imageIndex];
+
+        const imgSrc = fotoPath.startsWith('http' ) ? fotoPath : secao.pasta + fotoPath;
+
         this.currentImages = [{
-            src: secao.pasta + subgaleria.fotos[imageIndex],
+            src: imgSrc,
             alt: subgaleria.nome,
             caption: `${subgaleria.nome} - ${secao.nome}`
         }];
