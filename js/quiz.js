@@ -1,162 +1,275 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Elementos da UI
-    const startScreen = document.getElementById('quiz-start-screen');
-    const gameScreen = document.getElementById('quiz-game-screen');
-    const endScreen = document.getElementById('quiz-end-screen');
+    // Telas
+    const selectionScreen = document.getElementById('selection-screen');
+    const loadingScreen = document.getElementById('loading-screen');
+    const gameScreen = document.getElementById('game-screen');
+    const endScreen = document.getElementById('end-screen');
 
+    // Botões de Seleção
+    const themeButtons = document.querySelectorAll('#theme-buttons .btn-selection');
+    const subThemeGroup = document.getElementById('sub-theme-group');
+    const subThemeButtonsContainer = document.getElementById('sub-theme-buttons');
+    const difficultyStepLabel = document.getElementById('difficulty-step-label');
+    const difficultyButtons = document.querySelectorAll('#difficulty-buttons .btn-selection');
     const startBtn = document.getElementById('start-quiz-btn');
-    const nextBtn = document.getElementById('next-question-btn');
-    
-    const quizTitleEl = document.querySelector('#quiz-start-screen .quiz-title');
-    const quizDescriptionEl = document.querySelector('#quiz-start-screen .quiz-description');
-    
+
+    // Elementos do Jogo
+    const questionCounterEl = document.getElementById('question-counter');
     const questionTextEl = document.getElementById('question-text');
     const optionsContainerEl = document.getElementById('options-container');
     const feedbackContainerEl = document.getElementById('feedback-container');
-    const feedbackTextEl = document.getElementById('feedback-text');
     const curiosityTextEl = document.getElementById('curiosity-text');
-    const scoreTextEl = document.getElementById('score-text');
+    const nextBtn = document.getElementById('next-question-btn');
 
-    // Variáveis do jogo
+    // Elementos da Tela Final
+    const scoreTextEl = document.getElementById('score-text');
+    const restartBtn = document.getElementById('restart-btn');
+    const shareBtn = document.getElementById('share-btn');
+
+    // Estado do Jogo
+    let selectedTheme = null;
+    let selectedSubTheme = null;
+    let selectedDifficulty = null;
     let allQuestions = [];
+    let currentQuestions = [];
     let currentQuestionIndex = 0;
     let score = 0;
 
-    // Função principal para iniciar o quiz
-    async function initializeQuiz() {
-        const quizType = Math.floor(Math.random() * 3); // 0, 1, ou 2
-        let quizData;
+    // --- LÓGICA DA TELA DE SELEÇÃO ---
+
+    function initQuiz() { // ADICIONADO: Função para organizar o início
+        // MOVIDO: Adiciona os listeners dos botões aqui dentro
+        themeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                resetSubsequentSelections();
+                selectedTheme = button.dataset.theme;
+                updateSelection(themeButtons, button);
+                handleThemeSelection();
+            });
+        });
+
+        difficultyButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                selectedDifficulty = parseInt(button.dataset.difficulty);
+                updateSelection(difficultyButtons, button);
+            });
+        });
+
+        startBtn.addEventListener('click', loadAndStartGame); // Renomeado para clareza
+        nextBtn.addEventListener('click', handleNextQuestion); // Renomeado para clareza
+        restartBtn.addEventListener('click', handleRestart); // Renomeado para clareza
+        shareBtn.addEventListener('click', handleShare); // Renomeado para clareza
+    }
+
+
+    function resetSubsequentSelections() {
+        selectedSubTheme = null;
+        subThemeGroup.style.display = 'none';
+        subThemeButtonsContainer.innerHTML = '';
+        difficultyStepLabel.textContent = '2. Escolha a Dificuldade:';
+        startBtn.disabled = true;
+    }
+
+    function updateSelection(buttonGroup, selectedButton) {
+        const buttons = Array.from(buttonGroup);
+        buttons.forEach(btn => btn.classList.remove('selected'));
+        
+        selectedButton.classList.add('selected');
+        checkIfReadyToStart();
+    }
+
+    async function handleThemeSelection() {
+        subThemeButtonsContainer.innerHTML = '';
+        if (selectedTheme === 'santos' || selectedTheme === 'diario') {
+            difficultyStepLabel.textContent = '3. Escolha a Dificuldade:';
+            const filePath = selectedTheme === 'santos' ? '../../data/quiz_santos.json' : '../../data/quiz_diario.json';
+            const dataKey = selectedTheme === 'santos' ? 'santos' : 'temas';
+            
+            try {
+                const response = await fetch(filePath);
+                const data = await response.json();
+                
+                data[dataKey].forEach(item => {
+                    const subThemeButton = document.createElement('button');
+                    subThemeButton.className = 'btn-selection';
+                    subThemeButton.dataset.subTheme = item.id;
+                    subThemeButton.textContent = item.nome;
+                    subThemeButton.addEventListener('click', () => {
+                        selectedSubTheme = item.id;
+                        updateSelection(subThemeButtonsContainer.childNodes, subThemeButton);
+                    });
+                    subThemeButtonsContainer.appendChild(subThemeButton);
+                });
+                
+                subThemeGroup.style.display = 'block';
+
+            } catch (error) {
+                console.error("Erro ao carregar sub-temas:", error);
+            }
+        } else {
+            // Se for 'paroquia', não há sub-tema
+            checkIfReadyToStart();
+        }
+    }
+
+    function checkIfReadyToStart() {
+        const isReady = (selectedTheme === 'paroquia' && selectedDifficulty) || 
+                        (selectedTheme !== 'paroquia' && selectedSubTheme && selectedDifficulty);
+        startBtn.disabled = !isReady;
+    }
+
+    startBtn.addEventListener('click', async () => {
+        selectionScreen.style.display = 'none';
+        loadingScreen.style.display = 'block';
+
+        const themeFileMap = {
+            'paroquia': '../../data/quiz_paroquia.json',
+            'santos': '../../data/quiz_santos.json',
+            'diario': '../../data/quiz_diario.json'
+        };
 
         try {
-            if (quizType === 0) { // Quiz da Paróquia
-                quizData = await loadQuizData('../../data/quiz_paroquia.json');
-                allQuestions = shuffleArray(quizData.perguntas);
-            } else if (quizType === 1) { // Quiz do Santo do Dia (ou aleatório se não achar)
-                quizData = await loadQuizData('../../data/quiz_santos.json');
-                const today = new Date();
-                const formattedDate = `${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
-                const santoDoDia = quizData.santos.find(s => s.data === formattedDate);
-                
-                if (santoDoDia) {
-                    allQuestions = [santoDoDia];
-                } else {
-                    // Se não houver santo para o dia, pega um aleatório
-                    allQuestions = [quizData.santos[Math.floor(Math.random() * quizData.santos.length)]];
-                }
-            } else { // Quiz Diário (conhecimentos gerais)
-                quizData = await loadQuizData('../../data/quiz_diario.json');
-                allQuestions = shuffleArray(quizData.perguntas);
+            const response = await fetch(themeFileMap[selectedTheme]);
+            const data = await response.json();
+            
+            if (selectedTheme === 'paroquia') {
+                allQuestions = data.perguntas;
+            } else {
+                const dataKey = selectedTheme === 'santos' ? 'santos' : 'temas';
+                const selectedGroup = data[dataKey].find(item => item.id === selectedSubTheme);
+                allQuestions = selectedGroup.perguntas;
             }
 
-            // Atualiza a tela inicial com o título do quiz carregado
-            quizTitleEl.textContent = quizData.titulo;
-            quizDescriptionEl.textContent = "Teste seus conhecimentos e aprenda mais sobre nossa fé!";
+            if (allQuestions.length < selectedDifficulty) {
+                throw new Error(`Não há perguntas suficientes (${allQuestions.length}) para a dificuldade selecionada. Por favor, escolha uma dificuldade menor.`);
+            }
+
+            shuffleArray(allQuestions);
+            currentQuestions = allQuestions.slice(0, selectedDifficulty);
             
+            setTimeout(startGame, 500); // Pequeno delay para a tela de loading ser visível
+
         } catch (error) {
-            quizTitleEl.textContent = "Erro!";
-            quizDescriptionEl.textContent = "Não foi possível carregar o quiz. Tente novamente mais tarde.";
-            startBtn.disabled = true;
-            console.error("Erro ao carregar dados do quiz:", error);
+            console.error("Erro ao carregar o quiz:", error);
+            loadingScreen.innerHTML = `<h2 class="quiz-title">Erro!</h2><p>${error.message}</p>`;
         }
-    }
+    });
 
-    // Carrega o arquivo JSON
-    async function loadQuizData(url) {
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return await response.json();
-    }
+    // --- LÓGICA DO JOGO ---
 
-    // Embaralha as perguntas
-    function shuffleArray(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-        return array;
-    }
-
-    // Inicia o jogo
-    startBtn.addEventListener('click', () => {
-        startScreen.style.display = 'none';
+    function startGame() {
+        loadingScreen.style.display = 'none';
         gameScreen.style.display = 'block';
         currentQuestionIndex = 0;
         score = 0;
         showQuestion();
-    });
+    }
 
-    // Mostra a pergunta atual
     function showQuestion() {
         resetState();
-        const question = allQuestions[currentQuestionIndex];
+        const question = currentQuestions[currentQuestionIndex];
+        questionCounterEl.textContent = `Pergunta ${currentQuestionIndex + 1} de ${currentQuestions.length}`;
         questionTextEl.textContent = question.pergunta;
 
-        shuffleArray(question.opcoes).forEach(option => {
+        const options = shuffleArray([...question.opcoes]);
+        options.forEach(option => {
             const button = document.createElement('button');
             button.textContent = option;
             button.classList.add('option-btn');
-            button.addEventListener('click', () => selectAnswer(button, option, question.respostaCorreta, question.curiosidade));
+            button.addEventListener('click', () => selectAnswer(button, option, question.respostaCorreta, question.curiosidade || question.contexto));
             optionsContainerEl.appendChild(button);
         });
     }
-
-    // Reseta o estado entre as perguntas
+    
     function resetState() {
         optionsContainerEl.innerHTML = '';
         feedbackContainerEl.style.display = 'none';
-        nextBtn.style.display = 'none';
     }
 
-    // Processa a resposta selecionada
     function selectAnswer(button, selectedOption, correctAnswer, curiosity) {
-        // Desabilita todos os botões
         Array.from(optionsContainerEl.children).forEach(btn => {
             btn.disabled = true;
-            // Mostra a resposta correta
-            if (btn.textContent === correctAnswer) {
-                btn.classList.add('correct');
-            }
+            if (btn.textContent === correctAnswer) btn.classList.add('correct');
         });
 
-        // Verifica se a resposta está correta
         if (selectedOption === correctAnswer) {
             score++;
             button.classList.add('correct');
-            feedbackTextEl.textContent = "Resposta Correta!";
         } else {
             button.classList.add('wrong');
-            feedbackTextEl.textContent = "Resposta Incorreta!";
         }
 
         curiosityTextEl.textContent = `Curiosidade: ${curiosity}`;
         feedbackContainerEl.style.display = 'block';
         
-        // Mostra o botão de próxima pergunta ou de finalizar
-        if (allQuestions.length > currentQuestionIndex + 1) {
-            nextBtn.style.display = 'inline-block';
+        if (currentQuestions.length > currentQuestionIndex + 1) {
+            nextBtn.textContent = 'Próxima Pergunta';
         } else {
             nextBtn.textContent = 'Finalizar Quiz';
-            nextBtn.style.display = 'inline-block';
         }
     }
 
-    // Evento do botão "Próxima Pergunta"
     nextBtn.addEventListener('click', () => {
         currentQuestionIndex++;
-        if (currentQuestionIndex < allQuestions.length) {
+        if (currentQuestionIndex < currentQuestions.length) {
             showQuestion();
         } else {
             showEndScreen();
         }
     });
 
-    // Mostra a tela final
+    // --- LÓGICA DA TELA FINAL ---
+
     function showEndScreen() {
         gameScreen.style.display = 'none';
         endScreen.style.display = 'block';
-        scoreTextEl.textContent = `Você acertou ${score} de ${allQuestions.length} perguntas!`;
+        scoreTextEl.textContent = `Você acertou ${score} de ${currentQuestions.length} perguntas! (${Math.round((score / currentQuestions.length) * 100)}%)`;
+    }
+
+    restartBtn.addEventListener('click', () => {
+        // Reseta o estado para a seleção
+        endScreen.style.display = 'none';
+        selectionScreen.style.display = 'block';
+        startBtn.disabled = true;
+        selectedTheme = null;
+        selectedDifficulty = null;
+        themeButtons.forEach(btn => btn.classList.remove('selected'));
+        difficultyButtons.forEach(btn => btn.classList.remove('selected'));
+    });
+
+    shareBtn.addEventListener('click', () => {
+        const themeName = selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        let subjectName = '';
+        if (selectedSubTheme) {
+            const subThemeEl = document.querySelector(`[data-sub-theme="${selectedSubTheme}"]`);
+            subjectName = ` sobre ${subThemeEl.textContent}`;
+        }
+        
+        const textToShare = `Fiz ${score} de ${currentQuestions.length} pontos no quiz de ${themeName}${subjectName} da Paróquia São Francisco! Tente você também!`;
+        const shareData = {
+            title: 'Resultado do Quiz Paroquial',
+            text: textToShare,
+            url: window.location.href,
+        };
+        try {
+            if (navigator.share) {
+                navigator.share(shareData);
+            } else {
+                navigator.clipboard.writeText(textToShare + `\nJogue em: ${window.location.href}`);
+                alert('Resultado copiado para a área de transferência!');
+            }
+        } catch (error) {
+            console.error('Erro ao compartilhar:', error);
+        }
+    });
+
+    // Função utilitária para embaralhar
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
     }
 
     function initMobileMenu() {
@@ -195,7 +308,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Inicia tudo
-    initializeQuiz();
+    initQuiz();
     initMobileMenu();
 });
