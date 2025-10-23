@@ -491,14 +491,16 @@ function showGaleriaSecao(key, secao) {
             <div class="subgaleria">
                 <h4>${sub.nome}</h4>
                 <div class="image-grid">
-                    ${sub.fotos.map(foto => `
+                    ${sub.fotos.map(foto => {
+                        const imgSrc = foto.startsWith('http' ) ? foto : secao.pasta + foto;
+                        return`
                         <div class="image-item">
-                            <img src="${foto.startsWith('http' ) ? foto : secao.pasta + foto}" alt="${sub.nome}" onerror="this.src='images/galeria/placeholder.jpg'">
+                            <img src="${imgSrc}" alt="${sub.nome}" onerror="this.src='images/galeria/placeholder.jpg'">
                             <div class="image-overlay">
                                 <span>Ver imagem</span>
                             </div>
                         </div>
-                    `).join('')}
+                    `}).join('')}
                 </div>
             </div>
         `).join('');
