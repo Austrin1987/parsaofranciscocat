@@ -29,7 +29,7 @@
     "estrutura": {
       "nome": "Nossa Estrutura",
       "descricao": "Fotos da igreja, salões e espaços da paróquia",
-      "thumbnail": "images/galeria/estrutura_thumb.jpg",
+      "thumbnail": "https://res.cloudinary.com/dexnu74dn/image/upload/v1761225700/igreja_externa_i5k1nw.jpg",
       "pasta": "images/galeria/estrutura/",
       "total_fotos": 12,
       "subgalerias": [
