@@ -1,0 +1,35 @@
+{
+  "titulo": "Quem Disse Isso?",
+  "citacoes": [
+    {
+      "frase": "'Comece fazendo o que é necessário, depois o que é possível, e de repente você estará fazendo o impossível.'",
+      "opcoes": ["Santo Agostinho", "Papa Francisco", "São Francisco de Assis", "Santa Teresinha"],
+      "respostaCorreta": "São Francisco de Assis",
+      "contexto": "Esta famosa citação é atribuída a São Francisco e reflete sua filosofia de dar pequenos passos de fé que, com a graça de Deus, levam a grandes realizações."
+    },
+    {
+      "frase": "'Eu sou o caminho, a verdade e a vida. Ninguém vem ao Pai, a não ser por mim.'",
+      "opcoes": ["João Batista", "Jesus Cristo", "Apóstolo Paulo", "Moisés"],
+      "respostaCorreta": "Jesus Cristo",
+      "contexto": "Esta é uma das declarações mais importantes de Jesus, encontrada no Evangelho de João 14:6, afirmando sua divindade e papel central na salvação."
+    },
+    {
+      "frase": "'Rezem como se tudo dependesse de Deus. Trabalhem como se tudo dependesse de vocês.'",
+      "opcoes": ["Santo Inácio de Loyola", "Santo Agostinho", "São Bento", "São Tomás de Aquino"],
+      "respostaCorreta": "Santo Agostinho",
+      "contexto": "Este ensinamento de Santo Agostinho equilibra perfeitamente a fé e a ação, mostrando que a oração e o esforço humano caminham juntos."
+    },
+    {
+      "frase": "'A medida do amor é amar sem medida.'",
+      "opcoes": ["Santa Clara de Assis", "Madre Teresa de Calcutá", "São João da Cruz", "Santo Agostinho"],
+      "respostaCorreta": "Santo Agostinho",
+      "contexto": "Uma profunda reflexão de Santo Agostinho sobre a natureza infinita do amor de Deus, que deve inspirar nosso próprio modo de amar."
+    },
+    {
+        "frase": "'Não te perturbes por nada, não te espantes por nada. Tudo passa, Deus não muda.'",
+        "opcoes": ["Santa Teresa d'Ávila", "São João Paulo II", "Santa Faustina", "São Pio de Pietrelcina"],
+        "respostaCorreta": "Santa Teresa d'Ávila",
+        "contexto": "Este é o início do famoso poema de Santa Teresa, um poderoso lembrete de que a presença constante de Deus é a nossa verdadeira segurança em meio às mudanças da vida."
+    }
+  ]
+}
