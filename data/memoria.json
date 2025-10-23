@@ -24,12 +24,12 @@
     { "id": "sao-francisco", "imagem": "https://res.cloudinary.com/dexnu74dn/image/upload/v1761231128/sao_francisco_hjhudj.jpg", "nome": "São Francisco" },
     { "id": "santa-clara", "imagem": "https://res.cloudinary.com/dexnu74dn/image/upload/v1761231275/santa_clara_glcnr0.jpg", "nome": "Santa Clara" },
     { "id": "biblia", "imagem": "https://res.cloudinary.com/dexnu74dn/image/upload/v1761231346/biblia_fsullh.jpg", "nome": "Bíblia" },
-    { "id": "calice", "imagem": "../../images/jogos/memoria/calice.png", "nome": "Cálice" },
-    { "id": "igreja-matriz", "imagem": "../../images/jogos/memoria/igreja-matriz.png", "nome": "Igreja Matriz" },
-    { "id": "vela", "imagem": "../../images/jogos/memoria/vela.png", "nome": "Vela" },
-    { "id": "terco", "imagem": "../../images/jogos/memoria/terco.png", "nome": "Terço" },
-    { "id": "cruz", "imagem": "../../images/jogos/memoria/cruz.png", "nome": "Cruz" },
-    { "id": "sino", "imagem": "../../images/jogos/memoria/sino.png", "nome": "Sino" },
-    { "id": "anjo", "imagem": "../../images/jogos/memoria/anjo.png", "nome": "Anjo" }
+    { "id": "calice", "imagem": "https://res.cloudinary.com/dexnu74dn/image/upload/v1761237725/calice_kqc04n.jpg", "nome": "Cálice" },
+    { "id": "igreja-matriz", "imagem": "https://res.cloudinary.com/dexnu74dn/image/upload/v1761225700/igreja_externa_i5k1nw.jpg", "nome": "Igreja Matriz" },
+    { "id": "vela", "imagem": "https://res.cloudinary.com/dexnu74dn/image/upload/v1761237725/vela_n2f74n.avif", "nome": "Vela" },
+    { "id": "terco", "imagem": "https://res.cloudinary.com/dexnu74dn/image/upload/v1761237725/terco_qlzhfs.jpg" },
+    { "id": "cruz", "imagem": "https://res.cloudinary.com/dexnu74dn/image/upload/v1761237725/cruz_vtgibr.avif", "nome": "Cruz" },
+    { "id": "sino", "imagem": "https://res.cloudinary.com/dexnu74dn/image/upload/v1761237725/sino_mltnx5.jpg", "nome": "Sino" },
+    { "id": "anjo", "imagem": "https://res.cloudinary.com/dexnu74dn/image/upload/v1761237725/anjo_xpe5ns.jpg", "nome": "Anjo" }
   ]
 }
