@@ -1,23 +1,77 @@
 {
-  "titulo": "Quiz do Diário",
-  "perguntas": [
+  "titulo": "Quiz de Conhecimentos Gerais",
+  "temas": [
     {
-      "pergunta": "Quantos livros compõem o Novo Testamento na Bíblia Católica?",
-      "opcoes": ["27", "39", "66", "73"],
-      "respostaCorreta": "27",
-      "curiosidade": "O Novo Testamento inclui os Evangelhos, os Atos dos Apóstolos, as Epístolas (cartas) e o Apocalipse."
+      "nome": "Liturgia",
+      "id": "liturgia",
+      "perguntas": [
+        {
+          "pergunta": "Qual é a cor litúrgica usada nas celebrações de Pentecostes e em festas de mártires?",
+          "opcoes": ["Branco", "Dourado", "Roxo", "Vermelho"],
+          "respostaCorreta": "Vermelho",
+          "curiosidade": "O vermelho simboliza o fogo do Espírito Santo e o sangue derramado pelos mártires por amor a Cristo."
+        },
+        {
+          "pergunta": "O que significa a palavra 'Amém' no final das orações?",
+          "opcoes": ["Por favor", "Assim seja", "Obrigado", "Para sempre"],
+          "respostaCorreta": "Assim seja",
+          "curiosidade": "É uma palavra hebraica que expressa concordância, confirmação e fé naquilo que foi dito."
+        },
+        {
+          "pergunta": "Qual dos tempos litúrgicos da Igreja é conhecido como 'Tempo Comum'?",
+          "opcoes": ["O período entre o Natal e a Quaresma, e após Pentecostes", "Apenas o mês de agosto", "Os 40 dias antes da Páscoa", "As 4 semanas antes do Natal"],
+          "respostaCorreta": "O período entre o Natal e a Quaresma, e após Pentecostes",
+          "curiosidade": "A cor deste tempo é o verde, que simboliza a esperança e o crescimento da vida da Igreja no dia a dia."
+        },
+        {
+          "pergunta": "Como se chama o livro que contém as leituras da missa?",
+          "opcoes": ["Missal", "Bíblia", "Catecismo", "Lecionário"],
+          "respostaCorreta": "Lecionário",
+          "curiosidade": "O Missal contém as orações da missa, enquanto o Lecionário contém especificamente os trechos da Bíblia a serem lidos."
+        },
+        {
+          "pergunta": "O que é a 'transubstanciação' na doutrina católica?",
+          "opcoes": ["A transformação da água em vinho", "A mudança completa da substância do pão e do vinho na substância do Corpo e Sangue de Cristo", "A leitura de três passagens da Bíblia", "O ato de benzer os fiéis com água benta"],
+          "respostaCorreta": "A mudança completa da substância do pão e do vinho na substância do Corpo e Sangue de Cristo",
+          "curiosidade": "Este é um dos mistérios centrais da fé católica, que acontece durante a Consagração na Missa."
+        }
+      ]
     },
     {
-      "pergunta": "Qual é a cor litúrgica usada no tempo do Advento e da Quaresma?",
-      "opcoes": ["Branco", "Vermelho", "Verde", "Roxo"],
-      "respostaCorreta": "Roxo",
-      "curiosidade": "O roxo simboliza a penitência, a preparação e a conversão, convidando os fiéis à reflexão."
-    },
-    {
-      "pergunta": "O que significa a palavra 'Evangelho'?",
-      "opcoes": ["Boa Nova", "Lei de Deus", "Palavra Antiga", "Profecia"],
-      "respostaCorreta": "Boa Nova",
-      "curiosidade": "O Evangelho é a 'Boa Nova' da salvação trazida por Jesus Cristo, narrada por Mateus, Marcos, Lucas e João."
+      "nome": "Cristologia (Vida de Cristo)",
+      "id": "cristologia",
+      "perguntas": [
+        {
+          "pergunta": "Qual foi o primeiro milagre de Jesus registrado no Evangelho de João?",
+          "opcoes": ["A multiplicação dos pães", "A cura de um cego", "A transformação da água em vinho nas bodas de Caná", "Andar sobre as águas"],
+          "respostaCorreta": "A transformação da água em vinho nas bodas de Caná",
+          "curiosidade": "Este milagre foi realizado a pedido de sua mãe, Maria, e marcou o início dos 'sinais' que revelavam sua glória."
+        },
+        {
+          "pergunta": "Quantos eram os apóstolos que Jesus escolheu para segui-lo mais de perto?",
+          "opcoes": ["10", "7", "12", "13"],
+          "respostaCorreta": "12",
+          "curiosidade": "O número 12 é simbólico, representando as doze tribos de Israel e o novo Povo de Deus que Jesus veio fundar."
+        },
+        {
+          "pergunta": "Qual apóstolo traiu Jesus com um beijo?",
+          "opcoes": ["Pedro", "Judas Iscariotes", "Tomé", "João"],
+          "respostaCorreta": "Judas Iscariotes",
+          "curiosidade": "A traição por 30 moedas de prata cumpriu profecias do Antigo Testamento e foi um elemento crucial nos eventos da Paixão."
+        },
+        {
+          "pergunta": "O que Jesus ensinou na parábola do 'Bom Samaritano'?",
+          "opcoes": ["A importância de guardar dinheiro", "Que devemos amar nosso próximo como a nós mesmos, sem distinção", "Como construir uma casa na rocha", "Sobre o fim dos tempos"],
+          "respostaCorreta": "Que devemos amar nosso próximo como a nós mesmos, sem distinção",
+          "curiosidade": "A parábola chocou os ouvintes da época, pois samaritanos e judeus eram povos inimigos, mostrando que o amor não deve ter fronteiras."
+        },
+        {
+          "pergunta": "Para qual apóstolo Jesus disse: 'Tu és Pedro, e sobre esta pedra edificarei a minha Igreja'?",
+          "opcoes": ["André", "Tiago", "Simão Pedro", "João"],
+          "respostaCorreta": "Simão Pedro",
+          "curiosidade": "Este momento é considerado pela Igreja Católica como a fundação do Papado, com Pedro sendo o primeiro Papa."
+        }
+      ]
     }
   ]
 }
