@@ -493,7 +493,7 @@ function showGaleriaSecao(key, secao) {
                 <div class="image-grid">
                     ${sub.fotos.map(foto => `
                         <div class="image-item">
-                            <img src="${secao.pasta}${foto}" alt="${sub.nome}" onerror="this.src='images/galeria/placeholder.jpg'">
+                            <img src="${foto.startsWith('http' ) ? foto : secao.pasta + foto}" alt="${sub.nome}" onerror="this.src='images/galeria/placeholder.jpg'">
                             <div class="image-overlay">
                                 <span>Ver imagem</span>
                             </div>
