@@ -260,7 +260,7 @@ function createTimelineControls() {
                 </select>
                 
                 <div class="search-box">
-                    <input type="text" id="timeline-search" placeholder="Buscar na história..." onkeyup="searchTimeline(this.value)">
+                    <input class="search-input" type="text" id="timeline-search" placeholder="Buscar na história..." onkeyup="searchTimeline(this.value)">
                     <button class="search-button" onclick="searchTimeline(document.getElementById('timeline-search').value)">
                         🔍
                     </button>
