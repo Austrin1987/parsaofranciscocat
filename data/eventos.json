@@ -10,8 +10,10 @@
           "horario": "19:00",
           "local": "Praça em Frente a Igreja",
           "descricao": "Festa do Nosso Padroerio São Francisco de Assis",
-          "fotos": ["imagens/galeria/placeholder.jpg", "imagens/galeria/placeholder.jpg", "imagens/galeria/placeholder.jpg"],
-          "videos": ["quadrilha_2022.mp4"],
+          "videos": [
+            "https://player.cloudinary.com/embed/?cloud_name=dexnu74dn&public_id=WhatsApp_Video_2025-10-23_at_21.43.47_bov0sh&profile=cld-default",
+            "https://player.cloudinary.com/embed/?cloud_name=dexnu74dn&public_id=WhatsApp_Video_2025-10-23_at_21.39.29_ysvdqq&profile=cld-default"
+          ],
           "organizador": "Pastoral Familiar"
         }
       ],
