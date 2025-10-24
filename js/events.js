@@ -235,14 +235,18 @@ class EventsManager {
             <div class="evento-fotos">
                 <h4>Fotos do Evento</h4>
                 <div class="image-grid">
-                    ${evento.fotos.map(foto => `
-                        <div class="image-item" onclick="openImageModal('images/eventos/${foto}')">
-                            <img src="images/eventos/${foto}" alt="${evento.titulo}" onerror="this.style.display='none'">
+                    ${evento.fotos.map(foto => {
+                        
+                        const imgSrc = foto.startsWith('http' ) ? foto : `images/eventos/${foto}`;
+                    
+                        return`
+                        <div class="image-item" onclick="openImageModal('${imgSrc}')">
+                            <img src="${imgSrc}" alt="${evento.titulo}" onerror="this.style.display='none'">
                             <div class="image-overlay">
                                 <span>Ver imagem</span>
                             </div>
                         </div>
-                    `).join('')}
+                    `}).join('')}
                 </div>
             </div>
         ` : '';
@@ -251,14 +255,16 @@ class EventsManager {
             <div class="evento-videos">
                 <h4>Vídeos do Evento</h4>
                 <div class="videos-grid">
-                    ${evento.videos.map(video => `
+                    ${evento.videos.map(video => {
+                    const videoSrc = video.startsWith('http' ) ? video : `images/eventos/${video}`;
+                    return`
                         <div class="video-item">
                             <video controls>
-                                <source src="images/eventos/${video}" type="video/mp4">
+                                <source src="${videoSrc}" type="video/mp4">
                                 Seu navegador não suporta vídeos.
                             </video>
                         </div>
-                    `).join('')}
+                    `}).join('')}
                 </div>
             </div>
         ` : '';
@@ -292,8 +298,29 @@ class EventsManager {
                 ${videosHTML}
             </div>
         `;
+
+        this.bindImageClickEvents(modalContent);
         
         openModal('evento-modal');
+    }
+
+    bindImageClickEvents(container) {
+        const imageItems = container.querySelectorAll('.js-open-image-modal');
+        imageItems.forEach(item => {
+            // Removemos qualquer escutador antigo para evitar duplicação
+            item.replaceWith(item.cloneNode(true));
+        });
+
+        // Adicionamos os novos escutadores
+        container.querySelectorAll('.js-open-image-modal').forEach(item => {
+            item.addEventListener('click', (event) => {
+                event.stopPropagation(); 
+                const imageSrc = item.getAttribute('data-src');
+                
+                // Chama a função GLOBAL openImageModal
+                openImageModal(imageSrc); 
+            });
+        });
     }
     
     findEventById(eventoId) {
@@ -333,19 +360,19 @@ class EventsManager {
         const endDate = new Date(startDate.getTime() + 2 * 60 * 60 * 1000); // 2 hours duration
         
         const icsContent = `BEGIN:VCALENDAR
-VERSION:2.0
-PRODID:-//Paróquia São José//Eventos//PT
-BEGIN:VEVENT
-UID:${evento.id}@paroquiasaojose.org.br
-DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').split('.')[0]}Z
-DTSTART:${startDate.toISOString().replace(/[-:]/g, '').split('.')[0]}Z
-DTEND:${endDate.toISOString().replace(/[-:]/g, '').split('.')[0]}Z
-SUMMARY:${evento.titulo}
-DESCRIPTION:${evento.descricao}
-LOCATION:${evento.local}
-ORGANIZER:${evento.organizador}
-END:VEVENT
-END:VCALENDAR`;
+        VERSION:2.0
+        PRODID:-//Paróquia São José//Eventos//PT
+        BEGIN:VEVENT
+        UID:${evento.id}@paroquiasaojose.org.br
+        DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').split('.')[0]}Z
+        DTSTART:${startDate.toISOString().replace(/[-:]/g, '').split('.')[0]}Z
+        DTEND:${endDate.toISOString().replace(/[-:]/g, '').split('.')[0]}Z
+        SUMMARY:${evento.titulo}
+        DESCRIPTION:${evento.descricao}
+        LOCATION:${evento.local}
+        ORGANIZER:${evento.organizador}
+        END:VEVENT
+        END:VCALENDAR`;
         
         const blob = new Blob([icsContent], { type: 'text/calendar' });
         const url = URL.createObjectURL(blob);
@@ -445,9 +472,24 @@ function resetEventsFilters() {
 
 function openImageModal(imageSrc) {
     const modalContent = document.getElementById('foto-modal-content');
+    if (!modalContent) {
+        console.error('Elemento #foto-modal-content não encontrado!');
+        return;
+    }
+
+    // Adicionamos um console.log para depuração
+    console.log('Abrindo modal com a imagem:', imageSrc);
+
+    if (!imageSrc) {
+        console.error('A URL da imagem está vazia!');
+        modalContent.innerHTML = `<p style="color: red;">Erro: a URL da imagem não foi fornecida.</p>`;
+        openModal('foto-modal');
+        return;
+    }
+
     modalContent.innerHTML = `
         <div class="image-modal-content">
-            <img src="${imageSrc}" alt="Imagem do evento" style="max-width: 100%; height: auto;">
+            <img src="${imageSrc}" alt="Imagem do evento" style="max-width: 100%; max-height: 80vh; height: auto;">
         </div>
     `;
     openModal('foto-modal');
