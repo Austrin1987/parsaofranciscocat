@@ -3,14 +3,14 @@
   "perguntas": [
     {
       "pergunta": "Em que ano a Paróquia São Francisco de Assis foi fundada?",
-      "opcoes": ["1950", "1965", "1988", "2001"],
-      "respostaCorreta": "1950",
+      "opcoes": ["1951", "1965", "1988", "2001"],
+      "respostaCorreta": "1951",
       "curiosidade": "A pedra fundamental foi lançada em uma cerimônia que marcou o início de décadas de fé e comunidade."
     },
     {
       "pergunta": "Qual destas capelas pertence à nossa paróquia?",
-      "opcoes": ["Capela Santa Rita", "Capela Nossa Senhora Aparecida", "Capela Santo Expedito", "Todas as anteriores"],
-      "respostaCorreta": "Todas as anteriores",
+      "opcoes": ["Capela Santa Rita", "Capela Nossa Senhora Aparecida", "Capela Santo Expedito", "Capela Santa Rosa de Lima"],
+      "respostaCorreta": "Capela Santa Rosa de Lima",
       "curiosidade": "Nossa paróquia é formada por diversas comunidades, cada uma com sua própria história e padroeiro."
     },
     {
