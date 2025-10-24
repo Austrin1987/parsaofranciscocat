@@ -6,7 +6,7 @@
         {
           "id": "festa-padroeiro-2025",
           "titulo": "Festa de São Francisco",
-          "data": "2025-10-03",
+          "data": ["2025-10-03","2025-10-04"],
           "horario": "19:00",
           "local": "Praça em Frente a Igreja",
           "descricao": "Festa do Nosso Padroerio São Francisco de Assis",
@@ -14,7 +14,7 @@
             "https://player.cloudinary.com/embed/?cloud_name=dexnu74dn&public_id=WhatsApp_Video_2025-10-23_at_21.43.47_bov0sh&profile=cld-default",
             "https://player.cloudinary.com/embed/?cloud_name=dexnu74dn&public_id=WhatsApp_Video_2025-10-23_at_21.39.29_ysvdqq&profile=cld-default"
           ],
-          "organizador": "Pastoral Familiar"
+          "organizador": "Equipe São Francisco Festas"
         }
       ],
       "setembro":[
