@@ -308,6 +308,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    initQuiz();
     initMobileMenu();
+    initQuiz();
 });
