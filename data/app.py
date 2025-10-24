@@ -3,21 +3,28 @@ import json
 import uuid # Para gerar IDs únicos
 import os
 import shutil # Para copiar arquivos
-from tkinter import filedialog # Para a janela de seleção de arquivo
+import git
+from tkinter import filedialog, messagebox # Para a janela de seleção de arquivo
 
 class JanelaFormularioNoticia(ctk.CTkToplevel):
-    def __init__(self, master, callback_salvar):
+    def __init__(self, master, callback_salvar, noticia_existente=None):
         super().__init__(master)
-        self.title("Adicionar Nova Notícia")
+
+        self.callback_salvar = callback_salvar
+        self.noticia_original_id = None
+
+        if noticia_existente:
+            self.title("Editar Notícia")
+            self.noticia_original_id = noticia_existente['id']
+        else:
+            self.title("Adicionar Nova Notícia")
+
         self.geometry("800x750")
         self.resizable(False, False)
         self.transient(master) # Mantém a janela sobre a principal
         self.grab_set() # Bloqueia interação com a janela principal
 
-        self.callback_salvar = callback_salvar
-
-        # --- Widgets do Formulário ---
-        self.frame_formulario = ctk.CTkScrollableFrame(self, label_text="Preencha os dados da notícia")
+        self.frame_formulario = ctk.CTkScrollableFrame(self, label_text=self.title())
         self.frame_formulario.pack(expand=True, fill="both", padx=10, pady=10)
 
         # Variáveis
@@ -98,9 +105,33 @@ class JanelaFormularioNoticia(ctk.CTkToplevel):
         self.check_destaque = ctk.CTkCheckBox(self.frame_formulario, text="Marcar como Destaque", variable=self.destaque_var, onvalue=True, offvalue=False)
         self.check_destaque.pack(pady=10, padx=20, anchor="w")
 
+        if noticia_existente:
+            self.preencher_formulario(noticia_existente)
+
         # Botão Salvar
         ctk.CTkButton(self, text="Salvar Notícia", command=self.salvar, height=40, fg_color="green").pack(pady=10, padx=10, fill="x")
 
+
+    def preencher_formulario(self, noticia):
+        """Preenche os campos do formulário com os dados de uma notícia existente."""
+        self.id_var.set(noticia.get("id", ""))
+        self.data_var.set(noticia.get("data", ""))
+        self.titulo_var.set(noticia.get("titulo", ""))
+        self.subtitulo_var.set(noticia.get("subtitulo", ""))
+        self.foto_principal_var.set(noticia.get("foto_principal", ""))
+        self.foto_secundaria_var.set(noticia.get("foto_secundaria", "") or "")
+        
+        # Verifica se a notícia é um destaque
+        # (Acessa a lista de destaques da janela principal)
+        if noticia.get("id") in self.master.dados.get("destaques", []):
+            self.destaque_var.set(True)
+        else:
+            self.destaque_var.set(False)
+
+        # Preenche os campos de texto grandes
+        self.textbox_conteudo.insert("1.0", noticia.get("conteudo", ""))
+        self.textbox_conteudo_adicional.insert("1.0", noticia.get("conteudo_adicional", ""))
+        
     def aplicar_tag(self, tag_name):
         """Aplica uma tag HTML ao texto selecionado no conteúdo adicional."""
         try:
@@ -153,26 +184,25 @@ class JanelaFormularioNoticia(ctk.CTkToplevel):
         var_alvo.set(caminho_relativo_web)
 
     def salvar(self):
-        """Coleta os dados do formulário, cria um dicionário e envia para a função de callback."""
-        nova_noticia = {
+        """Coleta os dados, envia para o callback e fecha a janela."""
+        noticia_modificada = {
             "id": self.id_var.get(),
             "data": self.data_var.get(),
             "titulo": self.titulo_var.get(),
             "subtitulo": self.subtitulo_var.get(),
             "foto_principal": self.foto_principal_var.get(),
-            "foto_secundaria": self.foto_secundaria_var.get() or None, # Salva None se estiver vazio
+            "foto_secundaria": self.foto_secundaria_var.get() or None,
             "conteudo": self.textbox_conteudo.get("1.0", "end-1c"),
             "conteudo_adicional": self.textbox_conteudo_adicional.get("1.0", "end-1c")
         }
         
-        # Validação simples
-        if not nova_noticia["titulo"] or not nova_noticia["data"]:
-            # (Aqui poderíamos mostrar uma mensagem de erro)
-            print("Erro: Título e Data são obrigatórios.")
+        if not noticia_modificada["titulo"] or not noticia_modificada["data"]:
+            messagebox.showerror("Erro", "Os campos 'Título' e 'Data' são obrigatórios.")
             return
 
         eh_destaque = self.destaque_var.get()
-        self.callback_salvar(nova_noticia, eh_destaque)
+        # AQUI ESTÁ A MUDANÇA PRINCIPAL: Passa 3 argumentos
+        self.callback_salvar(self.noticia_original_id, noticia_modificada, eh_destaque)
         self.destroy()
 
 # --- Janela de Gerenciamento de Notícias ---
@@ -209,12 +239,12 @@ class JanelaNoticias(ctk.CTkToplevel):
         
         self.frame_botoes = ctk.CTkFrame(self.frame_esquerda)
         self.frame_botoes.grid(row=2, column=0, columnspan=2, padx=10, pady=10, sticky="ew")
-        self.frame_botoes.grid_columnconfigure((0, 1, 2, 3), weight=1)
+        self.frame_botoes.grid_columnconfigure((0, 1, 2, 3, 4), weight=1)
 
         self.botao_adicionar = ctk.CTkButton(self.frame_botoes, text="Adicionar", command=self.abrir_janela_adicionar)
         self.botao_adicionar.grid(row=0, column=0, padx=5, pady=5, sticky="ew")
 
-        self.botao_editar = ctk.CTkButton(self.frame_botoes, text="Editar")
+        self.botao_editar = ctk.CTkButton(self.frame_botoes, text="Editar", command=self.abrir_janela_editar, state="disabled")
         self.botao_editar.grid(row=0, column=1, padx=5, pady=5, sticky="ew")
 
         self.botao_excluir = ctk.CTkButton(self.frame_botoes, text="Excluir")
@@ -222,6 +252,9 @@ class JanelaNoticias(ctk.CTkToplevel):
         
         self.botao_salvar = ctk.CTkButton(self.frame_botoes, text="Salvar", fg_color="green")
         self.botao_salvar.grid(row=0, column=3, padx=5, pady=5, sticky="ew")
+
+        self.botao_publicar = ctk.CTkButton(self.frame_botoes, text="Publicar", fg_color="#34568B", command=self.git_push)
+        self.botao_publicar.grid(row=0, column=4, padx=5, pady=5, sticky="ew")
 
         # --- Frame da Direita (Detalhes da Notícia) ---
         self.frame_direita = ctk.CTkScrollableFrame(self, label_text="Detalhes da Notícia", label_font=ctk.CTkFont(size=16, weight="bold"))
@@ -283,6 +316,42 @@ class JanelaNoticias(ctk.CTkToplevel):
 
         self.atualizar_lista_noticias()
 
+    def git_push(self):
+        """Executa 'git push' para enviar os commits locais para o repositório remoto."""
+        # Pergunta ao usuário se ele realmente quer publicar
+        if not messagebox.askyesno("Confirmar Publicação", "Você tem certeza que deseja enviar todas as alterações salvas para o servidor?\n\nIsso pode atualizar o site ao vivo."):
+            return
+
+        try:
+            self.configure(cursor="watch") # Muda o cursor para "espera"
+            self.update_idletasks() # Força a atualização da UI
+
+            repo = git.Repo('.')
+            
+            # Verifica se existe um remoto chamado 'origin'
+            if 'origin' not in [remote.name for remote in repo.remotes]:
+                messagebox.showerror("Erro de Push", "Nenhum repositório remoto 'origin' configurado.\n\nConfigure-o via linha de comando com 'git remote add origin <URL>'.")
+                return
+
+            origin = repo.remote(name='origin')
+            
+            # Executa o push
+            push_info = origin.push()
+
+            # Verifica se houve algum erro no push
+            if any(info.flags & git.PushInfo.ERROR for info in push_info):
+                # Tenta extrair uma mensagem de erro, se houver
+                error_summary = push_info[0].summary if push_info else "Erro desconhecido."
+                raise RuntimeError(f"Falha no push: {error_summary}")
+
+            messagebox.showinfo("Publicado com Sucesso", "As alterações foram enviadas para o servidor com sucesso!")
+
+        except Exception as e:
+            messagebox.showerror("Erro de Push", f"Falha ao enviar as alterações para o servidor:\n\n{e}")
+        finally:
+            self.configure(cursor="") # Restaura o cursor ao normal
+            self.update_idletasks()
+
     def abrir_janela_adicionar(self):
         """Abre a janela de formulário para adicionar uma nova notícia."""
         JanelaFormularioNoticia(self, callback_salvar=self.adicionar_nova_noticia)
@@ -301,20 +370,61 @@ class JanelaNoticias(ctk.CTkToplevel):
         self.atualizar_lista_noticias()
         
         # Salva os dados no arquivo JSON
-        self.salvar_alteracoes_no_arquivo()
+        self.salvar_alteracoes_no_arquivo(commit_message=f"Adiciona notícia: {noticia['titulo'][:30]}...")
         print(f"Notícia '{noticia['titulo']}' adicionada com sucesso!")
     
     def salvar_alteracoes_no_arquivo(self):
         """Salva o estado atual dos dados (self.dados) no arquivo JSON."""
         # Atualiza a lista de notícias no dicionário principal
         self.dados['noticias'] = self.noticias
+
+        caminho_arquivo_json = "noticias.json"
         
         try:
             with open("jornal.json", "w", encoding="utf-8") as f:
                 json.dump(self.dados, f, indent=2, ensure_ascii=False)
+            print(f"Arquivo '{caminho_arquivo_json}' salvo com sucesso.")
+
+            if not commit_message:
+                commit_message = f"Atualiza conteúdo: {os.path.basename(caminho_arquivo_json)}"
+
+            self.commitar_alteracoes(caminho_arquivo_json, mensagem=commit_message)
+
         except Exception as e:
             print(f"Erro ao salvar o arquivo: {e}")
+            messagebox.showerror("Erro", f"Ocorreu um erro ao salvar as alterações: {e}")
             # (Aqui poderíamos mostrar uma mensagem de erro para o usuário)
+
+    def commitar_alteracoes(self, arquivo_modificado, mensagem):
+        """Adiciona o arquivo modificado e faz um commit no repositório Git."""
+        try:
+            # Abre o repositório Git na pasta atual
+            repo = git.Repo('.')
+
+            # Verifica se o arquivo foi realmente modificado pelo Git
+            if not repo.is_dirty(path=arquivo_modificado):
+                print("Nenhuma alteração detectada no arquivo para commitar.")
+                # Podemos opcionalmente mostrar uma mensagem de que nada mudou
+                # messagebox.showinfo("Informação", "Nenhuma alteração para salvar.")
+                return
+
+            # Adiciona o arquivo ao stage
+            repo.index.add([arquivo_modificado])
+            
+            # Faz o commit
+            repo.index.commit(mensagem)
+            
+            print(f"Commit realizado com sucesso: '{mensagem}'")
+            messagebox.showinfo("Sucesso", "Alterações salvas e commitadas no Git com sucesso!")
+
+        except git.InvalidGitRepositoryError:
+            erro_msg = "Erro: A pasta do projeto não é um repositório Git. Execute 'git init'."
+            print(erro_msg)
+            messagebox.showwarning("Git não encontrado", erro_msg)
+        except Exception as e:
+            erro_msg = f"Ocorreu um erro durante o commit no Git: {e}"
+            print(erro_msg)
+            messagebox.showerror("Erro de Git", erro_msg)
 
     def carregar_dados(self):
         """Carrega os dados do arquivo jornal.json"""
@@ -380,6 +490,8 @@ class JanelaNoticias(ctk.CTkToplevel):
         else:
             self.destaque_var.set(False)
 
+        self.botao_editar.configure(state="normal")
+
     def limpar_campos_detalhes(self):
         """Limpa todos os campos da tela de detalhes."""
         self.id_var.set("")
@@ -395,6 +507,50 @@ class JanelaNoticias(ctk.CTkToplevel):
             textbox.configure(state="normal")
             textbox.delete("1.0", "end")
             textbox.configure(state="disabled")
+    
+    def abrir_janela_editar(self):
+        """Abre o formulário para editar a notícia atualmente selecionada."""
+        if self.indice_selecionado is None:
+            return
+
+        noticia_selecionada = self.noticias[self.indice_selecionado]
+        
+        # Abre a mesma janela de formulário, mas passando a notícia existente
+        JanelaFormularioNoticia(self, 
+                                callback_salvar=self.editar_noticia, 
+                                noticia_existente=noticia_selecionada)
+
+    def editar_noticia(self, id_original, noticia_modificada, eh_destaque):
+        """Substitui os dados da notícia antiga pelos novos e salva."""
+        # Encontra a notícia original pelo ID e a substitui
+        for i, noticia in enumerate(self.noticias):
+            if noticia['id'] == id_original:
+                self.noticias[i] = noticia_modificada
+                break
+        
+        # Atualiza a lista de destaques
+        id_modificado = noticia_modificada['id']
+        # Remove o ID antigo da lista de destaques (caso o ID tenha mudado)
+        if id_original in self.dados['destaques']:
+            self.dados['destaques'].remove(id_original)
+        
+        # Adiciona o novo ID se for um destaque
+        if eh_destaque and id_modificado not in self.dados['destaques']:
+            self.dados['destaques'].append(id_modificado)
+
+        # Reordena as notícias por data, caso a data tenha sido alterada
+        self.noticias = sorted(self.dados['noticias'], key=lambda x: x['data'], reverse=True)
+
+        # Atualiza a interface gráfica
+        self.atualizar_lista_noticias()
+        # Limpa os campos de detalhes, pois os dados podem ter mudado
+        self.limpar_campos_detalhes()
+        self.botao_editar.configure(state="disabled")
+        self.indice_selecionado = None
+
+        # Salva no arquivo e commita
+        self.salvar_alteracoes_no_arquivo(commit_message=f"Edita notícia: {noticia_modificada['titulo'][:30]}...")
+        print(f"Notícia '{noticia_modificada['titulo']}' editada com sucesso!")
 
 # --- Tela Principal (Menu) ---
 class App(ctk.CTk):
