@@ -255,16 +255,22 @@ class EventsManager {
             <div class="evento-videos">
                 <h4>Vídeos do Evento</h4>
                 <div class="videos-grid">
-                    ${evento.videos.map(video => {
-                    const videoSrc = video.startsWith('http' ) ? video : `images/eventos/${video}`;
-                    return`
-                        <div class="video-item">
-                            <video controls>
-                                <source src="${videoSrc}" type="video/mp4">
-                                Seu navegador não suporta vídeos.
-                            </video>
-                        </div>
-                    `}).join('')}
+                    ${evento.videos.map(videoUrl => {
+                        // A URL já é a URL de embed do Cloudinary
+                        return `
+                            <div class="video-item">
+                                <iframe 
+                                    src="${videoUrl}" 
+                                    width="100%" 
+                                    height="auto" 
+                                    style="aspect-ratio: 16/9;" 
+                                    frameborder="0" 
+                                    allow="autoplay; fullscreen; encrypted-media; picture-in-picture" 
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                        `;
+                    }).join('')}
                 </div>
             </div>
         ` : '';
