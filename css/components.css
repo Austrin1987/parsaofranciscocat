@@ -413,7 +413,6 @@
 /* Search Component */
 .search-box {
     position: relative;
-    margin-bottom: 2rem;
 }
 
 .search-input {
@@ -433,16 +432,18 @@
 
 .search-button {
     position: absolute;
-    right: 0.5rem;
+    right: 1rem;
     top: 50%;
     transform: translateY(-50%);
-    background: var(--primary-color);
     color: white;
     border: none;
-    padding: 0.5rem 1rem;
+    padding: 1rem 1rem;
     border-radius: var(--border-radius);
     cursor: pointer;
     transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .search-button:hover {
