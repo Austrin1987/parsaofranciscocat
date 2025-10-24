@@ -14,125 +14,22 @@
           "videos": ["quadrilha_2022.mp4"],
           "organizador": "Pastoral Familiar"
         }
-      ]
-    },
-    "2024": {
-      "janeiro": [
+      ],
+      "Setembro":[
         {
-          "id": "festa-sao-sebastiao-2024",
-          "titulo": "Festa de São Sebastião",
-          "data": "2024-01-20",
+          "id": "apresentacao-ministros-2025",
+          "titulo": "Apresentação dos Novos Ministros",
+          "data": "2025-09-07",
           "horario": "19:00",
-          "local": "Igreja Principal",
-          "descricao": "Celebração em honra a São Sebastião, padroeiro dos soldados e protetor contra as epidemias. Missa solene seguida de procissão e confraternização.",
-          "fotos": ["sebastiao1.jpg", "sebastiao2.jpg", "sebastiao3.jpg"],
-          "videos": ["sebastiao_procissao.mp4"],
-          "organizador": "Pastoral Familiar"
-        },
-        {
-          "id": "encontro-jovens-jan-2024",
-          "titulo": "Encontro de Jovens - Novo Ano, Nova Vida",
-          "data": "2024-01-28",
-          "horario": "15:00",
-          "local": "Salão Paroquial",
-          "descricao": "Encontro especial para jovens com reflexões sobre propósitos para o novo ano, dinâmicas de grupo e momento de oração.",
-          "fotos": ["jovens_jan1.jpg", "jovens_jan2.jpg"],
-          "videos": [],
-          "organizador": "Pastoral da Juventude"
-        }
-      ],
-      "fevereiro": [
-        {
-          "id": "carnaval-alternativo-2024",
-          "titulo": "Carnaval Alternativo",
-          "data": "2024-02-10",
-          "horario": "14:00",
-          "local": "Quadra da Paróquia",
-          "descricao": "Festa alternativa ao carnaval com música gospel, brincadeiras para crianças e lanche comunitário.",
-          "fotos": ["carnaval1.jpg", "carnaval2.jpg", "carnaval3.jpg", "carnaval4.jpg"],
-          "videos": ["carnaval_apresentacao.mp4"],
-          "organizador": "Pastoral da Criança"
-        }
-      ],
-      "março": [
-        {
-          "id": "via-sacra-2024",
-          "titulo": "Via Sacra Comunitária",
-          "data": "2024-03-29",
-          "horario": "20:00",
-          "local": "Ruas do Bairro",
-          "descricao": "Via Sacra pelas ruas do bairro, relembrando a Paixão de Cristo com a participação de toda a comunidade.",
-          "fotos": ["via_sacra1.jpg", "via_sacra2.jpg"],
-          "videos": ["via_sacra_completa.mp4"],
-          "organizador": "Ministério de Teatro"
-        },
-        {
-          "id": "vigilia-pascal-2024",
-          "titulo": "Vigília Pascal",
-          "data": "2024-03-30",
-          "horario": "20:00",
-          "local": "Igreja Principal",
-          "descricao": "Celebração da Ressurreição de Cristo com bênção do fogo novo, proclamação da Palavra e renovação das promessas batismais.",
-          "fotos": ["vigilia1.jpg", "vigilia2.jpg", "vigilia3.jpg"],
-          "videos": ["vigilia_completa.mp4"],
-          "organizador": "Liturgia"
-        },
-        {
-          "id": "almoco-pascoa-2024",
-          "titulo": "Almoço de Páscoa",
-          "data": "2024-03-31",
-          "horario": "12:00",
-          "local": "Salão Paroquial",
-          "descricao": "Confraternização pascal com almoço comunitário e atividades para as crianças.",
-          "fotos": ["almoco_pascoa1.jpg", "almoco_pascoa2.jpg"],
-          "videos": [],
-          "organizador": "Conselho Paroquial"
-        }
-      ]
-    },
-    "2023": {
-      "dezembro": [
-        {
-          "id": "natal-2023",
-          "titulo": "Celebração de Natal",
-          "data": "2023-12-25",
-          "horario": "00:00",
-          "local": "Igreja Principal",
-          "descricao": "Missa do Galo com coral especial e representação do nascimento de Jesus.",
-          "fotos": ["natal2023_1.jpg", "natal2023_2.jpg", "natal2023_3.jpg"],
-          "videos": ["missa_galo_2023.mp4"],
-          "organizador": "Coral Paroquial"
-        }
-      ],
-      "agosto": [
-        {
-          "id": "festa-padroeiro-2023",
-          "titulo": "Festa do Padroeiro 2023",
-          "data": "2023-08-15",
-          "horario": "10:00",
-          "local": "Igreja Principal",
-          "descricao": "Celebração anual em honra ao padroeiro da paróquia com missa solene, procissão e festa comunitária.",
-          "fotos": ["padroeiro2023_1.jpg", "padroeiro2023_2.jpg"],
-          "videos": ["procissao_2023.mp4"],
-          "organizador": "Comissão de Festas"
-        }
-      ]
-    },
-    "2022": {
-      "junho": [
-        {
-          "id": "festa-junina-2022",
-          "titulo": "Festa Junina da Paróquia",
-          "data": "2022-06-25",
-          "horario": "18:00",
-          "local": "Quadra da Paróquia",
-          "descricao": "Tradicional festa junina com quadrilha, comidas típicas, pescaria e muita diversão para toda a família.",
-          "fotos": ["junina2022_1.jpg", "junina2022_2.jpg", "junina2022_3.jpg"],
-          "videos": ["quadrilha_2022.mp4"],
-          "organizador": "Pastoral Familiar"
+          "local": "Paróquia São Francisco",
+          "descricao": "Apresentação dos novos ministra para a comunidade São Francisco.",
+          "fotos": [
+            "https://res.cloudinary.com/dexnu74dn/image/upload/v1761256238/WhatsApp_Image_2025-10-23_at_15.53.45_hfg4gs.jpg",
+            "https://res.cloudinary.com/dexnu74dn/image/upload/v1761256238/WhatsApp_Image_2025-10-23_at_15.53.45_1_v7u9gw.jpg"
+          ],
+          "organizador": "M.E.C.E."
         }
       ]
     }
   }
 }
-
