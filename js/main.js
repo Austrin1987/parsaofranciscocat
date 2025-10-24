@@ -373,7 +373,6 @@ function populateMissas(data) {
                 <img src="${evento.imagem}" alt="${evento.nome}" onerror="this.style.display='none'">
                 <div class="evento-especial-content">
                     <h4>${evento.nome}</h4>
-                    <div class="evento-especial-data">${formatDate(evento.data)} - ${evento.horario}</div>
                     <p>${evento.descricao}</p>
                 </div>
             `;
