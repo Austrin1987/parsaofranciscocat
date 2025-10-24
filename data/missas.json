@@ -39,39 +39,20 @@
   },
   "eventos_especiais": [
     {
-      "nome": "Missa do Galo - Natal",
-      "data": "2024-12-25",
-      "horario": "00:00",
-      "descricao": "Celebração especial do nascimento de Jesus Cristo",
-      "imagem": "images/eventos/natal.jpg"
+      "nome": "Confissões",
+      "descricao": "Quartas (Manhã e Tarde) e aos Sábados de Manhã",
+      "imagem": "https://res.cloudinary.com/dexnu74dn/image/upload/v1761262396/confissao_hytt0h.jpg"
     },
     {
-      "nome": "Vigília Pascal",
-      "data": "2024-03-30",
-      "horario": "20:00",
-      "descricao": "Celebração da Ressurreição de Cristo",
-      "imagem": "images/eventos/pascoa.jpg"
+      "nome": "Batizados",
+      "descricao": "Agendamento na Secretaria ou Ligue (17) 3522-8159",
+      "imagem": "https://res.cloudinary.com/dexnu74dn/image/upload/v1761262736/batizado_kpqvnv.jpg"
     },
     {
-      "nome": "Festa do Padroeiro",
-      "data": "2024-08-15",
-      "horario": "10:00",
-      "descricao": "Missa solene em honra ao padroeiro da paróquia",
-      "imagem": "images/eventos/padroeiro.jpg"
-    },
-    {
-      "nome": "Missa de Finados",
-      "data": "2024-11-02",
-      "horario": "09:00",
-      "descricao": "Celebração em memória dos fiéis defuntos",
-      "imagem": "images/eventos/finados.jpg"
+      "nome": "Cazamentos",
+      "descricao": "Agendamento com 6 meses de antecedência.",
+      "imagem": "https://res.cloudinary.com/dexnu74dn/image/upload/v1761262853/casamento_uugfnz.jpg"
     }
-  ],
-  "informacoes_gerais": {
-    "confissoes": "Sábados das 18:00 às 18:45 ou mediante agendamento",
-    "batizados": "Primeiro domingo do mês às 16:00 (curso preparatório obrigatório)",
-    "casamentos": "Agendamento com 6 meses de antecedência",
-    "contato": "(11) 1234-5678"
-  }
+  ]
 }
 
