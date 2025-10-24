@@ -4,44 +4,58 @@
   "timeline": [
     {
       "ano": 1950,
+      "titulo": "Construção da Paróquia",
+      "descricao": "A construção da igreja atual ocorre no local onde antes existia a capela de São Francisco.",
+      "imagem": "https://res.cloudinary.com/dexnu74dn/image/upload/v1761335345/capela_axuym6.jpg",
+      "destaque": false
+    },
+    {
+      "ano": 1951,
       "titulo": "Fundação da Paróquia",
-      "descricao": "A paróquia foi fundada pelo Padre João Silva, com a primeira missa celebrada em uma pequena capela de madeira. A comunidade era formada por apenas 50 famílias.",
-      "imagem": "images/historia/fundacao.jpg",
+      "descricao": "Um grupo de moradores do bairro São Francisco se une para formar uma comissão com o objetivo de construir um Seminário e um Salão Paroquial. O salão paroquial começa a ser usado como capela, e a primeira missa oficial é celebrada pelo Padre Silvio Gasparotto, com a homilia do Padre Albino, que tinha grande interesse em expandir a presença da igreja nos bairros. 24 de junho de 1951: É lançada a pedra fundamental da futura Igreja de São Francisco de Assis.",
+      "imagem": "https://res.cloudinary.com/dexnu74dn/image/upload/v1761335345/Missa_h4jgc7.jpg",
       "destaque": true
     },
     {
-      "ano": 1965,
-      "titulo": "Construção da Igreja Principal",
-      "descricao": "Após 15 anos de crescimento, a comunidade construiu a igreja principal em estilo neogótico, com capacidade para 300 fiéis.",
-      "imagem": "images/historia/construcao.jpg",
+      "ano": 1974,
+      "titulo": "Criação Oficial",
+      "descricao": "8 de fevereiro de 1974: A Paróquia São Francisco de Assis é oficialmente criada por Dom José de Aquino Pereira, então bispo da Diocese de Rio Preto. Na mesma data, o Padre Synval Januário é nomeado como o primeiro pároco.",
+      "imagem": "https://res.cloudinary.com/dexnu74dn/image/upload/v1761335345/Synval_umepc6.jpg",
       "destaque": false
     },
     {
-      "ano": 1980,
-      "titulo": "Criação dos Grupos Pastorais",
-      "descricao": "Foram criados diversos grupos pastorais: Pastoral da Juventude, Pastoral Familiar, Coral Paroquial e Grupo de Oração.",
-      "imagem": "images/historia/pastorais.jpg",
+      "ano": 1982,
+      "titulo": "Contrução da Igreja de santa Rita",
+      "descricao": "A comunidade começou a se formar em 1978, com a celebração da primeira missa no bairro e a construção de um barracão para as atividades religiosas. A construção da igreja atual foi um esforço comunitário que se seguiu",
+      "imagem": "",
       "destaque": false
     },
     {
-      "ano": 1995,
-      "titulo": "Reforma e Ampliação",
-      "descricao": "Grande reforma que ampliou a capacidade para 500 pessoas, incluindo nova sacristia, salão paroquial e área de convivência.",
-      "imagem": "images/historia/reforma.jpg",
+      "ano": 1992,
+      "titulo": "Contrução da Capela Santa Rosa",
+      "descricao": "A capela foi abençoada e inaugurada em 23 de agosto de 1992, em uma missa celebrada pelo então pároco, Padre Synval Januário.",
+      "imagem": "",
+      "destaque": false
+    },
+    {
+      "ano": 2020,
+      "titulo": "Saída de Padre Synval e Padre Valdir assume a Adminstração Paroquial.",
+      "descricao": "13 de dezembro de 2020: Após 46 anos, Padre Synval Januário deixa a liderança da paróquia, e o Padre Valdir Forin assume como Administrador Paroquial.",
+      "imagem": "",
       "destaque": true
     },
     {
-      "ano": 2010,
-      "titulo": "Modernização Tecnológica",
-      "descricao": "Instalação de sistema de som moderno, iluminação LED e transmissão online das missas, aproximando ainda mais a comunidade.",
-      "imagem": "images/historia/tecnologia.jpg",
-      "destaque": false
+      "ano": 2022,
+      "titulo": "Padre Valdir Forin assuma como Pároco.",
+      "descricao": "30 de novembro de 2022: Padre Valdir Forin é oficialmente nomeado pároco.",
+      "imagem": "",
+      "destaque": true
     },
     {
       "ano": 2024,
-      "titulo": "Presente - Comunidade Ativa",
-      "descricao": "Hoje somos uma comunidade de mais de 1.200 famílias, com diversos ministérios ativos e projetos sociais que beneficiam toda a região.",
-      "imagem": "images/historia/presente.jpg",
+      "titulo": "50 anos (Jubileu de Ouro)",
+      "descricao": "Fevereiro de 2024: A paróquia comemora seus 50 anos (Jubileu de Ouro) com a realização de um tríduo, missas e eventos festivos.",
+      "imagem": "",
       "destaque": true
     }
   ]
