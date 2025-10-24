@@ -93,14 +93,18 @@ class EventsManager {
     }
     
     generateEventosHTML(eventos) {
-        return eventos.map(evento => `
+        return eventos.map(evento => {
+            // Verifica se o horário existe e não está vazio. Se não, usa "O dia todo".
+            const horarioDisplay = evento.horario ? `<span class="evento-horario">${evento.horario}</span>` : '<span class="evento-horario">O dia todo</span>';
+
+            return`
             <div class="evento-item" data-evento-id="${evento.id}">
                 <div class="evento-item-content">
                     <div class="evento-titulo">${evento.titulo}</div>
                     <div class="evento-meta">
-                        <span class="evento-data">${this.formatDate(evento.data)}</span>
-                        <span class="evento-horario">${evento.horario}</span>
-                        <span class="evento-local">${evento.local}</span>
+                        <span class="evento-data">${this.formatDate(evento.data)}</span></br>
+                        ${horarioDisplay}
+                        <span class="evento-local"> - ${evento.local}</span>
                     </div>
                     <div class="evento-organizador">Organizado por: ${evento.organizador}</div>
                 </div>
@@ -110,7 +114,7 @@ class EventsManager {
                     </button>
                 </div>
             </div>
-        `).join('');
+        `}).join('');
     }
     
     bindEvents() {
@@ -341,15 +345,46 @@ class EventsManager {
         return null;
     }
     
-    formatDate(dateString) {
-        const date = new Date(dateString);
-        return date.toLocaleDateString('pt-BR', {
-            weekday: 'long',
-            day: '2-digit',
-            month: 'long',
-            year: 'numeric',
-            timeZone: 'UTC'
-        });
+    formatDate(data) {
+        // Verifica se a data é um array
+        if (Array.isArray(data)) {
+            // Se o array estiver vazio, retorna uma string vazia
+            if (data.length === 0) {
+                return '';
+            }
+
+            const dataInicialStr = data[0];
+            // Se houver apenas uma data no array ou se a data final for igual à inicial
+            if (data.length === 1 || data[0] === data[data.length - 1]) {
+                const dataObj = new Date(dataInicialStr + 'T00:00:00'); // Adiciona T00:00:00 para evitar problemas de fuso
+                return dataObj.toLocaleDateString('pt-BR', {
+                    day: '2-digit',
+                    month: 'long',
+                    year: 'numeric',
+                    timeZone: 'UTC' // Importante para consistência
+                });
+            }
+
+            // Se as datas inicial e final forem diferentes
+            const dataFinalStr = data[data.length - 1];
+            const dataInicialObj = new Date(dataInicialStr + 'T00:00:00');
+            const dataFinalObj = new Date(dataFinalStr + 'T00:00:00');
+
+            const dataInicialFormatada = dataInicialObj.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric', timeZone: 'UTC' });
+            const dataFinalFormatada = dataFinalObj.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric', timeZone: 'UTC' });
+
+            return `De ${dataInicialFormatada} até ${dataFinalFormatada}`;
+
+        } else {
+            // Se for uma string (data única)
+            const dataObj = new Date(data + 'T00:00:00');
+            return dataObj.toLocaleDateString('pt-BR', {
+                day: '2-digit',
+                month: 'long',
+                year: 'numeric',
+                timeZone: 'UTC'
+            });
+        }
     }
     
     debounce(func, wait) {
