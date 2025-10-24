@@ -29,6 +29,30 @@
           ],
           "organizador": "M.E.C.E."
         }
+      ],
+      "Agosto":[
+        {
+          "id": "renovacao-instituicao-ministros-2025",
+          "titulo": "Renovação e Instituição dos Novos Ministros",
+          "data": "2025-08-31",
+          "local": "Cidade de Itajobi",
+          "descricao": "Renavação e Intituição de no Ministros da Paróquia São Francisco.",
+          "fotos": [
+            "https://res.cloudinary.com/dexnu74dn/image/upload/v1761261031/WhatsApp_Image_2025-10-23_at_16.03.41_2_lvm0bg.jpg",
+            "https://res.cloudinary.com/dexnu74dn/image/upload/v1761261033/WhatsApp_Image_2025-10-23_at_16.03.41_cgscor.jpg",
+            "https://res.cloudinary.com/dexnu74dn/image/upload/v1761261034/WhatsApp_Image_2025-10-23_at_16.03.41_1_vch014.jpg",
+            "https://res.cloudinary.com/dexnu74dn/image/upload/v1761261035/WhatsApp_Image_2025-10-23_at_16.03.37_djvtts.jpg",
+            "https://res.cloudinary.com/dexnu74dn/image/upload/v1761261032/WhatsApp_Image_2025-10-23_at_16.03.38_1_sfqdes.jpg",
+            "https://res.cloudinary.com/dexnu74dn/image/upload/v1761261030/WhatsApp_Image_2025-10-23_at_16.03.40_ihpmwa.jpg",
+            "https://res.cloudinary.com/dexnu74dn/image/upload/v1761261029/WhatsApp_Image_2025-10-23_at_16.03.40_1_drywog.jpg",
+            "https://res.cloudinary.com/dexnu74dn/image/upload/v1761261028/WhatsApp_Image_2025-10-23_at_16.03.40_2_ayza48.jpg",
+            "https://res.cloudinary.com/dexnu74dn/image/upload/v1761261027/WhatsApp_Image_2025-10-23_at_16.03.39_2_cfum4h.jpg",
+            "https://res.cloudinary.com/dexnu74dn/image/upload/v1761261027/WhatsApp_Image_2025-10-23_at_16.03.39_psedua.jpg",
+            "https://res.cloudinary.com/dexnu74dn/image/upload/v1761261026/WhatsApp_Image_2025-10-23_at_16.03.38_zfronk.jpg",
+            "https://res.cloudinary.com/dexnu74dn/image/upload/v1761261026/WhatsApp_Image_2025-10-23_at_16.03.39_1_ky4vuv.jpg"
+          ],
+          "organizador": "M.E.C.E."
+        }
       ]
     }
   }
