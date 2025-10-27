@@ -125,13 +125,6 @@ document.addEventListener('DOMContentLoaded', () => {
         exibirRecentes(noticiasNormais);
     }
 
-    function limparFiltros() {
-        filtroCategoria.value = 'todas';
-        filtroData.value = 'todas';
-        filtroBusca.value = '';
-        aplicarFiltros();
-    }
-
     filtroCategoria.addEventListener('change', aplicarFiltros);
     filtroData.addEventListener('change', aplicarFiltros);
     filtroBusca.addEventListener('input', aplicarFiltros); // 'input' para filtrar enquanto digita
@@ -182,24 +175,33 @@ document.addEventListener('DOMContentLoaded', () => {
         const fim = inicio + itensPorPagina;
         const itensDaPagina = noticias.slice(inicio, fim);
 
-        recentesContainer.innerHTML = itensDaPagina.map(noticia => `
-            <div class="card card-noticia" data-id="${noticia.id}">
-                <div class="noticia-imagem">
-                    <img src="${noticia.foto_principal}" alt="${noticia.titulo}" class="card-img-list">
+        itensDaPagina.forEach((noticia, index) => {
+            const cardHTML = `
+                <div class="card card-noticia" data-id="${noticia.id}">
+                    <div class="noticia-imagem">
+                        <img src="${noticia.foto_principal}" alt="${noticia.titulo}" class="card-img-list">
+                    </div>
+                    <div class="noticia-conteudo">
+                        <span class="noticia-data">${new Date(noticia.data + "T00:00:00").toLocaleDateString('pt-BR')}</span>
+                        <h4 class="noticia-titulo">${noticia.titulo}</h4>
+                        <p class="noticia-subtitulo">${noticia.conteudo.substring(0, 120)}...</p>
+                        <span class="leia-mais-link">Ver notícia completa &rarr;</span>
+                    </div>
                 </div>
-                <div class="noticia-conteudo">
-                    <span class="noticia-data">${new Date(noticia.data + "T00:00:00").toLocaleDateString('pt-BR')}</span>
-                    <h4 class="noticia-titulo">${noticia.titulo}</h4>
-                    <p class="noticia-subtitulo">${noticia.conteudo.substring(0, 120)}...</p>
-                    <span class="leia-mais-link">Ver notícia completa &rarr;</span>
-                </div>
-            </div>
-        `).join('');
+            `;
+            // Adiciona o HTML do card ao container
+            recentesContainer.insertAdjacentHTML('beforeend', cardHTML);
 
-        // Adiciona evento de clique para abrir o modal
-        document.querySelectorAll('.card-noticia').forEach(card => {
-            card.addEventListener('click', () => {
-                abrirModalComNoticia(card.dataset.id);
+            // Encontra o card que acabamos de adicionar
+            const cardElement = recentesContainer.lastElementChild;
+            
+            // Aplica a classe de animação com um pequeno atraso em cascata
+            cardElement.style.animationDelay = `${index * 100}ms`; // Atraso de 100ms por card
+            cardElement.classList.add('card-fade-in');
+
+            // Adiciona o evento de clique
+            cardElement.addEventListener('click', () => {
+                abrirModalComNoticia(cardElement.dataset.id);
             });
         });
 
@@ -239,10 +241,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function abrirModalComNoticia(id) {
-        const noticia = todasAsNoticias.find(n => n.id === id);
-        if (!noticia) return;
+        const noticiaIndex = noticiasFiltradas.findIndex(n => n.id === id);
+        if (noticiaIndex === -1) return;
+
+        const noticia = noticiasFiltradas[noticiaIndex];
+
+        // Verifica se há notícia anterior ou próxima
+        const temAnterior = noticiaIndex > 0;
+        const temProxima = noticiaIndex < noticiasFiltradas.length - 1;
 
         modalBody.innerHTML = `
+            <div class="modal-header-unified">
+                <h3 class="modal-title-header">Notícia</h3>
+                <div class="modal-controls">
+                    <button id="nav-anterior" class="btn-modal-nav" title="Notícia Anterior" ${!temAnterior ? 'disabled' : ''}>
+                        <
+                    </button>
+                    <button id="nav-proxima" class="btn-modal-nav" title="Próxima Notícia" ${!temProxima ? 'disabled' : ''}>
+                        >
+                    </button>
+                    <button class="btn-modal-nav btn-modal-close" id="modal-close-btn" title="Fechar">
+                        x
+                    </button>
+                </div>
+            </div>
+
             <h2 class="section-title text-left mb-2">${noticia.titulo}</h2>
             <p class="section-subtitle text-left mb-3">${noticia.subtitulo}</p>
             <p class="mb-3"><em>Publicado em: ${new Date(noticia.data).toLocaleDateString('pt-BR')}</em></p>
@@ -257,20 +280,25 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         `;
         modal.classList.add('active');
+
+        document.getElementById('modal-close-btn').addEventListener('click', fecharModal);
+
+        if (temAnterior) {
+            document.getElementById('nav-anterior').addEventListener('click', () => {
+                abrirModalComNoticia(noticiasFiltradas[noticiaIndex - 1].id);
+            });
+        }
+        if (temProxima) {
+            document.getElementById('nav-proxima').addEventListener('click', () => {
+                abrirModalComNoticia(noticiasFiltradas[noticiaIndex + 1].id);
+            });
+        }
     }
 
     function fecharModal() {
         modal.classList.remove('active');
         modalBody.innerHTML = ''; // Limpa o conteúdo ao fechar
     }
-
-    closeModalBtn.addEventListener('click', fecharModal);
-    modal.addEventListener('click', (e) => {
-        // Fecha o modal se o clique for no fundo escuro (no próprio elemento .modal)
-        if (e.target === modal) {
-            fecharModal();
-        }
-    });
 
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
