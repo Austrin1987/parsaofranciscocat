@@ -539,6 +539,22 @@ body {
     flex-grow: 1; /* Permite que este grupo cresça */
 }
 
+.timeline-wrapper {
+    max-height: 0;          /* Começa com altura zero */
+    overflow: hidden;       /* Esconde o conteúdo que transborda */
+    opacity: 0;             /* Começa totalmente transparente */
+    transition: max-height 0.7s ease-in-out, opacity 0.5s ease-in-out; /* Animação suave */
+    visibility: hidden;     /* Garante que não seja acessível via teclado quando escondido */
+}
+
+/* Classe 'active' que será adicionada via JS para mostrar a timeline */
+.timeline-wrapper.active {
+    max-height: 5000px;     /* Uma altura grande o suficiente para conter a timeline */
+    opacity: 1;             /* Torna totalmente visível */
+    visibility: visible;
+    margin-top: 2rem;       /* Adiciona um espaço quando visível */
+}
+
 /* Reutiliza o estilo do select que já criamos */
 #decade-filter {
     background-color: #ffffff;
@@ -603,6 +619,10 @@ body {
 .timeline-filters .search-box {
     flex-grow: 1;
     min-width: 200px;
+}
+
+.timeline-toggle-container {
+    text-align: center;
 }
 
 /* Missas Section */
