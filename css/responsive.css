@@ -1,3 +1,8 @@
+/* ==================================================
+   responsive.css
+   Ajustes de responsividade, impressão e acessibilidade.
+   ================================================== */
+   
 /* Responsive Design - Media Queries */
 
 /* Tablet - 768px to 1024px */
@@ -49,6 +54,7 @@
     
     .timeline-details {
         position: static;
+        margin-bottom: 0;
     }
     
     .contato-info {
@@ -267,6 +273,16 @@
 @media (max-width: 480px) {
     .container {
         padding: 0 10px;
+    }
+
+    .modal-header-unified {
+        padding: 0.5rem 1rem;
+    }
+    .modal-title-header {
+        display: none; /* Opcional: esconde o título em telas muito pequenas */
+    }
+    .modal-body-content {
+        padding: 1rem;
     }
     
     /* Header */
@@ -594,6 +610,22 @@
     }
 }
 
+@keyframes fadeInCard {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Começa um pouco abaixo */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Classe que aplica a animação */
+.card-fade-in {
+    animation: fadeInCard 0.5s ease-out forwards;
+}
+
 /* Dark Mode Support */
 /*@media (prefers-color-scheme: dark) {
     :root {
@@ -616,4 +648,3 @@
         background-color: rgba(0, 0, 0, 0.9);
     }
 }*/
-
