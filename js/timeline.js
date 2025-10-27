@@ -285,10 +285,9 @@ function createTimelineControls() {
         </div>
     `;
     
-    const historiaSection = document.getElementById('historia');
-    if (historiaSection) {
-        const sectionHeader = historiaSection.querySelector('.section-header');
-        sectionHeader.insertAdjacentHTML('afterend', controlsHTML);
+    const timelineWrapper = document.getElementById('timeline-wrapper');
+    if (timelineWrapper) {
+        timelineWrapper.insertAdjacentHTML('afterbegin', controlsHTML);
     }
 }
 
