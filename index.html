@@ -104,17 +104,23 @@
                 <div class="section-header">
                     <h2 class="section-title">Nossa História</h2>
                     <p class="section-subtitle">Uma jornada de fé que começou em 1950</p>
+
+                    <!-- BOTÃO PARA MOSTRAR/ESCONDER A TIMELINE -->
+                    <div class="timeline-toggle-container mt-3">
+                        <button id="toggle-timeline-btn" class="btn btn-primary">
+                            <i class="fas fa-stream"></i> Explorar Linha do Tempo
+                        </button>
+                    </div>
                 </div>
                 
-                <div class="timeline-container">
-                    <div class="timeline" id="timeline">
-                        <!-- Timeline será preenchida via JavaScript -->
-                    </div>
-                    
-                    <div class="timeline-details" id="timeline-details">
-                        <div class="timeline-detail-card">
-                            <h3>Selecione um marco na linha do tempo</h3>
-                            <p>Clique em qualquer ponto da linha do tempo para conhecer mais sobre nossa história.</p>
+                <div id="timeline-wrapper" class="timeline-wrapper">
+                    <div class="timeline-container">
+                        <div class="timeline" id="timeline">
+                            <!-- Timeline será preenchida via JavaScript -->
+                        </div>
+                        
+                        <div class="timeline-details" id="timeline-details">
+                            <!-- Detalhes serão preenchidos via JavaScript -->
                         </div>
                     </div>
                 </div>
