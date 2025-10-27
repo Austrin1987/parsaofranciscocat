@@ -1,3 +1,8 @@
+/* ==================================================
+   components.css
+   Componentes reutilizáveis e interativos do site (cards, alertas, badges etc.).
+   ================================================== */
+   
 /* Componentes Reutilizáveis */
 
 /* Loading Spinner */
@@ -915,4 +920,37 @@
     gap: 0.5rem;
     margin-top: 2rem;
     list-style: none;
+}
+
+/* Adicione este código ao seu arquivo CSS */
+
+.modal-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+}
+
+.btn-modal-nav {
+    background: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-modal-nav:hover:not(:disabled) {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-modal-nav:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    border-color: #ccc;
+    color: #ccc;
 }
