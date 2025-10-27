@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initNavigation();
     initMobileMenu();
     initSmoothScroll();
+    initTimelineToggle();
     initModals();
     loadContent();
     carregarProximaMissaFestiva();
@@ -159,6 +160,35 @@ function initNavigation() {
                 link.classList.add('active');
             }
         });
+    });
+}
+
+function initTimelineToggle() {
+    const toggleBtn = document.getElementById('toggle-timeline-btn');
+    const timelineWrapper = document.getElementById('timeline-wrapper');
+
+    if (!toggleBtn || !timelineWrapper) {
+        console.error("Botão ou wrapper da timeline não encontrado.");
+        return;
+    }
+
+    toggleBtn.addEventListener('click', function() {
+        // Alterna a classe 'active' no wrapper
+        const isVisible = timelineWrapper.classList.toggle('active');
+
+        // Muda o texto do botão para indicar a ação
+        if (isVisible) {
+            this.innerHTML = '<i class="fas fa-eye-slash"></i> Ocultar Linha do Tempo';
+            // Rola suavemente para o início da timeline após ela aparecer
+            setTimeout(() => {
+                timelineWrapper.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }, 300); // Um pequeno delay para a animação começar
+        } else {
+            this.innerHTML = '<i class="fas fa-stream"></i> Explorar Linha do Tempo';
+        }
     });
 }
 
