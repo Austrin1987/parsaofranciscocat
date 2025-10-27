@@ -34,6 +34,96 @@
           "opcoes": ["Bilocação (estar em dois lugares ao mesmo tempo)", "Os estigmas (as chagas de Cristo)", "Levitação", "O dom das línguas"],
           "respostaCorreta": "Os estigmas (as chagas de Cristo)",
           "curiosidade": "Ele recebeu os estigmas no Monte Alverne, em 1224, dois anos antes de sua morte, como um sinal de sua união com o sofrimento de Cristo."
+        },
+        {
+          "pergunta": "Antes de sua conversão, São Francisco sonhava em ser um...",
+          "opcoes": ["Comerciante rico como o pai", "Cavaleiro heroico", "Monge estudioso", "Artista famoso"],
+          "respostaCorreta": "Cavaleiro heroico",
+          "curiosidade": "Ele chegou a partir para a guerra, mas uma visão em sonho o fez questionar sua vocação e retornar a Assis."
+        },
+        {
+          "pergunta": "Qual animal é frequentemente associado a São Francisco em uma história famosa na cidade de Gubbio?",
+          "opcoes": ["Um leão", "Uma pomba", "Um lobo", "Um cordeiro"],
+          "respostaCorreta": "Um lobo",
+          "curiosidade": "A lenda conta que Francisco amansou um lobo feroz que aterrorizava a cidade, fazendo um pacto de paz entre o animal e os cidadãos."
+        },
+        {
+          "pergunta": "Qual frase famosa é atribuída a São Francisco sobre a evangelização?",
+          "opcoes": ["'A fé move montanhas'", "'Pregue o Evangelho em todos os tempos. Se necessário, use palavras'", "'O amor tudo crê, tudo espera, tudo suporta'", "'Conhecereis a verdade, e a verdade vos libertará'"],
+          "respostaCorreta": "'Pregue o Evangelho em todos os tempos. Se necessário, use palavras'",
+          "curiosidade": "Essa frase resume sua crença de que o testemunho de vida e as ações de caridade são a forma mais poderosa de pregação."
+        },
+        {
+          "pergunta": "O que Jesus teria dito a São Francisco a partir do crucifixo na igreja de São Damião?",
+          "opcoes": ["'Vá e venda tudo o que tens'", "'Francisco, vai e reconstrói a minha Igreja'", "'Deixe tudo e siga-me'", "'A paz esteja contigo'"],
+          "respostaCorreta": "'Francisco, vai e reconstrói a minha Igreja'",
+          "curiosidade": "Inicialmente, Francisco entendeu a ordem literalmente e começou a reconstruir a capela em ruínas, mas depois compreendeu que o chamado era para renovar a Igreja como um todo."
+        },
+        {
+          "pergunta": "Qual foi a atitude de São Francisco durante a Quinta Cruzada?",
+          "opcoes": ["Lutou bravamente contra os muçulmanos", "Ficou em Assis rezando pela paz", "Viajou para o Egito para dialogar com o Sultão", "Escondeu-se para evitar o conflito"],
+          "respostaCorreta": "Viajou para o Egito para dialogar com o Sultão",
+          "curiosidade": "Num ato de coragem e busca pela paz, ele atravessou as linhas inimigas para encontrar o Sultão Al-Kamil, pregando o evangelho e promovendo o diálogo inter-religioso."
+        },
+        {
+          "pergunta": "A 'Perfeita Alegria', segundo São Francisco, consiste em...",
+          "opcoes": ["Receber muitos elogios e honras", "Construir grandes igrejas", "Ser recebido com festa pelos irmãos", "Sofrer injúrias e maus-tratos por amor a Cristo"],
+          "respostaCorreta": "Sofrer injúrias e maus-tratos por amor a Cristo",
+          "curiosidade": "Ele ensinou que a verdadeira alegria não está nos sucessos mundanos, mas em suportar as dificuldades com paciência e amor, unindo-se a Cristo."
+        },
+        {
+          "pergunta": "Qual era o nome da ordem terceira fundada por São Francisco para os leigos que queriam viver seu carisma no mundo?",
+          "opcoes": ["Ordem dos Leigos Consagrados", "Ordem Franciscana Secular", "Arautos do Evangelho", "Comunidade Shalom"],
+          "respostaCorreta": "Ordem Franciscana Secular",
+          "curiosidade": "Esta ordem permitiu que homens e mulheres casados, ou que viviam no século, pudessem seguir os ideais franciscanos de paz, caridade e simplicidade."
+        },
+        {
+          "pergunta": "Qual era a saudação que São Francisco e seus frades usavam?",
+          "opcoes": ["'A paz de Cristo'", "'Louvado seja Nosso Senhor Jesus Cristo'", "'Paz e Bem'", "'Ave Maria'"],
+          "respostaCorreta": "'Paz e Bem'",
+          "curiosidade": "A saudação 'Pax et Bonum' (Paz e Bem) resume o ideal de vida franciscano: estar em paz com Deus, consigo mesmo, com os outros e com a criação."
+        },
+        {
+          "pergunta": "O que São Francisco fez com suas roupas ricas no início de sua conversão, em praça pública?",
+          "opcoes": ["Vendeu e deu o dinheiro aos pobres", "Queimou-as como sinal de renúncia", "Devolveu-as ao seu pai, renunciando à sua herança", "Rasgou-as em pedaços"],
+          "respostaCorreta": "Devolveu-as ao seu pai, renunciando à sua herança",
+          "curiosidade": "Nesse gesto dramático, ele declarou que a partir daquele momento seu único pai seria o 'Pai que está nos céus'."
+        },
+        {
+          "pergunta": "São Francisco tinha um carinho especial por qual festa litúrgica?",
+          "opcoes": ["Páscoa", "Pentecostes", "Corpus Christi", "Natal"],
+          "respostaCorreta": "Natal",
+          "curiosidade": "Seu amor pela humildade de Deus se fazendo homem era imenso, o que o levou a popularizar a tradição do presépio."
+        },
+        {
+          "pergunta": "Qual era a principal característica da regra de vida que São Francisco escreveu para seus frades?",
+          "opcoes": ["Viver e pregar o Santo Evangelho", "Dedicar-se ao estudo intensivo da teologia", "Viver em clausura e silêncio absoluto", "Administrar as terras da Igreja"],
+          "respostaCorreta": "Viver e pregar o Santo Evangelho",
+          "curiosidade": "A regra era surpreendentemente simples, centrada na observância dos ensinamentos de Jesus como narrados nos Evangelhos."
+        },
+        {
+          "pergunta": "Como São Francisco chamava a morte?",
+          "opcoes": ["'A grande inimiga'", "'O fim de tudo'", "'A irmã Morte corporal'", "'A passagem sombria'"],
+          "respostaCorreta": "'A irmã Morte corporal'",
+          "curiosidade": "Ele a via não como um fim trágico, mas como uma passagem natural e necessária para o encontro definitivo com Deus."
+        },
+        {
+          "pergunta": "Qual Papa canonizou São Francisco de Assis apenas dois anos após sua morte?",
+          "opcoes": ["Papa Inocêncio III", "Papa Honório III", "Papa Gregório IX", "Papa Bonifácio VIII"],
+          "respostaCorreta": "Papa Gregório IX",
+          "curiosidade": "O Papa Gregório IX era amigo pessoal de Francisco (quando ainda era Cardeal Ugolino) e reconheceu rapidamente sua santidade."
+        },
+        {
+          "pergunta": "A 'Porciúncula' é um lugar de grande importância na vida de São Francisco. O que é a Porciúncula?",
+          "opcoes": ["A casa onde ele nasceu", "Uma pequena igreja que ele restaurou, berço da Ordem Franciscana", "O monte onde ele recebeu os estigmas", "O local de sua sepultura"],
+          "respostaCorreta": "Uma pequena igreja que ele restaurou, berço da Ordem Franciscana",
+          "curiosidade": "Esta capelinha, que ele amava profundamente, hoje fica dentro da grande Basílica de Santa Maria dos Anjos, em Assis."
+        },
+        {
+          "pergunta": "Qual o nome da mulher nobre que, inspirada por São Francisco, fugiu de casa para se tornar a primeira franciscana?",
+          "opcoes": ["Isabel de Hungria", "Catarina de Sena", "Teresa d'Ávila", "Clara de Assis"],
+          "respostaCorreta": "Clara de Assis",
+          "curiosidade": "Clara e Francisco partilhavam uma profunda amizade espiritual, e juntos deram início aos dois principais ramos da família franciscana."
         }
       ]
     },
@@ -70,6 +160,96 @@
           "opcoes": ["O trabalho missionário em terras distantes", "O ensino em escolas e universidades", "O 'Privilégio da Pobreza', viver sem posses", "A clausura silenciosa e perpétua"],
           "respostaCorreta": "O 'Privilégio da Pobreza', viver sem posses",
           "curiosidade": "Ela lutou por toda a vida para que o Papa aprovasse sua Regra, que garantia que as irmãs pudessem viver radicalmente a pobreza, dependendo apenas da providência divina."
+        },
+        {
+          "pergunta": "De qual família nobre de Assis Santa Clara fazia parte?",
+          "opcoes": ["Medici", "Borgia", "Favarone di Offreduccio", "Sforza"],
+          "respostaCorreta": "Favarone di Offreduccio",
+          "curiosidade": "Sua decisão de abandonar uma vida de riqueza e um casamento arranjado para seguir a pobreza evangélica foi um grande choque para a sociedade da época."
+        },
+        {
+          "pergunta": "Em que local São Francisco cortou os cabelos de Clara, simbolizando sua consagração a Deus?",
+          "opcoes": ["Na Catedral de Assis", "Na praça da cidade", "Na capela da Porciúncula", "No convento de São Damião"],
+          "respostaCorreta": "Na capela da Porciúncula",
+          "curiosidade": "Foi um ato secreto, à noite, onde ela trocou suas vestes nobres por um hábito simples, marcando sua fuga do mundo para Deus."
+        },
+        {
+          "pergunta": "O convento de São Damião, onde Clara e suas irmãs viveram, era conhecido por sua...",
+          "opcoes": ["Riqueza e luxo", "Grandeza arquitetônica", "Extrema pobreza e simplicidade", "Localização no centro da cidade"],
+          "respostaCorreta": "Extrema pobreza e simplicidade",
+          "curiosidade": "O convento era muito simples, e as irmãs viviam do trabalho de suas mãos e de esmolas, seguindo o exemplo de Francisco."
+        },
+        {
+          "pergunta": "Qual o nome da irmã de Santa Clara que também se tornou santa e a seguiu na vida religiosa?",
+          "opcoes": ["Santa Isabel", "Santa Inês de Assis", "Santa Rosa de Viterbo", "Santa Verônica"],
+          "respostaCorreta": "Santa Inês de Assis",
+          "curiosidade": "Sua família tentou levá-la de volta à força, mas, segundo a tradição, seu corpo se tornou tão pesado que ninguém conseguiu movê-la."
+        },
+        {
+          "pergunta": "Santa Clara é frequentemente representada segurando qual objeto?",
+          "opcoes": ["Uma cruz", "Um livro", "Um ostensório com o Santíssimo Sacramento", "Uma palma"],
+          "respostaCorreta": "Um ostensório com o Santíssimo Sacramento",
+          "curiosidade": "Esta representação remete ao milagre em que ela protegeu o convento dos invasores sarracenos com a Eucaristia."
+        },
+        {
+          "pergunta": "Por quanto tempo Santa Clara ficou doente e acamada no final de sua vida?",
+          "opcoes": ["Cerca de 1 ano", "5 anos", "10 anos", "Quase 30 anos"],
+          "respostaCorreta": "Quase 30 anos",
+          "curiosidade": "Mesmo em seu leito de dor, ela continuou a guiar suas irmãs, a rezar e a trabalhar, bordando corporais para as igrejas pobres."
+        },
+        {
+          "pergunta": "O que o Papa Inocêncio IV fez pouco antes da morte de Santa Clara?",
+          "opcoes": ["Excomungou-a", "Visitou-a em seu leito de morte e aprovou sua Regra", "Pediu que ela se tornasse abadessa de todas as ordens femininas", "Enviou-lhe uma grande quantia em dinheiro"],
+          "respostaCorreta": "Visitou-a em seu leito de morte e aprovou sua Regra",
+          "curiosidade": "A aprovação da Regra foi a maior alegria de sua vida, garantindo que o carisma da pobreza radical seria preservado."
+        },
+        {
+          "pergunta": "Santa Clara é conhecida como 'a pequena planta' de qual santo?",
+          "opcoes": ["São Bento", "Santo Agostinho", "São Francisco de Assis", "São Domingos"],
+          "respostaCorreta": "São Francisco de Assis",
+          "curiosidade": "O próprio São Francisco a chamava assim, vendo nela o fruto mais perfeito do carisma que Deus lhe havia confiado."
+        },
+        {
+          "pergunta": "O corpo de Santa Clara é preservado até hoje e está exposto em qual basílica em Assis?",
+          "opcoes": ["Basílica de São Francisco", "Basílica de Santa Maria dos Anjos", "Basílica de Santa Clara", "Catedral de São Rufino"],
+          "respostaCorreta": "Basílica de Santa Clara",
+          "curiosidade": "Seu corpo foi encontrado incorrupto anos após sua morte e hoje repousa em uma urna de vidro para veneração dos fiéis."
+        },
+        {
+          "pergunta": "Qual era a principal forma de oração praticada por Santa Clara e suas irmãs?",
+          "opcoes": ["Apenas a recitação do terço", "A oração contemplativa e a adoração ao Santíssimo Sacramento", "A pregação nas ruas", "A escrita de livros teológicos"],
+          "respostaCorreta": "A oração contemplativa e a adoração ao Santíssimo Sacramento",
+          "curiosidade": "As Clarissas são uma ordem de clausura, cuja missão principal é sustentar a Igreja através da oração e do sacrifício."
+        },
+        {
+          "pergunta": "Qual virtude de Santa Clara é especialmente destacada em seus escritos e biografia?",
+          "opcoes": ["A coragem para pregar", "A habilidade de governar", "A humildade radical", "O talento para a música"],
+          "respostaCorreta": "A humildade radical",
+          "curiosidade": "Ela frequentemente se referia a si mesma como 'serva inútil' e 'pequena serva de Cristo', buscando sempre o último lugar."
+        },
+        {
+          "pergunta": "O que Santa Clara respondeu à sua família quando tentaram convencê-la a aceitar um casamento nobre?",
+          "opcoes": ["'Vou pensar no assunto'", "'Já escolhi um esposo muito mais nobre e rico: Jesus Cristo'", "'Talvez no próximo ano'", "'Não me casarei com ninguém'"],
+          "respostaCorreta": "'Já escolhi um esposo muito mais nobre e rico: Jesus Cristo'",
+          "curiosidade": "Sua resposta firme demonstrou sua resolução inabalável em dedicar sua vida inteiramente a Deus."
+        },
+        {
+          "pergunta": "Além de sua irmã Inês, qual outro membro da família de Clara a seguiu na vida religiosa?",
+          "opcoes": ["Seu pai", "Sua mãe, Ortolana, e sua outra irmã, Beatriz", "Seu irmão", "Nenhum outro membro"],
+          "respostaCorreta": "Sua mãe, Ortolana, e sua outra irmã, Beatriz",
+          "curiosidade": "Após a morte de seu marido, sua mãe e sua outra irmã também se juntaram à ordem, vivendo sob a orientação de Clara."
+        },
+        {
+          "pergunta": "Qual o dia da festa litúrgica de Santa Clara de Assis?",
+          "opcoes": ["4 de Outubro", "11 de Agosto", "13 de Junho", "22 de Maio"],
+          "respostaCorreta": "11 de Agosto",
+          "curiosidade": "A data marca o dia de sua morte em 1253, quando ela finalmente partiu para encontrar seu 'Esposo celestial'."
+        },
+        {
+          "pergunta": "O que Santa Clara costumava fazer quando uma de suas irmãs estava doente?",
+          "opcoes": ["Enviava a irmã para um hospital", "Chamava os melhores médicos de Assis", "Ela mesma cuidava, lavando seus pés e servindo-a com humildade", "Apenas rezava à distância"],
+          "respostaCorreta": "Ela mesma cuidava, lavando seus pés e servindo-a com humildade",
+          "curiosidade": "Como verdadeira mãe e serva, ela fazia questão de realizar os trabalhos mais humildes e cuidar pessoalmente das doentes."
         }
       ]
     },
@@ -106,6 +286,348 @@
           "opcoes": ["Egito", "Turquia", "Terra Santa", "Marrocos"],
           "respostaCorreta": "Marrocos",
           "curiosidade": "Ao ver os corpos dos primeiros mártires franciscanos, ele sentiu um forte desejo de também dar a vida por Cristo e decidiu mudar de ordem religiosa."
+        },
+        {
+          "pergunta": "Antes de se tornar franciscano, Santo Antônio pertenceu a qual ordem religiosa?",
+          "opcoes": ["Beneditinos", "Jesuítas", "Agostinianos", "Dominicanos"],
+          "respostaCorreta": "Agostinianos",
+          "curiosidade": "Ele viveu por quase 10 anos como um cônego agostiniano, onde adquiriu seu vasto conhecimento da Bíblia e dos Padres da Igreja."
+        },
+        {
+          "pergunta": "Por que Santo Antônio é conhecido como o 'Martelo dos Hereges'?",
+          "opcoes": ["Porque ele usava um martelo em suas pregações", "Por sua pregação forte e conhecimento teológico que combatia as heresias da época", "Porque ele destruiu templos hereges", "Era apenas um apelido sem motivo específico"],
+          "respostaCorreta": "Por sua pregação forte e conhecimento teológico que combatia as heresias da época",
+          "curiosidade": "Ele combatia principalmente as heresias dos cátaros e albigenses, que negavam a bondade da criação material e a humanidade de Cristo."
+        },
+        {
+          "pergunta": "A tradição de pedir ajuda a Santo Antônio para encontrar objetos perdidos começou com qual evento?",
+          "opcoes": ["Ele encontrou uma moeda de ouro perdida", "Um noviço roubou seu livro de Salmos e, após sua oração, o devolveu arrependido", "Ele ajudou uma mulher a encontrar seu filho perdido", "Ele encontrou as chaves do mosteiro"],
+          "respostaCorreta": "Um noviço roubou seu livro de Salmos e, após sua oração, o devolveu arrependido",
+          "curiosidade": "O livro era muito valioso para ele, pois continha suas anotações pessoais. Por isso, ele é invocado não só para objetos, mas para reencontrar a fé ou a graça perdida."
+        },
+        {
+          "pergunta": "O famoso 'Pão de Santo Antônio' é uma obra de caridade que consiste em...",
+          "opcoes": ["Distribuir pães abençoados no dia 13 de junho", "Coletar doações para comprar pão para os pobres", "Fazer uma novena comendo apenas pão", "Assar um pão gigante para a festa do santo"],
+          "respostaCorreta": "Coletar doações para comprar pão para os pobres",
+          "curiosidade": "A tradição começou com uma promessa de uma mãe que, em troca de uma graça alcançada, doaria aos pobres o peso de seu filho em trigo."
+        },
+        {
+          "pergunta": "Em qual cidade italiana Santo Antônio passou a última parte de sua vida e onde seu corpo está sepultado?",
+          "opcoes": ["Assis", "Roma", "Pádua", "Florença"],
+          "respostaCorreta": "Pádua",
+          "curiosidade": "Sua ligação com a cidade foi tão forte que ele ficou conhecido para sempre como Santo Antônio 'de Pádua', e lá foi construída uma grandiosa basílica em sua honra."
+        },
+        {
+          "pergunta": "Santo Antônio faleceu com apenas...",
+          "opcoes": ["36 anos", "45 anos", "58 anos", "72 anos"],
+          "respostaCorreta": "36 anos",
+          "curiosidade": "Apesar de sua vida curta, seu impacto na Igreja foi imenso, deixando um legado de santidade, sabedoria e milagres."
+        },
+        {
+          "pergunta": "Qual parte do corpo de Santo Antônio foi encontrada incorrupta décadas após sua morte, simbolizando sua eloquência na pregação?",
+          "opcoes": ["Seu coração", "Sua mão direita", "Sua língua", "Seus olhos"],
+          "respostaCorreta": "Sua língua",
+          "curiosidade": "São Boaventura, ao ver a língua intacta, exclamou: 'Ó língua bendita, que sempre louvaste a Deus e o fizeste louvar pelos outros, agora vemos os grandes méritos que tiveste diante de Deus!'"
+        },
+        {
+          "pergunta": "Qual foi o primeiro destino missionário de Santo Antônio, que foi interrompido por uma doença?",
+          "opcoes": ["Terra Santa", "Índia", "Marrocos", "China"],
+          "respostaCorreta": "Marrocos",
+          "curiosidade": "Ele queria ser mártir como os frades que o inspiraram, mas uma forte febre o forçou a tentar retornar a Portugal. Uma tempestade, no entanto, desviou seu navio para a Itália."
+        },
+        {
+          "pergunta": "Como o talento de pregador de Santo Antônio foi descoberto pelos franciscanos?",
+          "opcoes": ["Ele se ofereceu para pregar", "São Francisco o nomeou pregador oficial", "Ele foi obrigado a pregar de improviso em uma ordenação, e surpreendeu a todos", "Ele escreveu um livro que se tornou famoso"],
+          "respostaCorreta": "Ele foi obrigado a pregar de improviso em uma ordenação, e surpreendeu a todos",
+          "curiosidade": "Até então, ele vivia de forma humilde e escondida. Quando o pregador oficial faltou, ele foi chamado e sua sabedoria e eloquência deixaram todos maravilhados."
+        },
+        {
+          "pergunta": "A 'Trezena de Santo Antônio' é uma devoção popular que dura...",
+          "opcoes": ["3 dias", "9 dias", "13 dias", "30 dias"],
+          "respostaCorreta": "13 dias",
+          "curiosidade": "É uma prática de oração muito comum em preparação para a sua festa, no dia 13 de junho."
+        },
+        {
+          "pergunta": "O que Santo Antônio segurava na mão em muitas de suas representações, além do Menino Jesus?",
+          "opcoes": ["Uma cruz", "Um lírio, símbolo da pureza", "Uma palma, símbolo do martírio", "Uma concha, símbolo do batismo"],
+          "respostaCorreta": "Um lírio, símbolo da pureza",
+          "curiosidade": "O lírio branco representa a pureza de corpo e alma que ele manteve ao longo de sua vida."
+        },
+        {
+          "pergunta": "Qual o dia da festa litúrgica de Santo Antônio?",
+          "opcoes": ["4 de Outubro", "29 de Setembro", "13 de Junho", "8 de Dezembro"],
+          "respostaCorreta": "13 de Junho",
+          "curiosidade": "É uma das festas de santos mais populares em todo o mundo, especialmente em Portugal, no Brasil e na Itália."
+        },
+        {
+          "pergunta": "Santo Antônio foi canonizado em um tempo recorde. Quanto tempo após sua morte?",
+          "opcoes": ["10 anos", "5 anos", "2 anos", "Menos de um ano"],
+          "respostaCorreta": "Menos de um ano",
+          "curiosidade": "Sua canonização pelo Papa Gregório IX foi uma das mais rápidas da história da Igreja, devido à sua imensa fama de santidade e aos numerosos milagres."
+        },
+        {
+          "pergunta": "Qual foi a última palavra de Santo Antônio antes de morrer?",
+          "opcoes": ["'Paz e Bem'", "'Eu vejo o meu Senhor'", "'Em tuas mãos, entrego o meu espírito'", "'Está tudo consumado'"],
+          "respostaCorreta": "'Eu vejo o meu Senhor'",
+          "curiosidade": "Suas últimas palavras foram um testemunho de sua visão celestial, indicando que ele estava sendo recebido por Cristo no céu."
+        },
+        {
+          "pergunta": "Em qual área do conhecimento Santo Antônio se destacou, sendo nomeado por São Francisco como o primeiro professor de teologia da Ordem Franciscana?",
+          "opcoes": ["Filosofia", "História", "Teologia e Sagradas Escrituras", "Direito Canônico"],
+          "respostaCorreta": "Teologia e Sagradas Escrituras",
+          "curiosidade": "São Francisco tinha receio que o estudo excessivo pudesse apagar o 'espírito da santa oração', mas confiou em Antônio para ensinar os frades sem que perdessem a humildade."
+        }
+      ]
+    },
+    {
+      "nome": "Santa Teresinha do Menino Jesus",
+      "id": "santa-teresinha",
+      "perguntas": [
+        {
+          "pergunta": "Qual era o nome de batismo de Santa Teresinha?",
+          "opcoes": ["Marie-Françoise Thérèse Martin", "Jeanne d'Arc", "Bernadette Soubirous", "Catherine Labouré"],
+          "respostaCorreta": "Marie-Françoise Thérèse Martin",
+          "curiosidade": "Ela era a filha mais nova de São Luís e Santa Zélia Martin, o primeiro casal a ser canonizado junto na história da Igreja."
+        },
+        {
+          "pergunta": "Santa Teresinha é conhecida por seu caminho espiritual chamado de...",
+          "opcoes": ["A Grande Via", "O Caminho da Perfeição", "A Pequena Via", "Os Exercícios Espirituais"],
+          "respostaCorreta": "A Pequena Via",
+          "curiosidade": "A 'Pequena Via' consiste em fazer pequenas coisas do dia a dia com extraordinário amor, confiando totalmente na misericórdia de Deus."
+        },
+        {
+          "pergunta": "Com qual idade Santa Teresinha entrou para o Carmelo de Lisieux?",
+          "opcoes": ["12 anos", "15 anos", "18 anos", "21 anos"],
+          "respostaCorreta": "15 anos",
+          "curiosidade": "Ela precisou de uma autorização especial do Papa Leão XIII, a quem pediu pessoalmente durante uma peregrinação a Roma, para poder entrar antes da idade permitida."
+        },
+        {
+          "pergunta": "Qual o título de sua famosa autobiografia?",
+          "opcoes": ["Diário de uma Alma", "História de uma Alma", "Confissões", "A Imitação de Cristo"],
+          "respostaCorreta": "História de uma Alma",
+          "curiosidade": "O livro é uma compilação de seus manuscritos escritos por obediência às suas superioras e se tornou um dos clássicos da espiritualidade mundial."
+        },
+        {
+          "pergunta": "Qual promessa Santa Teresinha fez antes de morrer?",
+          "opcoes": ["'Farei milagres em vida'", "'Passarei meu céu fazendo o bem sobre a terra'", "'Escreverei muitos livros'", "'Construirei um grande convento'"],
+          "respostaCorreta": "'Passarei meu céu fazendo o bem sobre a terra'",
+          "curiosidade": "Essa promessa se cumpre até hoje através da 'chuva de rosas' (graças) que muitos fiéis testemunham receber por sua intercessão."
+        },
+        {
+          "pergunta": "Santa Teresinha é a padroeira de quê, junto com São Francisco Xavier?",
+          "opcoes": ["Dos artistas", "Das missões e dos missionários", "Dos pobres", "Dos professores"],
+          "respostaCorreta": "Das missões e dos missionários",
+          "curiosidade": "Apesar de nunca ter saído do convento, seu amor ardente pela salvação das almas e suas orações a tornaram a padroeira das missões."
+        },
+        {
+          "pergunta": "Qual o nome religioso que ela adotou?",
+          "opcoes": ["Irmã Teresa de Jesus", "Irmã Teresa de Lisieux", "Irmã Teresa do Menino Jesus e da Sagrada Face", "Irmã Teresa dos Andes"],
+          "respostaCorreta": "Irmã Teresa do Menino Jesus e da Sagrada Face",
+          "curiosidade": "Os dois títulos revelam suas principais devoções: a simplicidade e pequenez do Menino Jesus e a contemplação do rosto sofredor de Cristo na Paixão."
+        },
+        {
+          "pergunta": "Qual doença causou a morte de Santa Teresinha aos 24 anos?",
+          "opcoes": ["Peste Negra", "Câncer", "Tuberculose", "Gripe Espanhola"],
+          "respostaCorreta": "Tuberculose",
+          "curiosidade": "Ela viveu sua doença em meio a uma grande 'noite escura' da fé, um sofrimento espiritual profundo que ela ofereceu pela salvação dos pecadores."
+        },
+        {
+          "pergunta": "Qual Papa a declarou Doutora da Igreja em 1997?",
+          "opcoes": ["Papa Paulo VI", "Papa Bento XVI", "Papa Francisco", "Papa São João Paulo II"],
+          "respostaCorreta": "Papa São João Paulo II",
+          "curiosidade": "Ela foi a mulher mais jovem e a terceira mulher a receber este título, que reconhece a profundidade e a segurança de sua doutrina espiritual."
+        },
+        {
+          "pergunta": "O que Santa Teresinha desejava ser na Igreja, como escreveu em sua autobiografia?",
+          "opcoes": ["Apenas uma freira anônima", "Guerreira, sacerdote, apóstolo, doutor, mártir... ela desejava ser tudo", "A madre superiora do convento", "Uma grande escritora"],
+          "respostaCorreta": "Guerreira, sacerdote, apóstolo, doutor, mártir... ela desejava ser tudo",
+          "curiosidade": "Ela resolveu esse anseio descobrindo sua vocação no coração da Igreja: 'No coração da Igreja, minha Mãe, eu serei o Amor!'"
+        },
+        {
+          "pergunta": "Quantas de suas irmãs de sangue também se tornaram freiras no mesmo Carmelo?",
+          "opcoes": ["Nenhuma", "Uma", "Duas", "Todas as quatro irmãs mais velhas"],
+          "respostaCorreta": "Todas as quatro irmãs mais velhas",
+          "curiosidade": "Paulina (Madre Inês), Maria (Irmã Maria do Sagrado Coração), Leônia (Irmã Francisca Teresa, em outro convento) e Celina (Irmã Genoveva da Sagrada Face) também se consagraram a Deus."
+        },
+        {
+          "pergunta": "Qual foi a 'graça de Natal' que Teresinha recebeu aos 13 anos, que marcou sua 'conversão completa'?",
+          "opcoes": ["Uma visão do Menino Jesus", "A superação de sua extrema sensibilidade e choro fácil", "O desejo de entrar no Carmelo", "A cura de uma doença"],
+          "respostaCorreta": "A superação de sua extrema sensibilidade e choro fácil",
+          "curiosidade": "Após ouvir um comentário de seu pai, em vez de chorar como de costume, ela sentiu uma grande força interior, que ela descreveu como o momento em que a 'caridade entrou em seu coração'."
+        },
+        {
+          "pergunta": "Qual flor é o símbolo mais associado a Santa Teresinha?",
+          "opcoes": ["Lírio", "Girassol", "Rosa", "Margarida"],
+          "respostaCorreta": "Rosa",
+          "curiosidade": "A rosa simboliza o amor e as graças que ela prometeu derramar do céu. Receber uma rosa após pedir sua intercessão é um sinal frequentemente relatado pelos devotos."
+        },
+        {
+          "pergunta": "Em sua 'Pequena Via', o que Santa Teresinha comparava a um elevador?",
+          "opcoes": ["A oração constante", "Os braços de Jesus, que a elevariam até o céu", "A leitura da Bíblia", "A obediência à madre superiora"],
+          "respostaCorreta": "Os braços de Jesus, que a elevariam até o céu",
+          "curiosidade": "Ela sentia que era pequena demais para subir a 'dura escada da perfeição', então confiou que Jesus mesmo a levaria, como um elevador."
+        },
+        {
+          "pergunta": "Qual era o nome de seus pais, também canonizados?",
+          "opcoes": ["Joaquim e Ana", "Zacarias e Isabel", "Luís e Zélia Martin", "Francisco e Jacinta"],
+          "respostaCorreta": "Luís e Zélia Martin",
+          "curiosidade": "Eles foram o primeiro casal na história da Igreja a ser canonizado na mesma cerimônia, reconhecidos pela santidade vivida na vocação matrimonial e familiar."
+        },
+        {
+          "pergunta": "A quem Santa Teresinha se ofereceu como 'vítima de holocausto'?",
+          "opcoes": ["À Justiça Divina", "Ao Amor Misericordioso de Deus", "Aos pecadores", "À Virgem Maria"],
+          "respostaCorreta": "Ao Amor Misericordioso de Deus",
+          "curiosidade": "Enquanto muitos santos se ofereciam à Justiça de Deus para reparar os pecados, ela se ofereceu ao Amor, pedindo para ser consumida por ele."
+        },
+        {
+          "pergunta": "Qual o dia da festa litúrgica de Santa Teresinha?",
+          "opcoes": ["15 de Outubro", "1 de Outubro", "3 de Novembro", "1 de Dezembro"],
+          "respostaCorreta": "1 de Outubro",
+          "curiosidade": "Sua festa é celebrada no início do mês missionário, reforçando seu título de Padroeira das Missões."
+        },
+        {
+          "pergunta": "Qual foi uma das maiores provações de Santa Teresinha dentro do convento?",
+          "opcoes": ["A falta de comida", "O frio intenso do inverno", "Viver em comunidade com irmãs de temperamentos difíceis", "O trabalho manual pesado"],
+          "respostaCorreta": "Viver em comunidade com irmãs de temperamentos difíceis",
+          "curiosidade": "Ela usava essas dificuldades diárias para praticar a caridade, oferecendo sorrisos e pequenos serviços justamente às irmãs que mais a irritavam."
+        },
+        {
+          "pergunta": "Qual imagem Santa Teresinha usava para descrever sua alma?",
+          "opcoes": ["Uma grande catedral", "Uma águia majestosa", "Uma pequena bola que Jesus podia chutar", "Uma fortaleza inabalável"],
+          "respostaCorreta": "Uma pequena bola que Jesus podia chutar",
+          "curiosidade": "Essa imagem reflete sua total entrega e pequenez, deixando-se conduzir inteiramente pela vontade de Deus, sem vontade própria."
+        },
+        {
+          "pergunta": "O que aconteceu com Teresinha aos 10 anos que foi considerado um milagre?",
+          "opcoes": ["Ela caiu de uma escada e não se machucou", "Ela foi curada de uma grave doença pelo 'sorriso de Nossa Senhora'", "Ela previu o futuro de suas irmãs", "Ela multiplicou pães para sua família"],
+          "respostaCorreta": "Ela foi curada de uma grave doença pelo 'sorriso de Nossa Senhora'",
+          "curiosidade": "Enquanto estava gravemente enferma, suas irmãs rezaram diante de uma imagem de Nossa Senhora, e Teresinha viu a imagem sorrir para ela, ficando instantaneamente curada."
+        }
+      ]
+    },
+    {
+      "nome": "São João Paulo II",
+      "id": "sao-joao-paulo-ii",
+      "perguntas": [
+        {
+          "pergunta": "Qual era o nome de batismo de São João Paulo II?",
+          "opcoes": ["Karol Józef Wojtyła", "Joseph Ratzinger", "Albino Luciani", "Giovanni Montini"],
+          "respostaCorreta": "Karol Józef Wojtyła",
+          "curiosidade": "Ele nasceu na cidade de Wadowice, na Polônia, em 1920."
+        },
+        {
+          "pergunta": "São João Paulo II foi o primeiro Papa não italiano em quantos anos?",
+          "opcoes": ["Cerca de 100 anos", "Cerca de 250 anos", "Mais de 450 anos", "Ele foi o segundo não italiano seguido"],
+          "respostaCorreta": "Mais de 450 anos",
+          "curiosidade": "Sua eleição em 1978 quebrou uma longa tradição de Papas italianos, sendo ele de origem polonesa."
+        },
+        {
+          "pergunta": "Qual foi o lema de seu pontificado?",
+          "opcoes": ["'Dominus Iesus'", "'Gaudium et Spes'", "'Lumen Fidei'", "'Totus Tuus' (Todo Teu)"],
+          "respostaCorreta": "'Totus Tuus' (Todo Teu)",
+          "curiosidade": "O lema expressa sua total consagração a Nossa Senhora, inspirado nos escritos de São Luís Maria Grignion de Montfort."
+        },
+        {
+          "pergunta": "Em 1981, São João Paulo II sofreu um atentado grave em qual local?",
+          "opcoes": ["Na Basílica de São Pedro", "Na Praça de São Pedro", "Em Fátima, Portugal", "Em sua terra natal, a Polônia"],
+          "respostaCorreta": "Na Praça de São Pedro",
+          "curiosidade": "Ele atribuiu sua sobrevivência à intercessão de Nossa Senhora de Fátima e, um ano depois, foi a Fátima para agradecer, onde doou a bala que o atingiu para ser colocada na coroa da imagem."
+        },
+        {
+          "pergunta": "Qual evento mundial para jovens foi instituído por São João Paulo II em 1985?",
+          "opcoes": ["O Congresso Eucarístico Internacional", "O Sínodo dos Bispos", "A Jornada Mundial da Juventude (JMJ)", "O Encontro Mundial das Famílias"],
+          "respostaCorreta": "A Jornada Mundial da Juventude (JMJ)",
+          "curiosidade": "A JMJ se tornou um dos maiores eventos da Igreja Católica, reunindo milhões de jovens de todo o mundo a cada edição."
+        },
+        {
+          "pergunta": "Qual era o esporte favorito de São João Paulo II na juventude?",
+          "opcoes": ["Natação", "Futebol", "Esqui e canoagem", "Tênis"],
+          "respostaCorreta": "Esqui e canoagem",
+          "curiosidade": "Ele era conhecido como o 'Papa atleta' e manteve seu amor pela natureza e pelos esportes ao ar livre durante toda a vida."
+        },
+        {
+          "pergunta": "Qual documento importante São João Paulo II escreveu sobre a dignidade e o valor do corpo humano?",
+          "opcoes": ["'Familiaris Consortio'", "'Evangelium Vitae'", "'Teologia do Corpo'", "'Redemptor Hominis'"],
+          "respostaCorreta": "'Teologia do Corpo'",
+          "curiosidade": "Foi uma série de 129 catequeses que revolucionaram a compreensão católica sobre o corpo, o sexo e o matrimônio como um dom de Deus."
+        },
+        {
+          "pergunta": "Antes de se tornar Papa, Karol Wojtyła teve qual profissão além de seus estudos no seminário?",
+          "opcoes": ["Médico", "Advogado", "Trabalhador em uma pedreira e fábrica química", "Professor de música"],
+          "respostaCorreta": "Trabalhador em uma pedreira e fábrica química",
+          "curiosidade": "Ele trabalhou durante a ocupação nazista na Polônia, o que lhe deu uma profunda sensibilidade para com o mundo do trabalho e a dignidade humana."
+        },
+        {
+          "pergunta": "Qual foi uma das primeiras frases de seu pontificado, dita para encorajar o mundo?",
+          "opcoes": ["'Orai e vigiai'", "'Amai-vos uns aos outros'", "'Não tenhais medo! Abri as portas a Cristo!'", "'Vinde a mim todos vós que estais cansados'"],
+          "respostaCorreta": "'Não tenhais medo! Abri as portas a Cristo!'",
+          "curiosidade": "Essa frase se tornou uma marca de seu pontificado, encorajando o mundo, especialmente o Leste Europeu sob o comunismo, a não ter medo de abraçar a fé."
+        },
+        {
+          "pergunta": "São João Paulo II é frequentemente creditado por ter um papel fundamental na queda de qual regime político?",
+          "opcoes": ["O Nazismo", "O Fascismo italiano", "O Comunismo no Leste Europeu", "O Apartheid na África do Sul"],
+          "respostaCorreta": "O Comunismo no Leste Europeu",
+          "curiosidade": "Sua visita à Polônia em 1979 inspirou o movimento Solidariedade e deu força moral ao povo para resistir pacificamente ao regime comunista."
+        },
+        {
+          "pergunta": "Qual devoção São João Paulo II instituiu na Igreja, a ser celebrada no segundo domingo da Páscoa?",
+          "opcoes": ["Festa do Sagrado Coração de Jesus", "Festa da Divina Misericórdia", "Festa de Cristo Rei", "Solenidade de Maria, Mãe de Deus"],
+          "respostaCorreta": "Festa da Divina Misericórdia",
+          "curiosidade": "Ele canonizou Santa Faustina Kowalska, a 'apóstola da misericórdia', e atendeu ao pedido de Jesus a ela para estabelecer esta festa."
+        },
+        {
+          "pergunta": "Qual foi o país que São João Paulo II mais visitou em suas viagens apostólicas?",
+          "opcoes": ["Brasil", "México", "Polônia", "França"],
+          "respostaCorreta": "Polônia",
+          "curiosidade": "Ele visitou sua terra natal 9 vezes como Papa, sempre sendo recebido por multidões emocionadas."
+        },
+        {
+          "pergunta": "Que doença neurológica afetou visivelmente a saúde de São João Paulo II em seus últimos anos?",
+          "opcoes": ["Alzheimer", "Esclerose Múltipla", "Doença de Parkinson", "Epilepsia"],
+          "respostaCorreta": "Doença de Parkinson",
+          "curiosidade": "Ele nunca escondeu sua fragilidade, transformando seu sofrimento em um poderoso testemunho de fé e perseverança até o fim."
+        },
+        {
+          "pergunta": "Qual livro, que se tornou um best-seller mundial, São João Paulo II publicou em 1994?",
+          "opcoes": ["'Dom e Mistério'", "'Memória e Identidade'", "'Cruzando o Limiar da Esperança'", "'Levantai-vos! Vamos!'"],
+          "respostaCorreta": "'Cruzando o Limiar da Esperança'",
+          "curiosidade": "O livro era uma longa entrevista onde ele respondia a perguntas sobre fé, Deus, o sofrimento e os desafios do mundo moderno."
+        },
+        {
+          "pergunta": "São João Paulo II adicionou quais mistérios ao Rosário em 2002?",
+          "opcoes": ["Mistérios Dolorosos", "Mistérios Gozosos", "Mistérios Luminosos", "Mistérios Gloriosos"],
+          "respostaCorreta": "Mistérios Luminosos",
+          "curiosidade": "Os Mistérios da Luz (Luminosos) focam na vida pública de Jesus: seu Batismo, as Bodas de Caná, o Anúncio do Reino, a Transfiguração e a Instituição da Eucaristia."
+        },
+        {
+          "pergunta": "Qual era a profissão de Karol Wojtyła na juventude, antes de sua vocação sacerdotal se consolidar?",
+          "opcoes": ["Músico", "Pintor", "Ator de teatro", "Jornalista"],
+          "respostaCorreta": "Ator de teatro",
+          "curiosidade": "Ele participou de um grupo de teatro clandestino durante a ocupação nazista. Sua experiência teatral influenciou sua habilidade de comunicação como Papa."
+        },
+        {
+          "pergunta": "Em que ano São João Paulo II realizou o histórico pedido de perdão pelos erros cometidos por membros da Igreja ao longo da história?",
+          "opcoes": ["1985", "1992", "2000 (Grande Jubileu)", "2004"],
+          "respostaCorreta": "2000 (Grande Jubileu)",
+          "curiosidade": "Numa cerimônia sem precedentes chamada 'Dia do Perdão', ele pediu perdão por pecados como as Cruzadas, a Inquisição e as divisões entre os cristãos."
+        },
+        {
+          "pergunta": "Quantas vezes São João Paulo II visitou o Brasil?",
+          "opcoes": ["Uma vez", "Duas vezes", "Três vezes", "Quatro vezes"],
+          "respostaCorreta": "Três vezes",
+          "curiosidade": "Suas visitas ocorreram em 1980, 1991 e 1997, atraindo multidões recordes e deixando uma marca profunda no coração dos brasileiros."
+        },
+        {
+          "pergunta": "Qual o dia da festa litúrgica de São João Paulo II?",
+          "opcoes": ["2 de Abril (dia de sua morte)", "16 de Outubro (dia de sua eleição)", "22 de Outubro", "18 de Maio (dia de seu nascimento)"],
+          "respostaCorreta": "22 de Outubro",
+          "curiosidade": "A data foi escolhida por ser o dia da missa inaugural de seu pontificado, quando ele proferiu a famosa frase 'Não tenhais medo!'"
+        },
+        {
+          "pergunta": "São João Paulo II foi o Papa que mais canonizou e beatificou pessoas na história. Por quê?",
+          "opcoes": ["Para aumentar o número de santos", "Para mostrar que a santidade é possível para todos, em todos os lugares e vocações", "Para agradar a diferentes países", "Porque os processos se tornaram mais fáceis"],
+          "respostaCorreta": "Para mostrar que a santidade é possível para todos, em todos os lugares e vocações",
+          "curiosidade": "Ele queria dar exemplos concretos de santidade da vida moderna, incluindo leigos, casais, jovens e pessoas de diferentes culturas."
         }
       ]
     }
