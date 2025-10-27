@@ -34,6 +34,96 @@
           "opcoes": ["A transformação da água em vinho", "A mudança completa da substância do pão e do vinho na substância do Corpo e Sangue de Cristo", "A leitura de três passagens da Bíblia", "O ato de benzer os fiéis com água benta"],
           "respostaCorreta": "A mudança completa da substância do pão e do vinho na substância do Corpo e Sangue de Cristo",
           "curiosidade": "Este é um dos mistérios centrais da fé católica, que acontece durante a Consagração na Missa."
+        },
+        {
+          "pergunta": "Qual o nome do objeto onde se guarda o Santíssimo Sacramento (hóstias consagradas)?",
+          "opcoes": ["Ostensório", "Sacrário (ou Tabernáculo)", "Cálice", "Ambão"],
+          "respostaCorreta": "Sacrário (ou Tabernáculo)",
+          "curiosidade": "O Ostensório é usado para expor o Santíssimo para adoração, mas é no Sacrário que Ele é guardado."
+        },
+        {
+          "pergunta": "O que significa a sigla 'INRI' que aparece nas cruzes?",
+          "opcoes": ["'Eu Sou o Rei dos Israelitas'", "'Jesus Nazareno, Rei dos Judeus'", "'Isto é o Rei dos Justos'", "'Em Nome do Rei de Israel'"],
+          "respostaCorreta": "'Jesus Nazareno, Rei dos Judeus'",
+          "curiosidade": "É a sigla da frase em latim 'Iesus Nazarenus, Rex Iudaeorum', que Pôncio Pilatos ordenou que fosse escrita na cruz."
+        },
+        {
+          "pergunta": "O Ano Litúrgico começa com qual tempo?",
+          "opcoes": ["Natal", "Páscoa", "Quaresma", "Advento"],
+          "respostaCorreta": "Advento",
+          "curiosidade": "O Advento é o tempo de preparação e alegre expectativa para o nascimento de Jesus, compreendendo as quatro semanas que antecedem o Natal."
+        },
+        {
+          "pergunta": "Como se chama a mesa onde o sacrifício da Eucaristia é celebrado?",
+          "opcoes": ["Púlpito", "Credência", "Altar", "Presbitério"],
+          "respostaCorreta": "Altar",
+          "curiosidade": "O Altar simboliza o próprio Cristo, a pedra angular da Igreja, e também a mesa da Última Ceia."
+        },
+        {
+          "pergunta": "Qual a cor litúrgica usada no Natal e na Páscoa, simbolizando alegria, pureza e glória?",
+          "opcoes": ["Dourado", "Branco", "Amarelo", "Verde"],
+          "respostaCorreta": "Branco",
+          "curiosidade": "O dourado pode substituir o branco em celebrações mais solenes, mas o branco é a cor padrão para os tempos de grande alegria."
+        },
+        {
+          "pergunta": "O que é o 'Tríduo Pascal'?",
+          "opcoes": ["Os três dias que antecedem o Natal", "As três celebrações principais que antecedem a Páscoa: Ceia do Senhor, Paixão do Senhor e Vigília Pascal", "Os três primeiros domingos da Quaresma", "Uma novena de três dias"],
+          "respostaCorreta": "As três celebrações principais que antecedem a Páscoa: Ceia do Senhor, Paixão do Senhor e Vigília Pascal",
+          "curiosidade": "O Tríduo Pascal é o coração do Ano Litúrgico, celebrando a Paixão, Morte e Ressurreição de Jesus."
+        },
+        {
+          "pergunta": "Qual o nome da oração que resume a fé cristã, também conhecida como 'Símbolo dos Apóstolos'?",
+          "opcoes": ["Pai Nosso", "Credo", "Salve Rainha", "Glória"],
+          "respostaCorreta": "Credo",
+          "curiosidade": "Recitar o Credo é professar publicamente a fé da Igreja, recebida desde os tempos dos apóstolos."
+        },
+        {
+          "pergunta": "Como se chama o local elevado de onde são proclamadas as leituras na igreja?",
+          "opcoes": ["Altar", "Sacristia", "Ambão ou Mesa da Palavra", "Genuflexório"],
+          "respostaCorreta": "Ambão ou Mesa da Palavra",
+          "curiosidade": "A dignidade do Ambão ressalta a importância da Palavra de Deus, que é proclamada e não apenas 'lida'."
+        },
+        {
+          "pergunta": "O que é a 'fração do pão' durante a Missa?",
+          "opcoes": ["O momento em que o padre come a hóstia", "O ato de partir a hóstia consagrada antes da comunhão", "A distribuição das hóstias aos fiéis", "A consagração do pão"],
+          "respostaCorreta": "O ato de partir a hóstia consagrada antes da comunhão",
+          "curiosidade": "Este gesto, feito por Jesus na Última Ceia, simboliza que, embora sejamos muitos, formamos um só corpo ao partilhar do único pão da vida, que é Cristo."
+        },
+        {
+          "pergunta": "Qual a cor litúrgica que pode ser usada no terceiro domingo do Advento (Gaudete) e no quarto domingo da Quaresma (Laetare)?",
+          "opcoes": ["Azul", "Rosa", "Laranja", "Prata"],
+          "respostaCorreta": "Rosa",
+          "curiosidade": "O rosa (ou róseo) representa uma 'pausa' na penitência do roxo, simbolizando a alegria pela proximidade do Natal e da Páscoa."
+        },
+        {
+          "pergunta": "O que o Círio Pascal, aceso na Vigília Pascal, representa?",
+          "opcoes": ["A luz da fé dos apóstolos", "Cristo ressuscitado, a luz do mundo", "O Espírito Santo", "A Virgem Maria"],
+          "respostaCorreta": "Cristo ressuscitado, a luz do mundo",
+          "curiosidade": "Ele permanece aceso em todas as celebrações durante o Tempo Pascal e é usado também nos batismos e exéquias."
+        },
+        {
+          "pergunta": "Quantas leituras são normalmente proclamadas nas missas dominicais?",
+          "opcoes": ["Uma leitura e o Evangelho", "Duas leituras e o Evangelho", "Apenas o Evangelho", "Quatro leituras"],
+          "respostaCorreta": "Duas leituras e o Evangelho",
+          "curiosidade": "Normalmente, a primeira leitura é do Antigo Testamento, a segunda é de uma das Epístolas do Novo Testamento, e a terceira é o Evangelho."
+        },
+        {
+          "pergunta": "O que significa a palavra 'Eucaristia'?",
+          "opcoes": ["Sacrifício", "Memorial", "Ação de Graças", "Comunhão"],
+          "respostaCorreta": "Ação de Graças",
+          "curiosidade": "Vem da palavra grega 'eucharistia', e reflete a atitude de Jesus na Última Ceia, que 'deu graças' antes de partir o pão."
+        },
+        {
+          "pergunta": "Como se chama o objeto usado pelo padre para aspergir água benta sobre os fiéis?",
+          "opcoes": ["Turíbulo", "Naveta", "Aspersório (ou hissope)", "Patena"],
+          "respostaCorreta": "Aspersório (ou hissope)",
+          "curiosidade": "O Turíbulo é usado para o incenso, a Naveta para guardar o incenso, e a Patena é o 'pratinho' onde se coloca a hóstia principal."
+        },
+        {
+          "pergunta": "A 'Doxologia' é a parte final da Oração Eucarística. Como ela termina?",
+          "opcoes": ["'Amém'", "'Cordeiro de Deus, que tirais o pecado do mundo...'", "'Por Cristo, com Cristo, e em Cristo...'", "'Pai Nosso, que estais nos céus...'"],
+          "respostaCorreta": "'Por Cristo, com Cristo, e em Cristo...'",
+          "curiosidade": "É um grande louvor à Santíssima Trindade, concluído pela aclamação 'Amém' de toda a assembleia, considerado o 'Amém' mais importante da Missa."
         }
       ]
     },
@@ -70,6 +160,474 @@
           "opcoes": ["André", "Tiago", "Simão Pedro", "João"],
           "respostaCorreta": "Simão Pedro",
           "curiosidade": "Este momento é considerado pela Igreja Católica como a fundação do Papado, com Pedro sendo o primeiro Papa."
+        },
+        {
+          "pergunta": "O Sermão da Montanha, um dos discursos mais famosos de Jesus, começa com qual ensinamento?",
+          "opcoes": ["O Pai Nosso", "As Bem-Aventuranças ('Felizes os pobres em espírito...')", "A Regra de Ouro ('Fazei aos outros...')", "A Parábola do Semeador"],
+          "respostaCorreta": "As Bem-Aventuranças ('Felizes os pobres em espírito...')",
+          "curiosidade": "As Bem-Aventuranças são consideradas a 'nova lei' de Cristo, que aperfeiçoa a Lei de Moisés, centrando-a no amor e na misericórdia."
+        },
+        {
+          "pergunta": "Quem foi o imperador romano durante o tempo do nascimento de Jesus?",
+          "opcoes": ["Júlio César", "César Augusto", "Tibério", "Nero"],
+          "respostaCorreta": "César Augusto",
+          "curiosidade": "Foi o decreto de recenseamento de César Augusto que fez com que José e Maria viajassem de Nazaré para Belém, onde Jesus nasceu."
+        },
+        {
+          "pergunta": "Qual foi a profissão de Jesus antes de iniciar seu ministério público?",
+          "opcoes": ["Pescador", "Pastor de ovelhas", "Cobrador de impostos", "Carpinteiro"],
+          "respostaCorreta": "Carpinteiro",
+          "curiosidade": "Ele aprendeu o ofício com seu pai adotivo, São José, o que demonstra a santidade e a dignidade do trabalho humano."
+        },
+        {
+          "pergunta": "Na Transfiguração, quais dois profetas do Antigo Testamento apareceram ao lado de Jesus?",
+          "opcoes": ["Isaías e Jeremias", "Abraão e Jacó", "Moisés e Elias", "Davi e Salomão"],
+          "respostaCorreta": "Moisés e Elias",
+          "curiosidade": "Moisés representava a Lei e Elias representava os Profetas, indicando que toda a revelação do Antigo Testamento apontava para Jesus."
+        },
+        {
+          "pergunta": "Qual foi a última frase de Jesus na cruz, segundo o Evangelho de João?",
+          "opcoes": ["'Pai, perdoa-lhes, eles não sabem o que fazem'", "'Tenho sede'", "'Pai, em tuas mãos entrego o meu espírito'", "'Está consumado'"],
+          "respostaCorreta": "'Está consumado'",
+          "curiosidade": "A frase 'Tetelestai' em grego não significa apenas 'terminou', mas também 'a dívida está paga', indicando que sua missão redentora foi cumprida."
+        },
+        {
+          "pergunta": "Qual o nome da cidade onde Jesus passou a maior parte de sua infância e juventude?",
+          "opcoes": ["Jerusalém", "Belém", "Nazaré", "Jericó"],
+          "respostaCorreta": "Nazaré",
+          "curiosidade": "Por isso Ele era conhecido como 'Jesus de Nazaré', e seus seguidores foram inicialmente chamados de 'Nazarenos'."
+        },
+        {
+          "pergunta": "Na parábola do Filho Pródigo, o que o pai faz quando o filho mais novo retorna arrependido?",
+          "opcoes": ["Dá-lhe uma punição severa", "Ignora-o", "Corre ao seu encontro, o abraça e faz uma grande festa", "Manda-o trabalhar como servo"],
+          "respostaCorreta": "Corre ao seu encontro, o abraça e faz uma grande festa",
+          "curiosidade": "Esta parábola é uma das mais belas representações da infinita misericórdia de Deus Pai, que sempre acolhe o pecador arrependido."
+        },
+        {
+          "pergunta": "Quem foi o primeiro apóstolo a ser martirizado?",
+          "opcoes": ["Pedro", "Paulo", "Tiago Maior", "André"],
+          "respostaCorreta": "Tiago Maior",
+          "curiosidade": "Ele era irmão de João Evangelista e foi decapitado por ordem do Rei Herodes Agripa I, conforme narrado nos Atos dos Apóstolos."
+        },
+        {
+          "pergunta": "Qual apóstolo duvidou da ressurreição de Jesus até que tocasse em suas chagas?",
+          "opcoes": ["Filipe", "Mateus", "Bartolomeu", "Tomé"],
+          "respostaCorreta": "Tomé",
+          "curiosidade": "Após tocar em Jesus, ele fez uma das mais belas profissões de fé: 'Meu Senhor e meu Deus!', mostrando que a dúvida pode levar a uma fé mais profunda."
+        },
+        {
+          "pergunta": "Quantos dias Jesus passou no deserto sendo tentado pelo diabo antes de começar seu ministério?",
+          "opcoes": ["3 dias", "7 dias", "40 dias", "1 ano"],
+          "respostaCorreta": "40 dias",
+          "curiosidade": "O número 40 é recorrente na Bíblia (dilúvio, Moisés no Sinai, caminhada no deserto) e simboliza um tempo de provação e preparação."
+        },
+        {
+          "pergunta": "Qual era a profissão de São Mateus antes de ser chamado por Jesus para ser um apóstolo?",
+          "opcoes": ["Pescador", "Médico", "Cobrador de impostos", "Soldado"],
+          "respostaCorreta": "Cobrador de impostos",
+          "curiosidade": "Os cobradores de impostos eram odiados pelo povo judeu por colaborarem com os romanos. O chamado de Mateus mostra que Jesus veio para todos, inclusive os pecadores."
+        },
+        {
+          "pergunta": "Na multiplicação dos pães, com quantos pães e peixes Jesus alimentou a multidão?",
+          "opcoes": ["Dois pães e cinco peixes", "Sete pães e alguns peixinhos", "Cinco pães e dois peixes", "Um pão e um peixe"],
+          "respostaCorreta": "Cinco pães e dois peixes",
+          "curiosidade": "Este milagre, presente nos quatro Evangelhos, prefigura a Eucaristia, onde Jesus se dá como alimento para a multidão."
+        },
+        {
+          "pergunta": "O que Jesus estava fazendo no barco quando uma grande tempestade começou?",
+          "opcoes": ["Remando", "Pescando", "Ensinando os discípulos", "Dormindo"],
+          "respostaCorreta": "Dormindo",
+          "curiosidade": "O sono de Jesus simboliza a paz e a confiança em Deus mesmo em meio ao caos. Ao ser acordado, Ele acalma a tempestade com sua palavra."
+        },
+        {
+          "pergunta": "Quem ajudou Jesus a carregar a cruz no caminho para o Calvário?",
+          "opcoes": ["José de Arimateia", "Nicodemos", "Simão de Cirene (o Cireneu)", "João, o apóstolo amado"],
+          "respostaCorreta": "Simão de Cirene (o Cireneu)",
+          "curiosidade": "Simão foi forçado pelos soldados romanos a ajudar. A tradição vê nele um símbolo de todos nós, que somos chamados a ajudar Cristo a carregar a cruz no sofrimento dos irmãos."
+        },
+        {
+          "pergunta": "Após a ressurreição, para quem Jesus apareceu primeiro, segundo a maioria dos Evangelhos?",
+          "opcoes": ["Para Pedro", "Para os doze apóstolos reunidos", "Para sua mãe, Maria", "Para Maria Madalena"],
+          "respostaCorreta": "Para Maria Madalena",
+          "curiosidade": "O fato de a primeira testemunha da Ressurreição ser uma mulher era revolucionário para a cultura da época e mostra a dignidade que Cristo conferiu às mulheres."
+        }
+      ]
+    },
+    {
+      "nome": "Angeologia (Anjos)",
+      "id": "angeologia",
+      "perguntas": [
+        {
+          "pergunta": "Quais são os nomes dos três Arcanjos mencionados nominalmente na Bíblia?",
+          "opcoes": ["Uriel, Ariel e Azrael", "Miguel, Gabriel e Rafael", "Cassiel, Samael e Zadiel", "Metatron, Jofiel e Haniel"],
+          "respostaCorreta": "Miguel, Gabriel e Rafael",
+          "curiosidade": "Miguel significa 'Quem como Deus?', Gabriel 'Força de Deus', e Rafael 'Deus cura'."
+        },
+        {
+          "pergunta": "Qual Arcanjo anunciou a Maria que ela seria a Mãe de Jesus?",
+          "opcoes": ["Miguel", "Rafael", "Uriel", "Gabriel"],
+          "respostaCorreta": "Gabriel",
+          "curiosidade": "O Arcanjo Gabriel é o grande mensageiro de Deus, responsável pelos anúncios mais importantes da história da salvação."
+        },
+        {
+          "pergunta": "Qual Arcanjo é conhecido como o grande guerreiro, líder do exército celestial contra Satanás?",
+          "opcoes": ["Gabriel", "Miguel", "Rafael", "Ezequiel"],
+          "respostaCorreta": "Miguel",
+          "curiosidade": "Ele é descrito no livro do Apocalipse lutando contra o dragão (Satanás) e seus anjos caídos."
+        },
+        {
+          "pergunta": "No livro de Tobias, qual Arcanjo acompanha o jovem Tobias em sua jornada, disfarçado de humano?",
+          "opcoes": ["Miguel", "Gabriel", "Rafael", "Azarias"],
+          "respostaCorreta": "Rafael",
+          "curiosidade": "Rafael se apresenta como 'Azarias'. Seu nome significa 'Deus cura', e ele cura o pai de Tobias da cegueira e liberta sua futura esposa de um demônio."
+        },
+        {
+          "pergunta": "A palavra 'anjo' vem do grego 'ángelos'. O que ela significa?",
+          "opcoes": ["Guerreiro", "Espírito de Luz", "Mensageiro", "Protetor"],
+          "respostaCorreta": "Mensageiro",
+          "curiosidade": "A principal função dos anjos na Bíblia é servir como mensageiros entre Deus e a humanidade."
+        },
+        {
+          "pergunta": "De acordo com a tradição católica, baseada nos escritos de Pseudo-Dionísio, quantos coros ou hierarquias angélicas existem?",
+          "opcoes": ["3", "7", "9", "12"],
+          "respostaCorreta": "9",
+          "curiosidade": "Os nove coros são: Serafins, Querubins, Tronos, Dominações, Potestades, Virtudes, Principados, Arcanjos e Anjos."
+        },
+        {
+          "pergunta": "Qual coro angélico é descrito como estando mais próximo de Deus, ardendo de amor, e frequentemente associado a seis asas?",
+          "opcoes": ["Anjos", "Arcanjos", "Querubins", "Serafins"],
+          "respostaCorreta": "Serafins",
+          "curiosidade": "A palavra 'Serafim' deriva do hebraico e significa 'ardente' ou 'incandescente', refletindo seu amor puro e intenso por Deus."
+        },
+        {
+          "pergunta": "No Jardim do Éden, após a expulsão de Adão e Eva, que tipo de anjos Deus colocou para guardar o caminho da Árvore da Vida?",
+          "opcoes": ["Serafins", "Anjos da Guarda", "Querubins", "Arcanjos"],
+          "respostaCorreta": "Querubins",
+          "curiosidade": "Gênesis 3:24 descreve 'querubins e uma espada flamejante que se revolvia' para guardar o acesso ao Jardim."
+        },
+        {
+          "pergunta": "A doutrina do 'Anjo da Guarda' ou 'Anjo Custódio' se baseia em qual ensinamento de Jesus?",
+          "opcoes": ["Na parábola do Bom Pastor", "No Sermão da Montanha", "Na afirmação de que os anjos das crianças 'continuamente veem a face de meu Pai'", "Na oração do Pai Nosso"],
+          "respostaCorreta": "Na afirmação de que os anjos das crianças 'continuamente veem a face de meu Pai'",
+          "curiosidade": "Essa passagem (Mateus 18:10) é a principal base bíblica para a crença de que cada pessoa tem um anjo protetor designado por Deus."
+        },
+        {
+          "pergunta": "Qual era o nome do anjo que, segundo a tradição, liderou a rebelião contra Deus e foi expulso do céu?",
+          "opcoes": ["Belzebu", "Lúcifer", "Mamon", "Asmodeu"],
+          "respostaCorreta": "Lúcifer",
+          "curiosidade": "O nome 'Lúcifer' significa 'portador da luz' ou 'estrela da manhã', indicando que ele era um anjo de grande beleza e poder antes de sua queda por orgulho."
+        },
+        {
+          "pergunta": "No livro do Êxodo, quem guia o povo de Israel pelo deserto na forma de uma coluna de nuvem e de fogo?",
+          "opcoes": ["Moisés", "Um anjo do Senhor", "O próprio Deus", "Josué"],
+          "respostaCorreta": "Um anjo do Senhor",
+          "curiosidade": "Êxodo 14:19 diz: 'O anjo de Deus, que ia adiante do exército de Israel, retirou-se e se pôs atrás deles', mostrando a proteção angelical."
+        },
+        {
+          "pergunta": "Os anjos são seres...",
+          "opcoes": ["Corpóreos e espirituais, como os humanos", "Puramente corpóreos", "Puramente espirituais, sem corpo físico", "Humanos que morreram e foram para o céu"],
+          "respostaCorreta": "Puramente espirituais, sem corpo físico",
+          "curiosidade": "O Catecismo ensina que os anjos são criaturas não-corporais, imortais, com inteligência e vontade, criados por Deus para servi-Lo e glorificá-Lo."
+        },
+        {
+          "pergunta": "Qual anjo apareceu a Zacarias no templo para anunciar o nascimento de João Batista?",
+          "opcoes": ["Um anjo anônimo", "Miguel", "Rafael", "Gabriel"],
+          "respostaCorreta": "Gabriel",
+          "curiosidade": "Por duvidar da mensagem, Zacarias ficou mudo até o nascimento de seu filho, como sinal do poder de Deus."
+        },
+        {
+          "pergunta": "No livro de Daniel, qual arcanjo ajuda o profeta a interpretar suas visões?",
+          "opcoes": ["Miguel", "Gabriel", "Ambos Miguel e Gabriel", "Nenhum deles"],
+          "respostaCorreta": "Ambos Miguel e Gabriel",
+          "curiosidade": "Gabriel aparece para explicar as visões (Daniel 8 e 9), e Miguel é mencionado como o 'grande príncipe' protetor de Israel (Daniel 10 e 12)."
+        },
+        {
+          "pergunta": "O que os anjos cantaram para os pastores na noite do nascimento de Jesus?",
+          "opcoes": ["'Aleluia, o Rei nasceu!'", "'Glória a Deus nas alturas e paz na terra aos homens por Ele amados'", "'Hosana ao Filho de Davi'", "'Vinde, adoremos'"],
+          "respostaCorreta": "'Glória a Deus nas alturas e paz na terra aos homens por Ele amados'",
+          "curiosidade": "Esta aclamação se tornou a base para a oração do 'Glória', uma das partes mais antigas e veneráveis da Missa."
+        },
+        {
+          "pergunta": "Qual o dia em que a Igreja celebra a festa dos Santos Arcanjos Miguel, Gabriel e Rafael?",
+          "opcoes": ["25 de Dezembro", "15 de Agosto", "29 de Setembro", "1 de Novembro"],
+          "respostaCorreta": "29 de Setembro",
+          "curiosidade": "Antigamente, cada arcanjo tinha sua própria festa, mas elas foram unificadas em um único dia para celebrar juntos os três arcanjos nomeados na Escritura."
+        },
+        {
+          "pergunta": "No livro do Apocalipse, quantos anjos são mencionados tocando trombetas que anunciam juízos sobre a terra?",
+          "opcoes": ["3", "4", "7", "12"],
+          "respostaCorreta": "7",
+          "curiosidade": "O som das sete trombetas desencadeia uma série de eventos cataclísmicos que fazem parte das visões proféticas de São João."
+        },
+        {
+          "pergunta": "Um anjo confortou Jesus em qual momento de sua vida?",
+          "opcoes": ["Durante o jejum no deserto", "Na sua agonia no Jardim do Getsêmani", "Enquanto estava na cruz", "Após a ressurreição"],
+          "respostaCorreta": "Na sua agonia no Jardim do Getsêmani",
+          "curiosidade": "Lucas 22:43 narra: 'Apareceu-lhe então um anjo do céu, que o confortava', mostrando a solidariedade do céu com o sofrimento de Cristo."
+        },
+        {
+          "pergunta": "Qual o dia da festa dos Santos Anjos da Guarda?",
+          "opcoes": ["30 de Setembro", "2 de Outubro", "1 de Novembro", "25 de Dezembro"],
+          "respostaCorreta": "2 de Outubro",
+          "curiosidade": "A data foi fixada logo após a festa dos Arcanjos para honrar os anjos anônimos que Deus designa para proteger cada um de nós."
+        },
+        {
+          "pergunta": "Segundo o profeta Isaías, o que os Serafins clamavam incessantemente diante do trono de Deus?",
+          "opcoes": ["'Aleluia'", "'Hosana'", "'Santo, Santo, Santo'", "'Amém'"],
+          "respostaCorreta": "'Santo, Santo, Santo'",
+          "curiosidade": "Esta aclamação, 'Sanctus, Sanctus, Sanctus', foi incorporada à liturgia da Missa como um dos momentos mais solenes, unindo a Igreja da Terra à liturgia do Céu."
+        }
+      ]
+    },
+    {
+      "nome": "Mariologia (Doutrinas sobre Maria)",
+      "id": "mariologia",
+      "perguntas": [
+        {
+          "pergunta": "Qual é o dogma mariano que afirma que Maria foi concebida sem a mancha do pecado original?",
+          "opcoes": ["Maternidade Divina", "Assunção de Maria", "Virgindade Perpétua", "Imaculada Conceição"],
+          "respostaCorreta": "Imaculada Conceição",
+          "curiosidade": "Proclamado pelo Papa Pio IX em 1854, este dogma ensina que Maria foi preservada do pecado desde o primeiro instante de sua existência, em preparação para ser a Mãe de Deus."
+        },
+        {
+          "pergunta": "O dogma da 'Maternidade Divina' foi proclamado em qual Concílio da Igreja?",
+          "opcoes": ["Concílio de Niceia", "Concílio de Éfeso", "Concílio de Calcedônia", "Concílio Vaticano II"],
+          "respostaCorreta": "Concílio de Éfeso",
+          "curiosidade": "No ano 431, a Igreja proclamou Maria como 'Theotókos' (Mãe de Deus) para afirmar a divindade de Jesus. Se Jesus é Deus, então sua mãe é Mãe de Deus."
+        },
+        {
+          "pergunta": "O que a Igreja celebra no dogma da 'Assunção de Maria'?",
+          "opcoes": ["Que Maria subiu ao céu por seu próprio poder", "Que Maria foi elevada ao céu de corpo e alma ao final de sua vida terrestre", "Que Maria não morreu, mas adormeceu", "Que Maria foi a primeira a ressuscitar depois de Cristo"],
+          "respostaCorreta": "Que Maria foi elevada ao céu de corpo e alma ao final de sua vida terrestre",
+          "curiosidade": "Proclamado pelo Papa Pio XII em 1950, este dogma afirma que Maria, por não ter o pecado, não sofreu a corrupção do túmulo e participa plenamente da ressurreição de seu Filho."
+        },
+        {
+          "pergunta": "O dogma da 'Virgindade Perpétua' de Maria significa que ela foi virgem...",
+          "opcoes": ["Apenas antes do parto de Jesus", "Apenas durante o parto de Jesus", "Apenas após o parto de Jesus", "Antes, durante e depois do parto de Jesus"],
+          "respostaCorreta": "Antes, durante e depois do parto de Jesus",
+          "curiosidade": "Este dogma afirma a consagração total e perpétua de Maria a Deus. Os 'irmãos de Jesus' mencionados na Bíblia são interpretados como parentes próximos, como primos."
+        },
+        {
+          "pergunta": "Qual é o nome da oração que Maria rezou ao visitar sua prima Isabel, e que a Igreja reza todos os dias?",
+          "opcoes": ["Angelus", "Magnificat", "Salve Rainha", "Regina Caeli"],
+          "respostaCorreta": "Magnificat",
+          "curiosidade": "O Magnificat (Minha alma engrandece o Senhor) é um cântico de louvor e gratidão a Deus, que se encontra no Evangelho de Lucas (Lc 1, 46-55)."
+        },
+        {
+          "pergunta": "Nas bodas de Caná, qual foi a instrução que Maria deu aos servos?",
+          "opcoes": ["'Não o incomodem'", "'Esperem um pouco mais'", "'Fazei tudo o que Ele vos disser'", "'Enchei as talhas com vinho'"],
+          "respostaCorreta": "'Fazei tudo o que Ele vos disser'",
+          "curiosidade": "Esta frase é vista como o 'testamento de Maria', um conselho para toda a humanidade: obedecer a Jesus em tudo."
+        },
+        {
+          "pergunta": "Qual título foi dado a Maria por Jesus na cruz, quando a entregou aos cuidados do apóstolo João?",
+          "opcoes": ["Rainha do Céu", "Mãe da Igreja", "Advogada Nossa", "Consoladora dos Aflitos"],
+          "respostaCorreta": "Mãe da Igreja",
+          "curiosidade": "Ao dizer 'Mulher, eis aí o teu filho' e 'Filho, eis aí a tua mãe', Jesus entregou Maria para ser a mãe de todos os discípulos, representados por João."
+        },
+        {
+          "pergunta": "A aparição de Nossa Senhora em Lourdes, na França, foi para qual santa?",
+          "opcoes": ["Santa Catarina Labouré", "Santa Bernadette Soubirous", "Santa Margarida Maria Alacoque", "Irmã Lúcia de Fátima"],
+          "respostaCorreta": "Santa Bernadette Soubirous",
+          "curiosidade": "Nessas aparições, a Virgem Maria se identificou com as palavras: 'Eu sou a Imaculada Conceição', confirmando o dogma que havia sido proclamado 4 anos antes."
+        },
+        {
+          "pergunta": "Qual é o título de Nossa Senhora que é a padroeira do Brasil?",
+          "opcoes": ["Nossa Senhora de Fátima", "Nossa Senhora Aparecida", "Nossa Senhora do Carmo", "Nossa Senhora das Graças"],
+          "respostaCorreta": "Nossa Senhora Aparecida",
+          "curiosidade": "A imagem foi encontrada por três pescadores no rio Paraíba do Sul em 1717. Após encontrarem a imagem (primeiro o corpo, depois a cabeça), a pesca se tornou milagrosamente abundante."
+        },
+        {
+          "pergunta": "O que a Igreja celebra na Solenidade de Maria, Mãe de Deus?",
+          "opcoes": ["O nascimento de Maria", "O anúncio do anjo a Maria", "O primeiro e mais antigo título mariano, no dia 1º de Janeiro", "A coroação de Maria no céu"],
+          "respostaCorreta": "O primeiro e mais antigo título mariano, no dia 1º de Janeiro",
+          "curiosidade": "Celebrar Maria como Mãe de Deus no primeiro dia do ano civil é uma forma de consagrar todo o ano a ela e a seu Filho."
+        },
+        {
+          "pergunta": "Na aparição em Fátima, Portugal, qual foi o principal pedido de Nossa Senhora aos três pastorinhos?",
+          "opcoes": ["Construir uma grande basílica", "Rezar o terço todos os dias pela paz no mundo e a conversão dos pecadores", "Realizar longos jejuns", "Fazer uma peregrinação a Jerusalém"],
+          "respostaCorreta": "Rezar o terço todos os dias pela paz no mundo e a conversão dos pecadores",
+          "curiosidade": "As aparições de Fátima em 1917 ocorreram durante a Primeira Guerra Mundial, e a mensagem de paz através da oração foi central."
+        },
+        {
+          "pergunta": "Qual o nome da oração que recorda a Anunciação e é tradicionalmente rezada ao meio-dia?",
+          "opcoes": ["Magnificat", "Terço", "Angelus", "Ofício da Imaculada Conceição"],
+          "respostaCorreta": "Angelus",
+          "curiosidade": "O nome 'Angelus' vem da primeira palavra da oração em latim: 'Angelus Domini nuntiavit Mariæ' (O Anjo do Senhor anunciou a Maria)."
+        },
+        {
+          "pergunta": "O Santo Rosário (ou Terço) é tradicionalmente dividido em quantos mistérios?",
+          "opcoes": ["3 (Gozosos, Dolorosos, Gloriosos)", "4 (Gozosos, Luminosos, Dolorosos, Gloriosos)", "5 (os 5 continentes)", "7 (as 7 dores de Maria)"],
+          "respostaCorreta": "4 (Gozosos, Luminosos, Dolorosos, Gloriosos)",
+          "curiosidade": "Originalmente eram três. Os Mistérios Luminosos foram adicionados por São João Paulo II em 2002 para contemplar a vida pública de Jesus."
+        },
+        {
+          "pergunta": "Qual o título de Nossa Senhora associado à aparição no México ao índio São Juan Diego?",
+          "opcoes": ["Nossa Senhora de Coromoto", "Nossa Senhora de Luján", "Nossa Senhora de Guadalupe", "Nossa Senhora da Caridade do Cobre"],
+          "respostaCorreta": "Nossa Senhora de Guadalupe",
+          "curiosidade": "A imagem de Nossa Senhora ficou milagrosamente estampada no manto (tilma) de Juan Diego, um tecido frágil que sobrevive intacto há quase 500 anos."
+        },
+        {
+          "pergunta": "A 'Medalha Milagrosa' foi revelada por Nossa Senhora a qual santa em Paris?",
+          "opcoes": ["Santa Teresinha", "Santa Joana d'Arc", "Santa Catarina Labouré", "Santa Genoveva"],
+          "respostaCorreta": "Santa Catarina Labouré",
+          "curiosidade": "Nossa Senhora prometeu grandes graças para aqueles que usassem a medalha com confiança, pedindo a Catarina que a mandasse cunhar."
+        },
+        {
+          "pergunta": "O que significa o título 'Corredentora', às vezes atribuído a Maria?",
+          "opcoes": ["Que Maria é uma deusa", "Que Maria nos salva por seu próprio poder", "Que Maria participou de modo único e subordinado na obra da Redenção de Cristo", "Que Maria é igual a Jesus"],
+          "respostaCorreta": "Que Maria participou de modo único e subordinado na obra da Redenção de Cristo",
+          "curiosidade": "Este título não é um dogma, mas uma doutrina que explica como o 'sim' de Maria e seu sofrimento ao pé da cruz colaboraram com a salvação trazida por seu Filho."
+        },
+        {
+          "pergunta": "Qual profeta do Antigo Testamento previu que 'uma virgem conceberá e dará à luz um filho'?",
+          "opcoes": ["Jeremias", "Ezequiel", "Daniel", "Isaías"],
+          "respostaCorreta": "Isaías",
+          "curiosidade": "A profecia de Isaías 7:14 é vista pelos cristãos como o principal anúncio da concepção virginal de Jesus."
+        },
+        {
+          "pergunta": "A oração da 'Salve Rainha' se refere a nós, que vivemos neste mundo, como...",
+          "opcoes": ["'Os filhos de Adão'", "'Os peregrinos da fé'", "'Os degredados filhos de Eva'", "'Os servos do Senhor'"],
+          "respostaCorreta": "'Os degredados filhos de Eva'",
+          "curiosidade": "A expressão 'vale de lágrimas' e 'degredados filhos de Eva' reflete a condição humana de exílio e sofrimento após o pecado original, buscando em Maria consolo e esperança."
+        },
+        {
+          "pergunta": "Qual o nome dos pais de Nossa Senhora, que são santos da Igreja?",
+          "opcoes": ["Zacarias e Isabel", "Abraão e Sara", "São Joaquim e Santa Ana", "José e Maria"],
+          "respostaCorreta": "São Joaquim e Santa Ana",
+          "curiosidade": "Embora seus nomes não estejam na Bíblia, eles são parte da Tradição da Igreja, e são celebrados como os avós de Jesus."
+        },
+        {
+          "pergunta": "O que a Igreja celebra na festa da Anunciação do Senhor?",
+          "opcoes": ["O anúncio do nascimento de João Batista", "O momento em que o Anjo Gabriel anuncia a Maria que ela será a Mãe de Deus", "O anúncio da ressurreição de Jesus", "A visita de Maria a Isabel"],
+          "respostaCorreta": "O momento em que o Anjo Gabriel anuncia a Maria que ela será a Mãe de Deus",
+          "curiosidade": "Celebrada em 25 de março, esta festa ocorre exatamente nove meses antes do Natal, marcando o momento da Encarnação do Verbo."
+        }
+      ]
+    },
+    {
+      "nome": "Os Sete Sacramentos",
+      "id": "sacramentos",
+      "perguntas": [
+        {
+          "pergunta": "Quais são os três sacramentos da Iniciação Cristã?",
+          "opcoes": ["Batismo, Crisma e Matrimônio", "Batismo, Penitência e Eucaristia", "Batismo, Crisma e Eucaristia", "Crisma, Ordem e Unção dos Enfermos"],
+          "respostaCorreta": "Batismo, Crisma e Eucaristia",
+          "curiosidade": "Eles são chamados 'de iniciação' porque são a porta de entrada e o alicerce da vida cristã."
+        },
+        {
+          "pergunta": "Qual é o primeiro sacramento que uma pessoa recebe, que perdoa o pecado original?",
+          "opcoes": ["Crisma", "Eucaristia", "Batismo", "Penitência"],
+          "respostaCorreta": "Batismo",
+          "curiosidade": "Pelo Batismo, nos tornamos filhos de Deus, membros da Igreja e herdeiros do Céu."
+        },
+        {
+          "pergunta": "O que recebemos no sacramento da Crisma ou Confirmação?",
+          "opcoes": ["O perdão dos pecados", "A cura de uma doença", "Os dons do Espírito Santo de forma plena", "A união matrimonial"],
+          "respostaCorreta": "Os dons do Espírito Santo de forma plena",
+          "curiosidade": "A Crisma fortalece a graça do Batismo e nos torna 'soldados de Cristo', prontos para testemunhar a fé."
+        },
+        {
+          "pergunta": "Qual sacramento é considerado a 'fonte e o ápice de toda a vida cristã'?",
+          "opcoes": ["Batismo", "Matrimônio", "Eucaristia", "Ordem"],
+          "respostaCorreta": "Eucaristia",
+          "curiosidade": "Na Eucaristia, recebemos o próprio Cristo sob as espécies do pão e do vinho, o maior presente que Deus poderia nos dar."
+        },
+        {
+          "pergunta": "Qual é o sacramento do perdão, também conhecido como Confissão ou Penitência?",
+          "opcoes": ["Unção dos Enfermos", "Batismo", "Reconciliação", "Crisma"],
+          "respostaCorreta": "Reconciliação",
+          "curiosidade": "Neste sacramento, Deus nos perdoa os pecados cometidos após o Batismo através da absolvição do sacerdote."
+        },
+        {
+          "pergunta": "A Unção dos Enfermos é um sacramento destinado a quem?",
+          "opcoes": ["Apenas para quem está prestes a morrer", "Para qualquer pessoa com uma doença grave ou em idade avançada", "Apenas para os idosos", "Para quem tem uma doença mental"],
+          "respostaCorreta": "Para qualquer pessoa com uma doença grave ou em idade avançada",
+          "curiosidade": "Este sacramento confere uma graça de conforto, paz e coragem para enfrentar as dificuldades da doença ou da velhice, e pode também conceder a cura física se for da vontade de Deus."
+        },
+        {
+          "pergunta": "Quais são os dois sacramentos de serviço ou de missão?",
+          "opcoes": ["Batismo e Crisma", "Matrimônio e Ordem", "Eucaristia e Penitência", "Crisma e Matrimônio"],
+          "respostaCorreta": "Matrimônio e Ordem",
+          "curiosidade": "Eles são chamados 'de serviço' porque consagram as pessoas a uma missão específica para o bem da Igreja e da sociedade."
+        },
+        {
+          "pergunta": "O sacramento da Ordem consagra homens para quais ministérios na Igreja?",
+          "opcoes": ["Leitor, Acólito e Catequista", "Papa, Cardeal e Arcebispo", "Diácono, Presbítero (Padre) e Bispo", "Monge, Frei e Eremita"],
+          "respostaCorreta": "Diácono, Presbítero (Padre) e Bispo",
+          "curiosidade": "Estes são os três graus do sacramento da Ordem, que configuram o homem a Cristo para servir a Igreja como pastores."
+        },
+        {
+          "pergunta": "Quem são os ministros do sacramento do Matrimônio?",
+          "opcoes": ["O padre ou o diácono", "Os padrinhos", "Os próprios noivos", "O bispo da diocese"],
+          "respostaCorreta": "Os próprios noivos",
+          "curiosidade": "O padre ou diácono é a testemunha qualificada da Igreja que abençoa a união, mas são os noivos que conferem o sacramento um ao outro ao darem seu consentimento."
+        },
+        {
+          "pergunta": "Qual é a 'matéria' do sacramento do Batismo?",
+          "opcoes": ["O óleo do crisma", "A vela acesa", "A veste branca", "A água"],
+          "respostaCorreta": "A água",
+          "curiosidade": "A água simboliza a purificação, a morte para o pecado e o nascimento para uma nova vida em Cristo."
+        },
+        {
+          "pergunta": "Qual é a 'forma' (as palavras essenciais) do sacramento do Batismo?",
+          "opcoes": ["'Eu te perdoo em nome do Pai...'", "'Recebe por este sinal o Dom do Espírito Santo'", "'Eu te batizo em nome do Pai, e do Filho, e do Espírito Santo'", "'Isto é o meu Corpo'"],
+          "respostaCorreta": "'Eu te batizo em nome do Pai, e do Filho, e do Espírito Santo'",
+          "curiosidade": "Sem estas palavras, ditas enquanto se derrama a água, o batismo não é válido."
+        },
+        {
+          "pergunta": "O óleo usado na Crisma e na Ordem é chamado de...",
+          "opcoes": ["Óleo dos Catecúmenos", "Óleo dos Enfermos", "Santo Crisma", "Azeite de Oliva"],
+          "respostaCorreta": "Santo Crisma",
+          "curiosidade": "O Santo Crisma é um óleo perfumado consagrado pelo bispo na Missa Crismal da Quinta-feira Santa, junto com os outros dois óleos santos."
+        },
+        {
+          "pergunta": "O que significa a palavra 'crisma'?",
+          "opcoes": ["Confirmação", "Unção", "Força", "Sinal"],
+          "respostaCorreta": "Unção",
+          "curiosidade": "Vem do grego 'chrisma'. A unção com óleo é um símbolo de consagração, força, cura e da presença do Espírito Santo."
+        },
+        {
+          "pergunta": "Para receber a Eucaristia, o que a Igreja pede que o fiel observe?",
+          "opcoes": ["Estar em jejum por três horas", "Ter se confessado no mesmo dia", "Estar em estado de graça (sem pecado mortal) e fazer o jejum eucarístico de uma hora", "Rezar o terço antes da missa"],
+          "respostaCorreta": "Estar em estado de graça (sem pecado mortal) e fazer o jejum eucarístico de uma hora",
+          "curiosidade": "O jejum eucarístico (de água e remédios não quebram o jejum) é um sinal de respeito e preparação para receber o Corpo de Cristo."
+        },
+        {
+          "pergunta": "Quais são os atos do penitente necessários para uma boa Confissão?",
+          "opcoes": ["Contrição, confissão dos pecados e satisfação (penitência)", "Apenas contar os pecados ao padre", "Rezar um ato de contrição", "Fazer um propósito de não pecar mais"],
+          "respostaCorreta": "Contrição, confissão dos pecados e satisfação (penitência)",
+          "curiosidade": "A contrição (arrependimento sincero) é a parte mais importante. Sem ela, a absolvição do padre não tem efeito."
+        },
+        {
+          "pergunta": "O sacramento da Ordem deixa no homem uma marca indelével. O que isso significa?",
+          "opcoes": ["Que ele será padre para sempre e não pode se casar", "Que ele recebe um 'caráter' ou selo espiritual que nunca se apaga", "Que ele nunca mais poderá pecar", "Que ele se torna perfeito"],
+          "respostaCorreta": "Que ele recebe um 'caráter' ou selo espiritual que nunca se apaga",
+          "curiosidade": "Assim como o Batismo e a Crisma, a Ordem só pode ser recebida uma vez, pois imprime na alma um selo eterno de configuração a Cristo."
+        },
+        {
+          "pergunta": "Qual é a finalidade do sacramento do Matrimônio?",
+          "opcoes": ["Apenas ter filhos", "Apenas a ajuda mútua dos esposos", "Apenas legitimar a união perante a sociedade", "O bem dos cônjuges e a procriação e educação dos filhos"],
+          "respostaCorreta": "O bem dos cônjuges e a procriação e educação dos filhos",
+          "curiosidade": "A Igreja ensina que as duas finalidades são inseparáveis: o amor que une o casal (unitivo) está naturalmente aberto à geração de vida (procreativo)."
+        },
+        {
+          "pergunta": "Qual sacramento é conhecido como 'o viático' quando administrado a alguém que está morrendo?",
+          "opcoes": ["A Confissão", "A Unção dos Enfermos", "A Eucaristia", "A Crisma"],
+          "respostaCorreta": "A Eucaristia",
+          "curiosidade": "A palavra 'viático' significa 'alimento para a viagem'. É a última comunhão de um cristão, para fortalecê-lo em sua passagem desta vida para a vida eterna."
+        },
+        {
+          "pergunta": "Quem pode administrar o sacramento da Crisma?",
+          "opcoes": ["Qualquer padre", "Apenas o bispo (ou um padre com delegação especial)", "Apenas o Papa", "Qualquer diácono"],
+          "respostaCorreta": "Apenas o bispo (ou um padre com delegação especial)",
+          "curiosidade": "A presença do bispo como ministro originário da Crisma significa que este sacramento nos une mais fortemente à Igreja e à sua missão apostólica."
+        },
+        {
+          "pergunta": "Quem instituiu os Sete Sacramentos?",
+          "opcoes": ["Os Apóstolos", "A Igreja no Concílio de Trento", "O próprio Jesus Cristo", "Os primeiros Papas"],
+          "respostaCorreta": "O próprio Jesus Cristo",
+          "curiosidade": "A Igreja ensina que todos os sacramentos foram instituídos por Cristo durante sua vida terrena, como canais da graça divina que Ele nos conquistou na cruz."
         }
       ]
     }
