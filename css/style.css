@@ -1,3 +1,8 @@
+/* ==================================================
+   style.css
+   Estilos principais de layout, estrutura e seções do site.
+   ================================================== */
+   
 /* Reset e configurações básicas */
 * {
     margin: 0;
@@ -399,6 +404,12 @@ body {
     align-items: start;
 }
 
+.timeline-details-wrapper {
+    /* Este wrapper vai ocupar a célula do grid. */
+    position: relative; /* Necessário para o filho sticky se comportar */
+    height: 100%; /* Ocupa toda a altura da célula do grid */
+}
+
 .timeline {
     position: relative;
     padding: 2rem 0;
@@ -495,6 +506,7 @@ body {
 .timeline-details {
     position: sticky;
     top: 100px;
+    margin-bottom: 2rem;
 }
 
 .timeline-detail-card {
@@ -541,7 +553,6 @@ body {
 
 .timeline-wrapper {
     max-height: 0;          /* Começa com altura zero */
-    overflow: hidden;       /* Esconde o conteúdo que transborda */
     opacity: 0;             /* Começa totalmente transparente */
     transition: max-height 0.7s ease-in-out, opacity 0.5s ease-in-out; /* Animação suave */
     visibility: hidden;     /* Garante que não seja acessível via teclado quando escondido */
@@ -1031,6 +1042,12 @@ body {
     animation: slideIn 0.3s ease;
 }
 
+.modal-body-content {
+    padding: 1.5rem;
+    max-height: calc(80vh - 70px); /* Altura máxima - altura do cabeçalho */
+    overflow-y: auto; /* Permite scroll só no conteúdo, não no cabeçalho */
+}
+
 .modal-close {
     position: absolute;
     top: 1rem;
@@ -1041,9 +1058,71 @@ body {
     transition: var(--transition);
 }
 
-.modal-close:hover {
-    color: var(--primary-color);
-    transform: scale(1.1);
+.modal .modal-close {
+    position: static; /* Reseta o posicionamento */
+    font-size: 1.8rem;
+    padding: 0 0.5rem;
+    line-height: 1;
+    align-self: center; /* Centraliza verticalmente com os outros botões */
+}
+
+.modal-header-unified {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    background-color: #f8f9fa; /* Um fundo leve para destacar o cabeçalho */
+    border-bottom: 1px solid #eee;
+    border-radius: var(--border-radius) var(--border-radius) 0 0; /* Arredonda só os cantos de cima */
+}
+
+.modal-title-header {
+    font-family: var(--font-alt);
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.modal-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.modal-nav {
+    display: flex;
+    gap: 0.5rem; /* Espaço entre "Anterior" e "Próxima" */
+}
+
+.btn-modal-close:hover {
+    background-color: #e74c3c; /* Vermelho para indicar "fechar" */
+    border-color: #e74c3c;
+    color: white;
+}
+
+.btn-modal-nav {
+    background-color: var(--card-background);
+    border: 1px solid #ddd;
+    color: var(--text-color);
+    width: 40px;  /* Botões quadrados */
+    height: 40px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.btn-modal-nav:hover:not(:disabled) {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.btn-modal-nav:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 
 /* Animations */
