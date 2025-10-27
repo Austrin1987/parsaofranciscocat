@@ -105,11 +105,11 @@ class Timeline {
                     ${item.destaque ? '<div class="timeline-detail-badge">Marco Importante</div>' : ''}
                 </div>
                 <div class="timeline-detail-navigation">
-                    <button class="btn-timeline-nav" onclick="timeline.previous()" ${this.currentIndex === 0 ? 'disabled' : ''}>
+                    <button id="timeline-prev-btn" class="btn-timeline-nav" ${this.currentIndex === 0 ? 'disabled' : ''}>
                         ← Anterior
                     </button>
                     <span class="timeline-counter">${this.currentIndex + 1} de ${this.data.timeline.length}</span>
-                    <button class="btn-timeline-nav" onclick="timeline.next()" ${this.currentIndex === this.data.timeline.length - 1 ? 'disabled' : ''}>
+                    <button id="timeline-next-btn" class="btn-timeline-nav" ${this.currentIndex === this.data.timeline.length - 1 ? 'disabled' : ''}>
                         Próximo →
                     </button>
                 </div>
@@ -117,6 +117,9 @@ class Timeline {
         `;
         
         detailsContainer.innerHTML = detailsHTML;
+
+        document.getElementById('timeline-prev-btn').addEventListener('click', () => this.previous());
+        document.getElementById('timeline-next-btn').addEventListener('click', () => this.next());
         
         // Add fade-in animation
         detailsContainer.querySelector('.timeline-detail-card').style.opacity = '0';
