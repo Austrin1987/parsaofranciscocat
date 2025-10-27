@@ -49,6 +49,34 @@
                     <p class="section-subtitle">Fique por dentro das últimas notícias e acontecimentos.</p>
                 </div>
 
+                <!-- ===== INÍCIO DOS FILTROS ===== -->
+                <div class="events-filters">
+                    <div class="filter-row">
+                        <!-- Filtro de Categoria (Exemplo) -->
+                        <select id="filtro-categoria" class="filter-select">
+                            <option value="todas">Todas as Notícias</option>
+                            <option value="avisos">Avisos</option>
+                            <option value="eventos">Eventos</option>
+                            <option value="catequese">Catequese</option>
+                        </select>
+
+                        <!-- Filtro de Data (Mês/Ano) -->
+                        <select id="filtro-data" class="filter-select">
+                            <option value="todas">Todas as Datas</option>
+                            <!-- Opções de data serão adicionadas via JS -->
+                        </select>
+
+                        <!-- Campo de Busca -->
+                        <div class="search-box">
+                            <input type="text" id="filtro-busca" class="search-input" placeholder="Buscar por título ou palavra-chave...">
+                        </div>
+
+                        <!-- Botão para Limpar Filtros -->
+                        <button id="limpar-filtros-btn" class="btn btn-secondary">Limpar</button>
+                    </div>
+                </div>
+                <!-- ===== FIM DOS FILTROS ===== -->
+
                 <!-- Notícias em Destaque -->
                 <div id="noticias-destaque" class="destaques-grid">
                     <!-- Destaques serão carregados aqui -->
