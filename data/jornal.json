@@ -1,7 +1,8 @@
 {
   "destaques": [
-    "noticia-002",
-    "noticia-b4c1d146"
+    "noticia-005",
+    "noticia-019",
+    "noticia-013"
   ],
   "noticias": [
     {
@@ -41,6 +42,153 @@
       "foto_principal": "../images/noticias/placeholder.jpg",
       "foto_secundaria": null,
       "conteudo": "A Campanha do Agasalho deste ano foi um grande exemplo de caridade e amor ao próximo. Foram arrecadadas mais de mil peças de roupa, que já foram distribuídas para famílias carentes da nossa região. Deus abençoe a todos que doaram!"
+    },
+    {
+      "id": "noticia-004",
+      "data": "2025-10-20",
+      "titulo": "Retiro Espiritual de Advento: Prepare seu Coração",
+      "subtitulo": "Um dia de oração e reflexão para a chegada do Salvador.",
+      "foto_principal": "../images/noticias/placeholder.jpg",
+      "foto_secundaria": null,
+      "conteudo": "Convidamos toda a comunidade para o nosso Retiro de Advento, que acontecerá no próximo mês. Será um dia dedicado à oração, ao silêncio e à meditação, preparando nossos corações para o Natal. As inscrições são limitadas e podem ser feitas na secretaria."
+    },
+    {
+      "id": "noticia-005",
+      "data": "2025-10-25",
+      "titulo": "Campanha do Alimento: Ajude a Montar Cestas de Natal",
+      "subtitulo": "Sua doação pode fazer a diferença na mesa de uma família.",
+      "foto_principal": "../images/noticias/placeholder.jpg",
+      "foto_secundaria": "../images/noticias/placeholder.jpg",
+      "conteudo": "O Natal se aproxima e, com ele, nosso desejo de partilhar. Estamos iniciando a Campanha do Alimento para montar cestas básicas que serão doadas a famílias da nossa comunidade. Contamos com a sua generosidade!",
+      "conteudo_adicional": "<h3>Itens Sugeridos:</h3><ul><li>Arroz e Feijão</li><li>Macarrão e molho de tomate</li><li>Óleo e açúcar</li><li>Farinha de trigo e fubá</li><li>Leite em pó</li></ul>"
+    },
+    {
+      "id": "noticia-006",
+      "data": "2025-11-02",
+      "titulo": "Missa de Finados: Um Momento de Saudade e Esperança",
+      "subtitulo": "Celebrações especiais em memória de nossos entes queridos.",
+      "foto_principal": "../images/noticias/placeholder.jpg",
+      "foto_secundaria": null,
+      "conteudo": "No Dia de Finados, teremos horários de missas especiais para que possamos rezar juntos por aqueles que já partiram para a casa do Pai. Será um momento de fortalecer nossa fé na ressurreição e na vida eterna."
+    },
+    {
+      "id": "noticia-007",
+      "data": "2025-11-05",
+      "titulo": "Noite do Pastel Beneficente",
+      "subtitulo": "Participe e ajude na reforma do salão paroquial.",
+      "foto_principal": "../images/noticias/placeholder.jpg",
+      "foto_secundaria": "../images/noticias/placeholder.jpg",
+      "conteudo": "Vem aí a nossa tradicional Noite do Pastel! Toda a renda será revertida para as obras de reforma do nosso salão comunitário. Teremos pastéis de diversos sabores, além de bebidas e sobremesas. Chame sua família e amigos!",
+      "conteudo_adicional": "<h3>Informações:</h3><ul><li><strong>Data:</strong> Sábado, 15 de Novembro</li><li><strong>Horário:</strong> A partir das 18h</li><li><strong>Local:</strong> Salão Paroquial</li></ul>"
+    },
+    {
+      "id": "noticia-008",
+      "data": "2025-11-08",
+      "titulo": "Encontro de Preparação para o Batismo",
+      "subtitulo": "Pais e padrinhos são convidados a participar.",
+      "foto_principal": "../images/noticias/placeholder.jpg",
+      "foto_secundaria": null,
+      "conteudo": "O próximo encontro de preparação para o sacramento do Batismo acontecerá neste final de semana. É uma etapa fundamental para pais e padrinhos que desejam batizar seus filhos. As inscrições devem ser feitas antecipadamente na secretaria."
+    },
+    {
+      "id": "noticia-009",
+      "data": "2025-11-10",
+      "titulo": "Coroação de Nossa Senhora",
+      "subtitulo": "Um belo momento de devoção mariana com as crianças da catequese.",
+      "foto_principal": "../images/noticias/placeholder.jpg",
+      "foto_secundaria": null,
+      "conteudo": "A missa do próximo domingo será especial, com a coroação da imagem de Nossa Senhora, realizada pelas crianças da catequese. Será uma bela homenagem à nossa Mãe Santíssima, encerrando o mês mariano em nossa paróquia."
+    },
+    {
+      "id": "noticia-010",
+      "data": "2025-11-12",
+      "titulo": "Adoração ao Santíssimo Sacramento",
+      "subtitulo": "Toda primeira sexta-feira do mês, um momento de profunda oração.",
+      "foto_principal": "../images/noticias/placeholder.jpg",
+      "foto_secundaria": "../images/noticias/placeholder.jpg",
+      "conteudo": "Convidamos a todos para a Adoração ao Santíssimo Sacramento, que ocorre toda primeira sexta-feira do mês, durante todo o dia. Venha passar um tempo na presença de Jesus Eucarístico, entregando suas preces e agradecimentos."
+    },
+    {
+      "id": "noticia-011",
+      "data": "2025-11-14",
+      "titulo": "Grupo de Oração Jovem Renascer",
+      "subtitulo": "Jovens se reúnem para louvar e orar.",
+      "foto_principal": "../images/noticias/placeholder.jpg",
+      "foto_secundaria": null,
+      "conteudo": "O Grupo de Oração Jovem Renascer convida todos os jovens da comunidade para uma noite de louvor, música e oração. Os encontros acontecem todos os sábados, às 19h30, na capela anexa."
+    },
+    {
+      "id": "noticia-012",
+      "data": "2025-11-16",
+      "titulo": "Bazar Beneficente da Pastoral da Caridade",
+      "subtitulo": "Roupas, calçados e utensílios com preços simbólicos.",
+      "foto_principal": "../images/noticias/placeholder.jpg",
+      "foto_secundaria": null,
+      "conteudo": "A Pastoral da Caridade realizará um bazar beneficente com o objetivo de arrecadar fundos para suas obras assistenciais. Serão vendidos itens em bom estado com preços acessíveis. Participe e colabore!"
+    },
+    {
+      "id": "noticia-013",
+      "data": "2025-11-18",
+      "titulo": "Formação para Novos Ministros da Eucaristia",
+      "subtitulo": "Inscrições abertas para quem sente o chamado a servir.",
+      "foto_principal": "../images/noticias/placeholder.jpg",
+      "foto_secundaria": null,
+      "conteudo": "Estão abertas as inscrições para a formação de novos Ministros Extraordinários da Sagrada Comunhão. Se você sente em seu coração o chamado para servir no altar e levar a Eucaristia aos enfermos, procure o pároco."
+    },
+    {
+      "id": "noticia-014",
+      "data": "2025-11-20",
+      "titulo": "Celebração de Cristo Rei do Universo",
+      "subtitulo": "Solenidade encerra o Ano Litúrgico.",
+      "foto_principal": "../images/noticias/placeholder.jpg",
+      "foto_secundaria": "../images/noticias/placeholder.jpg",
+      "conteudo": "No próximo domingo, celebraremos a Solenidade de Nosso Senhor Jesus Cristo, Rei do Universo. Esta importante festa encerra o Ano Litúrgico e nos convida a reconhecer Jesus como o centro de nossas vidas e da história."
+    },
+    {
+      "id": "noticia-015",
+      "data": "2025-11-22",
+      "titulo": "Mutirão de Limpeza da Igreja Matriz",
+      "subtitulo": "Voluntários se unem para cuidar da casa de Deus.",
+      "foto_principal": "../images/noticias/placeholder.jpg",
+      "foto_secundaria": null,
+      "conteudo": "Convocamos todos os voluntários para um grande mutirão de limpeza e organização da nossa Igreja Matriz, em preparação para as celebrações do Advento e Natal. Toda ajuda é bem-vinda!"
+    },
+    {
+      "id": "noticia-016",
+      "data": "2025-11-24",
+      "titulo": "Aviso: Horários de Missa de Natal",
+      "subtitulo": "Confira a programação especial para a Véspera e o Dia de Natal.",
+      "foto_principal": "../images/noticias/placeholder.jpg",
+      "foto_secundaria": null,
+      "conteudo": "A programação para as missas de Natal já está definida. Na Véspera, dia 24, teremos a Missa do Galo às 20h. No dia 25, as missas serão às 10h e 19h. Programe-se para celebrar o nascimento do Salvador conosco.",
+      "conteudo_adicional": "<h3>Programação Completa:</h3><ul><li><strong>24/12 (Véspera):</strong> Missa Solene às 20h.</li><li><strong>25/12 (Natal):</strong> Missas às 10h e 19h.</li></ul>"
+    },
+    {
+      "id": "noticia-017",
+      "data": "2025-11-26",
+      "titulo": "Terço dos Homens: Momento de Fé e Fraternidade",
+      "subtitulo": "Toda terça-feira, os homens da comunidade se reúnem para rezar.",
+      "foto_principal": "../images/noticias/placeholder.jpg",
+      "foto_secundaria": null,
+      "conteudo": "O Terço dos Homens é um movimento que cresce em nossa paróquia. Convidamos todos os homens a se juntarem a nós nas noites de terça-feira para este poderoso momento de oração do Santo Terço e partilha fraterna."
+    },
+    {
+      "id": "noticia-018",
+      "data": "2025-11-28",
+      "titulo": "Confissões Comunitárias de Advento",
+      "subtitulo": "Prepare-se para o Natal com o coração reconciliado.",
+      "foto_principal": "../images/noticias/placeholder.jpg",
+      "foto_secundaria": null,
+      "conteudo": "Como parte da nossa preparação para o Natal, realizaremos uma celebração penitencial com confissões comunitárias e individuais. Diversos padres estarão disponíveis para atender os fiéis. Não perca esta oportunidade de receber o sacramento da Reconciliação."
+    },
+    {
+      "id": "noticia-019",
+      "data": "2025-11-30",
+      "titulo": "Início do Advento: Tempo de Espera e Conversão",
+      "subtitulo": "Acendimento da primeira vela da Coroa do Advento.",
+      "foto_principal": "../images/noticias/placeholder.jpg",
+      "foto_secundaria": null,
+      "conteudo": "Neste domingo, iniciamos o tempo santo do Advento. Em todas as missas, faremos o rito de acendimento da primeira vela da Coroa do Advento, simbolizando nossa alegre expectativa pela vinda de Jesus. Que seja um tempo de profunda conversão para todos nós."
     }
   ]
 }
