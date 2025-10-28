@@ -92,6 +92,18 @@
     color: var(--text-color);
 }
 
+/* Novo estilo para o badge de destaque */
+.badge-destaque {
+    background: #FFD700; /* Dourado */
+    color: var(--primary-color);
+    font-weight: 700;
+    padding: 0.4rem 1rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0.5rem;
+    display: inline-block;
+}
+
 /* Alert Component */
 .alert {
     padding: 1rem 1.5rem;
@@ -872,6 +884,20 @@
     transition: var(--transition);
 }
 
+/* Estilo para o card de destaque */
+.card-noticia.is-destaque {
+    border: 2px solid var(--primary-color);
+    background-color: #FFFBEA; /* Fundo mais claro para destacar */
+    box-shadow: 0 8px 15px rgba(174, 141, 70, 0.2); /* Sombra mais proeminente */
+    padding: 1.5rem; /* Mais preenchimento */
+    margin-bottom: 2rem;
+}
+
+.card-noticia.is-destaque:hover {
+    transform: translateX(0); /* Remove a animação lateral para o destaque */
+    box-shadow: 0 10px 20px rgba(174, 141, 70, 0.3);
+}
+
 .card-noticia:hover {
     transform: translateX(5px);
     box-shadow: var(--shadow-hover);
@@ -887,6 +913,10 @@
     padding-left: 1.5rem;
 }
 
+.card-noticia.is-destaque .noticia-conteudo {
+    padding-left: 1rem; /* Ajuste de padding para o destaque */
+}
+
 .noticia-data {
     font-size: 0.8rem;
     color: var(--text-color);
@@ -900,9 +930,18 @@
     margin-bottom: 0.5rem;
 }
 
+.card-noticia.is-destaque .noticia-titulo {
+    font-size: 1.4rem; /* Título maior para destaque */
+    font-weight: 700;
+}
+
 .noticia-subtitulo {
     font-size: 0.95rem;
     flex-grow: 1; /* Ocupa o espaço disponível */
+}
+
+.card-noticia.is-destaque .noticia-subtitulo {
+    font-size: 1.05rem; /* Subtítulo maior para destaque */
 }
 
 .leia-mais-link {
@@ -910,6 +949,10 @@
     font-weight: bold;
     margin-top: 0.5rem;
     align-self: flex-start; /* Alinha à esquerda */
+}
+
+.card-noticia.is-destaque .leia-mais-link {
+    color: #B8860B; /* Cor de destaque mais forte */
 }
 
 /* Estilo para o container de paginação */
