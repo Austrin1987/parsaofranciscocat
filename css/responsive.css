@@ -626,6 +626,32 @@
     animation: fadeInCard 0.5s ease-out forwards;
 }
 
+/* ==================================================
+   Ajustes Finais para Impressão
+   ================================================== */
+
+/* Garante que o rodapé antigo seja totalmente removido da impressão */
+.print-footer {
+    display: none !important;
+}
+
+/* Melhora o espaçamento do cabeçalho principal da capa */
+.print-header {
+    display: block; 
+    text-align: center;
+    border-bottom: 3px double #000;
+    margin-bottom: 1cm;
+    padding-bottom: 0.5cm;
+    column-span: all; /* Garante que o cabeçalho ocupe a largura toda */
+}
+
+/* Adiciona um espaço acima do título da matéria de capa */
+.print-capa {
+    column-span: all;
+    border-bottom: 2px solid #000;
+    margin-top: 1cm; /* NOVO: Adiciona um respiro acima da matéria de capa */
+}
+
 /* Dark Mode Support */
 /*@media (prefers-color-scheme: dark) {
     :root {
