@@ -3,11 +3,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const recentesContainer = document.getElementById('noticias-recentes');
     const modal = document.getElementById('modal-noticia');
     const modalBody = document.getElementById('modal-body');
-    const closeModalBtn = document.getElementById('modal-close-btn');
     const filtroCategoria = document.getElementById('filtro-categoria');
     const filtroData = document.getElementById('filtro-data');
     const filtroBusca = document.getElementById('filtro-busca');
     const limparFiltrosBtn = document.getElementById('limpar-filtros-btn');
+    const imprimirBtn = document.getElementById('imprimir-btn');
+    const modalImpressao = document.getElementById('modal-impressao');
+    const closeModalImpressaoBtn = document.getElementById('modal-close-impressao');
+    const gerarImpressaoBtn = document.getElementById('gerar-impressao-btn');
+    const dataInicialInput = document.getElementById('data-inicial');
+    const dataFinalInput = document.getElementById('data-final');
+    const categoriaImpressaoSelect = document.getElementById('categoria-impressao');
+    const capaImpressaoSelect = document.getElementById('capa-impressao');
 
     let todasAsNoticias = [];
     let noticiasFiltradas = [];
@@ -59,16 +66,30 @@ document.addEventListener('DOMContentLoaded', () => {
     async function carregarNoticias() {
         try {
             const response = await fetch('../data/jornal.json');
-            const dados = await response.json();
+            const dados = await response.json(); // Agora 'dados' contém { destaques: [...], noticias: [...] }
 
-            todasAsNoticias = dados.noticias.sort((a, b) => new Date(b.data) - new Date(a.data));
+            // Pega a lista de IDs que devem ser destaque
+            const idsDestaque = dados.destaques;
+
+            // Mapeia a lista de notícias original, adicionando a propriedade 'destaque: true' se o ID estiver na lista de destaques
+            const noticiasComDestaque = dados.noticias.map(noticia => {
+                if (idsDestaque.includes(noticia.id)) {
+                    // Se o ID da notícia está na lista de destaques, retorna uma cópia da notícia com a nova propriedade
+                    return { ...noticia, destaque: true };
+                }
+                // Caso contrário, retorna a notícia como ela é
+                return noticia;
+            });
+
+            // Agora, o resto do seu código funcionará como esperado!
+            todasAsNoticias = noticiasComDestaque.sort((a, b) => new Date(b.data) - new Date(a.data));
 
             popularFiltros(todasAsNoticias);
 
             aplicarFiltros();
 
         } catch (error) {
-            console.error('Erro ao carregar notícias:', error);
+            console.error('Erro ao carregar e processar notícias:', error);
             recentesContainer.innerHTML = '<p class="alert alert-error">Não foi possível carregar as notícias. Tente novamente mais tarde.</p>';
         }
     }
@@ -77,6 +98,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // Popula filtro de categorias
         const categorias = [...new Set(noticias.map(n => n.categoria))].filter(Boolean);
         filtroCategoria.innerHTML += categorias.map(cat => `<option value="${cat}">${cat}</option>`).join('');
+
+        // Popula filtro de categorias do modal de impressão
+        categoriaImpressaoSelect.innerHTML += categorias.map(cat => `<option value="${cat}">${cat}</option>`).join('');
 
         // Popula filtro de datas (Mês/Ano)
         const datas = [...new Set(noticias.map(n => {
@@ -120,9 +144,25 @@ document.addEventListener('DOMContentLoaded', () => {
         const noticiasDestaque = noticiasFiltradas.filter(n => n.destaque); // Assumindo que o JSON pode ter "destaque: true"
         const noticiasNormais = noticiasFiltradas.filter(n => !n.destaque);
 
+        noticiasFiltradas = [...noticiasDestaque, ...noticiasNormais];
+
         paginaAtual = 1; 
         exibirDestaques(noticiasDestaque);
         exibirRecentes(noticiasNormais);
+
+        // ===== LÓGICA DE VISIBILIDADE ADICIONADA AQUI =====
+        const divisor = document.querySelector('.divider');
+        const tituloRecentes = document.getElementById('titulo-recentes');
+
+        // Mostra o divisor e o título apenas se AMBAS as seções tiverem conteúdo
+        if (noticiasDestaque.length > 0 && noticiasNormais.length > 0) {
+            divisor.style.display = 'block';
+            tituloRecentes.style.display = 'block';
+        } else {
+            // Esconde se uma das seções estiver vazia para evitar separações desnecessárias
+            divisor.style.display = 'none';
+            tituloRecentes.style.display = 'none';
+        }
     }
 
     filtroCategoria.addEventListener('change', aplicarFiltros);
@@ -176,19 +216,23 @@ document.addEventListener('DOMContentLoaded', () => {
         const itensDaPagina = noticias.slice(inicio, fim);
 
         itensDaPagina.forEach((noticia, index) => {
+            const isDestaque = noticia.destaque ? ' is-destaque' : '';
+	        const destaqueBadge = noticia.destaque ? '<span class="badge badge-destaque">DESTAQUE</span>' : '';
+
             const cardHTML = `
-                <div class="card card-noticia" data-id="${noticia.id}">
-                    <div class="noticia-imagem">
-                        <img src="${noticia.foto_principal}" alt="${noticia.titulo}" class="card-img-list">
-                    </div>
-                    <div class="noticia-conteudo">
-                        <span class="noticia-data">${new Date(noticia.data + "T00:00:00").toLocaleDateString('pt-BR')}</span>
-                        <h4 class="noticia-titulo">${noticia.titulo}</h4>
-                        <p class="noticia-subtitulo">${noticia.conteudo.substring(0, 120)}...</p>
-                        <span class="leia-mais-link">Ver notícia completa &rarr;</span>
-                    </div>
-                </div>
-            `;
+	                <div class="card card-noticia${isDestaque}" data-id="${noticia.id}">
+	                    <div class="noticia-imagem">
+	                        <img src="${noticia.foto_principal}" alt="${noticia.titulo}" class="card-img-list">
+	                    </div>
+	                    <div class="noticia-conteudo">
+	                        ${destaqueBadge}
+	                        <span class="noticia-data">${new Date(noticia.data + "T00:00:00").toLocaleDateString('pt-BR')}</span>
+	                        <h4 class="noticia-titulo">${noticia.titulo}</h4>
+	                        <p class="noticia-subtitulo">${noticia.conteudo.substring(0, 120)}...</p>
+	                        <span class="leia-mais-link">Ver notícia completa &rarr;</span>
+	                    </div>
+	                </div>
+	            `;
             // Adiciona o HTML do card ao container
             recentesContainer.insertAdjacentHTML('beforeend', cardHTML);
 
@@ -234,7 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
             pageLink.addEventListener('click', (e) => {
                 e.preventDefault();
                 paginaAtual = i;
-                exibirRecentesPaginado(noticiasFiltradas.filter(n => !n.destaque));
+                exibirRecentes(noticiasFiltradas.filter(n => !n.destaque));
             });
             paginacaoContainer.appendChild(pageLink);
         }
@@ -295,6 +339,131 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function filtrarNoticiasParaImpressao(dataInicial, dataFinal, categoria) {
+        let noticiasFiltradasImpressao = todasAsNoticias.filter(noticia => {
+            const dataNoticia = new Date(noticia.data + "T00:00:00");
+            let matchData = true;
+            let matchCategoria = true;
+
+            // Filtro por Data
+            if (dataInicial) {
+                const inicio = new Date(dataInicial + "T00:00:00");
+                if (dataNoticia < inicio) {
+                    matchData = false;
+                }
+            }
+            if (dataFinal) {
+                const final = new Date(dataFinal + "T00:00:00");
+                if (dataNoticia > final) {
+                    matchData = false;
+                }
+            }
+
+            // Filtro por Categoria (reutilizando a lógica de palavras-chave)
+            if (categoria !== 'todas') {
+                const palavrasChave = mapaCategorias[categoria] || [];
+                const textoCompleto = (noticia.titulo + ' ' + noticia.conteudo).toLowerCase();
+                matchCategoria = palavrasChave.some(palavra => textoCompleto.includes(palavra));
+            }
+
+            return matchData && matchCategoria;
+        });
+
+        // Ordenar por data, mais recente primeiro
+        return noticiasFiltradasImpressao.sort((a, b) => new Date(b.data) - new Date(a.data));
+    }
+
+    function gerarVisualizacaoImpressao(noticias) {
+        // O conteúdo de impressão será injetado em um novo container
+        const printContainer = document.createElement('div');
+        printContainer.id = 'print-content';
+        printContainer.classList.add('jornal-print');
+
+        // Cabeçalho do Jornal
+        const dataAtual = new Date().toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
+        let htmlContent = `
+            <div class="print-page-header">
+                Jornal da Paróquia São Francisco de Assis - Continuação - ${dataAtual}
+            </div>
+
+            <div class="print-header">
+                <h1 class="print-title">Jornal da Paróquia São Francisco de Assis</h1>
+                <p class="print-date">Edição Especial - ${dataAtual}</p>
+                <hr class="print-divider">
+            </div>
+
+            <div class="print-grid">
+        `;
+
+        // A primeira notícia é a MATÉRIA DE CAPA
+        const materiaCapa = noticias[0];
+        if (materiaCapa) {
+            htmlContent += `
+                <div class="print-card print-capa">
+                    <h2 class="print-card-title">${materiaCapa.titulo}</h2>
+                    <p class="print-card-date">${new Date(materiaCapa.data + "T00:00:00").toLocaleDateString('pt-BR')}</p>
+                    ${materiaCapa.foto_principal ? `<img src="${materiaCapa.foto_principal}" alt="${materiaCapa.titulo}" class="print-card-img">` : ''}
+                    <p class="print-card-subtitle">${materiaCapa.subtitulo || ''}</p>
+                    <div class="print-card-content">${materiaCapa.conteudo}</div>
+                    ${materiaCapa.conteudo_adicional ? `<div class="print-card-extra">${materiaCapa.conteudo_adicional}</div>` : ''}
+                </div>
+            `;
+        }
+
+        // As próximas duas são DESTAQUES SECUNDÁRIOS (limitado a 2)
+        const destaquesSecundarios = noticias.slice(1, 3);
+        if (destaquesSecundarios.length > 0) {
+            htmlContent += `<div class="print-secondary-highlights">`; // Um container para os destaques
+            destaquesSecundarios.forEach(noticia => {
+                htmlContent += `
+                    <div class="print-card print-destaque-secundario">
+                        <h3 class="print-card-title">${noticia.titulo}</h3>
+                        <p class="print-card-date">${new Date(noticia.data + "T00:00:00").toLocaleDateString('pt-BR')}</p>
+                        ${noticia.foto_principal ? `<img src="${noticia.foto_principal}" alt="${noticia.titulo}" class="print-card-img">` : ''}
+                        <div class="print-card-content">${noticia.conteudo.substring(0, 250)}...</div>
+                    </div>
+                `;
+            });
+            htmlContent += `</div>`;
+        }
+
+        // O resto são notícias normais, que preencherão as colunas
+        const noticiasNormais = noticias.slice(3);
+        noticiasNormais.forEach(noticia => {
+            htmlContent += `
+                <div class="print-card print-normal">
+                    <h4 class="print-card-title">${noticia.titulo}</h4>
+                    <p class="print-card-date">${new Date(noticia.data + "T00:00:00").toLocaleDateString('pt-BR')}</p>
+                    <div class="print-card-content">${noticia.conteudo}</div>
+                </div>
+            `;
+        });
+
+        htmlContent += `</div>`;
+
+        printContainer.innerHTML = htmlContent;
+
+        // Injeta o container no corpo e prepara para impressão
+        document.body.appendChild(printContainer);
+
+        // Esconde o conteúdo normal da página
+        document.querySelector('.header').style.display = 'none';
+        document.querySelector('.main').style.display = 'none';
+        document.querySelector('.footer').style.display = 'none';
+
+        // Abre a caixa de diálogo de impressão
+        window.print();
+
+        // Após a impressão (ou cancelamento), restaura a visualização
+        // Usa setTimeout para garantir que o print() tenha tido tempo de iniciar
+        setTimeout(() => {
+            document.body.removeChild(printContainer);
+            document.querySelector('.header').style.display = '';
+            document.querySelector('.main').style.display = '';
+            document.querySelector('.footer').style.display = '';
+        }, 500); // 500ms de atraso
+    }
+
     function fecharModal() {
         modal.classList.remove('active');
         modalBody.innerHTML = ''; // Limpa o conteúdo ao fechar
@@ -305,6 +474,81 @@ document.addEventListener('DOMContentLoaded', () => {
             fecharModal();
         }
     });
+
+    imprimirBtn.addEventListener('click', () => {
+        atualizarSeletorDeCapa(); 
+        modalImpressao.classList.add('active');
+    });
+
+    closeModalImpressaoBtn.addEventListener('click', () => {
+        modalImpressao.classList.remove('active');
+    });
+
+    function atualizarSeletorDeCapa() {
+        const noticiasFiltradasParaImpressao = filtrarNoticiasParaImpressao(
+            dataInicialInput.value, 
+            dataFinalInput.value, 
+            categoriaImpressaoSelect.value
+        );
+        popularSeletorDeCapa(noticiasFiltradasParaImpressao);
+    }
+
+    // Adiciona os eventos de 'change' para chamar a função auxiliar
+    dataInicialInput.addEventListener('change', atualizarSeletorDeCapa);
+    dataFinalInput.addEventListener('change', atualizarSeletorDeCapa);
+    categoriaImpressaoSelect.addEventListener('change', atualizarSeletorDeCapa);
+
+    gerarImpressaoBtn.addEventListener('click', () => {
+        const dataInicial = dataInicialInput.value;
+        const dataFinal = dataFinalInput.value;
+        const categoria = categoriaImpressaoSelect.value;
+        const idCapaSelecionada = capaImpressaoSelect.value; // Pega o ID da capa escolhida
+
+        const noticiasParaImpressao = filtrarNoticiasParaImpressao(dataInicial, dataFinal, categoria);
+
+        if (noticiasParaImpressao.length === 0) {
+            alert('Nenhuma notícia encontrada com os filtros selecionados.');
+            return;
+        }
+
+        // Reorganiza a lista de notícias com base na capa selecionada
+        let noticiasOrganizadas = [];
+        if (idCapaSelecionada && idCapaSelecionada !== 'auto') {
+            const capaIndex = noticiasParaImpressao.findIndex(n => n.id === idCapaSelecionada);
+            if (capaIndex > -1) {
+                const [capa] = noticiasParaImpressao.splice(capaIndex, 1); // Remove a capa da lista
+                noticiasOrganizadas = [capa, ...noticiasParaImpressao]; // Coloca a capa no início
+            } else {
+                noticiasOrganizadas = noticiasParaImpressao; // Caso não encontre, usa a ordem padrão
+            }
+        } else {
+            noticiasOrganizadas = noticiasParaImpressao; // Ordem padrão (mais recente primeiro)
+        }
+
+        gerarVisualizacaoImpressao(noticiasOrganizadas);
+        modalImpressao.classList.remove('active');
+    });
+
+    function popularSeletorDeCapa(noticias) {
+        // Limpa opções antigas, mantendo a primeira
+        capaImpressaoSelect.innerHTML = '<option value="auto">Destaque Automático (mais recente)</option>';
+
+        let noticiasParaCapa = noticias.filter(noticia => noticia.destaque);
+
+        if (noticiasParaCapa.length === 0) {
+            noticiasParaCapa = noticias;
+        }
+
+        if (noticiasParaCapa.length > 0) {
+            // Use 'noticiasParaCapa' aqui, e não 'noticias'
+            const opcoesHTML = noticiasParaCapa.map(noticia => {
+                const tituloCurto = noticia.titulo.length > 50 ? noticia.titulo.substring(0, 50) + '...' : noticia.titulo;
+                return `<option value="${noticia.id}">${tituloCurto}</option>`;
+            }).join('');
+            
+            capaImpressaoSelect.innerHTML += opcoesHTML;
+        }
+    }
 
     carregarNoticias();
     initMobileMenu();
