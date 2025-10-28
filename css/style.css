@@ -256,7 +256,6 @@ body {
 }
 
 .btn-secondary {
-    background-color: transparent;
     color: white;
     border: 2px solid white;
 }
@@ -1307,3 +1306,265 @@ body {
     border-radius: 0 8px 8px 0; /* Arredonda apenas os cantos direitos */
     cursor: pointer;
 }
+
+/* ==================================================
+   Estilos de Impressão (Estilo Jornal)
+   ================================================== */
+@media print {
+    body {
+        margin: 0;
+        padding: 0;
+        background: white;
+        font-family: 'Times New Roman', serif;
+        color: #000;
+        font-size: 10pt;
+    }
+
+    /* Esconde elementos da tela que não são para impressão */
+    .header, .main, .footer, .modal, .pagination, .events-filters, #jornal > .container > .divider {
+        display: none !important;
+    }
+
+    .print-page-header {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+        padding: 10px;
+        font-family: 'Lato', sans-serif; /* Use uma fonte consistente com seu design */
+        font-size: 10pt;
+        background-color: #f8f8f8; /* Um fundo sutil para não atrapalhar */
+        border-bottom: 1px solid #ddd;
+        z-index: 1000;
+    }
+
+    .print-capa {
+        column-span: all; /* Ocupa a largura total */
+        border-bottom: 2px solid #000;
+        margin-bottom: 1cm;
+    }
+
+    .print-capa .print-card-title {
+        font-size: 28pt; /* Título bem grande para a capa */
+    }
+
+    .print-capa .print-card-img {
+        float: none;
+        display: block;
+        max-width: 60%;
+        margin: 0 auto 15px auto;
+    }
+
+    .print-secondary-highlights {
+        column-span: all; /* Também ocupa a largura total, abaixo da capa */
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Dois destaques, lado a lado */
+        gap: 1cm;
+        margin-bottom: 1cm;
+        border-bottom: 1px solid #999;
+        padding-bottom: 1cm;
+    }
+
+    .print-destaque-secundario {
+        break-inside: avoid;
+    }
+
+    .print-destaque-secundario .print-card-title {
+        font-size: 18pt; /* Título intermediário */
+        font-family: 'Playfair Display', serif;
+    }
+
+    .print-destaque-secundario .print-card-img {
+        float: left;
+        max-width: 40%;
+        margin-right: 10px;
+    }
+
+    .print-normal .print-card-title {
+        font-size: 14pt; /* Título menor para notícias comuns */
+        font-weight: 600;
+    }
+
+    /* Exibe o conteúdo de impressão */
+    #print-content {
+        display: block !important;
+        width: 100%;
+        margin: 0 auto;
+        padding: 1.5cm;
+        box-sizing: border-box;
+    }
+
+    .print-header {
+        display: block; 
+        position: static;
+        text-align: center;
+        border-bottom: 3px double #000;
+        margin-bottom: 1cm;
+        padding-bottom: 0.5cm;
+    }
+
+    .print-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 32pt;
+        font-weight: 700;
+        margin: 0;
+        padding: 0;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .print-date {
+        font-size: 11pt;
+        margin: 5px 0 0 0;
+        font-style: italic;
+        color: #333;
+    }
+
+    @page {
+        /* Define as margens da página para dar espaço ao cabeçalho e rodapé */
+        margin-top: 2cm;
+        margin-bottom: 2cm;
+        margin-left: 1.5cm;
+        margin-right: 1.5cm;
+
+        /* Cria o cabeçalho que se repetirá em TODAS as páginas */
+        @top-center {
+            content: "Jornal da Paróquia São Francisco de Assis";
+            font-family: 'Lato', sans-serif;
+            font-size: 9pt;
+            color: #666;
+            border-bottom: 1px solid #ccc;
+            width: 100%;
+            padding-bottom: 5px;
+        }
+
+        /* Cria o rodapé que se repetirá em TODAS as páginas */
+        @bottom-center {
+            content: "Página " counter(page) " de " counter(pages); /* Ex: "Página 1 de 3" */
+            font-family: 'Lato', sans-serif;
+            font-size: 9pt;
+            color: #666;
+            border-top: 1px solid #ccc;
+            width: 100%;
+            padding-top: 5px;
+        }
+    }
+
+    @page :first {
+        /* Remove a margem superior e o cabeçalho padrão apenas na primeira página,
+        pois teremos nosso próprio cabeçalho de "capa". */
+        margin-top: 0;
+        @top-center {
+            content: ""; /* Cabeçalho vazio na primeira página */
+            border-bottom: none;
+        }
+    }
+
+    /* Layout de Colunas (Jornal) */
+    .print-grid {
+        column-count: 2;
+        column-gap: 1.2cm;
+        orphans: 3; /* Evita que a primeira linha de um parágrafo fique sozinha no final de uma coluna */
+        widows: 3; /* Evita que a última linha de um parágrafo fique sozinha no início de uma coluna */
+    }
+
+    .print-card {
+        break-inside: avoid; /* Mantém o card inteiro na mesma coluna/página */
+        margin-bottom: 1cm;
+        padding-bottom: 0.5cm;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .print-card:last-child {
+        border-bottom: none;
+    }
+
+    .print-destaque {
+        column-span: all; /* O destaque ocupa a largura total */
+        border-bottom: 2px solid #000;
+    }
+
+    .print-destaque .print-card-title {
+        font-size: 22pt;
+        color: #333; /* Cor de destaque */
+    }
+
+    .print-destaque .print-card-img {
+        max-width: 60%;
+        margin: 0 auto 15px auto;
+        display: block;
+        float: none;
+    }
+
+    .print-card-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 16pt;
+        font-weight: 600;
+        margin: 0 0 5px 0;
+        line-height: 1.2;
+    }
+
+    .print-card-date {
+        font-size: 8pt;
+        font-style: italic;
+        margin: 0 0 10px 0;
+        color: #555;
+        display: block;
+    }
+
+    .print-card-img {
+        max-width: 45%;
+        height: auto;
+        margin-bottom: 5px;
+        float: left;
+        margin-right: 12px;
+        border-radius: 4px;
+    }
+
+    .print-card-subtitle {
+        font-weight: bold;
+        font-style: italic;
+        margin: 10px 0;
+        font-size: 11pt;
+        display: block;
+        line-height: 1.4;
+    }
+
+    .print-card-content, .print-card-extra {
+        font-size: 10pt;
+        line-height: 1.5;
+        text-align: justify;
+    }
+
+    .print-card-content::after, .print-card-extra::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .print-footer {
+        text-align: center;
+        font-size: 8pt;
+        margin-top: 1cm;
+        border-top: 1px solid #000;
+        padding-top: 5px;
+        width: 100%;
+        position: fixed; /* Fixa o rodapé no final da página */
+        bottom: 0.5cm;
+        left: 0;
+    }
+
+    #print-content > .print-page-header {
+        display: none; 
+    }
+
+    .print-page-header {
+        display: none; 
+    }
+}
+
+
+
+ 
