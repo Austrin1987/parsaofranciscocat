@@ -444,7 +444,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // VERSÃO FINAL E DEFINITIVA PARA SITE ESTÁTICO
-    async function gerarVisualizacaoImpressao(noticias, capaManual) {
+    async function gerarVisualizacaoImpressao(noticias) {
         let printContainer = document.getElementById('print-container-temp');
         if (!printContainer) {
             printContainer = document.createElement('div');
@@ -452,6 +452,11 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.appendChild(printContainer);
         }
         
+        // 1. Lógica da Capa
+        let materiaCapa = noticias[0]; // A primeira notícia já é a capa (devido à reorganização anterior)
+        let noticiasRestantes = noticias.slice(1);
+        
+        // 2. Montagem do HTML
         const dataAtual = new Date().toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
         let corpoJornalHTML = `
             <div class="print-header">
@@ -460,29 +465,91 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <div class="print-grid">
         `;
-        // ... (Toda a sua lógica de montar a capa e as categorias continua aqui)
-        let materiaCapa = capaManual;
-        let noticiasRestantes = noticias;
-        if (materiaCapa) { noticiasRestantes = noticias.filter(n => n.id !== materiaCapa.id); } else { materiaCapa = noticias[0]; noticiasRestantes = noticias.slice(1); }
-        if (materiaCapa) { corpoJornalHTML += `<div class="print-card print-capa"><h2 class="print-card-title">${materiaCapa.titulo}</h2><p class="print-card-date">${new Date(materiaCapa.data + "T00:00:00").toLocaleDateString('pt-BR')}</p>${materiaCapa.foto_principal ? `<img src="${materiaCapa.foto_principal}" alt="${materiaCapa.titulo}" class="print-card-img">` : ''}<p class="print-card-subtitle">${materiaCapa.subtitulo || ''}</p><div class="print-card-content">${materiaCapa.conteudo}</div>${materiaCapa.conteudo_adicional ? `<div class="print-card-extra">${materiaCapa.conteudo_adicional}</div>` : ''}</div>`; }
-        const noticiasPorCategoria = noticiasRestantes.reduce((acc, noticia) => { const cat = noticia.categoria || 'geral'; if (!acc[cat]) { acc[cat] = []; } acc[cat].push(noticia); return acc; }, {});
+
+        // Adiciona a Capa
+        if (materiaCapa) { 
+            corpoJornalHTML += `
+                <div class="print-card print-capa">
+                    <h2 class="print-card-title">${materiaCapa.titulo}</h2>
+                    <p class="print-card-date">${new Date(materiaCapa.data + "T00:00:00").toLocaleDateString('pt-BR')}</p>
+                    ${materiaCapa.foto_principal ? `<img src="${materiaCapa.foto_principal}" alt="${materiaCapa.titulo}" class="print-card-img">` : ''}
+                    <p class="print-card-subtitle">${materiaCapa.subtitulo || ''}</p>
+                    <div class="print-card-content">${materiaCapa.conteudo}</div>
+                    ${materiaCapa.conteudo_adicional ? `<div class="print-card-extra">${materiaCapa.conteudo_adicional}</div>` : ''}
+                </div>
+            `; 
+        }
+
+        // Agrupa as notícias restantes por categoria
+        const noticiasPorCategoria = noticiasRestantes.reduce((acc, noticia) => { 
+            const cat = noticia.categoria || 'geral'; 
+            if (!acc[cat]) { acc[cat] = []; } 
+            acc[cat].push(noticia); 
+            return acc; 
+        }, {});
+
+        // Define a ordem de exibição das categorias
         const ordemCategorias = ['eventos', 'catequese', 'avisos', 'geral'];
-        ordemCategorias.forEach(categoria => { if (noticiasPorCategoria[categoria] && noticiasPorCategoria[categoria].length > 0) { const noticiasDaCategoria = noticiasPorCategoria[categoria]; corpoJornalHTML += `<h2 class="print-category-title">${categoria.charAt(0).toUpperCase() + categoria.slice(1)}</h2>`; const destaquesSecundarios = noticiasDaCategoria.filter(n => n.destaque).slice(0, 2); const noticiasNormais = noticiasDaCategoria.filter(n => !destaquesSecundarios.map(d => d.id).includes(n.id)); if (destaquesSecundarios.length > 0) { corpoJornalHTML += `<div class="print-secondary-highlights">`; destaquesSecundarios.forEach(noticia => { corpoJornalHTML += `<div class="print-card print-destaque-secundario"><h3 class="print-card-title">${noticia.titulo}</h3><p class="print-card-date">${new Date(noticia.data + "T00:00:00").toLocaleDateString('pt-BR')}</p>${noticia.foto_principal ? `<img src="${noticia.foto_principal}" alt="${noticia.titulo}" class="print-card-img">` : ''}<div class="print-card-content">${noticia.conteudo.substring(0, 250)}...</div></div>`; }); corpoJornalHTML += `</div>`; } noticiasNormais.forEach(noticia => { corpoJornalHTML += `<div class="print-card print-normal"><h4 class="print-card-title">${noticia.titulo}</h4><p class="print-card-date">${new Date(noticia.data + "T00:00:00").toLocaleDateString('pt-BR')}</p><div class="print-card-content">${noticia.conteudo}</div></div>`; }); } });
+
+        // Adiciona as notícias por categoria
+        ordemCategorias.forEach(categoria => { 
+            if (noticiasPorCategoria[categoria] && noticiasPorCategoria[categoria].length > 0) { 
+                const noticiasDaCategoria = noticiasPorCategoria[categoria]; 
+                
+                corpoJornalHTML += `<h2 class="print-category-title">${categoria.charAt(0).toUpperCase() + categoria.slice(1)}</h2>`; 
+                
+                // Separa destaques secundários (até 2)
+                const destaquesSecundarios = noticiasDaCategoria.filter(n => n.destaque).slice(0, 2); 
+                const noticiasNormais = noticiasDaCategoria.filter(n => !destaquesSecundarios.map(d => d.id).includes(n.id)); 
+                
+                // Adiciona destaques secundários
+                if (destaquesSecundarios.length > 0) { 
+                    corpoJornalHTML += `<div class="print-secondary-highlights">`; 
+                    destaquesSecundarios.forEach(noticia => { 
+                        corpoJornalHTML += `
+                            <div class="print-card print-destaque-secundario">
+                                <h3 class="print-card-title">${noticia.titulo}</h3>
+                                <p class="print-card-date">${new Date(noticia.data + "T00:00:00").toLocaleDateString('pt-BR')}</p>
+                                ${noticia.foto_principal ? `<img src="${noticia.foto_principal}" alt="${noticia.titulo}" class="print-card-img">` : ''}
+                                <div class="print-card-content">${noticia.conteudo.substring(0, 250)}...</div>
+                            </div>
+                        `; 
+                    }); 
+                    corpoJornalHTML += `</div>`; 
+                } 
+                
+                // Adiciona notícias normais
+                noticiasNormais.forEach(noticia => { 
+                    corpoJornalHTML += `
+                        <div class="print-card print-normal">
+                            <h4 class="print-card-title">${noticia.titulo}</h4>
+                            <p class="print-card-date">${new Date(noticia.data + "T00:00:00").toLocaleDateString('pt-BR')}</p>
+                            <div class="print-card-content">${noticia.conteudo}</div>
+                        </div>
+                    `; 
+                }); 
+            } 
+        });
+
         corpoJornalHTML += `</div>`;
 
+        // 3. Injeta o HTML no container temporário
         printContainer.innerHTML = corpoJornalHTML;
 
         // 4. Adiciona uma classe ao <body> para ativar os estilos de impressão
         document.body.classList.add('printing-active');
+        
+        // 5. Esconde o conteúdo principal do site antes de imprimir
+        document.querySelector('.main').style.display = 'none';
 
-        // 5. Um pequeno timeout para garantir que o DOM foi atualizado antes de imprimir
+        // 6. Um pequeno timeout para garantir que o DOM foi atualizado antes de imprimir
         setTimeout(() => {
             window.print(); // Chama a impressão nativa
 
-            // 6. Limpeza: remove a classe do body após a impressão
+            // 7. Limpeza: remove a classe do body e reexibe o conteúdo principal
             document.body.classList.remove('printing-active');
-            // Opcional: limpa o conteúdo do contêiner se não quiser que ele permaneça no DOM
-            printContainer.innerHTML = ''; 
+            document.querySelector('.main').style.display = 'block';
+            printContainer.remove(); // Remove o contêiner temporário
         }, 250);
     }
 
