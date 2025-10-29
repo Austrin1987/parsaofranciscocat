@@ -443,163 +443,91 @@ document.addEventListener('DOMContentLoaded', () => {
         return noticiasFiltradasImpressao.sort((a, b) => new Date(b.data) - new Date(a.data));
     }
 
-    function gerarVisualizacaoImpressao(noticias, capaManual) {
-        const printContainer = document.createElement('div');
-        printContainer.id = 'print-content';
-        printContainer.classList.add('jornal-print');
+    // VERSÃO FINAL E DEFINITIVA PARA SITE ESTÁTICO
+    async function gerarVisualizacaoImpressao(noticias, capaManual) {
+        // 1. Feedback visual para o usuário
+        const originalButtonText = gerarImpressaoBtn.innerHTML;
+        gerarImpressaoBtn.disabled = true;
+        gerarImpressaoBtn.innerHTML = 'Preparando Impressão...';
 
+        // 2. Buscar e combinar o conteúdo de TODOS os seus arquivos CSS em uma única string.
+        // Esta é a parte mais importante para garantir que o estilo seja aplicado.
+        const fetchStyles = async () => {
+            // Lista dos seus arquivos CSS. Verifique se os caminhos estão corretos!
+            const cssFiles = [
+                '../css/style.css',
+                '../css/components.css',
+                '../css/responsive.css'
+            ];
+            
+            let combinedCss = '';
+            for (const file of cssFiles) {
+                try {
+                    const response = await fetch(file);
+                    if (response.ok) {
+                        combinedCss += await response.text();
+                    } else {
+                        console.warn(`Falha ao carregar o arquivo CSS: ${file}`);
+                    }
+                } catch (error) {
+                    console.error(`Erro de rede ao buscar ${file}:`, error);
+                }
+            }
+            return combinedCss;
+        };
+
+        const estilosCSS = await fetchStyles();
+
+        // 3. Montar o corpo HTML do jornal (sua lógica existente, sem alterações)
         const dataAtual = new Date().toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
-        let htmlContent = `
+        let corpoJornalHTML = `
             <div class="print-header">
                 <h1 class="print-title">Jornal da Paróquia São Francisco de Assis</h1>
                 <p class="print-date">Edição de ${dataAtual}</p>
             </div>
             <div class="print-grid">
         `;
-
-        // 1. Define a Matéria de Capa
+        // ... (Toda a sua lógica de montar a capa e as categorias continua aqui)
         let materiaCapa = capaManual;
         let noticiasRestantes = noticias;
-
-        if (materiaCapa) {
-            // Remove a capa manual da lista principal para não ser repetida
-            noticiasRestantes = noticias.filter(n => n.id !== materiaCapa.id);
-        } else {
-            // Se não houver capa manual, pega a mais recente como capa
-            materiaCapa = noticias[0];
-            noticiasRestantes = noticias.slice(1);
-        }
-
-        if (materiaCapa) {
-            htmlContent += `
-                <div class="print-card print-capa">
-                    <h2 class="print-card-title">${materiaCapa.titulo}</h2>
-                    <p class="print-card-date">${new Date(materiaCapa.data + "T00:00:00").toLocaleDateString('pt-BR')}</p>
-                    ${materiaCapa.foto_principal ? `<img src="${materiaCapa.foto_principal}" alt="${materiaCapa.titulo}" class="print-card-img">` : ''}
-                    <p class="print-card-subtitle">${materiaCapa.subtitulo || ''}</p>
-                    <div class="print-card-content">${materiaCapa.conteudo}</div>
-                    ${materiaCapa.conteudo_adicional ? `<div class="print-card-extra">${materiaCapa.conteudo_adicional}</div>` : ''}
-                </div>
-            `;
-        }
-
-        // 2. Agrupa as notícias restantes por categoria
-        const noticiasPorCategoria = noticiasRestantes.reduce((acc, noticia) => {
-            const categoria = noticia.categoria || 'geral';
-            if (!acc[categoria]) {
-                acc[categoria] = [];
-            }
-            acc[categoria].push(noticia);
-            return acc;
-        }, {});
-
-        // 3. Itera sobre as categorias na ordem desejada para montar o jornal
+        if (materiaCapa) { noticiasRestantes = noticias.filter(n => n.id !== materiaCapa.id); } else { materiaCapa = noticias[0]; noticiasRestantes = noticias.slice(1); }
+        if (materiaCapa) { corpoJornalHTML += `<div class="print-card print-capa"><h2 class="print-card-title">${materiaCapa.titulo}</h2><p class="print-card-date">${new Date(materiaCapa.data + "T00:00:00").toLocaleDateString('pt-BR')}</p>${materiaCapa.foto_principal ? `<img src="${materiaCapa.foto_principal}" alt="${materiaCapa.titulo}" class="print-card-img">` : ''}<p class="print-card-subtitle">${materiaCapa.subtitulo || ''}</p><div class="print-card-content">${materiaCapa.conteudo}</div>${materiaCapa.conteudo_adicional ? `<div class="print-card-extra">${materiaCapa.conteudo_adicional}</div>` : ''}</div>`; }
+        const noticiasPorCategoria = noticiasRestantes.reduce((acc, noticia) => { const cat = noticia.categoria || 'geral'; if (!acc[cat]) { acc[cat] = []; } acc[cat].push(noticia); return acc; }, {});
         const ordemCategorias = ['eventos', 'catequese', 'avisos', 'geral'];
+        ordemCategorias.forEach(categoria => { if (noticiasPorCategoria[categoria] && noticiasPorCategoria[categoria].length > 0) { const noticiasDaCategoria = noticiasPorCategoria[categoria]; corpoJornalHTML += `<h2 class="print-category-title">${categoria.charAt(0).toUpperCase() + categoria.slice(1)}</h2>`; const destaquesSecundarios = noticiasDaCategoria.filter(n => n.destaque).slice(0, 2); const noticiasNormais = noticiasDaCategoria.filter(n => !destaquesSecundarios.map(d => d.id).includes(n.id)); if (destaquesSecundarios.length > 0) { corpoJornalHTML += `<div class="print-secondary-highlights">`; destaquesSecundarios.forEach(noticia => { corpoJornalHTML += `<div class="print-card print-destaque-secundario"><h3 class="print-card-title">${noticia.titulo}</h3><p class="print-card-date">${new Date(noticia.data + "T00:00:00").toLocaleDateString('pt-BR')}</p>${noticia.foto_principal ? `<img src="${noticia.foto_principal}" alt="${noticia.titulo}" class="print-card-img">` : ''}<div class="print-card-content">${noticia.conteudo.substring(0, 250)}...</div></div>`; }); corpoJornalHTML += `</div>`; } noticiasNormais.forEach(noticia => { corpoJornalHTML += `<div class="print-card print-normal"><h4 class="print-card-title">${noticia.titulo}</h4><p class="print-card-date">${new Date(noticia.data + "T00:00:00").toLocaleDateString('pt-BR')}</p><div class="print-card-content">${noticia.conteudo}</div></div>`; }); } });
+        corpoJornalHTML += `</div>`;
 
-        ordemCategorias.forEach(categoria => {
-            if (noticiasPorCategoria[categoria] && noticiasPorCategoria[categoria].length > 0) {
-                const noticiasDaCategoria = noticiasPorCategoria[categoria];
-                
-                // Título da Categoria
-                htmlContent += `<h2 class="print-category-title">${categoria.charAt(0).toUpperCase() + categoria.slice(1)}</h2>`;
-
-                // Separa destaques e notícias normais DENTRO da categoria
-                const destaquesSecundarios = noticiasDaCategoria.filter(n => n.destaque).slice(0, 2);
-                const idsDestaques = destaquesSecundarios.map(d => d.id);
-                const noticiasNormais = noticiasDaCategoria.filter(n => !idsDestaques.includes(n.id));
-
-                // Renderiza Destaques Secundários da categoria
-                if (destaquesSecundarios.length > 0) {
-                    htmlContent += `<div class="print-secondary-highlights">`;
-                    destaquesSecundarios.forEach(noticia => {
-                        htmlContent += `
-                            <div class="print-card print-destaque-secundario">
-                                <h3 class="print-card-title">${noticia.titulo}</h3>
-                                <p class="print-card-date">${new Date(noticia.data + "T00:00:00").toLocaleDateString('pt-BR')}</p>
-                                ${noticia.foto_principal ? `<img src="${noticia.foto_principal}" alt="${noticia.titulo}" class="print-card-img">` : ''}
-                                <div class="print-card-content">${noticia.conteudo.substring(0, 250)}...</div>
-                            </div>
-                        `;
-                    });
-                    htmlContent += `</div>`;
-                }
-
-                // Renderiza Notícias normais da categoria
-                noticiasNormais.forEach(noticia => {
-                    htmlContent += `
-                        <div class="print-card print-normal">
-                            <h4 class="print-card-title">${noticia.titulo}</h4>
-                            <p class="print-card-date">${new Date(noticia.data + "T00:00:00").toLocaleDateString('pt-BR')}</p>
-                            <div class="print-card-content">${noticia.conteudo}</div>
-                        </div>
-                    `;
-                });
-            }
-        });
-
-        htmlContent += `</div>`; // Fecha print-grid
-
-        const estilosAtuais = Array.from(document.styleSheets).map(sheet => {
-            try {
-                return Array.from(sheet.cssRules)
-                    .map(rule => rule.cssText)
-                    .join('\n');
-            } catch (e) {
-                console.warn('CSS externo ignorado por CORS:', sheet.href);
-                return '';
-            }
-        }).join('\n');
-
-        const novaJanela = window.open('', '_blank');
-        novaJanela.document.write(`
+        // 4. Abrir uma nova janela e injetar TUDO (HTML e CSS)
+        const printWindow = window.open('', '_blank');
+        printWindow.document.write(`
+            <!DOCTYPE html>
             <html lang="pt-BR">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Jornal - PDF</title>
-                    <style>
-                        ${estilosAtuais}
-
-                        /* Garante fundo branco e cores visíveis no PDF */
-                        body {
-                            background: white !important;
-                            color: black !important;
-                            margin: 0;
-                            padding: 20px;
-                        }
-                        img {
-                            max-width: 100%;
-                            height: auto;
-                        }
-                    </style>
-                </head>
-                <body>${htmlContent}</body>
+            <head>
+                <meta charset="UTF-8">
+                <title>Jornal da Paróquia - Impressão</title>
+                <style>
+                    ${estilosCSS}
+                </style>
+            </head>
+            <body>
+                ${corpoJornalHTML}
+            </body>
             </html>
         `);
-        novaJanela.document.close();
 
-        // 3. Configura html2pdf
-        novaJanela.onload = () => {
-            const opt = {
-                margin: 10,
-                filename: `Jornal_${dataAtual.replace(/s+/g, '_')}.pdf`,
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2, useCORS: true, logging: true },
-                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-            };
+        printWindow.document.close();
 
-            html2pdf()
-                .set(opt)
-                .from(novaJanela.document.body)
-                .save()
-                .then(() => console.log('PDF gerado com sucesso a partir da nova aba'))
-                .catch(err => console.error('Erro ao gerar PDF:', err))
-                .finally(() => {
-                    novaJanela.close();
-                });
+        // 5. Esperar a nova janela carregar e então imprimir
+        printWindow.onload = function() {
+            printWindow.focus();
+            printWindow.print();
+            printWindow.close();
+
+            // Restaura o botão na página principal
+            gerarImpressaoBtn.disabled = false;
+            gerarImpressaoBtn.innerHTML = originalButtonText;
         };
     }
-
 
     function fecharModal() {
         modal.classList.remove('active');
