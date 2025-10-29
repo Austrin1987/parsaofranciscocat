@@ -544,16 +544,30 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.appendChild(printContainer);
         document.body.classList.add('print-active');
 
-        setTimeout(() => {
-            window.print();
+        const imagens = printContainer.querySelectorAll('img');
+        const promises = Array.from(imagens).map(img => {
+            return new Promise(resolve => {
+                if (img.complete) resolve();
+                else {
+                    img.onload = resolve;
+                    img.onerror = resolve; // evita travar caso alguma falhe
+                }
+            });
+        });
 
-            // Espera o evento de foco — disparado quando o usuário fecha o diálogo de impressão
-            window.onafterprint = () => {
-                document.body.removeChild(printContainer);
-                document.body.classList.remove('print-active');
-                window.onafterprint = null; // limpa o listener
-            };
-        }, 500);
+        Promise.all(promises).then(() => {
+            // Dá um pequeno tempo extra para o layout aplicar estilos
+            setTimeout(() => {
+                window.print();
+            }, 300);
+        });
+
+        // Remove o conteúdo após a impressão
+        window.onafterprint = () => {
+            document.body.removeChild(printContainer);
+            document.body.classList.remove('print-active');
+            window.onafterprint = null;
+        };
     }
 
 
