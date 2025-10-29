@@ -566,7 +566,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     Promise.all(imgs.map(img => img.complete ? Promise.resolve() :
                         new Promise(r => { img.onload = img.onerror = r; })
                     )).then(() => {
-                        setTimeout(() => { window.print(); }, 500);
+                        setTimeout(() => { window.print(); }, 1000);
                     });
                     };
                     window.onafterprint = function() {
