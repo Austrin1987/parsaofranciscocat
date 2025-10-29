@@ -541,12 +541,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const novaJanela = window.open('', '_blank');
         novaJanela.document.write(`
-            <html>
+            <html lang="pt-BR">
                 <head>
-                    <title>Gerando PDF...</title>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Jornal - PDF</title>
+
+                    <!-- Importa os mesmos estilos da página principal -->
+                    <link rel="stylesheet" href="../css/style.css">
+                    <link rel="stylesheet" href="../css/components.css">
+                    <link rel="stylesheet" href="../css/responsive.css">
+
                     <style>
-                        body { font-family: Arial, sans-serif; padding: 20px; }
-                        img { max-width: 100%; height: auto; }
+                        /* Garante fundo branco e cores visíveis no PDF */
+                        body {
+                            background: white !important;
+                            color: black !important;
+                            margin: 0;
+                            padding: 20px;
+                        }
+                        img {
+                            max-width: 100%;
+                            height: auto;
+                        }
                     </style>
                 </head>
                 <body>${htmlContent}</body>
