@@ -539,10 +539,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // 4. Adiciona uma classe ao <body> para ativar os estilos de impressão
         document.body.classList.add('printing-active');
         
-        // 5. Esconde o conteúdo principal do site antes de imprimir
-        document.querySelector('.main').style.display = 'none';
-
-        // 6. Um pequeno timeout para garantir que o DOM foi atualizado antes de imprimir
+        // 5. Um pequeno timeout para garantir que o DOM foi atualizado antes de imprimir
         setTimeout(() => {
             window.print(); // Chama a impressão nativa
 
