@@ -554,23 +554,27 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.appendChild(containerPDF);
 
         // 3. Configura html2pdf
-        const opt = {
-            margin: 10,
-            filename: `Jornal_${dataAtual.replace(/\s+/g, '_')}.pdf`,
-            image: { type: 'jpeg', quality: 0.98 },
-            html2canvas: { scale: 2, useCORS: true },
-            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-        };
+        setTimeout(() => {
+            const opt = {
+                margin: 10,
+                filename: `Jornal_${dataAtual.replace(/\s+/g, '_')}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true, logging: true },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
 
-        // 4. Gera PDF
-        html2pdf()
-            .set(opt)
-            .from(containerPDF)
-            .save()
-            .finally(() => {
-                // Remove container temporário
-                document.body.removeChild(containerPDF);
-            });
+            console.log("Gerando PDF a partir de:", containerPDF);
+
+            html2pdf()
+                .set(opt)
+                .from(containerPDF)
+                .save()
+                .then(() => console.log("PDF gerado com sucesso"))
+                .catch(err => console.error("Erro ao gerar PDF:", err))
+                .finally(() => {
+                    document.body.removeChild(containerPDF);
+                });
+        }, 2000);
     }
 
 
