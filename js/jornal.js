@@ -316,6 +316,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const temAnterior = noticiaIndex > 0;
         const temProxima = noticiaIndex < noticiasFiltradas.length - 1;
 
+        const urlNoticia = `${window.location.origin}${window.location.pathname}?noticia=${noticia.id}`;
+
         modalBody.innerHTML = `
             <div class="modal-header-unified">
                 <h3 class="modal-title-header">Notícia</h3>
@@ -325,6 +327,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     </button>
                     <button id="nav-proxima" class="btn-modal-nav" title="Próxima Notícia" ${!temProxima ? 'disabled' : ''}>
                         >
+                    </button>
+                    <button id="share-btn" class="btn-share" title="Compartilhar">
+                        Compartilhar
                     </button>
                     <button class="btn-modal-nav btn-modal-close" id="modal-close-btn" title="Fechar">
                         x
@@ -358,6 +363,49 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('nav-proxima').addEventListener('click', () => {
                 abrirModalComNoticia(noticiasFiltradas[noticiaIndex + 1].id);
             });
+        }
+
+        // ===== LÓGICA DO BOTÃO COMPARTILHAR =====
+        const shareBtn = document.getElementById('share-btn');
+        shareBtn.addEventListener('click', async () => {
+            const shareData = {
+                title: noticia.titulo,
+                text: noticia.subtitulo,
+                url: urlNoticia
+            };
+
+            try {
+                // Tenta usar a API nativa de compartilhamento
+                if (navigator.share) {
+                    await navigator.share(shareData);
+                    console.log('Notícia compartilhada com sucesso!');
+                } else {
+                    // Fallback: Copia a URL para a área de transferência
+                    await navigator.clipboard.writeText(urlNoticia);
+                    alert('Link da notícia copiado para a área de transferência!');
+                }
+            } catch (err) {
+                console.error('Erro ao compartilhar:', err);
+                // Fallback caso o usuário cancele o compartilhamento ou ocorra um erro
+                await navigator.clipboard.writeText(urlNoticia);
+                alert('Não foi possível compartilhar, mas o link foi copiado para você!');
+            }
+        });
+    }
+
+    function abrirNoticiaFromURL() {
+        const params = new URLSearchParams(window.location.search);
+        const noticiaId = params.get('noticia');
+        if (noticiaId) {
+            // Aguarda um instante para garantir que as notícias já foram carregadas
+            setTimeout(() => {
+                // Verifica se a notícia existe antes de tentar abrir
+                if (todasAsNoticias.some(n => n.id === noticiaId)) {
+                    abrirModalComNoticia(noticiaId);
+                } else {
+                    console.warn('Notícia com ID da URL não encontrada.');
+                }
+            }, 500); // 500ms de espera
         }
     }
 
@@ -593,6 +641,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    carregarNoticias();
-    initMobileMenu();
+    async function init() {
+        await carregarNoticias();
+        abrirNoticiaFromURL(); // Chama a função depois de carregar tudo
+        initMobileMenu();
+    }
+
+    init();
 });
