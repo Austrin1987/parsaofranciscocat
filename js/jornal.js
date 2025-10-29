@@ -540,20 +540,53 @@ document.addEventListener('DOMContentLoaded', () => {
         htmlContent += `</div>`; // Fecha print-grid
         printContainer.innerHTML = htmlContent;
 
-        // Injeta o container no corpo e prepara para impressão
-        document.body.appendChild(printContainer);
-        document.body.classList.add('print-active');
-
-        setTimeout(() => {
-            window.print();
-
-            // Espera o evento de foco — disparado quando o usuário fecha o diálogo de impressão
-            window.onafterprint = () => {
-                document.body.removeChild(printContainer);
-                document.body.classList.remove('print-active');
-                window.onafterprint = null; // limpa o listener
+        // Injeta o conteúdo num novo documento, garantindo compatibilidade total com mobile e PDF
+        const conteudoHTML = `
+        <!DOCTYPE html>
+        <html lang="pt-BR">
+        <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Jornal - Impressão</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/components.css">
+        <link rel="stylesheet" href="../css/responsive.css">
+        <style>
+            body { background: white !important; color: black !important; }
+            @media print {
+            body { visibility: visible; }
+            }
+        </style>
+        </head>
+        <body>
+        ${printContainer.innerHTML}
+        <script>
+            window.onload = function() {
+            // aguarda imagens carregarem antes de imprimir
+            const imgs = Array.from(document.images);
+            Promise.all(imgs.map(img => img.complete ? Promise.resolve() :
+                new Promise(r => { img.onload = img.onerror = r; })
+            )).then(() => {
+                setTimeout(() => { window.print(); }, 300);
+            });
             };
-        }, 500);
+            window.onafterprint = function() {
+            window.close();
+            };
+        </script>
+        </body>
+        </html>
+        `;
+
+        // Abre o conteúdo em uma nova janela para evitar bloqueio do print no mobile
+        const janela = window.open('', '_blank');
+        if (janela) {
+        janela.document.open();
+        janela.document.write(conteudoHTML);
+        janela.document.close();
+        } else {
+        alert('Por favor, permita pop-ups para visualizar a impressão.');
+        }
     }
 
 
