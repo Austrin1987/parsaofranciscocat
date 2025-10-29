@@ -541,50 +541,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Injeta o conteúdo num novo documento, garantindo compatibilidade total com mobile e PDF
         const conteudoHTML = `
-        <!DOCTYPE html>
-        <html lang="pt-BR">
-        <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Jornal - Impressão</title>
-        <link rel="stylesheet" href="../css/style.css">
-        <link rel="stylesheet" href="../css/components.css">
-        <link rel="stylesheet" href="../css/responsive.css">
-        <style>
-            body { background: white !important; color: black !important; }
-            @media print {
-            body { visibility: visible; }
-            }
-        </style>
-        </head>
-        <body>
-        ${printContainer.innerHTML}
-        <script>
-            window.onload = function() {
-            // aguarda imagens carregarem antes de imprimir
-            const imgs = Array.from(document.images);
-            Promise.all(imgs.map(img => img.complete ? Promise.resolve() :
-                new Promise(r => { img.onload = img.onerror = r; })
-            )).then(() => {
-                setTimeout(() => { window.print(); }, 300);
-            });
-            };
-            window.onafterprint = function() {
-            window.close();
-            };
-        </script>
-        </body>
-        </html>
+            <!DOCTYPE html>
+            <html lang="pt-BR">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Jornal - Impressão</title>
+                <link rel="stylesheet" href="../css/style.css">
+                <link rel="stylesheet" href="../css/components.css">
+                <link rel="stylesheet" href="../css/responsive.css">
+                <style>
+                    body { background: white !important; color: black !important; }
+                    @media print {
+                    body { visibility: visible; }
+                    }
+                </style>
+            </head>
+            <body>
+                ${htmlContent}
+                <script>
+                    window.onload = function() {
+                    // aguarda imagens carregarem antes de imprimir
+                    const imgs = Array.from(document.images);
+                    Promise.all(imgs.map(img => img.complete ? Promise.resolve() :
+                        new Promise(r => { img.onload = img.onerror = r; })
+                    )).then(() => {
+                        setTimeout(() => { window.print(); }, 300);
+                    });
+                    };
+                    window.onafterprint = function() {
+                    window.close();
+                    };
+                </script>
+            </body>
+            </html>
         `;
 
         // Abre o conteúdo em uma nova janela para evitar bloqueio do print no mobile
         const janela = window.open('', '_blank');
         if (janela) {
-        janela.document.open();
-        janela.document.write(conteudoHTML);
-        janela.document.close();
+            janela.document.open();
+            janela.document.write(conteudoHTML);
+            janela.document.close();
         } else {
-        alert('Por favor, permita pop-ups para visualizar a impressão.');
+            alert('Por favor, permita pop-ups para visualizar a impressão.');
         }
     }
 
