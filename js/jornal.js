@@ -548,9 +548,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     <title>Jornal - PDF</title>
 
                     <!-- Importa os mesmos estilos da página principal -->
-                    <link rel="stylesheet" href="../css/style.css">
-                    <link rel="stylesheet" href="../css/components.css">
-                    <link rel="stylesheet" href="../css/responsive.css">
+                    <link rel="stylesheet" href="../../css/style.css">
+                    <link rel="stylesheet" href="../../css/components.css">
+                    <link rel="stylesheet" href="../../css/responsive.css">
 
                     <style>
                         /* Garante fundo branco e cores visíveis no PDF */
