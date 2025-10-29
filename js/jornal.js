@@ -545,11 +545,15 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.add('print-active');
 
         setTimeout(() => {
-            // Limpa a página após a impressão (ou cancelamento)
             window.print();
-            document.body.removeChild(printContainer);
-            document.body.classList.remove('print-active');
-        }, 100);
+
+            // Espera o evento de foco — disparado quando o usuário fecha o diálogo de impressão
+            window.onafterprint = () => {
+                document.body.removeChild(printContainer);
+                document.body.classList.remove('print-active');
+                window.onafterprint = null; // limpa o listener
+            };
+        }, 500);
     }
 
 
