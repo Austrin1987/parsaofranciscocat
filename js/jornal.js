@@ -496,11 +496,14 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.appendChild(printContainer);
         document.body.classList.add('print-active');
 
-        window.print();
+        setTimeout(() => {
+            // Chama a impressão
+            window.print();
 
-        // Limpa após a impressão
-        document.body.removeChild(printContainer);
-        document.body.classList.remove('print-active');
+            // Limpa a página após a impressão (ou cancelamento)
+            document.body.removeChild(printContainer);
+            document.body.classList.remove('print-active');
+        }, 100);
     }
 
 
