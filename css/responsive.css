@@ -514,6 +514,20 @@
 
 /* Landscape Orientation */
 @media (max-height: 500px) and (orientation: landscape) {
+    .hero-section,
+    .section-header,
+    .events-filters {
+        display: none !important;
+    }
+    
+    .print-page-header {
+        display: block !important;
+        text-align: center;
+        padding: 10px 0;
+        border-bottom: 1px solid #000;
+        margin-bottom: 15px;
+    }
+    
     .hero-section {
         padding:0px; /* Use um padding para garantir um bom espaçamento */
     }
@@ -526,6 +540,11 @@
         margin-top: 0; /* Remova a margem extra no modo paisagem */
     }
 
+    .main,
+    #print-container-temp {
+        display: block !important;
+    }
+    
     .main {
         /* O margin-top aqui pode ser desnecessário se o header for menor */
         margin-top: 60px; 
@@ -554,9 +573,18 @@
     .header,
     .mobile-menu-btn,
     .hero-buttons,
+    .search-box,
+    .filter-row,
     .modal,
-    .footer {
+    #modal-impressao,
+    .footer,
+    .print-page-header {
         display: none !important;
+    }
+    
+    .main,
+    #print-container-temp {
+        display: block !important;
     }
     
     .main {
@@ -569,10 +597,25 @@
     }
     
     .card,
+    .container,
     .timeline-item {
         box-shadow: none;
         border: 1px solid #ddd;
         page-break-inside: avoid;
+    }
+    
+    .hero-section,
+    .section-header,
+    .events-filters {
+        display: none !important;
+    }
+    
+    .print-page-header {
+        display: block !important;
+        text-align: center;
+        padding: 10px 0;
+        border-bottom: 1px solid #000;
+        margin-bottom: 15px;
     }
     
     .hero-section {
