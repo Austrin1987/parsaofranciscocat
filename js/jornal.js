@@ -539,6 +539,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         htmlContent += `</div>`; // Fecha print-grid
 
+        const estilosAtuais = Array.from(document.styleSheets).map(sheet => {
+            try {
+                return Array.from(sheet.cssRules)
+                    .map(rule => rule.cssText)
+                    .join('\n');
+            } catch (e) {
+                console.warn('CSS externo ignorado por CORS:', sheet.href);
+                return '';
+            }
+        }).join('\n');
+
         const novaJanela = window.open('', '_blank');
         novaJanela.document.write(`
             <html lang="pt-BR">
@@ -546,13 +557,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     <meta charset="UTF-8">
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     <title>Jornal - PDF</title>
-
-                    <!-- Importa os mesmos estilos da página principal -->
-                    <link rel="stylesheet" href="../../css/style.css">
-                    <link rel="stylesheet" href="../../css/components.css">
-                    <link rel="stylesheet" href="../../css/responsive.css">
-
                     <style>
+                        ${estilosAtuais}
+
                         /* Garante fundo branco e cores visíveis no PDF */
                         body {
                             background: white !important;
