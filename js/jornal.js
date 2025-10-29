@@ -73,12 +73,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Mapeia a lista de notícias original, adicionando a propriedade 'destaque: true' se o ID estiver na lista de destaques
             const noticiasComDestaque = dados.noticias.map(noticia => {
-                if (idsDestaque.includes(noticia.id)) {
-                    // Se o ID da notícia está na lista de destaques, retorna uma cópia da notícia com a nova propriedade
-                    return { ...noticia, destaque: true };
-                }
-                // Caso contrário, retorna a notícia como ela é
-                return noticia;
+                let categoria = (noticia.categoria || Object.keys(mapaCategorias).find(cat => 
+                    mapaCategorias[cat].some(palavra => 
+                        (noticia.titulo + ' ' + noticia.conteudo).toLowerCase().includes(palavra)
+                    )
+                ) || 'geral').toLowerCase();
+
+                return { 
+                    ...noticia, 
+                    destaque: idsDestaque.includes(noticia.id),
+                    categoria: categoria // Usa a categoria do JSON ou a automática
+                };
             });
 
             // Agora, o resto do seu código funcionará como esperado!
@@ -95,19 +100,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function popularFiltros(noticias) {
-        // Popula filtro de categorias
-        const categorias = [...new Set(noticias.map(n => n.categoria))].filter(Boolean);
-        filtroCategoria.innerHTML += categorias.map(cat => `<option value="${cat}">${cat}</option>`).join('');
+        // 1. Pega todas as categorias e converte para minúsculas para evitar duplicatas.
+        const categoriasBrutas = noticias.map(n => n.categoria.toLowerCase());
+        
+        // 2. Cria um conjunto de categorias únicas e depois converte de volta para um array.
+        const categoriasUnicas = [...new Set(categoriasBrutas)];
 
-        // Popula filtro de categorias do modal de impressão
-        categoriaImpressaoSelect.innerHTML += categorias.map(cat => `<option value="${cat}">${cat}</option>`).join('');
+        // 3. Formata o nome para ter a primeira letra maiúscula.
+        const categoriasFormatadas = categoriasUnicas.map(cat => cat.charAt(0).toUpperCase() + cat.slice(1));
 
-        // Popula filtro de datas (Mês/Ano)
+        // 4. Limpa os filtros de categoria existentes (mantendo a primeira opção "Todas").
+        filtroCategoria.innerHTML = '<option value="todas">Todas as Notícias</option>';
+        categoriaImpressaoSelect.innerHTML = '<option value="todas">Todas as Notícias</option>';
+
+        // 5. Adiciona as categorias únicas e formatadas aos selects.
+        const opcoesHTML = categoriasUnicas.map(cat => {
+            const nomeFormatado = cat.charAt(0).toUpperCase() + cat.slice(1);
+            return `<option value="${cat}">${nomeFormatado}</option>`;
+        }).join('');
+
+        filtroCategoria.innerHTML += opcoesHTML;
+        categoriaImpressaoSelect.innerHTML += opcoesHTML;
+
+        // Popula filtro de datas (Mês/Ano) - Lógica inalterada
         const datas = [...new Set(noticias.map(n => {
             const d = new Date(n.data + "T00:00:00");
             return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
         }))];
         
+        // Limpa filtro de data antes de popular
+        filtroData.innerHTML = '<option value="todas">Todas as Datas</option>';
         filtroData.innerHTML += datas.map(data => {
             const [ano, mes] = data.split('-');
             const nomeMes = new Date(ano, mes - 1).toLocaleString('pt-BR', { month: 'long' });
@@ -373,30 +395,33 @@ document.addEventListener('DOMContentLoaded', () => {
         return noticiasFiltradasImpressao.sort((a, b) => new Date(b.data) - new Date(a.data));
     }
 
-    function gerarVisualizacaoImpressao(noticias) {
-        // O conteúdo de impressão será injetado em um novo container
+    function gerarVisualizacaoImpressao(noticias, capaManual) {
         const printContainer = document.createElement('div');
         printContainer.id = 'print-content';
         printContainer.classList.add('jornal-print');
 
-        // Cabeçalho do Jornal
         const dataAtual = new Date().toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
         let htmlContent = `
-            <div class="print-page-header">
-                Jornal da Paróquia São Francisco de Assis - Continuação - ${dataAtual}
-            </div>
-
             <div class="print-header">
                 <h1 class="print-title">Jornal da Paróquia São Francisco de Assis</h1>
-                <p class="print-date">Edição Especial - ${dataAtual}</p>
-                <hr class="print-divider">
+                <p class="print-date">Edição de ${dataAtual}</p>
             </div>
-
             <div class="print-grid">
         `;
 
-        // A primeira notícia é a MATÉRIA DE CAPA
-        const materiaCapa = noticias[0];
+        // 1. Define a Matéria de Capa
+        let materiaCapa = capaManual;
+        let noticiasRestantes = noticias;
+
+        if (materiaCapa) {
+            // Remove a capa manual da lista principal para não ser repetida
+            noticiasRestantes = noticias.filter(n => n.id !== materiaCapa.id);
+        } else {
+            // Se não houver capa manual, pega a mais recente como capa
+            materiaCapa = noticias[0];
+            noticiasRestantes = noticias.slice(1);
+        }
+
         if (materiaCapa) {
             htmlContent += `
                 <div class="print-card print-capa">
@@ -410,59 +435,74 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
         }
 
-        // As próximas duas são DESTAQUES SECUNDÁRIOS (limitado a 2)
-        const destaquesSecundarios = noticias.slice(1, 3);
-        if (destaquesSecundarios.length > 0) {
-            htmlContent += `<div class="print-secondary-highlights">`; // Um container para os destaques
-            destaquesSecundarios.forEach(noticia => {
-                htmlContent += `
-                    <div class="print-card print-destaque-secundario">
-                        <h3 class="print-card-title">${noticia.titulo}</h3>
-                        <p class="print-card-date">${new Date(noticia.data + "T00:00:00").toLocaleDateString('pt-BR')}</p>
-                        ${noticia.foto_principal ? `<img src="${noticia.foto_principal}" alt="${noticia.titulo}" class="print-card-img">` : ''}
-                        <div class="print-card-content">${noticia.conteudo.substring(0, 250)}...</div>
-                    </div>
-                `;
-            });
-            htmlContent += `</div>`;
-        }
+        // 2. Agrupa as notícias restantes por categoria
+        const noticiasPorCategoria = noticiasRestantes.reduce((acc, noticia) => {
+            const categoria = noticia.categoria || 'geral';
+            if (!acc[categoria]) {
+                acc[categoria] = [];
+            }
+            acc[categoria].push(noticia);
+            return acc;
+        }, {});
 
-        // O resto são notícias normais, que preencherão as colunas
-        const noticiasNormais = noticias.slice(3);
-        noticiasNormais.forEach(noticia => {
-            htmlContent += `
-                <div class="print-card print-normal">
-                    <h4 class="print-card-title">${noticia.titulo}</h4>
-                    <p class="print-card-date">${new Date(noticia.data + "T00:00:00").toLocaleDateString('pt-BR')}</p>
-                    <div class="print-card-content">${noticia.conteudo}</div>
-                </div>
-            `;
+        // 3. Itera sobre as categorias na ordem desejada para montar o jornal
+        const ordemCategorias = ['eventos', 'catequese', 'avisos', 'geral'];
+
+        ordemCategorias.forEach(categoria => {
+            if (noticiasPorCategoria[categoria] && noticiasPorCategoria[categoria].length > 0) {
+                const noticiasDaCategoria = noticiasPorCategoria[categoria];
+                
+                // Título da Categoria
+                htmlContent += `<h2 class="print-category-title">${categoria.charAt(0).toUpperCase() + categoria.slice(1)}</h2>`;
+
+                // Separa destaques e notícias normais DENTRO da categoria
+                const destaquesSecundarios = noticiasDaCategoria.filter(n => n.destaque).slice(0, 2);
+                const idsDestaques = destaquesSecundarios.map(d => d.id);
+                const noticiasNormais = noticiasDaCategoria.filter(n => !idsDestaques.includes(n.id));
+
+                // Renderiza Destaques Secundários da categoria
+                if (destaquesSecundarios.length > 0) {
+                    htmlContent += `<div class="print-secondary-highlights">`;
+                    destaquesSecundarios.forEach(noticia => {
+                        htmlContent += `
+                            <div class="print-card print-destaque-secundario">
+                                <h3 class="print-card-title">${noticia.titulo}</h3>
+                                <p class="print-card-date">${new Date(noticia.data + "T00:00:00").toLocaleDateString('pt-BR')}</p>
+                                ${noticia.foto_principal ? `<img src="${noticia.foto_principal}" alt="${noticia.titulo}" class="print-card-img">` : ''}
+                                <div class="print-card-content">${noticia.conteudo.substring(0, 250)}...</div>
+                            </div>
+                        `;
+                    });
+                    htmlContent += `</div>`;
+                }
+
+                // Renderiza Notícias normais da categoria
+                noticiasNormais.forEach(noticia => {
+                    htmlContent += `
+                        <div class="print-card print-normal">
+                            <h4 class="print-card-title">${noticia.titulo}</h4>
+                            <p class="print-card-date">${new Date(noticia.data + "T00:00:00").toLocaleDateString('pt-BR')}</p>
+                            <div class="print-card-content">${noticia.conteudo}</div>
+                        </div>
+                    `;
+                });
+            }
         });
 
-        htmlContent += `</div>`;
-
+        htmlContent += `</div>`; // Fecha print-grid
         printContainer.innerHTML = htmlContent;
 
         // Injeta o container no corpo e prepara para impressão
         document.body.appendChild(printContainer);
+        document.body.classList.add('print-active');
 
-        // Esconde o conteúdo normal da página
-        document.querySelector('.header').style.display = 'none';
-        document.querySelector('.main').style.display = 'none';
-        document.querySelector('.footer').style.display = 'none';
-
-        // Abre a caixa de diálogo de impressão
         window.print();
 
-        // Após a impressão (ou cancelamento), restaura a visualização
-        // Usa setTimeout para garantir que o print() tenha tido tempo de iniciar
-        setTimeout(() => {
-            document.body.removeChild(printContainer);
-            document.querySelector('.header').style.display = '';
-            document.querySelector('.main').style.display = '';
-            document.querySelector('.footer').style.display = '';
-        }, 500); // 500ms de atraso
+        // Limpa após a impressão
+        document.body.removeChild(printContainer);
+        document.body.classList.remove('print-active');
     }
+
 
     function fecharModal() {
         modal.classList.remove('active');
