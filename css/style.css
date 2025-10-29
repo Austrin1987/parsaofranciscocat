@@ -1382,9 +1382,31 @@ body {
         margin-right: 10px;
     }
 
+    .print-category-title {
+        column-span: all; /* Faz o título ocupar toda a largura */
+        font-family: 'Playfair Display', serif;
+        font-size: 20pt;
+        color: #333;
+        text-align: center;
+        border-top: 2px solid #000;
+        border-bottom: 1px solid #666;
+        padding: 10px 0;
+        margin-top: 1.5cm;
+        margin-bottom: 1cm;
+        break-after: avoid;
+        page-break-after: avoid;
+    }
+
     .print-normal .print-card-title {
         font-size: 14pt; /* Título menor para notícias comuns */
         font-weight: 600;
+    }
+
+    /* Esconde o body da página principal durante a impressão */
+    body.print-active > .header,
+    body.print-active > .main,
+    body.print-active > .footer {
+        display: none;
     }
 
     /* Exibe o conteúdo de impressão */
