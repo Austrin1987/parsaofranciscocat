@@ -582,9 +582,12 @@
         display: none !important;
     }
     
-    .main,
     #print-container-temp {
         display: block !important;
+    }
+
+    .main {
+        display: none !important; /* Esconde o conteúdo principal do site */
     }
     
     .main {
@@ -611,7 +614,7 @@
     }
     
     .print-page-header {
-        display: block !important;
+        display: none !important;
         text-align: center;
         padding: 10px 0;
         border-bottom: 1px solid #000;
