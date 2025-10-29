@@ -384,6 +384,33 @@ body {
     margin-bottom: 0.5rem;
 }
 
+/* Estilo para o novo botão de compartilhar */
+.btn-share {
+    background-color: var(--card-background);
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    width: 150px;  /* Botões quadrados */
+    height: 40px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.btn-share:hover:not(:disabled) {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.btn-share:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 .highlight-time {
     font-weight: 600;
     color: var(--secondary-color);
