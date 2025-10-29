@@ -445,47 +445,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // VERSÃO FINAL E DEFINITIVA PARA SITE ESTÁTICO
     async function gerarVisualizacaoImpressao(noticias, capaManual) {
-        const printWindow = window.open('', '_blank');
-        if (!printWindow) {
-            alert('Por favor, desative o bloqueador de pop-ups para gerar a impressão.');
-            return;
+        let printContainer = document.getElementById('print-container-temp');
+        if (!printContainer) {
+            printContainer = document.createElement('div');
+            printContainer.id = 'print-container-temp';
+            document.body.appendChild(printContainer);
         }
-        printWindow.document.write('<html><head><title>Gerando Jornal...</title></head><body><p>Por favor, aguarde enquanto o jornal está sendo preparado...</p></body></html>');
-
-        // 1. Feedback visual para o usuário
-        const originalButtonText = gerarImpressaoBtn.innerHTML;
-        gerarImpressaoBtn.disabled = true;
-        gerarImpressaoBtn.innerHTML = 'Preparando Impressão...';
-
-        // 2. Buscar e combinar o conteúdo de TODOS os seus arquivos CSS em uma única string.
-        // Esta é a parte mais importante para garantir que o estilo seja aplicado.
-        const fetchStyles = async () => {
-            // Lista dos seus arquivos CSS. Verifique se os caminhos estão corretos!
-            const cssFiles = [
-                '../css/style.css',
-                '../css/components.css',
-                '../css/responsive.css'
-            ];
-            
-            let combinedCss = '';
-            for (const file of cssFiles) {
-                try {
-                    const response = await fetch(file);
-                    if (response.ok) {
-                        combinedCss += await response.text();
-                    } else {
-                        console.warn(`Falha ao carregar o arquivo CSS: ${file}`);
-                    }
-                } catch (error) {
-                    console.error(`Erro de rede ao buscar ${file}:`, error);
-                }
-            }
-            return combinedCss;
-        };
-
-        const estilosCSS = await fetchStyles();
-
-        // 3. Montar o corpo HTML do jornal (sua lógica existente, sem alterações)
+        
         const dataAtual = new Date().toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
         let corpoJornalHTML = `
             <div class="print-header">
@@ -504,36 +470,20 @@ document.addEventListener('DOMContentLoaded', () => {
         ordemCategorias.forEach(categoria => { if (noticiasPorCategoria[categoria] && noticiasPorCategoria[categoria].length > 0) { const noticiasDaCategoria = noticiasPorCategoria[categoria]; corpoJornalHTML += `<h2 class="print-category-title">${categoria.charAt(0).toUpperCase() + categoria.slice(1)}</h2>`; const destaquesSecundarios = noticiasDaCategoria.filter(n => n.destaque).slice(0, 2); const noticiasNormais = noticiasDaCategoria.filter(n => !destaquesSecundarios.map(d => d.id).includes(n.id)); if (destaquesSecundarios.length > 0) { corpoJornalHTML += `<div class="print-secondary-highlights">`; destaquesSecundarios.forEach(noticia => { corpoJornalHTML += `<div class="print-card print-destaque-secundario"><h3 class="print-card-title">${noticia.titulo}</h3><p class="print-card-date">${new Date(noticia.data + "T00:00:00").toLocaleDateString('pt-BR')}</p>${noticia.foto_principal ? `<img src="${noticia.foto_principal}" alt="${noticia.titulo}" class="print-card-img">` : ''}<div class="print-card-content">${noticia.conteudo.substring(0, 250)}...</div></div>`; }); corpoJornalHTML += `</div>`; } noticiasNormais.forEach(noticia => { corpoJornalHTML += `<div class="print-card print-normal"><h4 class="print-card-title">${noticia.titulo}</h4><p class="print-card-date">${new Date(noticia.data + "T00:00:00").toLocaleDateString('pt-BR')}</p><div class="print-card-content">${noticia.conteudo}</div></div>`; }); } });
         corpoJornalHTML += `</div>`;
 
-        // 4. Abrir uma nova janela e injetar TUDO (HTML e CSS)
-        printWindow.document.open();
-        printWindow.document.write(`
-            <!DOCTYPE html>
-            <html lang="pt-BR">
-            <head>
-                <meta charset="UTF-8">
-                <title>Jornal da Paróquia - Impressão</title>
-                <style>
-                    ${estilosCSS}
-                </style>
-            </head>
-            <body>
-                ${corpoJornalHTML}
-            </body>
-            </html>
-        `);
+        printContainer.innerHTML = corpoJornalHTML;
 
-        printWindow.document.close();
+        // 4. Adiciona uma classe ao <body> para ativar os estilos de impressão
+        document.body.classList.add('printing-active');
 
-        // 5. Esperar a nova janela carregar e então imprimir
-        printWindow.onload = function() {
-            printWindow.focus();
-            printWindow.print();
-            printWindow.close();
+        // 5. Um pequeno timeout para garantir que o DOM foi atualizado antes de imprimir
+        setTimeout(() => {
+            window.print(); // Chama a impressão nativa
 
-            // Restaura o botão na página principal
-            gerarImpressaoBtn.disabled = false;
-            gerarImpressaoBtn.innerHTML = originalButtonText;
-        };
+            // 6. Limpeza: remove a classe do body após a impressão
+            document.body.classList.remove('printing-active');
+            // Opcional: limpa o conteúdo do contêiner se não quiser que ele permaneça no DOM
+            printContainer.innerHTML = ''; 
+        }, 250);
     }
 
     function fecharModal() {
