@@ -544,13 +544,36 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.appendChild(printContainer);
         document.body.classList.add('print-active');
 
-        window.print();
+        // ===== INÍCIO DA LÓGICA DE IMPRESSÃO/PDF =====
 
-        setTimeout(() => {
-            // Limpa a página após a impressão (ou cancelamento)
-            document.body.removeChild(printContainer);
-            document.body.classList.remove('print-active');
-        }, 100);
+        if (isMobileDevice()) {
+            // --- SE FOR MOBILE: GERAR PDF ---
+            console.log("Dispositivo móvel detectado. Gerando PDF...");
+
+            const options = {
+                margin:       [10, 10, 10, 10], // Margens em mm [top, left, bottom, right]
+                filename:     'jornal-paroquial.pdf',
+                image:        { type: 'jpeg', quality: 0.98 }, // Qualidade da imagem
+                html2canvas:  { scale: 2, useCORS: true }, // Aumenta a escala para melhor resolução
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            // Usa a biblioteca para gerar o PDF a partir do nosso container
+            html2pdf().from(printContainer).set(options).save().then(() => {
+                // Limpeza após o PDF ser gerado e o download iniciado
+                document.body.removeChild(printContainer);
+                document.body.classList.remove('print-active');
+            });
+
+        } else {
+
+            setTimeout(() => {
+                // Limpa a página após a impressão (ou cancelamento)
+                window.print();
+                document.body.removeChild(printContainer);
+                document.body.classList.remove('print-active');
+            }, 100);
+        }
     }
 
 
@@ -648,3 +671,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     init();
 });
+
+function isMobileDevice() {
+    return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+}
