@@ -539,40 +539,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
         htmlContent += `</div>`; // Fecha print-grid
 
-        // 2. Cria container temporário invisível no DOM
-        const containerPDF = document.createElement('div');
-        containerPDF.id = 'print-content';
-        containerPDF.style.position = 'absolute';
-        containerPDF.style.top = '0';
-        containerPDF.style.left = '0';
-        containerPDF.style.width = '100%';
-        containerPDF.style.visibility = 'hidden';
-        containerPDF.style.zIndex = '-1';
-        containerPDF.innerHTML = htmlContent;
-        document.body.appendChild(containerPDF);
+        const novaJanela = window.open('', '_blank');
+        novaJanela.document.write(`
+            <html>
+                <head>
+                    <title>Gerando PDF...</title>
+                    <style>
+                        body { font-family: Arial, sans-serif; padding: 20px; }
+                        img { max-width: 100%; height: auto; }
+                    </style>
+                </head>
+                <body>${htmlContent}</body>
+            </html>
+        `);
+        novaJanela.document.close();
 
         // 3. Configura html2pdf
-        setTimeout(() => {
+        novaJanela.onload = () => {
             const opt = {
                 margin: 10,
-                filename: `Jornal_${dataAtual.replace(/\s+/g, '_')}.pdf`,
+                filename: `Jornal_${dataAtual.replace(/s+/g, '_')}.pdf`,
                 image: { type: 'jpeg', quality: 0.98 },
                 html2canvas: { scale: 2, useCORS: true, logging: true },
                 jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
             };
 
-            console.log("Gerando PDF a partir de:", containerPDF);
-
             html2pdf()
                 .set(opt)
-                .from(containerPDF)
+                .from(novaJanela.document.body)
                 .save()
-                .then(() => console.log("PDF gerado com sucesso"))
-                .catch(err => console.error("Erro ao gerar PDF:", err))
+                .then(() => console.log('PDF gerado com sucesso a partir da nova aba'))
+                .catch(err => console.error('Erro ao gerar PDF:', err))
                 .finally(() => {
-                    document.body.removeChild(containerPDF);
+                    novaJanela.close();
                 });
-        }, 2000);
+        };
     }
 
 
