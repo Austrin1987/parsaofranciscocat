@@ -538,7 +538,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 4. Adiciona uma classe ao <body> para ativar os estilos de impressão
         document.body.classList.add('printing-active');
-        
+        document.querySelector('.print-container-temp').style.display = 'block';
+
         // 5. Um pequeno timeout para garantir que o DOM foi atualizado antes de imprimir
         setTimeout(() => {
             window.print(); // Chama a impressão nativa
@@ -546,6 +547,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // 7. Limpeza: remove a classe do body e reexibe o conteúdo principal
             document.body.classList.remove('printing-active');
             document.querySelector('.main').style.display = 'block';
+            document.querySelector('.print-container-temp').style.display = 'none';
             printContainer.remove(); // Remove o contêiner temporário
         }, 250);
     }
