@@ -538,7 +538,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         htmlContent += `</div>`; // Fecha print-grid
-        printContainer.innerHTML = htmlContent;
 
         // Injeta o conteúdo num novo documento, garantindo compatibilidade total com mobile e PDF
         const conteudoHTML = `
