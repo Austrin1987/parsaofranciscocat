@@ -445,6 +445,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // VERSÃO FINAL E DEFINITIVA PARA SITE ESTÁTICO
     async function gerarVisualizacaoImpressao(noticias, capaManual) {
+        const printWindow = window.open('', '_blank');
+        if (!printWindow) {
+            alert('Por favor, desative o bloqueador de pop-ups para gerar a impressão.');
+            return;
+        }
+        printWindow.document.write('<html><head><title>Gerando Jornal...</title></head><body><p>Por favor, aguarde enquanto o jornal está sendo preparado...</p></body></html>');
+
         // 1. Feedback visual para o usuário
         const originalButtonText = gerarImpressaoBtn.innerHTML;
         gerarImpressaoBtn.disabled = true;
@@ -498,7 +505,7 @@ document.addEventListener('DOMContentLoaded', () => {
         corpoJornalHTML += `</div>`;
 
         // 4. Abrir uma nova janela e injetar TUDO (HTML e CSS)
-        const printWindow = window.open('', '_blank');
+        printWindow.document.open();
         printWindow.document.write(`
             <!DOCTYPE html>
             <html lang="pt-BR">
