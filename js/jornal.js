@@ -542,8 +542,14 @@ document.addEventListener('DOMContentLoaded', () => {
         // 2. Cria container temporário invisível no DOM
         const containerPDF = document.createElement('div');
         containerPDF.id = 'print-content';
-        containerPDF.style.position = 'absolute';
-        containerPDF.style.left = '-9999px';
+        containerPDF.style.position = 'fixed';
+        containerPDF.style.top = '0';
+        containerPDF.style.left = '0';
+        containerPDF.style.width = '100vw';
+        containerPDF.style.height = '100vh';
+        containerPDF.style.opacity = '0';
+        containerPDF.style.pointerEvents = 'none';
+        containerPDF.style.zIndex = '-1';
         containerPDF.innerHTML = htmlContent;
         document.body.appendChild(containerPDF);
 
