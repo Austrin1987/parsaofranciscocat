@@ -544,10 +544,9 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.appendChild(printContainer);
         document.body.classList.add('print-active');
 
-        setTimeout(() => {
-            // Chama a impressão
-            window.print();
+        window.print();
 
+        setTimeout(() => {
             // Limpa a página após a impressão (ou cancelamento)
             document.body.removeChild(printContainer);
             document.body.classList.remove('print-active');
