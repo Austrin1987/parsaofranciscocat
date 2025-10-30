@@ -561,6 +561,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     imprimirBtn.addEventListener('click', () => {
+        closeMobileMenu();
         atualizarSeletorDeCapa(); 
         modalImpressao.classList.add('active');
     });
