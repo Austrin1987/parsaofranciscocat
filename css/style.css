@@ -1364,7 +1364,6 @@ body {
         font-size: 10pt;
         background-color: #f8f8f8; /* Um fundo sutil para não atrapalhar */
         border-bottom: 1px solid #ddd;
-        z-index: 1000;
     }
 
     .print-capa {
