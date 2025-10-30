@@ -545,7 +545,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // 7. Limpeza: remove a classe do body e reexibe o conteúdo principal
             document.body.classList.remove('printing-active');
-            document.querySelector('.main').style.display = 'block';
             printContainer.remove(); // Remove o contêiner temporário
         }, 250);
     }
