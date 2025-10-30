@@ -563,11 +563,15 @@ document.addEventListener('DOMContentLoaded', () => {
     imprimirBtn.addEventListener('click', () => {
         closeMobileMenu();
         atualizarSeletorDeCapa(); 
+        modalImpressao.style.zIndex = '9999'; 
+        modalImpressao.style.display = 'block';
         modalImpressao.classList.add('active');
     });
 
     closeModalImpressaoBtn.addEventListener('click', () => {
         modalImpressao.classList.remove('active');
+        modalImpressao.style.zIndex = '';
+        modalImpressao.style.display = ''; 
     });
 
     function atualizarSeletorDeCapa() {
