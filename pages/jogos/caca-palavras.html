@@ -35,15 +35,15 @@
 
         .word-search-grid {
             display: grid;
-            grid-template-columns: repeat(15, 1fr); /* Ajustado para 15x15 */
+            grid-template-columns: repeat(var(--grid-cols, 15), 1fr); /* Variável para o tamanho do grid */
             border: 2px solid var(--primary-color);
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         .grid-cell {
-            width: 28px;
-            height: 28px;
+            width: var(--cell-size, 28px);
+            height: var(--cell-size, 28px);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -68,8 +68,8 @@
 
         #word-search-grid .grid-cell.found {
             /* Aumenta o destaque e garante a permanência */
-            color: #FFFFFF !important; /* Letra branca para alto contraste */
-            background-color: var(--primary-color); /* Fundo colorido */
+            color: var(--primary-color); /* Letra branca para alto contraste */
+            background-color: var(--success-color) !important; /* Fundo colorido */
             border: 1px solid var(--success-color) !important;
             box-shadow: 0 0 5px var(--success-color) !important;
             animation: none !important;
@@ -129,12 +129,14 @@
                 flex-direction: column;
             }
             .word-search-grid {
-                grid-template-columns: repeat(12, 1fr); /* Ajuste para telas menores */
+                /* No mobile, o grid deve se ajustar ao tamanho do contêiner */
+                grid-template-columns: repeat(var(--grid-cols-mobile, 12), 1fr);
             }
             .grid-cell {
-                width: 24px;
-                height: 24px;
-                font-size: 0.8rem;
+                /* Tamanho máximo da célula para mobile */
+                width: var(--cell-size-mobile, 16px);
+                height: var(--cell-size-mobile, 16px);
+                font-size: 0.6rem; /* Reduzir o tamanho da fonte */
             }
         }
     </style>
@@ -166,7 +168,13 @@
                     <p class="section-subtitle">Encontre as palavras relacionadas à nossa paróquia e fé!</p>
                 </div>
 
-                <div class="word-search-container">
+                <div class="difficulty-selector" style="margin-bottom: 1.5rem;">
+                        <button class="btn btn-secondary" data-difficulty="easy" id="easy-btn">Fácil (10x10)</button>
+                        <button class="btn btn-secondary" data-difficulty="medium" id="medium-btn">Médio (15x15)</button>
+                        <button class="btn btn-secondary" data-difficulty="hard" id="hard-btn">Difícil (20x20)</button>
+                    </div>
+
+                    <div class="word-search-container">
                     <div class="game-area">
                         <div id="word-search-grid" class="word-search-grid">
                             <!-- Células do grid serão inseridas aqui pelo JavaScript -->
