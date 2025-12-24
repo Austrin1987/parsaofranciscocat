@@ -1,12 +1,21 @@
 // js/caca-palavras.js
 
-const GRID_SIZE = 15; // Mantido em 15x15
+// Definições dos níveis de dificuldade
+const DIFFICULTIES = {
+    easy: { size: 10, wordCount: 5, cellSize: '30px', mobileSize: '24px' },
+    medium: { size: 15, wordCount: 10, cellSize: '28px', mobileSize: '20px' },
+    hard: { size: 20, wordCount: 15, cellSize: '24px', mobileSize: '16px' }
+};
+
 const GRID_ELEMENT = document.getElementById('word-search-grid');
 const WORD_LIST_ELEMENT = document.getElementById('word-list');
 const MESSAGE_ELEMENT = document.getElementById('message');
 const RESTART_BUTTON = document.getElementById('restart-button');
+const DIFFICULTY_BUTTONS = document.querySelectorAll('.difficulty-selector button');
 
 let gameData = null;
+let currentDifficulty = DIFFICULTIES.medium; // Padrão: Médio
+let currentGridSize = currentDifficulty.size;
 let grid = [];
 let wordsToFind = [];
 let foundWords = new Set();
@@ -15,20 +24,43 @@ let startCell = null;
 let endCell = null;
 let selectedCells = [];
 
-// --- Funções de Geração do Grid e Palavras (NOVO ALGORITMO) ---
+// --- Funções de Utilitário ---
 
 /**
- * Gera um grid vazio preenchido com um caractere especial para indicar vazio.
- * @param {number} size - O tamanho do grid (size x size).
- * @returns {Array<Array<string>>} O grid gerado.
+ * Embaralha um array (Fisher-Yates).
+ * @param {Array} array - O array a ser embaralhado.
+ * @returns {Array} O array embaralhado.
  */
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+/**
+ * Seleciona palavras aleatoriamente do pool de palavras.
+ * @param {Array<string>} pool - O pool de palavras disponíveis.
+ * @param {number} count - O número de palavras a selecionar.
+ * @returns {Array<string>} As palavras selecionadas.
+ */
+function selectRandomWords(pool, count) {
+    const shuffled = shuffleArray([...pool]);
+    return shuffled.slice(0, count);
+}
+
+// --- Funções de Geração do Grid ---
+
 function createEmptyGrid(size) {
     const newGrid = [];
     for (let i = 0; i < size; i++) {
-        newGrid[i] = new Array(size).fill(''); // Usar string vazia para indicar célula vazia
+        newGrid[i] = new Array(size).fill('');
     }
     return newGrid;
 }
+
+// ... (findPlacement, placeWord, fillEmptyCells - Mantidas do algoritmo anterior) ...
 
 /**
  * Tenta encontrar um local válido para colocar uma palavra no grid.
@@ -50,16 +82,14 @@ function findPlacement(currentGrid, word) {
         { dr: -1, dc: 1 }   // Diagonal (cima-direita)
     ];
 
-    // Tenta posições e direções aleatórias para evitar vieses
     const allPossibleStarts = [];
     for (let r = 0; r < size; r++) {
         for (let c = 0; c < size; c++) {
             allPossibleStarts.push({ r, c });
         }
     }
-    // Embaralha as posições iniciais e direções para maior aleatoriedade
-    allPossibleStarts.sort(() => Math.random() - 0.5);
-    directions.sort(() => Math.random() - 0.5);
+    shuffleArray(allPossibleStarts);
+    shuffleArray(directions);
 
     for (const start of allPossibleStarts) {
         for (const direction of directions) {
@@ -68,13 +98,11 @@ function findPlacement(currentGrid, word) {
                 const r = start.r + k * direction.dr;
                 const c = start.c + k * direction.dc;
 
-                // 1. Verifica se está dentro dos limites
                 if (r < 0 || r >= size || c < 0 || c >= size) {
                     canPlace = false;
                     break;
                 }
 
-                // 2. Verifica se a célula está vazia ou tem a mesma letra (sobreposição)
                 const currentCell = currentGrid[r][c];
                 if (currentCell !== '' && currentCell !== word[k]) {
                     canPlace = false;
@@ -88,16 +116,9 @@ function findPlacement(currentGrid, word) {
         }
     }
 
-    return null; // Não foi possível encontrar um local
+    return null;
 }
 
-/**
- * Coloca a palavra no grid no local e direção especificados.
- * @param {Array<Array<string>>} currentGrid - O grid atual.
- * @param {string} word - A palavra a ser colocada.
- * @param {{r: number, c: number}} start - Ponto inicial.
- * @param {{dr: number, dc: number}} direction - Direção.
- */
 function placeWord(currentGrid, word, start, direction) {
     for (let k = 0; k < word.length; k++) {
         const r = start.r + k * direction.dr;
@@ -106,10 +127,6 @@ function placeWord(currentGrid, word, start, direction) {
     }
 }
 
-/**
- * Preenche as células vazias do grid com letras aleatórias.
- * @param {Array<Array<string>>} currentGrid - O grid com as palavras colocadas.
- */
 function fillEmptyCells(currentGrid) {
     const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     const size = currentGrid.length;
@@ -122,15 +139,9 @@ function fillEmptyCells(currentGrid) {
     }
 }
 
-/**
- * Gera o grid final com todas as palavras garantidas.
- * @param {Array<string>} words - Lista de palavras a serem colocadas.
- * @returns {Array<Array<string>>} O grid final.
- */
 function generateWordSearch(words) {
-    let newGrid = createEmptyGrid(GRID_SIZE);
+    let newGrid = createEmptyGrid(currentGridSize);
 
-    // Tenta colocar as palavras, priorizando as mais longas para melhor sobreposição
     const sortedWords = words.map(w => w.toUpperCase()).sort((a, b) => b.length - a.length);
 
     sortedWords.forEach(word => {
@@ -138,26 +149,26 @@ function generateWordSearch(words) {
         if (placement) {
             placeWord(newGrid, word, placement.start, placement.direction);
         } else {
-            // Isso não deve acontecer com um grid 15x15 e 10 palavras curtas,
-            // mas é um fallback de segurança.
             console.warn(`Não foi possível colocar a palavra: ${word}`);
         }
     });
 
-    // Preenche as células vazias
     fillEmptyCells(newGrid);
 
     return newGrid;
 }
 
-// --- Funções de Renderização ---
+// --- Funções de Renderização e Interação (Ajustadas) ---
 
-/**
- * Renderiza o grid no HTML.
- */
 function renderGrid() {
     GRID_ELEMENT.innerHTML = '';
-    GRID_ELEMENT.style.gridTemplateColumns = `repeat(${GRID_SIZE}, 1fr)`;
+    
+    // Ajusta as variáveis CSS para o tamanho do grid
+    GRID_ELEMENT.style.setProperty('--grid-cols', currentGridSize);
+    GRID_ELEMENT.style.setProperty('--cell-size', currentDifficulty.cellSize);
+    
+    // Ajusta o tamanho da célula para mobile (se necessário)
+    GRID_ELEMENT.style.setProperty('--cell-size-mobile', currentDifficulty.mobileSize);
 
     grid.forEach((row, r) => {
         row.forEach((cell, c) => {
@@ -174,9 +185,6 @@ function renderGrid() {
     });
 }
 
-/**
- * Renderiza a lista de palavras a serem encontradas.
- */
 function renderWordList() {
     WORD_LIST_ELEMENT.innerHTML = '';
     wordsToFind.forEach(word => {
@@ -190,39 +198,27 @@ function renderWordList() {
     });
 }
 
-/**
- * Marca as células como encontradas no HTML.
- * @param {Array<{r: number, c: number}>} cells - As células que formam a palavra.
- */
 function markCellsAsFound(cells) {
     cells.forEach(cell => {
         const cellElement = GRID_ELEMENT.querySelector(`[data-row="${cell.r}"][data-col="${cell.c}"]`);
         if (cellElement) {
-            // Apenas adiciona a classe 'found', não remove 'selected' imediatamente
             cellElement.classList.add('found');
         }
     });
 }
 
-// --- Funções de Interação do Usuário ---
+// ... (getCellsBetween, updateSelectionVisual, checkSelection, handleMouseDown, handleMouseOver, handleMouseUp - Mantidas) ...
 
-/**
- * Obtém as células entre o ponto inicial e final.
- * @param {{r: number, c: number}} start - Célula inicial.
- * @param {{r: number, c: number}} end - Célula final.
- * @returns {Array<{r: number, c: number}>} Lista de células selecionadas.
- */
 function getCellsBetween(start, end) {
     const cells = [];
     const dr = Math.sign(end.r - start.r);
     const dc = Math.sign(end.c - start.c);
 
-    // Verifica se é uma linha reta (horizontal, vertical ou diagonal)
     if (dr !== 0 && dc !== 0 && Math.abs(end.r - start.r) !== Math.abs(end.c - start.c)) {
-        return []; // Não é uma linha reta válida
+        return [];
     }
     if (dr === 0 && dc === 0) {
-        return [{ r: start.r, c: start.c }]; // Apenas uma célula
+        return [{ r: start.r, c: start.c }];
     }
 
     let r = start.r;
@@ -238,12 +234,7 @@ function getCellsBetween(start, end) {
     return cells;
 }
 
-/**
- * Atualiza a seleção visual das células.
- * @param {Array<{r: number, c: number}>} cells - Células a serem marcadas como selecionadas.
- */
 function updateSelectionVisual(cells) {
-    // Limpa a seleção anterior, mas mantém a marcação 'found'
     GRID_ELEMENT.querySelectorAll('.grid-cell.selected').forEach(cellElement => {
         cellElement.classList.remove('selected');
     });
@@ -258,10 +249,6 @@ function updateSelectionVisual(cells) {
     });
 }
 
-/**
- * Verifica se a seleção corresponde a uma palavra a ser encontrada.
- * @param {Array<{r: number, c: number}>} cells - Células selecionadas.
- */
 function checkSelection(cells) {
     if (cells.length === 0) return;
 
@@ -289,14 +276,11 @@ function checkSelection(cells) {
         MESSAGE_ELEMENT.textContent = 'Tente novamente!';
     }
 
-    // Limpa a seleção visual após a verificação
     updateSelectionVisual([]);
 }
 
-// --- Handlers de Eventos de Mouse ---
-
 function handleMouseDown(event) {
-    if (event.button !== 0) return; // Apenas botão esquerdo
+    if (event.button !== 0) return;
     const cell = event.target;
     startCell = {
         r: parseInt(cell.dataset.row),
@@ -340,31 +324,61 @@ function handleMouseUp(event) {
     endCell = null;
 }
 
+// --- Lógica de Nível de Dificuldade ---
+
+function setActiveDifficultyButton(difficulty) {
+    DIFFICULTY_BUTTONS.forEach(button => {
+        button.classList.remove('btn-primary');
+        button.classList.add('btn-secondary');
+        if (button.dataset.difficulty === difficulty) {
+            button.classList.add('btn-primary');
+            button.classList.remove('btn-secondary');
+        }
+    });
+}
+
+function startGame(difficultyKey) {
+    currentDifficulty = DIFFICULTIES[difficultyKey];
+    currentGridSize = currentDifficulty.size;
+    
+    // 1. Seleciona as palavras
+    wordsToFind = selectRandomWords(gameData.words, currentDifficulty.wordCount);
+
+    // 2. Limpa o estado e define o botão ativo
+    foundWords.clear();
+    isSelecting = false;
+    startCell = null;
+    endCell = null;
+    selectedCells = [];
+    RESTART_BUTTON.style.display = 'none';
+    MESSAGE_ELEMENT.textContent = 'Clique e arraste para selecionar uma palavra!';
+    setActiveDifficultyButton(difficultyKey);
+
+    // 3. Gera e renderiza o novo grid
+    grid = generateWordSearch(wordsToFind);
+    renderGrid();
+    renderWordList();
+}
+
 // --- Inicialização do Jogo ---
 
-/**
- * Inicializa o jogo: carrega os dados, gera o grid e renderiza.
- */
 async function initGame() {
     try {
         // Carrega o arquivo JSON
         const response = await fetch('../../data/caca-palavras-data.json');
         gameData = await response.json();
-        wordsToFind = gameData.words;
+        
+        // Adiciona listeners aos botões de dificuldade
+        DIFFICULTY_BUTTONS.forEach(button => {
+            button.addEventListener('click', (e) => {
+                startGame(e.target.dataset.difficulty);
+            });
+        });
 
-        // Limpa o estado anterior
-        foundWords.clear();
-        isSelecting = false;
-        startCell = null;
-        endCell = null;
-        selectedCells = [];
-        RESTART_BUTTON.style.display = 'none';
-        MESSAGE_ELEMENT.textContent = 'Clique e arraste para selecionar uma palavra!';
+        RESTART_BUTTON.addEventListener('click', () => startGame(Object.keys(DIFFICULTIES).find(key => DIFFICULTIES[key] === currentDifficulty)));
 
-        // Gera e renderiza o novo grid
-        grid = generateWordSearch(wordsToFind);
-        renderGrid();
-        renderWordList();
+        // Inicia o jogo no nível médio por padrão
+        startGame('medium');
 
     } catch (error) {
         console.error('Erro ao carregar ou inicializar o jogo:', error);
@@ -372,7 +386,4 @@ async function initGame() {
     }
 }
 
-RESTART_BUTTON.addEventListener('click', initGame);
-
-// Inicia o jogo quando a página carrega
 document.addEventListener('DOMContentLoaded', initGame);
