@@ -60,8 +60,6 @@ function createEmptyGrid(size) {
     return newGrid;
 }
 
-// ... (findPlacement, placeWord, fillEmptyCells - Mantidas do algoritmo anterior) ...
-
 /**
  * Tenta encontrar um local válido para colocar uma palavra no grid.
  * @param {Array<Array<string>>} currentGrid - O grid atual.
@@ -158,7 +156,7 @@ function generateWordSearch(words) {
     return newGrid;
 }
 
-// --- Funções de Renderização e Interação (Ajustadas) ---
+// --- Funções de Renderização e Interação ---
 
 function renderGrid() {
     GRID_ELEMENT.innerHTML = '';
@@ -177,9 +175,17 @@ function renderGrid() {
             cellDiv.textContent = cell;
             cellDiv.dataset.row = r;
             cellDiv.dataset.col = c;
+            
+            // Eventos de Mouse
             cellDiv.addEventListener('mousedown', handleMouseDown);
             cellDiv.addEventListener('mouseover', handleMouseOver);
             cellDiv.addEventListener('mouseup', handleMouseUp);
+            
+            // Eventos de Toque para Mobile
+            cellDiv.addEventListener('touchstart', handleTouchStart, { passive: false });
+            cellDiv.addEventListener('touchmove', handleTouchMove, { passive: false });
+            cellDiv.addEventListener('touchend', handleTouchEnd, { passive: false });
+            
             GRID_ELEMENT.appendChild(cellDiv);
         });
     });
@@ -207,8 +213,12 @@ function markCellsAsFound(cells) {
     });
 }
 
-// ... (getCellsBetween, updateSelectionVisual, checkSelection, handleMouseDown, handleMouseOver, handleMouseUp - Mantidas) ...
-
+/**
+ * Obtém as células entre o ponto inicial e final.
+ * @param {{r: number, c: number}} start - Célula inicial.
+ * @param {{r: number, c: number}} end - Célula final.
+ * @returns {Array<{r: number, c: number}>} Lista de células selecionadas.
+ */
 function getCellsBetween(start, end) {
     const cells = [];
     const dr = Math.sign(end.r - start.r);
@@ -279,6 +289,29 @@ function checkSelection(cells) {
     updateSelectionVisual([]);
 }
 
+// --- Funções Auxiliares de Toque ---
+
+/**
+ * Obtém a célula do grid sob o toque.
+ * @param {TouchEvent} event - O evento de toque.
+ * @returns {HTMLElement | null} A célula do grid ou null.
+ */
+function getTouchCell(event) {
+    // Usa o primeiro toque
+    const touch = event.touches[0] || event.changedTouches[0];
+    // Encontra o elemento na coordenada do toque
+    const target = document.elementFromPoint(touch.clientX, touch.clientY);
+    
+       
+    if (target && target.classList.contains('grid-cell')) {
+      
+        return target;
+    }
+       return null;
+}
+
+// --- Handlers de Eventos de Mouse ---
+
 function handleMouseDown(event) {
     if (event.button !== 0) return;
     const cell = event.target;
@@ -316,6 +349,74 @@ function handleMouseUp(event) {
     };
 
     if (startCell && endCell) {
+        const cells = getCellsBetween(startCell, endCell);
+        checkSelection(cells);
+    }
+
+    startCell = null;
+    endCell = null;
+}
+
+// --- Handlers de Eventos de Toque ---
+
+function handleTouchStart(event) {
+    event.preventDefault(); // Previne o scroll e o zoom
+    
+    const cell = getTouchCell(event);
+    if (!cell) return;
+
+    startCell = {
+        r: parseInt(cell.dataset.row),
+        c: parseInt(cell.dataset.col)
+    };
+    isSelecting = true;
+    MESSAGE_ELEMENT.textContent = '';
+    updateSelectionVisual([startCell]);
+   }
+
+function handleTouchMove(event) {
+    if (!isSelecting) return;
+    
+    const cell = getTouchCell(event);
+    if (!cell) return;
+
+    const currentCell = {
+        r: parseInt(cell.dataset.row),
+        c: parseInt(cell.dataset.col)
+    };
+
+    if (startCell) {
+        const cells = getCellsBetween(startCell, currentCell);
+        updateSelectionVisual(cells);
+           }
+}
+
+function handleTouchEnd(event) {
+    if (!isSelecting) return;
+    isSelecting = false;
+    
+
+    const cell = getTouchCell(event);
+    
+    // Se o toque terminar fora do grid, usa a última célula selecionada como endCell
+    if (!cell) {
+        if (selectedCells.length > 0) {
+            const lastCell = selectedCells[selectedCells.length - 1];
+            endCell = { r: lastCell.r, c: lastCell.c };
+                   } else {
+            
+            return;
+        }
+    } else {
+        endCell = {
+            r: parseInt(cell.dataset.row),
+            c: parseInt(cell.dataset.col)
+        };
+        console.log(`[DEBUG] handleTouchEnd: Toque final em (${endCell.r}, ${endCell.c})`);
+    }
+
+    if (startCell && endCell) {
+        
         const cells = getCellsBetween(startCell, endCell);
         checkSelection(cells);
     }
